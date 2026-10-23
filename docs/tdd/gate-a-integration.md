@@ -38,3 +38,10 @@ Fecha: 2026-10-23. Responsable: Orquestación / Integración / QA.
 - Verde: ignorar `event.repeat` en el atajo de pausa; misma prueba 1/1 correcta.
 - Refactor: identificar el atajo y retornar temprano, eliminando el bloque condicional anidado. `npx playwright test tests/e2e/gate-a.spec.ts`: 6/6 correctas en escritorio y móvil; `npm run build`: correcto.
 - Esta corrección no modifica física, render ni presupuesto. Las capturas y mediciones previas conservan su alcance; la validación completa del commit queda a cargo de CI antes de publicar.
+
+## Rendimiento en CI: bloqueo y optimización
+
+- El run `40000545028` bloqueó la publicación: 12 pruebas funcionales correctas, pero dos presupuestos fallaron (29,72 FPS en el muestreo inicial de sol y 27,62 FPS en el recorrido de lluvia). JSON originales conservados como `docs/performance/gate-a/ci-failed-40000545028-*.json`.
+- Se optimizó la bicicleta con un material y colores por vértice, conservando sus 3.276 triángulos, seis colores y movimientos. Evidencia TDD del render en `gate-a-render.md`.
+- La comprobación antigua «más de 15 draw calls» servía para detectar una escena vacía. Se sustituye por llamadas positivas, más de 10.000 triángulos de escena y más de 1.000 triángulos de bicicleta: el batching permite exactamente 15 llamadas al inicio sin eliminar contenido. Se mantienen los máximos de 100 calls / 100.000 triángulos, mínimo de 30 FPS y ratio mínimo de 0,375.
+- Las mediciones anteriores de este candidato se preservan con prefijo `pre-batching-`; los resultados finales y publicación se consolidan en la revisión de A después de comprobarlos.

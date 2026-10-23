@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { Vector3 } from 'three';
+import { Vector3, Mesh, MeshLambertMaterial, Color } from 'three';
 import { createProceduralBicycle } from '../../src/rendering/bicycle';
 import { assetGeometryStats, SCENE_BUDGET, createWorld } from '../../src/rendering/scene';
 const base={distance:0,speed:0,elapsed:0,pedalEffort:0,steeringAngle:0,roll:0};
@@ -28,9 +28,15 @@ describe('bicicleta procedural original puerta A',()=>{
   const angle=Math.abs(bike.group.getObjectByName('front-wheel')!.rotation.x);
   expect(angle*(.34*bike.group.scale.x)).toBeCloseTo(1);
  });
+ it('conserva los seis colores originales por vértice con un material compartido',()=>{
+  const bike=createProceduralBicycle();const materials=new Set();const colors:Color[]=[];
+  bike.group.traverse(node=>{if(node instanceof Mesh){materials.add(node.material);expect(node.material).toBeInstanceOf(MeshLambertMaterial);expect((node.material as MeshLambertMaterial).vertexColors).toBe(true);const attribute=node.geometry.getAttribute('color');expect(attribute).toBeDefined();expect(attribute.count).toBe(node.geometry.getAttribute('position').count);for(let i=0;i<attribute.count;i++)colors.push(new Color(attribute.getX(i),attribute.getY(i),attribute.getZ(i)));}});
+  expect(materials.size).toBe(1);
+  for(const hex of [0xb0b8b5,0x276463,0x20292b,0x3a4240,0x8e493b,0xcda348]){const expected=new Color(hex);expect(colors.some(color=>Math.abs(color.r-expected.r)<1e-6&&Math.abs(color.g-expected.g)<1e-6&&Math.abs(color.b-expected.b)<1e-6)).toBe(true);}
+ });
  it('inventario real de geometría/materiales cumple presupuesto sin estimar archivos',()=>{
   const bike=createProceduralBicycle();const stats=assetGeometryStats(bike.group);
-  expect(stats.triangles).toBeGreaterThan(1000);expect(stats.triangles).toBeLessThan(14000);expect(stats.materials).toBeGreaterThan(2);expect(stats.meshes).toBeGreaterThan(10);
+  expect(stats.triangles).toBe(3276);expect(stats.materials).toBe(1);expect(stats.meshes).toBeLessThanOrEqual(5);expect(stats.drawCalls).toBeLessThanOrEqual(5);
   console.info('Procedural bicycle inventory',stats);const total=assetGeometryStats(createWorld().scene);console.info('World inventory',total);expect(total.drawCalls).toBeLessThanOrEqual(SCENE_BUDGET.drawCalls);expect(total.triangles).toBeLessThanOrEqual(SCENE_BUDGET.triangles);
  });
 });

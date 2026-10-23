@@ -14,12 +14,13 @@ type Point=[number,number,number];
 /** Original, low-poly mechanical model; no external model, texture or rig. */
 export function createProceduralBicycle() {
  const group=new T.Group();group.name='bicycle';group.position.set(0,-.42,-1.3);group.scale.setScalar(.72);
- const steel=new T.MeshLambertMaterial({color:0xb0b8b5});
- const paint=new T.MeshLambertMaterial({color:0x276463});
- const rubber=new T.MeshLambertMaterial({color:0x20292b});
- const glove=new T.MeshLambertMaterial({color:0x3a4240});
- const cloth=new T.MeshLambertMaterial({color:0x8e493b});
- const accent=new T.MeshLambertMaterial({color:0xcda348});
+ const sharedMaterial=new T.MeshLambertMaterial({vertexColors:true});
+ const steel=new T.Color(0xb0b8b5);
+ const paint=new T.Color(0x276463);
+ const rubber=new T.Color(0x20292b);
+ const glove=new T.Color(0x3a4240);
+ const cloth=new T.Color(0x8e493b);
+ const accent=new T.Color(0xcda348);
  const upright=new T.Vector3(0,1,0);
  const vector=(p:Point)=>new T.Vector3(...p);
  function tube(start:Point,end:Point,radius:number,sides=8) {
@@ -29,10 +30,16 @@ export function createProceduralBicycle() {
   return geometry.applyMatrix4(transform);
  }
  function ellipsoid(at:Point,scale:Point) {return new T.SphereGeometry(1,10,6).scale(...scale).translate(...at);}
- function mesh(name:string,geometries:T.BufferGeometry[],material:T.Material,parent:T.Object3D=group){
+ function paintVertices(geometry:T.BufferGeometry,color:T.Color) {
+  const colors=new Float32Array(geometry.getAttribute('position').count*3);
+  for(let i=0;i<colors.length;i+=3){colors[i]=color.r;colors[i+1]=color.g;colors[i+2]=color.b;}
+  geometry.setAttribute('color',new T.BufferAttribute(colors,3));
+ }
+ function mesh(name:string,geometries:T.BufferGeometry[],color:T.Color,parent:T.Object3D=group){
   const geometry=geometries.length===1?geometries[0]:mergeGeometries(geometries)!;
   if(geometries.length>1)geometries.forEach(g=>g.dispose());
-  const object=new T.Mesh(geometry,material);object.name=name;parent.add(object);return object;
+  paintVertices(geometry,color);
+  const object=new T.Mesh(geometry,sharedMaterial);object.name=name;parent.add(object);return object;
  }
  const steering=new T.Group();steering.name='steering-pivot';group.add(steering);
  mesh('stem',[tube([0,-.28,.22],[0,.015,.015],.035),tube([0,.015,.015],[0,.015,-.08],.028)],steel,steering);
@@ -72,29 +79,35 @@ export function createProceduralBicycle() {
  const pedals=new T.Group();pedals.name='pedal-pivot';pedals.position.set(0,-.75,.55);group.add(pedals);
  mesh('cranks',[tube([-.09,0,0],[-.09,.15,0],.013),tube([.09,0,0],[.09,-.15,0],.013)],steel,pedals);
  mesh('pedals',[new T.BoxGeometry(.15,.04,.09).translate(-.15,.15,0),new T.BoxGeometry(.15,.04,.09).translate(.15,-.15,0)],rubber,pedals);
- // Only the steering assembly's static parts are baked together. Named anchors
- // survive for grip tests; wheels and the pedal pivot keep their own movement.
- steering.updateWorldMatrix(true,true);
- const steeringInverse=steering.matrixWorld.clone().invert();
- const batches=new Map<T.Material,T.BufferGeometry[]>();
- const staticMeshes:T.Mesh[]=[];
- function collectStatic(node:T.Object3D) {
-  if(wheels.includes(node as T.Group))return;
-  if(node instanceof T.Mesh)staticMeshes.push(node);
-  node.children.forEach(collectStatic);
+ // One vertex-colored draw per independently moving assembly. Named anchors
+ // retain their transforms; wheels never bake into the steering assembly.
+ function batchAssembly(parent:T.Group,name:string,excluded:T.Object3D[]=[]) {
+  parent.updateWorldMatrix(true,true);
+  const inverse=parent.matrixWorld.clone().invert();
+  const parts:T.Mesh[]=[];
+  function collect(node:T.Object3D) {
+   if(excluded.includes(node))return;
+   if(node instanceof T.Mesh)parts.push(node);
+   node.children.forEach(collect);
+  }
+  collect(parent);
+  const geometries=parts.map(part=>part.geometry.clone().applyMatrix4(new T.Matrix4().multiplyMatrices(inverse,part.matrixWorld)));
+  for(const part of parts) {
+   const originalParent=part.parent!;
+   if(part.name!==name) {
+    const anchor=new T.Group();anchor.name=part.name;
+    anchor.position.copy(part.position);anchor.quaternion.copy(part.quaternion);anchor.scale.copy(part.scale);
+    originalParent.add(anchor);
+   }
+   originalParent.remove(part);part.geometry.dispose();
+  }
+  const geometry=mergeGeometries(geometries)!;
+  geometries.forEach(source=>source.dispose());
+  const combined=new T.Mesh(geometry,sharedMaterial);combined.name=name;parent.add(combined);
  }
- collectStatic(steering);
- for(const part of staticMeshes) {
-  const material=part.material as T.Material;
-  const transformed=part.geometry.clone().applyMatrix4(new T.Matrix4().multiplyMatrices(steeringInverse,part.matrixWorld));
-  if(!batches.has(material))batches.set(material,[]);
-  batches.get(material)!.push(transformed);
-  const anchor=new T.Group();anchor.name=part.name;
-  anchor.position.copy(part.position);anchor.quaternion.copy(part.quaternion);anchor.scale.copy(part.scale);
-  const parent=part.parent!;parent.remove(part);parent.add(anchor);part.geometry.dispose();
- }
- let batchIndex=0;
- for(const [material,geometries] of batches)mesh(`steering-visual-${batchIndex++}`,geometries,material,steering);
+ batchAssembly(steering,'steering-visual',wheels);
+ for(const wheel of wheels)batchAssembly(wheel,`${wheel.name}-tire`);
+ batchAssembly(pedals,'pedals');
  let previousElapsed:number|undefined;
  let wheelTravel=0;
  let pedalPhase=0;

@@ -1,0 +1,16 @@
+{
+  "drawCalls": 22,
+  "triangles": 17390,
+  "pixelRatio": 0.375,
+  "width": 154,
+  "height": 314,
+  "cssWidth": 412,
+  "cssHeight": 839,
+  "devicePixelRatio": 2.625,
+  "fps": 29.721015000700966,
+  "p95Ms": 50,
+  "p50Ms": 33.30000000000018,
+  "p99Ms": 66.69999999999982,
+  "maxMs": 66.70000000000073,
+  "samples": 106
+}
