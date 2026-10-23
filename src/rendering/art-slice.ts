@@ -79,11 +79,15 @@ function placement(x: number, y: number, z: number, sx: number, sy: number, sz: 
 }
 
 /** Merge only equal shading/shadow groups; preserve source names and per-instance corridor bounds. */
-function batchStaticMeshes(group: T.Group, materials: Set<T.Material>) {
+function batchStaticMeshes(group: T.Group, materials: Set<T.Material>, mergeDiffuse = false) {
   const buckets = new Map<string, T.InstancedMesh[]>();
   for (const child of group.children) {
     if (!(child instanceof T.InstancedMesh) || Array.isArray(child.material)) continue;
-    const key = `${child.material.uuid}:${child.castShadow}:${child.receiveShadow}`;
+    const material = child.material;
+    const surfaceKey = mergeDiffuse && material instanceof T.MeshLambertMaterial
+      ? `lambert:${material.map?.uuid ?? 'none'}:${material.side}:${material.alphaTest}:${material.opacity}:${material.emissive.getHex()}`
+      : material.uuid;
+    const key = `${surfaceKey}:${child.castShadow}:${child.receiveShadow}`;
     const bucket = buckets.get(key) ?? [];
     bucket.push(child); buckets.set(key, bucket);
   }
@@ -101,6 +105,7 @@ function batchStaticMeshes(group: T.Group, materials: Set<T.Material>) {
         const colors = new Float32Array(geometry.attributes.position.count * 3);
         tint.set(0xffffff);
         if (source.instanceColor) source.getColorAt(index, tint);
+        if (mergeDiffuse && source.material instanceof T.MeshLambertMaterial) tint.multiply(source.material.color);
         for (let vertex = 0; vertex < geometry.attributes.position.count; vertex++) tint.toArray(colors, vertex * 3);
         geometry.setAttribute('color', new T.BufferAttribute(colors, 3));
         if (source.userData.corridorClear) {
@@ -113,6 +118,7 @@ function batchStaticMeshes(group: T.Group, materials: Set<T.Material>) {
     const combined = mergeGeometries(parts, false)!;
     parts.forEach(geometry => geometry.dispose());
     const material = (sources[0].material as T.MeshStandardMaterial | T.MeshLambertMaterial).clone();
+    if (mergeDiffuse && material instanceof T.MeshLambertMaterial) material.color.set(0xffffff);
     material.vertexColors = true;
     materials.add(material);
     const mesh = new T.Mesh(combined, material);
@@ -132,7 +138,12 @@ function batchStaticMeshes(group: T.Group, materials: Set<T.Material>) {
 }
 
 /** Art direction sample, not a surveyed or georeferenced depiction of El Virrey. */
-export function createArtSlice() {
+export function createArtSlice(options: { detail?: 'low' | 'high' } = {}) {
+  const detail = options.detail ?? 'high';
+  const low = detail === 'low';
+  const density = low
+    ? { cylinderSegments: 5, branches: 3, leafSprays: 4, crownWidth: 5, crownHeight: 3, bushes: 32, litter: 50 }
+    : { cylinderSegments: 8, branches: 5, leafSprays: 14, crownWidth: 8, crownHeight: 5, bushes: 65, litter: 200 };
   const group = new T.Group();
   group.name = 'art-slice';
   const textures = {
@@ -173,7 +184,7 @@ export function createArtSlice() {
   const soil = diffuse('park-ground', 0xb2b29c, textures.grass);
   const stains = surface('asphalt-repair', 0x3b3b37, textures.asphalt, .9);
   const box = new T.BoxGeometry(1, 1, 1);
-  const cylinder = new T.CylinderGeometry(1, 1, 1, 8);
+  const cylinder = new T.CylinderGeometry(1, 1, 1, density.cylinderSegments);
   const plane = new T.PlaneGeometry(1, 1);
   const matrix = new T.Matrix4();
   const identity = new T.Quaternion();
@@ -199,7 +210,7 @@ export function createArtSlice() {
   instances('brick-sidewalks', box, paving, [placement(5.1, .09, -20, 4.4, .18, 48), placement(-5, .09, -20, 4, .18, 48)], true);
   instances('park-lawn', box, soil, [placement(-13, .10, -20, 12, .08, 48)], true);
   const curbs: Placement[] = [];
-  for (let z = 3.5; z > -44; z -= 1) for (const side of [-1, 1]) curbs.push(placement(side * 2.96, .13, z, .42, .26, .97));
+  for (let z = low ? 3 : 3.5; z > -44; z -= low ? 2 : 1) for (const side of [-1, 1]) curbs.push(placement(side * 2.96, .13, z, .42, .26, low ? 1.97 : .97));
   instances('segmented-concrete-curbs', box, concrete, curbs, true);
 
   const paint: Placement[] = [], edgePaint: Placement[] = [], repairs: Placement[] = [];
@@ -212,7 +223,7 @@ export function createArtSlice() {
 
   // An original bicycle stencil, made from rings and thin frame tubes rather than a downloaded logo.
   const markings: Placement[] = [];
-  const stencilWheel = new T.TorusGeometry(.29, .025, 3, 16);
+  const stencilWheel = new T.TorusGeometry(.29, .025, 3, low ? 8 : 16);
   for (const z of [-7, -25]) for (const side of [-1, 1]) {
     const x = side * 1.25;
     for (const wheelZ of [-.5, .5]) {
@@ -247,18 +258,18 @@ export function createArtSlice() {
       glass.push(placement(8.17, y, wz, .06, 1.48, 1.65, 0, col === 1 && floor % 2 ? 0x8d8770 : 0xc0d0cd));
       frames.push(placement(8.05, y - .79, wz, .36, .12, 1.85));
       frames.push(placement(8.05, y + .78, wz, .26, .10, 1.85));
-      for (const edge of [-.86, 0, .86]) frames.push(placement(8.05, y, wz + edge, .20, 1.56, .06));
-      frames.push(placement(8.03, y - .1, wz, .21, .04, 1.7));
-      if (floor === 0) for (let bar = -3; bar <= 3; bar++) rails.push(placement(7.88, y, wz + bar * .23, .04, 1.55, .025));
+      for (const edge of low ? [-.86, .86] : [-.86, 0, .86]) frames.push(placement(8.05, y, wz + edge, .20, 1.56, .06));
+      if (!low) frames.push(placement(8.03, y - .1, wz, .21, .04, 1.7));
+      if (floor === 0) for (let bar = -3; bar <= 3; bar += low ? 3 : 1) rails.push(placement(7.88, y, wz + bar * .23, .04, 1.55, .025));
       if (floor > 0 && (col + floor + building) % 3 === 1) {
         balconies.push(placement(7.7, y - .84, wz, .9, .15, 2.15));
         rails.push(placement(7.28, y - .30, wz, .035, .035, 2.1));
-        for (let bar = -4; bar <= 4; bar++) rails.push(placement(7.28, y - .57, wz + bar * .25, .025, .51, .025));
+        for (let bar = -4; bar <= 4; bar += low ? 2 : 1) rails.push(placement(7.28, y - .57, wz + bar * .25, .025, .51, .025));
       }
     }
     // Ground-floor security door and shutter, giving the street a human scale.
     shutters.push(placement(8.06, 1.26, z + 1.5, .16, 2.5, 1.32));
-    for (let row = 0; row < 14; row++) frames.push(placement(7.96, .1 + row * .17, z + 1.5, .08, .03, 1.29));
+    for (let row = 0; row < 14; row += low ? 3 : 1) frames.push(placement(7.96, .1 + row * .17, z + 1.5, .08, .03, 1.29));
     awnings.push(placement(7.4, 2.75, z + 1.5, 1.8, .16, 2));
     rails.push(placement(7.91, 1.15, z + 1.9, .06, .25, .05));
   }
@@ -283,13 +294,13 @@ export function createArtSlice() {
     const z = tree < 9 ? -tree * 4.8 : -(tree - 9) * 9.5;
     const h = 5.7 + tree % 3 * .7;
     trunks.push(placement(x, h * .4, z, .16 + tree % 3 * .025, h * .8, .16 + tree % 3 * .025));
-    for (let branch = 0; branch < 5; branch++) {
+    for (let branch = 0; branch < density.branches; branch++) {
       const angle = branch * 2.4 + tree;
       const bx = x + Math.sin(angle) * 1.55, bz = z + Math.cos(angle) * 1.55;
       const by = h - .7 + branch % 3 * .45;
       addBranch(new T.Vector3(x, h * .49, z), new T.Vector3(bx, by, bz), .07);
       crowns.push(placement(bx, by + .9, bz, .75 + branch % 2 * .22, .65 + branch % 3 * .16, .9 + branch % 2 * .14, angle, [0x9baf70, 0x799158, 0x718755, 0x819754, 0x849c5f][(branch + tree) % 5]));
-      for (let spray = 0; spray < 14; spray++) {
+      for (let spray = 0; spray < density.leafSprays; spray++) {
         const t = spray * 2.399;
         const lx = bx + Math.cos(t) * (.7 + spray % 3 * .19), lz = bz + Math.sin(t) * (.7 + spray % 3 * .19);
         const ly = by + .75 + Math.sin(spray * 1.7) * .85;
@@ -304,7 +315,7 @@ export function createArtSlice() {
   const trunkMesh = instances('tree-trunks', cylinder, bark, trunks, true); trunkMesh.castShadow = true;
   const branchMesh = instances('tree-branches', cylinder, bark, branches); branchMesh.castShadow = true;
   instances('exposed-roots', cylinder, bark, twigs, true);
-  const crownGeometry = new T.SphereGeometry(1, 8, 5);
+  const crownGeometry = new T.SphereGeometry(1, density.crownWidth, density.crownHeight);
   const positions = crownGeometry.getAttribute('position');
   for (let i = 0; i < positions.count; i++) {
     const x = positions.getX(i), y = positions.getY(i), z = positions.getZ(i);
@@ -316,12 +327,12 @@ export function createArtSlice() {
   const leafDetail = instances('leaf-sprays', plane, leaf, leaves); leafDetail.castShadow = false;
 
   const bushes: Placement[] = [], litter: Placement[] = [];
-  for (let i = 0; i < 65; i++) {
-    const x = -3.5 - (i % 4) * .6, z = 3 - i * .70;
+  for (let i = 0; i < density.bushes; i++) {
+    const x = -3.5 - (i % 4) * .6, z = 3 - i * (low ? 1.4 : .70);
     bushes.push(placement(x, .28 + i % 3 * .1, z, .24 + i % 3 * .08, .25 + i % 3 * .12, .32, i, [0xb8c18d, 0x879665, 0x78926a][i % 3]));
   }
-  for (let i = 0; i < 200; i++) {
-    const x = Math.sin(i * 17) * 2.7, z = 3 - i * .235;
+  for (let i = 0; i < density.litter; i++) {
+    const x = Math.sin(i * 17) * 2.7, z = 3 - i * (low ? .94 : .235);
     const part = placement(x, .075, z, .05 + i % 3 * .025, .10 + i % 4 * .025, 1, i, [0xe3c784, 0xb5a05e, 0x87916c][i % 3]);
     part.rotation = new T.Quaternion().setFromEuler(new T.Euler(-Math.PI / 2, 0, i));
     litter.push(part);
@@ -349,8 +360,12 @@ export function createArtSlice() {
   instances('street-bench-slats', box, wood, benchSlats, true);
   instances('street-lamp-heads', box, trim, lampHeads, true);
 
-  batchStaticMeshes(group, materials);
-  const metadata = { startDistance: 0, endDistance: SECTOR_LENGTH, triangles: 0, drawCalls: 0, textureBytes: Math.ceil(Object.values(textures).reduce((total, texture) => total + (texture.image.data?.byteLength ?? 0) * 4 / 3, 0)), source: 'original-procedural-art' };
+  if (low) group.traverse(node => { node.castShadow = false; node.receiveShadow = false; });
+  batchStaticMeshes(group, materials, low);
+  const metadata = { startDistance: 0, endDistance: SECTOR_LENGTH, detail, treeCount: trunks.length, facadeCount: walls.length,
+    treeTransforms: trunks.map(value => [...value.position.toArray(), ...value.scale.toArray()]),
+    facadeTransforms: walls.map(value => [...value.position.toArray(), ...value.scale.toArray()]),
+    triangles: 0, drawCalls: 0, textureBytes: Math.ceil(Object.values(textures).reduce((total, texture) => total + (texture.image.data?.byteLength ?? 0) * 4 / 3, 0)), source: 'original-procedural-art' };
   group.traverse(node => {
     if (!(node instanceof T.Mesh)) return;
     metadata.triangles += (node.geometry.index?.count ?? node.geometry.attributes.position.count) / 3 * (node instanceof T.InstancedMesh ? node.count : 1);

@@ -5,6 +5,7 @@ import { createArtSlice } from "./art-slice";
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { applyMaterialLighting, applyRenderQuality, materialAlternative } from './material-lighting';
 import { rendererOptions } from './renderer-options';
+import { MIN_RATIO } from './quality';
 import { weatherProfile, parseWeather } from "../weather";
 export const SCENE_BUDGET = {
   drawCalls: 100,
@@ -179,6 +180,16 @@ export function createWorld(options: WorldOptions = {}) {
   const artSlice = createArtSlice();
   artSlice.group.userData.extent = { start: artSlice.metadata.startDistance, end: artSlice.metadata.endDistance };
   scene.add(artSlice.group);
+  const artLow = createArtSlice({ detail: 'low' });
+  artLow.group.name = 'art-slice-low';
+  artLow.group.userData.extent = artSlice.group.userData.extent;
+  artLow.group.visible = false;
+  scene.add(artLow.group);
+  function setArtQuality(ratio: number) {
+    artSlice.group.visible = ratio > MIN_RATIO;
+    artLow.group.visible = !artSlice.group.visible;
+  }
+  const getArtDetail = () => artLow.group.visible ? 'low' : 'high';
   const mountain = new T.ConeGeometry(1, 1, 7);
   instances(mountain, 0x6e9990, [
     [75, 17, -155, 54, 68, 42],
@@ -273,6 +284,7 @@ export function createWorld(options: WorldOptions = {}) {
     sun.intensity = raining ? .7 : 2.6;
     if (snapshot.weather !== lastWeather) {
       artSlice.updateWeather(parseWeather(snapshot.weather));
+      artLow.updateWeather(parseWeather(snapshot.weather));
       lastWeather = snapshot.weather;
     }
     const yaw=snapshot.yaw??0;
@@ -339,7 +351,7 @@ export function createWorld(options: WorldOptions = {}) {
     disposeSceneResources(scene);
     sun.shadow.dispose();
   }
-  return { scene, camera, update, dispose, artSlice: artSlice.metadata };
+  return { scene, camera, update, dispose, setArtQuality, getArtDetail, artSlice: artSlice.metadata, artSliceLow: artLow.metadata };
 }
 export function buildScene(canvas: HTMLCanvasElement, options: WorldOptions = {}) {
   const world = createWorld(options);
@@ -374,7 +386,10 @@ export function buildScene(canvas: HTMLCanvasElement, options: WorldOptions = {}
     ...world,
     renderer,
     resize,
-    setQuality: (ratio: number) => applyRenderQuality(renderer, world.scene, environmentTarget.texture, ratio),
+    setQuality: (ratio: number) => {
+      world.setArtQuality(ratio);
+      applyRenderQuality(renderer, world.scene, environmentTarget.texture, ratio);
+    },
     render: () => renderer.render(world.scene, world.camera),
     dispose: () => {
       environmentTarget.dispose();

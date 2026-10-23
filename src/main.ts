@@ -28,7 +28,7 @@ const input = createInputController(window, {
 });
 const frames: number[] = [];
 let ready = false,
-  renderStats = { drawCalls: 0, triangles: 0, pixelRatio: 1, width: 0, height: 0, cssWidth: 0, cssHeight: 0, devicePixelRatio: window.devicePixelRatio, shadows: true, materialQuality: 'pbr', antialias: false },
+  renderStats = { drawCalls: 0, triangles: 0, pixelRatio: 1, width: 0, height: 0, cssWidth: 0, cssHeight: 0, devicePixelRatio: window.devicePixelRatio, shadows: true, materialQuality: 'pbr', antialias: false, artDetail: 'high' },
   obstacles: Obstacle[] = [];
 const session = createSessionReport();
 let physicsSteps = 0;
@@ -209,6 +209,7 @@ async function boot() {
       shadows: world.renderer.shadowMap.enabled,
       materialQuality: world.renderer.shadowMap.enabled ? 'pbr' : 'diffuse',
       antialias,
+      artDetail: world.getArtDetail(),
     };
     if (wasPlaying) session.sample(ms, state.weather, renderStats);
     if (state.phase !== lastUiPhase || now - lastUiAt >= 100) {

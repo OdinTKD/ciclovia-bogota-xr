@@ -26,7 +26,7 @@ describe('muestra artística original, primeros 40 m', () => {
     const bounds = new T.Box3().setFromObject(slice.group);
     expect(bounds.max.z).toBeLessThanOrEqual(4.01);
     expect(bounds.min.z).toBeGreaterThanOrEqual(-44.01);
-    console.info('Art slice geometry inventory', slice.metadata);
+    console.info('Art slice geometry inventory', { triangles: slice.metadata.triangles, drawCalls: slice.metadata.drawCalls, textureBytes: slice.metadata.textureBytes });
   });
 
   it('cambia humedad y reflejo del asfalto sin multiplicar geometría ni materiales', () => {
@@ -104,5 +104,43 @@ describe('muestra artística original, primeros 40 m', () => {
     const mesh = slice.group.getObjectByName('batch-urban-steel') as T.Mesh;
     expect(mesh.geometry.getAttribute('color').count).toBe(mesh.geometry.getAttribute('position').count);
     expect(mesh.userData.corridorBounds.length).toBeGreaterThan(10);
+  });
+
+  it('ofrece LOD bajo real sin desplazar árboles, fachadas ni superficies del recorrido', () => {
+    const high = createArtSlice({ detail: 'high' });
+    const low = createArtSlice({ detail: 'low' });
+    expect(inventory(high.group)).toEqual({ triangles: 27500, calls: 17 });
+    expect(inventory(low.group).triangles).toBeLessThanOrEqual(13000);
+    expect(inventory(low.group).calls).toBeLessThanOrEqual(14);
+    expect(low.metadata.detail).toBe('low');
+    expect(high.metadata.detail).toBe('high');
+    expect(low.metadata.treeCount).toBe(14);
+    expect(low.metadata.facadeCount).toBe(5);
+    expect(low.metadata.treeTransforms).toEqual(high.metadata.treeTransforms);
+    expect(low.metadata.facadeTransforms).toEqual(high.metadata.facadeTransforms);
+    for (const name of ['asphalt', 'brick-sidewalks', 'park-lawn', 'brick-facades']) {
+      const original = high.group.getObjectByName(name) as T.InstancedMesh;
+      const simplified = low.group.getObjectByName(name) as T.InstancedMesh;
+      expect(simplified.instanceMatrix.array).toEqual(original.instanceMatrix.array);
+      const originalMap = (original.material as T.MeshStandardMaterial).map as T.DataTexture;
+      const simplifiedMap = (simplified.material as T.MeshStandardMaterial).map as T.DataTexture;
+      expect(simplifiedMap.image.data).toEqual(originalMap.image.data);
+    }
+    low.group.traverse(node => { if (node instanceof T.Mesh) { expect(node.castShadow).toBe(false); expect(node.receiveShadow).toBe(false); } });
+    const asphalt = low.group.getObjectByName('asphalt') as T.Mesh;
+    const material = asphalt.material as T.MeshStandardMaterial;
+    const initialColor = material.color.clone();
+    low.updateWeather('rain');
+    expect(material.roughness).toBe(.34);
+    low.updateWeather('sun');
+    expect(material.roughness).toBe(.94);
+    expect(material.color.equals(initialColor)).toBe(true);
+    let materialDisposals = 0, textureDisposals = 0;
+    material.addEventListener('dispose', () => materialDisposals++);
+    material.map!.addEventListener('dispose', () => textureDisposals++);
+    low.dispose();
+    expect(materialDisposals).toBe(1);
+    expect(textureDisposals).toBe(1);
+    console.info('Low art slice inventory', low.metadata.triangles, low.metadata.drawCalls);
   });
 });

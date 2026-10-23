@@ -54,3 +54,11 @@ Las pruebas anteriores verifican integración, carga y recursos; no certifican c
 - Rojo: módulo de política de rasterización ausente. La prueba E2E sobre contexto WebGL real también falló: en DPR 2,625 esperaba `antialias=false` y recibió `true`.
 - Verde: desactivar el buffer multisample adicional en pantallas DPR mayor que 1, conservándolo a DPR 1 y manteniendo la resolución efectiva, geometría y límites. Es una política del dispositivo real, independiente de CI o del navegador de pruebas. Puede producir bordes más dentados en dispositivos de alta densidad cuando la resolución adaptativa baja.
 - Refactor: umbral de densidad nombrado y política aislada en `renderer-options.ts`; valor real del contexto consultado una vez y expuesto como `render.antialias` en diagnóstico. `npm test`: 122/122 en 27 archivos; build correcto; tres E2E móviles de carga/error y presupuesto pasan. La suite remota completa sigue siendo condición del despliegue.
+
+## Nivel de detalle del entorno
+
+- CI `40016587178`: 122 unitarias/build correctos, 17 E2E aprobadas, dos omisiones y fallo corto de 21,9655 FPS. Los JSON quedan preservados. Los ajustes anteriores no bastaron para el coste de la muestra.
+- Rojo: nueva integración falló por `world.setArtQuality is not a function`; exige exclusión mutua de los dos entornos, recuperación de alta calidad y clima sincronizado. El subagente de arte registró por separado el rojo del presupuesto geométrico.
+- Verde: calidad mínima selecciona el entorno de 11.856 triángulos/11 llamadas; alta conserva 27.500/17. Ambos mantienen posiciones, superficies y trazado; se sincroniza la lluvia incluso cuando un nivel está oculto. El diagnóstico publica `artDetail`.
+- Refactor: umbral compartido `MIN_RATIO`; 13/13 pruebas relevantes verdes. Regresión completa: 124/124 unitarias; build correcto con aviso de tamaño existente. Las dos versiones residen en memoria, pero solo una se dibuja; el inventario conservador incluye ambas.
+- Una ejecución E2E local se invalidó por editar el módulo de escena mientras Vite servía la prueba: la recarga dejó `assets=null`. Se repite con fuentes congeladas; no representa un resultado de FPS.

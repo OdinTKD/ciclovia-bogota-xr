@@ -53,3 +53,18 @@ Integración comunicó que el primer ajuste de sombreado seguía por debajo de 3
 - Los grupos compatibles se convierten en geometría indexada unida, con transforms y colores por instancia conservados en los vértices. Se preservan nombres de inspección mediante marcadores, mapas compartidos y propiedades de sombra. Asfalto y copas conservan su malla individual. El corredor se verifica sobre los límites originales de cada instancia, porque una malla unida puede ocupar ambos costados sin tener geometría en el centro.
 - Refactor: tabla compartida de receptores de sombra. `npx vitest run tests/unit/art-slice.test.ts tests/unit/art-integration.test.ts --reporter=verbose`, 13:50:58: **10/10 correctas**, incluyendo lifecycle de integración. No cambian resolución, umbrales, controles ni física.
 - Estos resultados acreditan reducción de trabajo de envío y preservación estructural, no 30 FPS. Se requiere la nueva medición aislada del orquestador y una captura para comprobar que la agrupación conserva el resultado visual.
+
+## LOD geométrico para el perfil mínimo
+
+El orquestador reportó una CI posterior con 17 pruebas funcionales correctas y el presupuesto corto fallando a 21,97 FPS. Se añadió un LOD real del entorno, sin tocar resolución, umbral, física, renderer ni workflow desde este módulo.
+
+Contrato: `createArtSlice({ detail: 'low' | 'high' })`, con `high` por defecto. Metadata registra detalle, conteos geométricos reales y posiciones/escalas de los 14 árboles y 5 fachadas.
+
+- **Rojo**, 15:15:44 Bogotá: `npx vitest run tests/unit/art-slice.test.ts --reporter=verbose`; 1 fallida y 6 correctas. La petición low todavía devolvía high: `expected 27500 to be less than or equal to 13000`.
+- **Verde**, 15:16:30: 7/7 correctas. Low medido **11.856 triángulos / 11 draw calls**; high permanece exactamente **27.500 / 17**. Texturas en ambos: **2.118.998 bytes estimados con mipmaps**.
+- Low: esfera de copa 5×3 frente a 8×5; 3 ramas frente a 5; 4 hojas de detalle por rama frente a 14; 32 arbustos frente a 65; 50 hojas en suelo frente a 200; cilindros de 5 segmentos frente a 8. Se simplifican barrotes, subdivisiones de persianas/marcos, anillos de esténcil y juntas de bordillo. Se conservan todos los troncos y fachadas, las matrices de posición/escala, el corredor y las superficies principales.
+- Todas las sombras de low quedan desactivadas. Se agrupan materiales Lambert de superficie equivalente, preservando mapas y horneando la tinta del material en colores por vértice; no se sustituyen texturas. PBR de asfalto y respuesta al clima permanecen. Los nombres de piezas agrupadas son marcadores de inspección, igual que en el batching previo.
+- **Refactor**, 15:17:20: densidades centralizadas en una configuración, 7/7 pruebas propias verdes; se comprueban cambio/restauración del clima y liberación de textura/material en low. La ejecución conjunta tuvo 12 correctas y un rojo ajeno en `art-integration.test.ts` porque el orquestador acababa de añadir `setArtQuality/getArtDetail` antes de implementarlos; no se atribuye esa suite conjunta como aprobada. TypeScript en esa ejecución señaló únicamente esos contratos de integración pendientes.
+- Prueba estructural: los 14 transforms de árbol y los 5 de fachada coinciden entre high/low, las matrices y mapas de asfalto/andén/parque/fachada son idénticos, y todas las mallas low carecen de sombras. El conteo viene de los buffers reales, no de estimar densidades.
+
+Este cambio conserva el perfil high que produjo las capturas artísticas. La selección del perfil mínimo, su comunicación en diagnósticos y los FPS de CI corresponden al orquestador. El LOD por sí solo no acredita 30 FPS ni sustituye la prueba física aplazada.

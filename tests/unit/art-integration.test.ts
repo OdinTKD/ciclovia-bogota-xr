@@ -3,6 +3,23 @@ import { Group, DirectionalLight, Mesh, MeshStandardMaterial, Texture, Instanced
 import { createWorld, assetGeometryStats } from '../../src/rendering/scene';
 
 describe('integración de la muestra artística A', () => {
+  it('alterna detalles de la muestra sin superponer dos entornos y conserva el clima', () => {
+    const world = createWorld();
+    world.setArtQuality(.375);
+    const high = world.scene.getObjectByName('art-slice')!;
+    const low = world.scene.getObjectByName('art-slice-low')!;
+    expect(high.visible).toBe(false); expect(low.visible).toBe(true);
+    expect(world.getArtDetail()).toBe('low');
+    const road = low.getObjectByName('asphalt') as Mesh;
+    const material = road.material as MeshStandardMaterial;
+    const dry = material.color.clone();
+    world.update({ x:0, distance:0, speed:0, elapsed:0, weather:'rain' }, []);
+    expect(material.color.r).toBeLessThan(dry.r);
+    world.setArtQuality(1);
+    expect(high.visible).toBe(true); expect(low.visible).toBe(false);
+    expect(world.getArtDetail()).toBe('high');
+    world.dispose();
+  });
   it('evita cajas de seis caras para ventanas lejanas planas', () => {
     const world = createWorld();
     const windows = world.scene.getObjectByName('environment')!.children.find(node =>

@@ -27,6 +27,7 @@ test('el inicio espera el modelo Blender imprescindible', async ({ page }) => {
     antialias: document.querySelector('canvas')!.getContext('webgl2')!.getContextAttributes()!.antialias }));
   expect(raster.antialias).toBe(raster.dpr <= 1);
   expect(game.render.antialias).toBe(raster.antialias);
+  expect(game.render.artDetail).toBe(game.render.pixelRatio > .375 ? 'high' : 'low');
 });
 
 test('un GLB ausente comunica el error y no inicia una sustitución silenciosa', async ({ page }) => {
