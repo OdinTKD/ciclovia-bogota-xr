@@ -1,0 +1,40 @@
+{
+  "runId": 40018717275,
+  "url": "https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40018717275",
+  "commit": "14579b15082f1950fefb5ae044ad1019e6e68e9d",
+  "status": "success",
+  "unit": {
+    "passed": 124,
+    "files": 27
+  },
+  "e2e": {
+    "passed": 18,
+    "skipped": 2,
+    "failed": 0,
+    "skipReason": "Duplicados de presupuesto en escritorio; presupuesto ejecutado en proyecto mobile."
+  },
+  "deploy": "success",
+  "short": {
+    "sun": 59.34326783594885,
+    "rain": 55.95970900951318
+  },
+  "route": {
+    "sun": {
+      "fps": 56.67216181262107,
+      "p95Ms": 33.29999999999927,
+      "p50Ms": 16.700000000000728,
+      "p99Ms": 33.399999999999636,
+      "maxMs": 33.400000000001455,
+      "samples": 1021
+    },
+    "rain": {
+      "fps": 56.00577264653639,
+      "p95Ms": 33.29999999999927,
+      "p50Ms": 16.69999999999709,
+      "p99Ms": 33.400000000001455,
+      "maxMs": 33.400000000001455,
+      "samples": 1009
+    }
+  },
+  "note": "Laboratorio Chromium Pixel 7 emulado CPU4x, buffer154x314, no teléfono físico."
+}

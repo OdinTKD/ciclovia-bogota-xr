@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-10-23T20:27:20.533Z",
+  "base": "https://odintkd.github.io/ciclovia-bogota-xr/",
+  "version": "0.3.0-alpha.2",
+  "modelSha256": "6676817a5e6a9302625a84b3f3ff3b2d489d6404c3ee8966f927356b92f92d76",
+  "video": {
+    "duration": 15.68,
+    "width": 1280,
+    "height": 720
+  },
+  "assets": {
+    "triangles": 7120,
+    "drawCalls": 9,
+    "meshes": 9,
+    "materials": 2,
+    "geometries": 9,
+    "source": "blender-glb"
+  },
+  "artSlice": {
+    "start": 0,
+    "end": 40
+  },
+  "errors": [],
+  "note": "Smoke de despliegue y medios, no benchmark ni validación de teléfono."
+}

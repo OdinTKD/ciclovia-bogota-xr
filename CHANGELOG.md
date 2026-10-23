@@ -117,3 +117,31 @@ Compatibilidad: Compatible — correcciones de rendimiento y documentación; sin
 Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Motor / Física / Vehículos, Render / Cámara / Rendimiento, Documentación / Versionado
 
 Compatibilidad: Compatible como candidato prerelease de A — conserva controles, stack, rutas de configuración y diagnóstico usados por E2E; añade orientación y campos de métricas, usa fragmento de prueba de 200 m y cambia deliberadamente conducción/contactos. No representa la aprobación de A ni la entrega completa de 0.3.0.
+
+## [0.3.0-alpha.2] - 2026-10-23
+
+### Agregado
+
+- Muestra visual original de 40 m dentro de los 200 m de A: bicicleta/manos producidas en Blender 5.1.2 CLI background, parque a izquierda y fachadas a derecha, siete texturas originales, materiales e iluminación. Se conservan fuente .blend, script, GLB y manifest; sin descargas de assets de terceros.
+- GLB de bicicleta/manos: 187.596 bytes, 7.120 triángulos, 9 llamadas geométricas y 2 materiales; SHA-256 6676817a5e6a9302625a84b3f3ff3b2d489d6404c3ee8966f927356b92f92d76. Galería real sol/lluvia y vídeo de giro/contragiro/frenada, 15,68 s, 1280×720, 25 FPS VP9.
+- LOD de entorno high 27.500 triángulos/17 llamadas; low 11.856/11, conservando 14 árboles, 5 fachadas y posiciones. Ambas versiones residentes (~4,2 MB de texturas), solo una visible; diagnóstico registra materialQuality, shadows, antialias y artDetail.
+
+### Corregido
+
+- Rendimiento por software tras presupuestos CI fallidos: calibración de 12–25 RAF renderizados antes de Iniciar, material diffuse y filtrado reducido en mínimo, MSAA desactivado con DPR>1 y LOD low. High conserva apariencia, filtros, PBR/sombras y MSAA de escritorio 1x. Ratio mínimo0,375 y límites 30 FPS / 100 calls / 100.000 triángulos intactos.
+- Selección de clima durante carga y último grado de calidad sin renderizar al final de preparación, con regresiones rojo → verde → refactor. Comparación exacta de texturas con Buffer.equals/byteOffset/byteLength en vez de comparación profunda, sin ampliar timeout.
+- Preparación de CI con Ubuntu 24.04 e instalación de Chromium sin apt redundante, conservando todas las pruebas.
+
+### Validación
+
+- Pruebas o comandos ejecutados: TDD de modelo, entorno/LOD, carga/calibración/filtrado/MSAA e integración en docs/tdd/; npm test, npm run build, E2E; tools/qa/verify-art.mjs local y contra Pages; benchmarks separados dentro del arte por software y GPU; enlaces, JSON, hashes/licencias, prefijo histórico byte a byte y git diff --check.
+- Resultado: CI [40018717275](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40018717275) verify y deploy correctos, commit de prueba 14579b1 / runtime 72c1075; 124/124 unitarias en 27 archivos, build correcto y 18 E2E aprobadas / 2 omitidas en 3,5 minutos, omisiones de presupuesto redundante escritorio. Bundle ≈5,02 MB / 1,85 MB gzip con advertencia de tamaño.
+- Publicación: [juego](https://odintkd.github.io/ciclovia-bogota-xr/) y [galería](https://odintkd.github.io/ciclovia-bogota-xr/review/art/) comprobados el 2026-10-23 a 20:27:20 UTC: alpha.2, GLB/hash exacto, diagnóstico, vídeo reproducido e imágenes decodificadas, cero errores; evidencia docs/performance/gate-a-art/live-verification.json.
+- Recorrido CI 18 s: sol 56,67 FPS, 30 calls / 23.834 triángulos; lluvia 56,01 FPS, 31 calls / 25.754 triángulos. Ambos 154×314 / ratio 0,375 / low, p95/p99≈33,3/33,4 ms. Corto CI sol 59,34 FPS dentro del arte; lluvia 55,96 FPS fuera del arte, sin presentarlo como medición dentro de muestra.
+- Benchmark quieto 6 s dentro de 40 m: SwiftShader / CPU 4× / low / diffuse / sin MSAA ni sombras, 60,0017/60,0037 FPS sol/lluvia,30/31 calls y 23.834/25.754 triángulos, 154×314. Intel Arc 140T D3D11 / high / PBR / sombras / MSAA, 59,9997/60,0007 FPS,36/37 calls y 39.478/41.398 triángulos, 1280×720. No son pruebas de teléfono ni garantía por frame; FPS de vídeo no miden rendimiento. Comparaciones históricas con calidad/resolución diferentes no acreditan mejora causal aislada.
+- Documentación: enlaces y procedencia comprobados, hash GLB y licencias conservadas; historial previo idéntico byte a byte. No aplica prueba ejecutable al cierre documental; validación alternativa determinista de estructura, enlaces y contenido.
+- Límites: prototipo estilizado, pixelado/copas simplificadas en low, transición brusca tras 40 m y recorte exterior de manos/controles; high no representa el modo mínimo. A sigue ABIERTA por revisión/OK del usuario. Teléfono expresamente aplazado hasta modelo/OS/navegador reales; B, audio y rediseño UI no autorizados ni entregados. No se certifica geografía real ni AR jugable.
+
+Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Blender / Modelo original, Entorno / Arte / Render / Rendimiento, Arquitectura / CI, Documentación / Versionado
+
+Compatibilidad: Compatible como candidato prerelease de A — conserva física, controles, tráfico, stack y umbrales; añade presentación y calidad adaptativa con degradación visible en el modo mínimo. No representa aprobación de A ni entrega completa de 0.3.0.
