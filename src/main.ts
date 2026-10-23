@@ -100,6 +100,8 @@ async function boot() {
   window.addEventListener("resize", world.resize);
   ready = true;
   ui.setReady(true);
+  let lastUiAt = -Infinity;
+  let lastUiPhase: string = "";
   function frame(now: number) {
     const ms = now - last;
     last = now;
@@ -145,11 +147,15 @@ async function boot() {
       triangles: world.renderer.info.render.triangles,
       pixelRatio: world.renderer.getPixelRatio(),
     };
-    ui.update({
-      status: state.phase === "playing" ? "running" : state.phase,
-      ...state,
-      humor: state.elapsed < bubbleUntil ? bubble : "",
-    });
+    if (state.phase !== lastUiPhase || now - lastUiAt >= 100) {
+      ui.update({
+        status: state.phase === "playing" ? "running" : state.phase,
+        ...state,
+        humor: state.elapsed < bubbleUntil ? bubble : "",
+      });
+      lastUiAt = now;
+      lastUiPhase = state.phase;
+    }
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);

@@ -223,6 +223,8 @@ export function createWorld() {
     dummy.updateMatrix();
     mesh.setMatrixAt(index, dummy.matrix);
   }
+  const carPool = [carBodies, carTops, carWheels];
+  const pedestrianPool = [pedBodies, pedHeads, pedLegs];
   const sunSky = new T.Color(0xb8dce3);
   const rainSky = new T.Color(0x869ea5);
   function update(snapshot: RenderSnapshot, traffic: RenderTraffic[]) {
@@ -244,6 +246,8 @@ export function createWorld() {
     rain.visible = raining;
     rain.position.z = snapshot.distance % 12;
     rain.position.y = -((snapshot.elapsed * 8) % 7);
+    let hasCar = false;
+    let hasPedestrian = false;
     for (let i = 0; i < 12; i++) {
       const obstacle = traffic[i];
       const visible =
@@ -254,6 +258,8 @@ export function createWorld() {
       const z = visible ? -(obstacle.z - snapshot.distance) : -1000;
       const car = visible && obstacle.kind === "car";
       const pedestrian = visible && obstacle.kind === "pedestrian";
+      hasCar ||= Boolean(car);
+      hasPedestrian ||= Boolean(pedestrian);
       matrix(carBodies, i, x, car ? 0.55 : -1000, z, 3.5, 0.85, 1.8);
       matrix(carTops, i, x, car ? 1.15 : -1000, z - 0.15, 1.9, 0.6, 1.5);
       for (let k = 0; k < 2; k++)
@@ -281,6 +287,14 @@ export function createWorld() {
           0.15,
         );
     }
+    carPool.forEach((mesh) => {
+      mesh.visible = hasCar;
+      if (hasCar) mesh.instanceMatrix.needsUpdate = true;
+    });
+    pedestrianPool.forEach((mesh) => {
+      mesh.visible = hasPedestrian;
+      if (hasPedestrian) mesh.instanceMatrix.needsUpdate = true;
+    });
     [carBodies, carTops, carWheels, pedBodies, pedHeads, pedLegs].forEach(
       (m) => (m.instanceMatrix.needsUpdate = true),
     );

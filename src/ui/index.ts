@@ -20,8 +20,15 @@ export function createUI(root: HTMLElement) {
  <section class="modal panel" id="pause-panel" hidden><span class="eyebrow">TÓMATE UN RESPIRO</span><h2 id="pause-title">Paseo en pausa</h2><p id="pause-message" class="muted">La ciudad puede esperar un momento.</p><button id="resume" class="primary">Seguir rodando ↗</button><button id="restart" class="secondary">Volver a empezar</button></section>
  <div class="touch-controls" id="touch" hidden><div><button id="touch-left" aria-label="Girar a la izquierda">←</button><button id="touch-right" aria-label="Girar a la derecha">→</button></div><div><button id="touch-brake" aria-label="Frenar">FRENO</button><button id="touch-pedal" aria-label="Pedalear">↑</button></div></div>
  <footer class="footer"><span><i></i> HECHO PARA RODAR, HECHO EN BOGOTÁ</span><span>PRIMERA PERSONA <b>·</b> WEB 3D</span></footer>`;
-  const byId = <T extends HTMLElement>(id: string) =>
-    root.querySelector<T>(`#${id}`)!;
+  const nodes = new Map<string, HTMLElement>();
+  const byId = <T extends HTMLElement>(id: string): T => {
+    let node = nodes.get(id);
+    if (!node) {
+      node = root.querySelector<HTMLElement>(`#${id}`)!;
+      nodes.set(id, node);
+    }
+    return node as T;
+  };
   const elements = {
     canvas: byId<HTMLCanvasElement>("world"),
     start: byId<HTMLButtonElement>("start"),
@@ -57,41 +64,64 @@ export function createUI(root: HTMLElement) {
   refreshStart();
   elements.safety.addEventListener("change", refreshStart);
   const settings = root.querySelector<HTMLElement>(".settings")!;
+  const text = (id: string, value: string) => {
+    const node = byId(id);
+    if (node.textContent !== value) node.textContent = value;
+  };
+  const hidden = (node: HTMLElement, value: boolean) => {
+    if (node.hidden !== value) node.hidden = value;
+  };
+  let phase: string | undefined;
   function update(s: UISnapshot) {
     const ready = s.status === "ready";
     const paused = s.status === "paused";
     const finished = s.status === "finished";
-    if ((paused || finished) && settings.parentElement !== byId("pause-panel"))
-      byId("pause-panel").insertBefore(settings, elements.resume);
-    else if (ready && settings.parentElement !== byId("welcome"))
-      byId("welcome").insertBefore(settings, root.querySelector(".safety"));
-    root.classList.toggle("playing", !ready);
-    byId("welcome").hidden = !ready;
-    byId("hud").hidden = ready;
-    byId("progress").hidden = ready;
-    byId("touch").hidden = ready || paused || finished;
-    byId("pause-panel").hidden = !(paused || finished);
-    elements.pause.hidden = ready || finished;
-    elements.resume.hidden = finished;
-    byId("pause-title").textContent = finished
-      ? s.health <= 0
-        ? "Paseo interrumpido"
-        : "¡Qué buen paseo!"
-      : "Paseo en pausa";
-    byId("pause-message").textContent = finished
-      ? `Recorriste ${formatDistance(s.distance)}. Bogotá te espera para otra vuelta.`
-      : "La ciudad puede esperar un momento.";
-    if (finished && s.health <= 0)
-      byId("pause-message").textContent =
-        "Una colisión terminó el paseo. Respira y vuelve a intentarlo con cuidado.";
-    byId("speed").textContent = formatSpeed(s.speed);
-    byId("distance").textContent = formatDistance(s.distance);
-    byId("score").textContent = String(Math.round(s.score));
-    byId("health").textContent = `${Math.round(s.health)} %`;
-    byId("progress-text").textContent = `${Math.floor(s.distance)} / 1.200 m`;
-    byId("progress-fill").style.width = `${routeProgress(s.distance)}%`;
-    byId("bubble").hidden = !s.humor || !elements.humor.checked;
-    byId("bubble").textContent = s.humor || "";
+    if (phase !== s.status) {
+      phase = s.status;
+      if (
+        (paused || finished) &&
+        settings.parentElement !== byId("pause-panel")
+      )
+        byId("pause-panel").insertBefore(settings, elements.resume);
+      else if (ready && settings.parentElement !== byId("welcome"))
+        byId("welcome").insertBefore(settings, root.querySelector(".safety"));
+      if (root.classList.contains("playing") === ready)
+        root.classList.toggle("playing", !ready);
+      hidden(byId("welcome"), !ready);
+      hidden(byId("hud"), ready);
+      hidden(byId("progress"), ready);
+      hidden(byId("touch"), ready || paused || finished);
+      hidden(byId("pause-panel"), !(paused || finished));
+      hidden(elements.pause, ready || finished);
+      hidden(elements.resume, finished);
+    }
+    text(
+      "pause-title",
+      finished
+        ? s.health <= 0
+          ? "Paseo interrumpido"
+          : "¡Qué buen paseo!"
+        : "Paseo en pausa",
+    );
+    text(
+      "pause-message",
+      finished
+        ? s.health <= 0
+          ? "Una colisión terminó el paseo. Respira y vuelve a intentarlo con cuidado."
+          : `Recorriste ${formatDistance(s.distance)}. Bogotá te espera para otra vuelta.`
+        : "La ciudad puede esperar un momento.",
+    );
+    text("speed", formatSpeed(s.speed));
+    text("distance", formatDistance(s.distance));
+    text("score", String(Math.round(s.score)));
+    text("health", `${Math.round(s.health)} %`);
+    text("progress-text", `${Math.floor(s.distance)} / 1.200 m`);
+    const progressWidth = `${routeProgress(s.distance)}%`;
+    const progressFill = byId("progress-fill");
+    if (progressFill.style.width !== progressWidth)
+      progressFill.style.width = progressWidth;
+    hidden(byId("bubble"), !s.humor || !elements.humor.checked);
+    text("bubble", s.humor || "");
   }
   return {
     setReady: (value: boolean) => {
