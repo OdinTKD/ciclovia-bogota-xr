@@ -10,6 +10,7 @@ import { parseHumor, humorLine } from "./config/humor";
 import { parseLevel } from "./levels";
 import { detectAR } from "./xr/capabilities";
 import { parseWeather } from "./weather";
+import { createQualityController } from "./rendering/quality";
 
 const ui = createUI(document.querySelector<HTMLElement>("#app")!);
 const simulation = createSimulation();
@@ -21,7 +22,7 @@ const input = createInputController(window, {
 });
 const frames: number[] = [];
 let ready = false,
-  renderStats = { drawCalls: 0, triangles: 0 },
+  renderStats = { drawCalls: 0, triangles: 0, pixelRatio: 1 },
   obstacles: Obstacle[] = [];
 let arCapability = { supported: false, reason: "unavailable" };
 Object.defineProperty(window, "__game", {
@@ -54,6 +55,7 @@ async function boot() {
     arCapability = result;
   });
   const world = buildScene(ui.elements.canvas);
+  const quality = createQualityController(world.renderer.getPixelRatio());
   let last = performance.now(),
     bubble = "",
     bubbleUntil = 0;
@@ -101,6 +103,11 @@ async function boot() {
   function frame(now: number) {
     const ms = now - last;
     last = now;
+    if (simulation.state.phase === "playing" && quality.sample(ms)) {
+      world.renderer.setPixelRatio(quality.ratio);
+      world.resize();
+      frames.length = 0;
+    }
     const before = simulation.state.elapsed;
     simulation.update(ms / 1000, input.read());
     const dt = simulation.state.elapsed - before;
@@ -136,6 +143,7 @@ async function boot() {
     renderStats = {
       drawCalls: world.renderer.info.render.calls,
       triangles: world.renderer.info.render.triangles,
+      pixelRatio: world.renderer.getPixelRatio(),
     };
     ui.update({
       status: state.phase === "playing" ? "running" : state.phase,

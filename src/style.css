@@ -622,3 +622,11 @@ kbd {
   margin-top: 18px;
   border-top: 1px solid #dce2d9;
 }
+/* Avoid filtering the full-resolution canvas behind mobile controls. */
+@media (pointer: coarse) {
+  .hud,
+  .panel,
+  .route-tag {
+    backdrop-filter: none;
+  }
+}
