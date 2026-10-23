@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { Buffer } from 'node:buffer';
 import * as T from 'three';
 import { createArtSlice } from '../../src/rendering/art-slice';
 
@@ -124,7 +125,11 @@ describe('muestra artística original, primeros 40 m', () => {
       expect(simplified.instanceMatrix.array).toEqual(original.instanceMatrix.array);
       const originalMap = (original.material as T.MeshStandardMaterial).map as T.DataTexture;
       const simplifiedMap = (simplified.material as T.MeshStandardMaterial).map as T.DataTexture;
-      expect(simplifiedMap.image.data).toEqual(originalMap.image.data);
+      const originalBytes = originalMap.image.data!;
+      const simplifiedBytes = simplifiedMap.image.data!;
+      const originalBuffer = Buffer.from(originalBytes.buffer, originalBytes.byteOffset, originalBytes.byteLength);
+      const simplifiedBuffer = Buffer.from(simplifiedBytes.buffer, simplifiedBytes.byteOffset, simplifiedBytes.byteLength);
+      expect(simplifiedBuffer.equals(originalBuffer), `${name}: mismos bytes de textura`).toBe(true);
     }
     low.group.traverse(node => { if (node instanceof T.Mesh) { expect(node.castShadow).toBe(false); expect(node.receiveShadow).toBe(false); } });
     const asphalt = low.group.getObjectByName('asphalt') as T.Mesh;

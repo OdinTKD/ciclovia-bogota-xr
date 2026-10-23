@@ -68,3 +68,9 @@ Contrato: `createArtSlice({ detail: 'low' | 'high' })`, con `high` por defecto. 
 - Prueba estructural: los 14 transforms de árbol y los 5 de fachada coinciden entre high/low, las matrices y mapas de asfalto/andén/parque/fachada son idénticos, y todas las mallas low carecen de sombras. El conteo viene de los buffers reales, no de estimar densidades.
 
 Este cambio conserva el perfil high que produjo las capturas artísticas. La selección del perfil mínimo, su comunicación en diagnósticos y los FPS de CI corresponden al orquestador. El LOD por sí solo no acredita 30 FPS ni sustituye la prueba física aplazada.
+
+## Comparación nativa de bytes en la prueba LOD
+
+El orquestador informó que la CI `40018514417` falló por timeout de la prueba low: 5.030 ms al comparar cuatro buffers de textura con igualdad profunda; las otras 123 pruebas pasaron. Se refactorizó únicamente esa comparación en la prueba, usando `Buffer.from(data.buffer, data.byteOffset, data.byteLength).equals(...)`. Se comprueban exactamente todos los mismos bytes, incluyendo la longitud y respetando offset, sin muestreo, sin elevar el timeout y sin tocar runtime.
+
+Validación local posterior: `npx vitest run tests/unit/art-slice.test.ts --reporter=verbose`, 15:22:04 Bogotá: **7/7 correctas**, suite 1,24 s; prueba LOD **125 ms**. El fallo de CI se atribuye al informe del orquestador; el pase local no confirma por sí solo una nueva CI. No aplica prueba ejecutable de producto: cambió el mecanismo de una aserción, no su criterio ni el comportamiento del juego.
