@@ -67,3 +67,25 @@ Compatibilidad: Compatible — primera funcionalidad web del proyecto; sin cambi
 Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Frontend / UI / Rendimiento, Documentación / Versionado
 
 Compatibilidad: Compatible — corrección de rendimiento y publicación; la resolución interna puede disminuir para priorizar fluidez.
+
+## [0.2.2] - 2026-10-23
+
+### Corregido
+
+- Variación de rendimiento detectada en runners Linux posteriores a la publicación anterior: menor resolución adaptativa mínima (`pixelRatio` 0,375), HUD a 10 Hz con cambios de fase inmediatos y sin mutaciones DOM repetidas para estados idénticos.
+- Grupos de actores inactivos con cero draw calls: se eliminan hasta 6 llamadas redundantes sin ocultar actores activos.
+- Benchmark separado en `tests/e2e/performance.spec.ts`, sin captura de trazas durante la medición; las pruebas funcionales conservan trazas ante fallos. No se atribuye toda la variación de rendimiento a las trazas. Se mantienen los umbrales de 30 fps promedio, 100 draw calls y 100.000 triángulos.
+- README y preparación del entorno actualizados con el artefacto 0.2.2 realmente publicado y sus mediciones.
+
+### Validación
+
+- Pruebas o comandos ejecutados: ciclos TDD rojo → verde → refactor documentados en `docs/tdd/ui-performance.md`, `docs/tdd/actor-rendering.md` y `docs/tdd/quality.md`; `npm test`, `npm run build`, `npm run test:e2e`; suite contra la URL real con `PLAYWRIGHT_BASE_URL`; validación de estructura Markdown, enlaces locales y hashes/copias de licencias; `git diff --check`.
+- Resultado: 63/63 pruebas unitarias en 15 archivos y build correcto. E2E local: 7 correctas y 1 omitida en 46,3 s. El [flujo 39988830105](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/39988830105) completó verify y deploy para el commit `fc9651f`, versión 0.2.2. Suite posterior contra [la demo real](https://odintkd.github.io/ciclovia-bogota-xr/): 7 correctas y 1 omitida en 52,8 s; omisión del presupuesto duplicado de escritorio. Verificado HUD sin mutaciones DOM repetidas en escritorio y viewport móvil.
+- Rendimiento CI Linux con renderizado por software, viewport móvil y CPU limitada 4×: sol 37,14 fps promedio, 20 draw calls, 15.126 triángulos y 143 muestras; lluvia 34,31 fps promedio, 24 draw calls, 17.622 triángulos y 171 muestras. Ambos con `pixelRatio` 0,375 y p95 de frame de 33,4 ms. Evidencia: `docs/performance/022-ci-sun.json` y `022-ci-rain.json`.
+- Rendimiento contra la publicación desde Chromium local con viewport móvil y CPU limitada 4×: sol 36,81 fps promedio y 154 muestras; lluvia 33,42 fps promedio y 171 muestras. Mismos draw calls/triángulos, `pixelRatio` 0,375 y p95 de 33,4 ms. Evidencia: `docs/performance/022-live-sun.json` y `022-live-rain.json`; capturas en `docs/screenshots/022-live-desktop.png` y `022-live-mobile.png`.
+- Documentación y licencias: estructura y enlaces locales correctos; 3 licencias MIT de referencia con Git blob SHA exacto; 55 copias npm y 4 copias runtime en public/dist idénticas a los originales. No aplica prueba ejecutable a la documentación; validación alternativa determinista de estructura, enlaces y contenido.
+- Límites: los FPS representan promedios de laboratorio, no una garantía por frame o en teléfonos reales; la resolución interna puede bajar. AR continúa limitada a detección de capacidades, sin sesión inmersiva ni hit-test implementados. Se conserva el historial de mediciones previas.
+
+Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Frontend / UI / Rendimiento, Documentación / Versionado
+
+Compatibilidad: Compatible — correcciones de rendimiento y documentación; sin cambiar controles ni umbrales de aceptación.
