@@ -1,8 +1,19 @@
-import { Material, Mesh, MeshLambertMaterial, MeshStandardMaterial, Scene, Texture } from 'three';
+import { LinearMipmapNearestFilter, Material, Mesh, MeshLambertMaterial, MeshStandardMaterial, Scene, Texture, type MinificationTextureFilter } from 'three';
 const REFLECTION_STRENGTH = .35;
 const REFLECTIVE_METALNESS = .3;
 const alternatives = new WeakMap<Material, Material>();
+const textureFilters = new WeakMap<Texture, { anisotropy: number; minFilter: MinificationTextureFilter }>();
 export const materialAlternative = (material: Material) => alternatives.get(material);
+
+function applyTextureFiltering(map: Texture, fullEffects: boolean) {
+  if (!textureFilters.has(map)) textureFilters.set(map, { anisotropy: map.anisotropy, minFilter: map.minFilter });
+  const original = textureFilters.get(map)!;
+  const anisotropy = fullEffects ? original.anisotropy : 1;
+  const minFilter = fullEffects ? original.minFilter : LinearMipmapNearestFilter;
+  if (map.anisotropy !== anisotropy || map.minFilter !== minFilter) {
+    map.anisotropy = anisotropy; map.minFilter = minFilter; map.needsUpdate = true;
+  }
+}
 
 function selectMaterial(material: Material, fullEffects: boolean): Material {
   if (fullEffects) return material instanceof MeshLambertMaterial ? alternatives.get(material) ?? material : material;
@@ -46,5 +57,12 @@ export function applyRenderQuality(renderer: { shadowMap: { enabled: boolean } }
   if (!fullEffects) scene.traverse(object => {
     if (object instanceof Mesh) object.material = Array.isArray(object.material)
       ? object.material.map(material => selectMaterial(material, false)) : selectMaterial(object.material, false);
+  });
+  scene.traverse(object => {
+    if (!(object instanceof Mesh)) return;
+    for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+      const map = (material as MeshLambertMaterial).map;
+      if (map) applyTextureFiltering(map, fullEffects);
+    }
   });
 }

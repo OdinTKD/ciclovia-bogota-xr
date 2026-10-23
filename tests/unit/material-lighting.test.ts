@@ -1,5 +1,5 @@
 import { it, expect } from 'vitest';
-import { Scene, Mesh, BoxGeometry, MeshStandardMaterial, MeshLambertMaterial, Texture } from 'three';
+import { Scene, Mesh, BoxGeometry, MeshStandardMaterial, MeshLambertMaterial, Texture, LinearMipmapNearestFilter, LinearMipmapLinearFilter } from 'three';
 import { applyMaterialLighting, applyRenderQuality } from '../../src/rendering/material-lighting';
 
 it('reserva reflejos de entorno a metal y vidrio, sin sombrear dos veces superficies mates', () => {
@@ -30,4 +30,19 @@ it('al llegar al ratio mínimo usa luz difusa y conserva texturas, color y geome
   applyRenderQuality(renderer, scene, reflection, 1);
   expect(renderer.shadowMap.enabled).toBe(true); expect(material.envMap).toBe(reflection);
   expect(mesh.material).toBe(material);
+});
+
+it('reduce el filtrado anisotrópico costoso al mínimo y restaura el original en calidad alta', () => {
+  const scene = new Scene(), reflection = new Texture(), map = new Texture();
+  map.anisotropy = 4;
+  const mesh = new Mesh(new BoxGeometry(), new MeshLambertMaterial({ map }));
+  scene.add(mesh);
+  const renderer = { shadowMap: { enabled: true } };
+  applyRenderQuality(renderer, scene, reflection, .375);
+  expect(map.anisotropy).toBe(1);
+  expect(map.minFilter).toBe(LinearMipmapNearestFilter);
+  expect(mesh.material.map).toBe(map);
+  applyRenderQuality(renderer, scene, reflection, 1);
+  expect(map.anisotropy).toBe(4);
+  expect(map.minFilter).toBe(LinearMipmapLinearFilter);
 });

@@ -8,7 +8,7 @@ it('prepara un equipo lento con tiempos RAF reales antes de jugar y tiene límit
     async () => time += 100);
   expect(result).toBe(.375);
   expect(ratios).toEqual([.75, .375]);
-  expect(frames).toBe(24);
+  expect(frames).toBe(25);
 });
 
 it('conserva la resolución alta si la primera ventana cumple el presupuesto', async () => {

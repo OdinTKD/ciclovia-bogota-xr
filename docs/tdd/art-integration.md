@@ -39,3 +39,11 @@ Las pruebas anteriores verifican integración, carga y recursos; no certifican c
 - Rojo: la revisión detectó que cambiar el selector mientras cargaba el GLB no actualizaba la simulación. La prueba E2E retuvo la descarga, eligió lluvia y liberó el modelo: falló con `Expected rain, Received sun`.
 - Verde: sincronización del valor actual del selector al terminar el arranque; la prueba pasa.
 - Refactor: `syncWeather` compartido por arranque y evento de cambio. Las cuatro pruebas de carga/error en escritorio y móvil pasan; build correcto. Este ajuste conserva el clima seleccionado sin alterar las reglas de agarre o física.
+
+## Filtrado de texturas en calidad mínima
+
+- CI `40012579137`: 120 unitarias/build correctos, 17 E2E aprobadas, dos omisiones y un fallo. La prueba corta registró 20,8318 FPS dentro del arte; los recorridos largos sí pasaron (37,5779/36,6896 FPS). Se conservan sus JSON. La calibración corrigió el arranque, pero no bastó para el coste sostenido de la muestra.
+- Rojo: prueba nueva esperaba anisotropía 1 en modo mínimo y obtuvo 4. También exige recuperar el filtrado original al volver a calidad alta.
+- Verde: modo mínimo usa anisotropía 1 y filtrado bilineal sobre un nivel mip; calidad alta restaura la anisotropía y filtrado originales. Conserva mapas, geometría y mínimo de resolución; puede reducir la nitidez de superficies oblicuas y las transiciones mip en calidad mínima.
+- Refactor: `applyTextureFiltering` comparte el ajuste, recuerda originales con WeakMap y evita invalidar texturas sin cambios. `npm test`: 121/121; build correcto con el aviso de tamaño existente. El siguiente CI conserva umbrales y toda la suite.
+- La primera prueba local de este cambio dio 29,3928 FPS, con un frame inicial de 583,3 ms; se conserva `failed-local-filtering-sun.json`. La calidad final aún no se había renderizado durante preparación: la prueba de calibración se amplió primero y falló (24 renders frente a 25). Verde al renderizar y esperar un RAF adicional si el último frame cambió calidad; refactor con `renderFrame` compartido, cinco pruebas de calibración/materiales verdes. El equipo rápido conserva sus 12 renders. La prueba corta de sol y lluvia volvió a pasar, sin excluir frames de partida ni cambiar sus cinco segundos de medición.
