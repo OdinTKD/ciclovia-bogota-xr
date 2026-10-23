@@ -33,3 +33,9 @@ Las pruebas anteriores verifican integración, carga y recursos; no certifican c
 - Rojo unitario: `renderer-calibration.test.ts` falló por ausencia del módulo, antes de implementarlo. Especifica 24 renders y dos reducciones para un dispositivo lento; 12 renders sin reducción para uno rápido.
 - Verde: calibración acotada de fotogramas reales mediante RAF antes de habilitar Iniciar. No se modifica el mínimo de resolución, los umbrales ni la medición de frames jugando. Las dos pruebas pasan.
 - Refactor: constantes de ventana y ratio mínimo compartidas con el controlador; `setQuality` único para preparación y adaptación jugando. `npm test`: 120/120 en 26 archivos. `npm run build`: correcto, con aviso de tamaño del bundle.
+
+## Clima seleccionado durante la carga
+
+- Rojo: la revisión detectó que cambiar el selector mientras cargaba el GLB no actualizaba la simulación. La prueba E2E retuvo la descarga, eligió lluvia y liberó el modelo: falló con `Expected rain, Received sun`.
+- Verde: sincronización del valor actual del selector al terminar el arranque; la prueba pasa.
+- Refactor: `syncWeather` compartido por arranque y evento de cambio. Las cuatro pruebas de carga/error en escritorio y móvil pasan; build correcto. Este ajuste conserva el clima seleccionado sin alterar las reglas de agarre o física.

@@ -11,12 +11,14 @@ test('el inicio espera el modelo Blender imprescindible', async ({ page }) => {
   await page.goto('./');
   await requested;
   await page.getByTestId('safety').check();
+  await page.getByTestId('weather').selectOption('rain');
   await expect(page.getByTestId('start')).toBeDisabled();
   release();
   await page.waitForFunction(() => (window as any).__game?.ready);
   await expect(page.getByTestId('start')).toBeEnabled();
   const game = await page.evaluate(() => (window as any).__game);
   expect(game.assets.source).toBe('blender-glb');
+  expect(game.state.weather).toBe('rain');
   expect(game.artSlice).toMatchObject({ start: 0, end: 40 });
   expect(game.render.pixelRatio).toBeGreaterThanOrEqual(.375);
   expect(game.render.shadows).toBe(game.render.pixelRatio > .375);

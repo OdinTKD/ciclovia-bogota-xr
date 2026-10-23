@@ -146,8 +146,10 @@ async function boot() {
     bubble = "";
     frames.length = 0;
   });
+  const syncWeather = () => simulation.setWeather(parseWeather(ui.elements.weather.value));
+  syncWeather();
   ui.elements.weather.addEventListener("change", () => {
-    simulation.setWeather(parseWeather(ui.elements.weather.value));
+    syncWeather();
     frames.length = 0;
   });
   window.addEventListener("keydown", (event) => {
