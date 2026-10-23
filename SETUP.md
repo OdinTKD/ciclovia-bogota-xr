@@ -30,7 +30,11 @@ Estos comandos son instrucciones reproducibles; sus resultados de cierre se regi
 
 ## GitHub Pages y WebXR
 
-El flujo `.github/workflows/pages.yml` verifica pruebas y build en pushes a `main` o por ejecución manual, antes de publicar `dist`. Configurar Pages para usar GitHub Actions. Un flujo creado localmente no acredita un despliegue: comprobar la URL antes de anunciar una demo.
+El flujo `.github/workflows/pages.yml` verifica pruebas y build en pushes a `main` o por ejecución manual, antes de publicar `dist`. Pages está configurado para GitHub Actions en el repositorio del proyecto.
+
+Demo verificada el 2026-10-23: [Ciclovía Bogotá XR](https://odintkd.github.io/ciclovia-bogota-xr/). El [flujo 39985901277](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/39985901277) completó verificación y despliegue del commit `2eed72d`, versión 0.2.1. Se comprobó HTTP 200, título y 5 E2E correctos contra la URL pública, con 1 omisión redundante de presupuesto de escritorio. Para repetir la comprobación, usar `PLAYWRIGHT_BASE_URL` como indica [README.md](README.md).
+
+Los umbrales de rendimiento no se redujeron: el ajuste automático baja resolución interna hasta `pixelRatio` 0,5 y la interfaz móvil evita desenfoque CSS. Los resultados Linux/Chromium/CPU 4× son promedios de laboratorio; no sustituyen mediciones en dispositivo físico.
 
 WebXR requiere HTTPS o localhost durante desarrollo, navegador y dispositivo compatibles y permisos del usuario. AR necesita sesión `immersive-ar` y hit-test. Sin soporte, debe poder continuarse en web 3D. Las pruebas de fallback o mocks no certifican funcionamiento en un teléfono o visor real.
 

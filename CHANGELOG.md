@@ -43,3 +43,27 @@ Compatibilidad: Compatible — corrección documental autorizada; no se modifica
 
 Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA, Motor / Física, Vehículos, Tráfico / Niveles / Clima, Frontend / UI / Controles / Humor, AR / WebXR, Documentación / Versionado  
 Compatibilidad: Compatible — primera funcionalidad web del proyecto; sin cambios incompatibles en una API previa. AR jugable y comprobaciones en hardware quedan fuera de este MVP.
+
+## [0.2.1] - 2026-10-23
+
+### Agregado
+
+- Demo pública de [Ciclovía Bogotá XR](https://odintkd.github.io/ciclovia-bogota-xr/) publicada con GitHub Pages y verificada contra su URL real.
+- Evidencia de rendimiento CI en `docs/performance/ci-performance-sun.json` y `docs/performance/ci-performance-rain.json`, conservando las mediciones históricas de 0.2.0.
+
+### Corregido
+
+- Rendimiento en el runner Linux con renderizado por software: controlador de calidad adaptativa reduce resolución interna hasta `pixelRatio` 0,5; eliminación del desenfoque CSS en móvil. Se conservaron los umbrales de 30 fps promedio, 100 draw calls y 100.000 triángulos.
+- Documentación de la demo, comprobaciones reproducibles contra Pages, calidad adaptativa y límites de las mediciones.
+
+### Validación
+
+- Pruebas o comandos ejecutados: TDD rojo → verde → refactor del controlador adaptativo; `npm test`, `npm run build`, `npm run test:e2e`; ejecución de la misma suite con `PLAYWRIGHT_BASE_URL=https://odintkd.github.io/ciclovia-bogota-xr/`; comprobación HTTP y título; validación estructural de documentación, enlaces locales y hashes de licencias; `git diff --check`.
+- Resultado: 61/61 pruebas unitarias y build correcto. El [flujo 39985901277](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/39985901277) completó los jobs verify y deploy correctamente para el commit `2eed72d`, versión 0.2.1. La URL pública respondió HTTP 200 con título correcto; la suite contra la publicación terminó con 5 correctas y 1 omitida en 35,5 s (presupuesto duplicado de escritorio).
+- Rendimiento CI Linux, viewport móvil, renderizado por software y CPU limitada 4×: sol 33,06 fps promedio, 26 draw calls, 16.518 triángulos y 146 muestras; lluvia 31,22 fps promedio, 27 draw calls, 18.438 triángulos y 167 muestras. Ambos con `pixelRatio` 0,5; p95 de frame 33,4 ms y 49,9 ms respectivamente. No garantiza 30 fps en cada frame ni acredita rendimiento en teléfono físico.
+- Documentación y licencias: enlaces locales y campos obligatorios verificados; licencias de referencia comprobadas con Git blob SHA y copias npm/runtime comparadas byte a byte. No aplica prueba ejecutable a los cambios documentales; validación alternativa determinista de estructura, enlaces y contenido.
+- Compatibilidad de hardware: AR sigue siendo detección de capacidades; sesión inmersiva, hit-test y comprobaciones en dispositivos físicos continúan pendientes y no se anuncian como implementados.
+
+Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Frontend / UI / Rendimiento, Documentación / Versionado
+
+Compatibilidad: Compatible — corrección de rendimiento y publicación; la resolución interna puede disminuir para priorizar fluidez.
