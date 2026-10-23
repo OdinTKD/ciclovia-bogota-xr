@@ -14,9 +14,15 @@ test('HUD compacto carbón/amarillo deja libre el primer plano de manos',async({
 test('el arranque respeta el mínimo visual con DPR reducido por zoom',async({browser},info)=>{
  test.skip(info.project.name!=='desktop','Un contexto independiente de zoom es suficiente');
  const context=await browser.newContext({viewport:{width:800,height:600},deviceScaleFactor:.5});
- const page=await context.newPage();await page.goto(process.env.PLAYWRIGHT_BASE_URL||'http://127.0.0.1:4173/');
- await page.waitForFunction(()=>(window as any).__game?.ready);
- const render=await page.evaluate(()=>(window as any).__game.render);
- expect(render.pixelRatio).toBeGreaterThanOrEqual(.75);expect(render.width).toBeGreaterThanOrEqual(600);
- await context.close();
+ try {
+  const page=await context.newPage();await page.goto(process.env.PLAYWRIGHT_BASE_URL||'http://127.0.0.1:4173/');
+  await page.waitForFunction(()=>(window as any).__game?.ready);
+  // ready marks loaded/calibrated resources; diagnostics are published on the next RAF.
+  await expect.poll(()=>page.evaluate(()=>(window as any).__game.render.drawCalls)).toBeGreaterThan(0);
+  const {render,width,height}=await page.evaluate(()=>({render:(window as any).__game.render,
+   width:document.querySelector('canvas')!.width,height:document.querySelector('canvas')!.height}));
+  expect(render.pixelRatio).toBeGreaterThanOrEqual(.75);
+  expect(width).toBeGreaterThanOrEqual(600);expect(height).toBeGreaterThanOrEqual(450);
+  expect(render.width).toBe(width);expect(render.height).toBe(height);
+ } finally {await context.close();}
 });
