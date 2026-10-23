@@ -18,8 +18,9 @@ test('el inicio espera el modelo Blender imprescindible', async ({ page }) => {
   const game = await page.evaluate(() => (window as any).__game);
   expect(game.assets.source).toBe('blender-glb');
   expect(game.artSlice).toMatchObject({ start: 0, end: 40 });
-  expect(game.render.shadows).toBe(true);
-  expect(game.render.materialQuality).toBe('pbr');
+  expect(game.render.pixelRatio).toBeGreaterThanOrEqual(.375);
+  expect(game.render.shadows).toBe(game.render.pixelRatio > .375);
+  expect(game.render.materialQuality).toBe(game.render.shadows ? 'pbr' : 'diffuse');
 });
 
 test('un GLB ausente comunica el error y no inicia una sustitución silenciosa', async ({ page }) => {

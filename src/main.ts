@@ -14,6 +14,7 @@ import { createQualityController } from "./rendering/quality";
 import { createSessionReport } from "./core/session-report";
 import { loadBicycleAsset } from './rendering/assets';
 import { warmRendererVariants } from './rendering/renderer-warmup';
+import { calibrateRenderer } from './rendering/renderer-calibration';
 import type { PhysicsActorMotion } from "./physics/world";
 
 const GATE_ROUTE_LENGTH = 200;
@@ -99,6 +100,12 @@ async function boot() {
     compile: () => world.renderer.compileAsync(world.scene, world.camera),
     render: world.render,
   }, world.renderer.getPixelRatio());
+  const setQuality = (ratio: number) => {
+    world.renderer.setPixelRatio(ratio);
+    world.setQuality(ratio);
+    world.resize();
+  };
+  await calibrateRenderer({ render: world.render, setQuality }, world.renderer.getPixelRatio());
   assetStats = assetGeometryStats(world.scene.getObjectByName('bicycle') ?? world.scene);
   const quality = createQualityController(world.renderer.getPixelRatio());
   let last = performance.now(),
@@ -162,9 +169,7 @@ async function boot() {
     const ms = now - last;
     last = now;
     if (simulation.state.phase === "playing" && quality.sample(ms)) {
-      world.renderer.setPixelRatio(quality.ratio);
-      world.setQuality(quality.ratio);
-      world.resize();
+      setQuality(quality.ratio);
       frames.length = 0;
     }
     const before = simulation.state.elapsed;

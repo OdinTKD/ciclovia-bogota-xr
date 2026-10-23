@@ -26,3 +26,10 @@ Las pruebas anteriores verifican integración, carga y recursos; no certifican c
 - Preparación de shaders: prueba primero con módulo todavía ausente; implementación asíncrona prepara variantes mínima/alta y el primer render antes de habilitar jugar. La prueba comprueba orden y espera de ambas compilaciones.
 - Diagnóstico: E2E falló porque `render.shadows` era `undefined`; verde al publicar calidad material y sombras junto con resolución, y conservarlos también en el diagnóstico descargable.
 - Regresión completa posterior: `npm test` dio 118/118 en 25 archivos; `npm run build` terminó correctamente. La prueba corta de presupuesto pasó después de incorporar materiales difusos de reserva. Los resultados finales de recorrido/CI se registran con sus JSON, sin sustituir la prueba física.
+
+## Calibración previa al inicio — regresión detectada en CI
+
+- Rojo real: ejecución GitHub Actions `40009323688`, recorrido de sol 29,0299 FPS; la prueba corta solo conservó 12 muestras tras una reducción tardía. Sus JSON se conservan como `ci-failed-40009323688-*`. El despliegue quedó bloqueado.
+- Rojo unitario: `renderer-calibration.test.ts` falló por ausencia del módulo, antes de implementarlo. Especifica 24 renders y dos reducciones para un dispositivo lento; 12 renders sin reducción para uno rápido.
+- Verde: calibración acotada de fotogramas reales mediante RAF antes de habilitar Iniciar. No se modifica el mínimo de resolución, los umbrales ni la medición de frames jugando. Las dos pruebas pasan.
+- Refactor: constantes de ventana y ratio mínimo compartidas con el controlador; `setQuality` único para preparación y adaptación jugando. `npm test`: 120/120 en 26 archivos. `npm run build`: correcto, con aviso de tamaño del bundle.

@@ -1,7 +1,7 @@
-const MIN_RATIO = 0.375;
+export const MIN_RATIO = 0.375;
 const MAX_RATIO = 1.5;
 const FRAME_TARGET_MS = 1000 / 30;
-const WINDOW_SIZE = 12;
+export const WINDOW_SIZE = 12;
 /** Uses genuine frame times to reduce GPU work; never changes reported FPS. */
 export function createQualityController(initialRatio = 1.5) {
   let ratio = Math.min(
