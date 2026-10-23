@@ -6,6 +6,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { applyMaterialLighting, applyRenderQuality, materialAlternative } from './material-lighting';
 import { rendererOptions } from './renderer-options';
 import { FULL_DETAIL_RATIO, initialPixelRatio } from './quality';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { weatherProfile, parseWeather } from "../weather";
 export const SCENE_BUDGET = {
   drawCalls: 100,
@@ -44,6 +45,40 @@ const color = {
 interface WorldOptions {
   artTextures?: ArtTextures;
   bicycle?: { group: T.Group; update(state: BicyclePresentation): void; resize?(aspect: number): void };
+}
+/** Bake equal opaque Lambert shading into vertex colors; keep planar windows inspectable. */
+function batchStaticCity(city: T.Group) {
+  const sources = city.children.filter((node): node is T.InstancedMesh =>
+    node instanceof T.InstancedMesh && node.geometry.type !== 'PlaneGeometry' &&
+    node.material instanceof T.MeshLambertMaterial && !node.material.map &&
+    !node.material.transparent && node.material.opacity === 1 &&
+    node.material.side === T.FrontSide && !node.castShadow && !node.receiveShadow);
+  const parts: T.BufferGeometry[] = [];
+  const transform = new T.Matrix4();
+  for (const source of sources) {
+    const color = (source.material as T.MeshLambertMaterial).color;
+    for (let index = 0; index < source.count; index++) {
+      source.getMatrixAt(index, transform);
+      const geometry = source.geometry.clone().applyMatrix4(transform);
+      geometry.clearGroups();
+      const vertexCount = geometry.attributes.position.count;
+      // Preserve indexed meshes and their vertex count; only the small icosahedron
+      // needs a sequential index to share a single indexed draw with the other parts.
+      if (!geometry.index) geometry.setIndex(Array.from({ length: vertexCount }, (_, i) => i));
+      const colors = new Float32Array(vertexCount * 3);
+      for (let vertex = 0; vertex < vertexCount; vertex++) color.toArray(colors, vertex * 3);
+      geometry.setAttribute('color', new T.BufferAttribute(colors, 3));
+      parts.push(geometry);
+    }
+  }
+  const geometry = mergeGeometries(parts, false)!;
+  parts.forEach(part => part.dispose());
+  geometry.computeBoundingBox(); geometry.computeBoundingSphere();
+  const material = new T.MeshLambertMaterial({ color: 0xffffff, vertexColors: true });
+  const batch = new T.Mesh(geometry, material);
+  batch.name = 'city-static-color-batch';
+  sources.forEach(source => city.remove(source));
+  city.add(batch);
 }
 /** Shared geometry, material and texture ownership is deduplicated at scene shutdown. */
 function disposeSceneResources(scene: T.Scene) {
@@ -179,6 +214,7 @@ export function createWorld(options: WorldOptions = {}) {
   instances(box, 0xf3edb8, lines, city);
   instances(box, 0xf9f3dc, stripes, city);
   instances(box, 0xc7b26e, parked, city);
+  batchStaticCity(city);
   const artSlice = createArtSlice({ textures: options.artTextures });
   artSlice.group.userData.extent = { start: artSlice.metadata.startDistance, end: artSlice.metadata.endDistance };
   scene.add(artSlice.group);
@@ -273,6 +309,39 @@ export function createWorld(options: WorldOptions = {}) {
   pedBodies.name="pedestrian-bodies";pedHeads.name="pedestrian-heads";pedLegs.name="pedestrian-legs";
   const carPool = [carBodies, carTops, carWheels];
   const pedestrianPool = [pedBodies, pedHeads, pedLegs];
+  for (const mesh of [...carPool, ...pedestrianPool]) { mesh.count = 0; mesh.visible = false; }
+  type ActorPose = { id: string; x: number; z: number };
+  const previousCars: ActorPose[] = [], previousPedestrians: ActorPose[] = [];
+  const visibleCars: RenderTraffic[] = [], visiblePedestrians: RenderTraffic[] = [];
+  function updateActorPool(pool: T.InstancedMesh[], previous: ActorPose[], actors: RenderTraffic[], car: boolean) {
+    let changed = previous.length !== actors.length;
+    for (let index = 0; index < actors.length; index++) {
+      const actor = actors[index], before = previous[index];
+      if (before?.id === actor.id && before.x === actor.x && before.z === actor.z) continue;
+      changed = true;
+      const x = actor.x, z = -actor.z;
+      if (car) {
+        matrix(pool[0], index, x, .55, z, 4, .85, 2);
+        matrix(pool[1], index, x, 1.15, z - .15, 1.9, .6, 1.5);
+        for (let wheel = 0; wheel < 2; wheel++) matrix(pool[2], index * 2 + wheel, x + (wheel ? 1.1 : -1.1), .3, z, .45, .45, 2);
+      } else {
+        matrix(pool[0], index, x, 1, z, .23, .7, .23);
+        matrix(pool[1], index, x, 1.6, z, .22, .25, .22);
+        for (let leg = 0; leg < 2; leg++) matrix(pool[2], index * 2 + leg, x + (leg ? .13 : -.13), .35, z, .13, .7, .15);
+      }
+      previous[index] = { id: actor.id, x, z: actor.z };
+    }
+    previous.length = actors.length;
+    for (let part = 0; part < pool.length; part++) {
+      const mesh = pool[part];
+      mesh.count = actors.length * (part === 2 ? 2 : 1);
+      mesh.visible = mesh.count > 0;
+      if (changed && mesh.visible) {
+        mesh.instanceMatrix.needsUpdate = true;
+        mesh.computeBoundingBox(); mesh.computeBoundingSphere();
+      }
+    }
+  }
   const sunSky = new T.Color(0xc6d5d7);
   const rainSky = new T.Color(0x839398);
   let lastWeather = '';
@@ -295,55 +364,17 @@ export function createWorld(options: WorldOptions = {}) {
     bicycle.update(snapshot);
     rain.visible = raining;
     rain.position.set(camera.position.x,-((snapshot.elapsed*8)%7),camera.position.z);
-    let hasCar = false;
-    let hasPedestrian = false;
+    visibleCars.length = 0; visiblePedestrians.length = 0;
     for (let i = 0; i < 12; i++) {
       const obstacle = traffic[i];
       const visible =
         obstacle?.active &&
         obstacle.z - snapshot.distance > -15 &&
         obstacle.z - snapshot.distance < 200;
-      const x = obstacle?.x || 0;
-      const z = visible ? -obstacle.z : -1000;
-      const car = visible && obstacle.kind === "car";
-      const pedestrian = visible && obstacle.kind === "pedestrian";
-      hasCar ||= Boolean(car);
-      hasPedestrian ||= Boolean(pedestrian);
-      matrix(carBodies, i, x, car ? 0.55 : -1000, z, 4, 0.85, 2);
-      matrix(carTops, i, x, car ? 1.15 : -1000, z - 0.15, 1.9, 0.6, 1.5);
-      for (let k = 0; k < 2; k++)
-        matrix(
-          carWheels,
-          i * 2 + k,
-          x + (k ? 1.1 : -1.1),
-          car ? 0.3 : -1000,
-          z,
-          0.45,
-          0.45,
-          2,
-        );
-      matrix(pedBodies, i, x, pedestrian ? 1 : -1000, z, 0.23, 0.7, 0.23);
-      matrix(pedHeads, i, x, pedestrian ? 1.6 : -1000, z, 0.22, 0.25, 0.22);
-      for (let k = 0; k < 2; k++)
-        matrix(
-          pedLegs,
-          i * 2 + k,
-          x + (k ? 0.13 : -0.13),
-          pedestrian ? 0.35 : -1000,
-          z,
-          0.13,
-          0.7,
-          0.15,
-        );
+      if (visible) (obstacle.kind === 'car' ? visibleCars : visiblePedestrians).push(obstacle);
     }
-    carPool.forEach((mesh) => {
-      mesh.visible = hasCar;
-      if (hasCar) { mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingBox();mesh.computeBoundingSphere(); }
-    });
-    pedestrianPool.forEach((mesh) => {
-      mesh.visible = hasPedestrian;
-      if (hasPedestrian) { mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingBox();mesh.computeBoundingSphere(); }
-    });
+    updateActorPool(carPool, previousCars, visibleCars, true);
+    updateActorPool(pedestrianPool, previousPedestrians, visiblePedestrians, false);
 
   }
   let disposed = false;

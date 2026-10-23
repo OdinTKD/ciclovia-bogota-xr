@@ -1,0 +1,91 @@
+verify	Run npm run test:e2e	﻿2026-10-23T21:22:13.3215622Z ##[group]Run npm run test:e2e
+verify	Run npm run test:e2e	2026-10-23T21:22:13.3216258Z ^[[36;1mnpm run test:e2e^[[0m
+verify	Run npm run test:e2e	2026-10-23T21:22:13.3276549Z shell: /usr/bin/bash -e {0}
+verify	Run npm run test:e2e	2026-10-23T21:22:13.3277628Z ##[endgroup]
+verify	Run npm run test:e2e	2026-10-23T21:22:13.4198277Z 
+verify	Run npm run test:e2e	2026-10-23T21:22:13.4199298Z > ciclovia-bogota-xr@0.3.0-alpha.3 test:e2e
+verify	Run npm run test:e2e	2026-10-23T21:22:13.4200114Z > playwright test
+verify	Run npm run test:e2e	2026-10-23T21:22:13.4200399Z 
+verify	Run npm run test:e2e	2026-10-23T21:22:14.6819007Z 
+verify	Run npm run test:e2e	2026-10-23T21:22:14.6819708Z Running 28 tests using 1 worker
+verify	Run npm run test:e2e	2026-10-23T21:22:14.6820040Z 
+verify	Run npm run test:e2e	2026-10-23T21:22:32.7292631Z   ✓   1 [desktop] › tests/e2e/art-slice.spec.ts:3:1 › el inicio espera el modelo Blender imprescindible (15.1s)
+verify	Run npm run test:e2e	2026-10-23T21:22:33.5372129Z   ✓   2 [desktop] › tests/e2e/art-slice.spec.ts:33:1 › un GLB ausente comunica el error y no inicia una sustitución silenciosa (795ms)
+verify	Run npm run test:e2e	2026-10-23T21:22:46.0191682Z   ✓   3 [desktop] › tests/e2e/game.spec.ts:3:1 › el inicio espera a que terminen de cargar los recursos (12.5s)
+verify	Run npm run test:e2e	2026-10-23T21:23:13.4053572Z   ✓   4 [desktop] › tests/e2e/game.spec.ts:20:1 › seguridad, paseo, pausa, lluvia, controles y reinicio (27.4s)
+verify	Run npm run test:e2e	2026-10-23T21:23:33.9172177Z   ✓   5 [desktop] › tests/e2e/gate-a.spec.ts:3:1 › mantener P o Escape no reanuda accidentalmente la pausa (20.5s)
+verify	Run npm run test:e2e	2026-10-23T21:23:47.9733540Z   ✓   6 [desktop] › tests/e2e/gate-a.spec.ts:19:1 › el informe cuenta cada frame jugando aunque ese frame no complete un tick físico (14.0s)
+verify	Run npm run test:e2e	2026-10-23T21:24:10.3567436Z   ✓   7 [desktop] › tests/e2e/gate-a.spec.ts:39:1 › puerta A: ruta de 200 m, orientación, un tick físico y diagnóstico descargable (22.4s)
+verify	Run npm run test:e2e	2026-10-23T21:24:11.0631462Z   ✓   8 [desktop] › tests/e2e/polish-assets.spec.ts:2:1 › una textura de referencia ausente impide iniciar y explica el error (684ms)
+verify	Run npm run test:e2e	2026-10-23T21:24:50.4732086Z   ✓   9 [desktop] › tests/e2e/polish-journey.spec.ts:2:1 › partida real: carro, peatón y llegada sin inyectar estado (39.4s)
+verify	Run npm run test:e2e	2026-10-23T21:25:06.5573977Z   ✓  10 [desktop] › tests/e2e/polish-ui.spec.ts:2:1 › HUD compacto carbón/amarillo deja libre el primer plano de manos (16.1s)
+verify	Run npm run test:e2e	2026-10-23T21:25:13.0702530Z   ✓  11 [desktop] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom (6.5s)
+verify	Run npm run test:e2e	2026-10-23T21:25:29.8081018Z   ✓  12 [desktop] › tests/e2e/ui-performance.spec.ts:2:1 › HUD estacionario no genera mutaciones DOM innecesarias (16.7s)
+verify	Run npm run test:e2e	2026-10-23T21:25:30.4417497Z   -  13 [desktop] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia
+verify	Run npm run test:e2e	2026-10-23T21:25:30.5110340Z   -  14 [desktop] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva
+verify	Run npm run test:e2e	2026-10-23T21:25:41.2527751Z   ✓  15 [mobile] › tests/e2e/art-slice.spec.ts:3:1 › el inicio espera el modelo Blender imprescindible (10.2s)
+verify	Run npm run test:e2e	2026-10-23T21:25:41.9755294Z   ✓  16 [mobile] › tests/e2e/art-slice.spec.ts:33:1 › un GLB ausente comunica el error y no inicia una sustitución silenciosa (704ms)
+verify	Run npm run test:e2e	2026-10-23T21:25:51.9987823Z   ✓  17 [mobile] › tests/e2e/game.spec.ts:3:1 › el inicio espera a que terminen de cargar los recursos (10.0s)
+verify	Run npm run test:e2e	2026-10-23T21:26:09.5170473Z   ✓  18 [mobile] › tests/e2e/game.spec.ts:20:1 › seguridad, paseo, pausa, lluvia, controles y reinicio (17.5s)
+verify	Run npm run test:e2e	2026-10-23T21:26:22.7225683Z   ✓  19 [mobile] › tests/e2e/gate-a.spec.ts:3:1 › mantener P o Escape no reanuda accidentalmente la pausa (13.2s)
+verify	Run npm run test:e2e	2026-10-23T21:26:33.4149358Z   ✓  20 [mobile] › tests/e2e/gate-a.spec.ts:19:1 › el informe cuenta cada frame jugando aunque ese frame no complete un tick físico (10.7s)
+verify	Run npm run test:e2e	2026-10-23T21:26:48.5498124Z   ✓  21 [mobile] › tests/e2e/gate-a.spec.ts:39:1 › puerta A: ruta de 200 m, orientación, un tick físico y diagnóstico descargable (15.1s)
+verify	Run npm run test:e2e	2026-10-23T21:26:49.2450960Z   ✓  22 [mobile] › tests/e2e/polish-assets.spec.ts:2:1 › una textura de referencia ausente impide iniciar y explica el error (662ms)
+verify	Run npm run test:e2e	2026-10-23T21:27:24.2709543Z   ✓  23 [mobile] › tests/e2e/polish-journey.spec.ts:2:1 › partida real: carro, peatón y llegada sin inyectar estado (35.0s)
+verify	Run npm run test:e2e	2026-10-23T21:27:35.5779558Z   ✓  24 [mobile] › tests/e2e/polish-ui.spec.ts:2:1 › HUD compacto carbón/amarillo deja libre el primer plano de manos (11.3s)
+verify	Run npm run test:e2e	2026-10-23T21:27:35.5907532Z   -  25 [mobile] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom
+verify	Run npm run test:e2e	2026-10-23T21:27:47.3053314Z   ✓  26 [mobile] › tests/e2e/ui-performance.spec.ts:2:1 › HUD estacionario no genera mutaciones DOM innecesarias (11.7s)
+verify	Run npm run test:e2e	2026-10-23T21:28:06.7579534Z   ✘  27 [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia (18.8s)
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6116885Z   ✘  28 [mobile] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva (33.4s)
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6416443Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6421042Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6430152Z   1) [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6431093Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6431470Z     Error: expect(received).toBeGreaterThanOrEqual(expected)
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6431815Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6432000Z     Expected: >= 30
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6432498Z     Received:    17.877055418871795
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6432864Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6433193Z       49 |     expect(metrics.triangles).toBeGreaterThan(10000);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6433759Z       50 |     expect(metrics.pixelRatio).toBeGreaterThanOrEqual(0.75);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6434278Z     > 51 |     expect(metrics.fps).toBeGreaterThanOrEqual(30);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6434702Z          |                         ^
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6435082Z       52 |   }
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6435472Z       53 | });
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6435746Z       54 |
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6436352Z         at /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr/tests/e2e/performance.spec.ts:51:25
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6436731Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6437506Z     attachment #1: performance-sun (application/json) ──────────────────────────────────────────────
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6438537Z     test-results/performance-presupuesto-re-92d52-na-y-frames-en-sol-y-lluvia-mobile/attachments/performance-sun-462d788dbe3d7dfbb012459cd3741904f585a397.json
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6439914Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6440198Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6440678Z     Error Context: test-results/performance-presupuesto-re-92d52-na-y-frames-en-sol-y-lluvia-mobile/error-context.md
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6441192Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6441710Z   2) [mobile] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6442174Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6442390Z     Error: expect(received).toBeGreaterThanOrEqual(expected)
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6442691Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6442892Z     Expected: >= 30
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6443237Z     Received:    24.034191829484904
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6443427Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6443768Z       60 |     await page.screenshot({ path: testInfo.outputPath(`route-${weather}.png`) });
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6444377Z       61 |     expect(report.frames.samples).toBeGreaterThan(300);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6444909Z     > 62 |     expect(report.frames.fps).toBeGreaterThanOrEqual(30);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6445405Z          |                               ^
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6445844Z       63 |     expect(report.maxDrawCalls).toBeLessThanOrEqual(100);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6446356Z       64 |     expect(report.maxTriangles).toBeLessThanOrEqual(100_000);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6447152Z       65 |     expect(report.state.distance).toBeGreaterThan(90);
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6448084Z         at /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr/tests/e2e/route-performance.spec.ts:62:31
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6448522Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6449012Z     attachment #1: route-performance-sun (application/json) ────────────────────────────────────────
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6450155Z     test-results/route-performance-recorrid-2ea9d-pleto-y-resolución-efectiva-mobile/attachments/route-performance-sun-e7615d1ec49cc81f11152eb9425b424786ed1da6.json
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6451440Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6451721Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6452265Z     Error Context: test-results/route-performance-recorrid-2ea9d-pleto-y-resolución-efectiva-mobile/error-context.md
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6452717Z 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6452898Z   2 failed
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6453517Z     [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6454423Z     [mobile] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva 
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6455004Z   3 skipped
+verify	Run npm run test:e2e	2026-10-23T21:28:40.6455304Z   23 passed (6.4m)
+verify	Run npm run test:e2e	2026-10-23T21:28:40.7154887Z ##[error]Process completed with exit code 1.

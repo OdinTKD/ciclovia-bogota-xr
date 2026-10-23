@@ -18,8 +18,8 @@ describe("pools de actores renderizan únicamente retos visibles", () => {
     expect(dimensions.x).toBe(4);expect(dimensions.z).toBe(2);
   });
   it('cuenta geometría real por actor y mantiene peatón dentro de collider',()=>{
-    const world=createWorld();world.update(snapshot,[{id:'ped',kind:'pedestrian',x:0,z:30,active:true}]);
-    const count=(names:string[])=>names.reduce((total,name)=>{const mesh=world.scene.getObjectByName(name) as InstancedMesh;return total+(mesh.geometry.index?.count??mesh.geometry.attributes.position.count)/3*(mesh.count/12);},0);
+    const world=createWorld();world.update(snapshot,[{id:'ped',kind:'pedestrian',x:0,z:30,active:true},{id:'car',kind:'car',x:1,z:45,active:true}]);
+    const count=(names:string[])=>names.reduce((total,name)=>{const mesh=world.scene.getObjectByName(name) as InstancedMesh;return total+(mesh.geometry.index?.count??mesh.geometry.attributes.position.count)/3*mesh.count;},0);
     expect(count(['car-bodies','car-tops','car-wheels'])).toBe(48);
     expect(count(['pedestrian-bodies','pedestrian-heads','pedestrian-legs'])).toBe(68);
     for(const name of ['pedestrian-bodies','pedestrian-heads','pedestrian-legs']){

@@ -4,7 +4,7 @@
     {
       "weather": "sun",
       "render": {
-        "drawCalls": 35,
+        "drawCalls": 28,
         "triangles": 28208,
         "pixelRatio": 0.75,
         "width": 309,
@@ -30,17 +30,17 @@
         "health": 100,
         "score": 0,
         "weather": "sun",
-        "elapsed": 0.8000000000000008,
+        "elapsed": 0.8333333333333343,
         "collisions": 0,
         "finished": false,
-        "tick": 48,
+        "tick": 50,
         "lastContact": null
       }
     },
     {
       "weather": "rain",
       "render": {
-        "drawCalls": 36,
+        "drawCalls": 29,
         "triangles": 30128,
         "pixelRatio": 0.75,
         "width": 309,
@@ -66,13 +66,14 @@
         "health": 100,
         "score": 0,
         "weather": "rain",
-        "elapsed": 0.5833333333333335,
+        "elapsed": 0.6166666666666669,
         "collisions": 0,
         "finished": false,
-        "tick": 35,
+        "tick": 37,
         "lastContact": null
       }
     }
   ],
+  "errors": [],
   "note": "Minimum-profile visual review; Pixel7 viewport on desktop Chromium with CPU4x. No physical phone. Screenshot is CSS412x839, internal render309x629."
 }

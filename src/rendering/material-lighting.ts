@@ -1,5 +1,6 @@
 import { LinearMipmapNearestFilter, Material, Mesh, MeshLambertMaterial, MeshStandardMaterial, Scene, Texture, type MinificationTextureFilter } from 'three';
 import { FULL_DETAIL_RATIO } from './quality';
+import { setVertexDiffuse } from './vertex-diffuse';
 const REFLECTION_STRENGTH = .35;
 const REFLECTIVE_METALNESS = .3;
 const alternatives = new WeakMap<Material, Material>();
@@ -62,6 +63,7 @@ export function applyRenderQuality(renderer: { shadowMap: { enabled: boolean } }
   scene.traverse(object => {
     if (!(object instanceof Mesh)) return;
     for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+      if (material instanceof MeshLambertMaterial) setVertexDiffuse(material, !fullEffects);
       const map = (material as MeshLambertMaterial).map;
       if (map) applyTextureFiltering(map, fullEffects);
     }

@@ -7,7 +7,9 @@ const folder='docs/screenshots/gate-a-polish/minimum';
 await mkdir(folder,{recursive:true});
 const browser=await chromium.launch();
 const context=await browser.newContext({...devices['Pixel 7']});
-const page=await context.newPage(),reports=[];
+const page=await context.newPage(),reports=[],errors=[];
+page.on('pageerror',error=>errors.push(error.message));
+page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
 await (await context.newCDPSession(page)).send('Emulation.setCPUThrottlingRate',{rate:4});
 try {
  for(const weather of ['sun','rain']){
@@ -21,6 +23,7 @@ try {
   await page.screenshot({path:`${folder}/${weather}.png`,scale:'css'});
   reports.push({weather,render:game.render,state:game.state});
  }
- await writeFile(`${folder}/report.json`,JSON.stringify({base,reports,note:'Minimum-profile visual review; Pixel7 viewport on desktop Chromium with CPU4x. No physical phone. Screenshot is CSS412x839, internal render309x629.'},null,2));
+ assert.deepEqual(errors,[],'No shader compilation or page errors');
+ await writeFile(`${folder}/report.json`,JSON.stringify({base,reports,errors,note:'Minimum-profile visual review; Pixel7 viewport on desktop Chromium with CPU4x. No physical phone. Screenshot is CSS412x839, internal render309x629.'},null,2));
  console.log('Minimum profile: sun/rain, 309x629 internal, verified.');
 }finally{await browser.close();}

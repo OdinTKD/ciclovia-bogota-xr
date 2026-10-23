@@ -14,6 +14,12 @@ try{
  assert.equal(game.assets.triangles,manifest.triangles);assert.equal(game.assets.source,'blender-glb');
  const model=await page.request.get(new URL('assets/models/bicycle-rider.glb',base).href);
  assert.equal(createHash('sha256').update(await model.body()).digest('hex'),manifest.sha256);
+ const environment=JSON.parse(await readFile('assets/environment-alpha3/manifest.json','utf8'));
+ for(const asset of environment.assets){
+  const response=await page.request.get(new URL(asset.output.file.replace(/^public\//,''),base).href);
+  assert.equal(response.status(),200);
+  assert.equal(createHash('sha256').update(await response.body()).digest('hex'),asset.output.sha256);
+ }
  assert.ok(game.render.pixelRatio>=.75);assert.equal(game.routeLength,200);
  await page.getByTestId('safety').check();await page.getByTestId('start').click();
  await page.keyboard.down('w');await page.waitForFunction(()=>window.__game.state.speed>2);await page.keyboard.up('w');
@@ -39,6 +45,6 @@ try{
  }
  assert.ok(videos[0].duration>25);assert.deepEqual(errors,[]);
  await mkdir('docs/performance/gate-a-polish',{recursive:true});
- const report={verifiedAt:new Date().toISOString(),base,version,modelSha256:manifest.sha256,assets:game.assets,videos,comparisonImages:8,errors,note:'Publication/media smoke, not a phone test or FPS benchmark.'};
+ const report={verifiedAt:new Date().toISOString(),base,version,modelSha256:manifest.sha256,environmentHashes:environment.assets.map(asset=>({id:asset.id,sha256:asset.output.sha256})),assets:game.assets,videos,comparisonImages:8,errors,note:'Publication/media smoke, not a phone test or FPS benchmark.'};
  await writeFile(`docs/performance/gate-a-polish/${base.startsWith('https:')?'live':'local'}-verification.json`,JSON.stringify(report,null,2));console.log(JSON.stringify(report));
 }finally{await browser.close();}

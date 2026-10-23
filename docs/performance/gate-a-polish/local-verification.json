@@ -1,8 +1,22 @@
 {
-  "verifiedAt": "2026-10-23T21:13:27.290Z",
+  "verifiedAt": "2026-10-23T21:54:56.171Z",
   "base": "http://127.0.0.1:4185/",
   "version": "0.3.0-alpha.3",
   "modelSha256": "da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85",
+  "environmentHashes": [
+    {
+      "id": "brick_wall_001",
+      "sha256": "bb0e5ac480ac4e15e305c20917d7e258588f83f58b50fa1eec89fc325c5e09cd"
+    },
+    {
+      "id": "bark_brown_02",
+      "sha256": "9273930c1749e0633d516ca19c419308aee090321ccd6a8ef6fd75a6e2f6a0a5"
+    },
+    {
+      "id": "tree_small_02",
+      "sha256": "7c60d50feb37695c482d3b5ac1c4f08e19600ad07cb5886b9276f6a2bb1e916c"
+    }
+  ],
   "assets": {
     "triangles": 10516,
     "drawCalls": 11,
@@ -13,12 +27,12 @@
   },
   "videos": [
     {
-      "duration": 30.4,
+      "duration": 30.32,
       "width": 1280,
       "height": 720
     },
     {
-      "duration": 8.92,
+      "duration": 8.64,
       "width": 412,
       "height": 838
     }

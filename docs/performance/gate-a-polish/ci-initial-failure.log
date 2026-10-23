@@ -1,0 +1,72 @@
+verify	Run npm run test:e2e	﻿2026-10-23T21:15:08.7701021Z ##[group]Run npm run test:e2e
+verify	Run npm run test:e2e	2026-10-23T21:15:08.7701294Z ^[[36;1mnpm run test:e2e^[[0m
+verify	Run npm run test:e2e	2026-10-23T21:15:08.7757707Z shell: /usr/bin/bash -e {0}
+verify	Run npm run test:e2e	2026-10-23T21:15:08.7757864Z ##[endgroup]
+verify	Run npm run test:e2e	2026-10-23T21:15:08.9361857Z 
+verify	Run npm run test:e2e	2026-10-23T21:15:08.9362191Z > ciclovia-bogota-xr@0.3.0-alpha.3 test:e2e
+verify	Run npm run test:e2e	2026-10-23T21:15:08.9362501Z > playwright test
+verify	Run npm run test:e2e	2026-10-23T21:15:08.9362625Z 
+verify	Run npm run test:e2e	2026-10-23T21:15:09.7944614Z 
+verify	Run npm run test:e2e	2026-10-23T21:15:09.7945293Z Running 28 tests using 1 worker
+verify	Run npm run test:e2e	2026-10-23T21:15:09.7945626Z 
+verify	Run npm run test:e2e	2026-10-23T21:15:18.7197795Z   ✓   1 [desktop] › tests/e2e/art-slice.spec.ts:3:1 › el inicio espera el modelo Blender imprescindible (7.8s)
+verify	Run npm run test:e2e	2026-10-23T21:15:19.1854156Z   ✓   2 [desktop] › tests/e2e/art-slice.spec.ts:33:1 › un GLB ausente comunica el error y no inicia una sustitución silenciosa (435ms)
+verify	Run npm run test:e2e	2026-10-23T21:15:27.5562609Z   ✓   3 [desktop] › tests/e2e/game.spec.ts:3:1 › el inicio espera a que terminen de cargar los recursos (8.4s)
+verify	Run npm run test:e2e	2026-10-23T21:15:44.2517978Z   ✓   4 [desktop] › tests/e2e/game.spec.ts:20:1 › seguridad, paseo, pausa, lluvia, controles y reinicio (16.7s)
+verify	Run npm run test:e2e	2026-10-23T21:15:56.1655016Z   ✓   5 [desktop] › tests/e2e/gate-a.spec.ts:3:1 › mantener P o Escape no reanuda accidentalmente la pausa (11.9s)
+verify	Run npm run test:e2e	2026-10-23T21:16:04.2920533Z   ✓   6 [desktop] › tests/e2e/gate-a.spec.ts:19:1 › el informe cuenta cada frame jugando aunque ese frame no complete un tick físico (8.1s)
+verify	Run npm run test:e2e	2026-10-23T21:16:17.5162080Z   ✓   7 [desktop] › tests/e2e/gate-a.spec.ts:39:1 › puerta A: ruta de 200 m, orientación, un tick físico y diagnóstico descargable (13.2s)
+verify	Run npm run test:e2e	2026-10-23T21:16:17.9826856Z   ✓   8 [desktop] › tests/e2e/polish-assets.spec.ts:2:1 › una textura de referencia ausente impide iniciar y explica el error (453ms)
+verify	Run npm run test:e2e	2026-10-23T21:16:50.9070523Z   ✓   9 [desktop] › tests/e2e/polish-journey.spec.ts:2:1 › partida real: carro, peatón y llegada sin inyectar estado (32.9s)
+verify	Run npm run test:e2e	2026-10-23T21:16:59.9904977Z   ✓  10 [desktop] › tests/e2e/polish-ui.spec.ts:2:1 › HUD compacto carbón/amarillo deja libre el primer plano de manos (9.1s)
+verify	Run npm run test:e2e	2026-10-23T21:17:03.5531134Z   ✘  11 [desktop] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom (3.4s)
+verify	Run npm run test:e2e	2026-10-23T21:17:14.0589608Z   ✓  12 [desktop] › tests/e2e/ui-performance.spec.ts:2:1 › HUD estacionario no genera mutaciones DOM innecesarias (10.2s)
+verify	Run npm run test:e2e	2026-10-23T21:17:14.4209777Z   -  13 [desktop] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia
+verify	Run npm run test:e2e	2026-10-23T21:17:14.4725583Z   -  14 [desktop] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva
+verify	Run npm run test:e2e	2026-10-23T21:17:20.9099053Z   ✓  15 [mobile] › tests/e2e/art-slice.spec.ts:3:1 › el inicio espera el modelo Blender imprescindible (6.1s)
+verify	Run npm run test:e2e	2026-10-23T21:17:21.3307363Z   ✓  16 [mobile] › tests/e2e/art-slice.spec.ts:33:1 › un GLB ausente comunica el error y no inicia una sustitución silenciosa (412ms)
+verify	Run npm run test:e2e	2026-10-23T21:17:27.1971682Z   ✓  17 [mobile] › tests/e2e/game.spec.ts:3:1 › el inicio espera a que terminen de cargar los recursos (5.9s)
+verify	Run npm run test:e2e	2026-10-23T21:17:39.3185752Z   ✓  18 [mobile] › tests/e2e/game.spec.ts:20:1 › seguridad, paseo, pausa, lluvia, controles y reinicio (12.1s)
+verify	Run npm run test:e2e	2026-10-23T21:17:47.0797844Z   ✓  19 [mobile] › tests/e2e/gate-a.spec.ts:3:1 › mantener P o Escape no reanuda accidentalmente la pausa (7.7s)
+verify	Run npm run test:e2e	2026-10-23T21:17:53.3300529Z   ✓  20 [mobile] › tests/e2e/gate-a.spec.ts:19:1 › el informe cuenta cada frame jugando aunque ese frame no complete un tick físico (6.2s)
+verify	Run npm run test:e2e	2026-10-23T21:18:02.8595589Z   ✓  21 [mobile] › tests/e2e/gate-a.spec.ts:39:1 › puerta A: ruta de 200 m, orientación, un tick físico y diagnóstico descargable (9.5s)
+verify	Run npm run test:e2e	2026-10-23T21:18:03.2935397Z   ✓  22 [mobile] › tests/e2e/polish-assets.spec.ts:2:1 › una textura de referencia ausente impide iniciar y explica el error (420ms)
+verify	Run npm run test:e2e	2026-10-23T21:18:33.6180172Z   ✓  23 [mobile] › tests/e2e/polish-journey.spec.ts:2:1 › partida real: carro, peatón y llegada sin inyectar estado (30.3s)
+verify	Run npm run test:e2e	2026-10-23T21:18:40.2377411Z   ✓  24 [mobile] › tests/e2e/polish-ui.spec.ts:2:1 › HUD compacto carbón/amarillo deja libre el primer plano de manos (6.6s)
+verify	Run npm run test:e2e	2026-10-23T21:18:40.2467226Z   -  25 [mobile] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom
+verify	Run npm run test:e2e	2026-10-23T21:18:47.3052946Z   ✓  26 [mobile] › tests/e2e/ui-performance.spec.ts:2:1 › HUD estacionario no genera mutaciones DOM innecesarias (7.1s)
+verify	Run npm run test:e2e	2026-10-23T21:19:06.9836121Z   ✓  27 [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia (19.3s)
+verify	Run npm run test:e2e	2026-10-23T21:19:54.5987214Z   ✓  28 [mobile] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva (47.6s)
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6576359Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6579309Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6586140Z   1) [desktop] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6587078Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6589262Z     Error: expect(received).toBeGreaterThanOrEqual(expected)
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6589421Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6589519Z     Expected: >= 600
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6589656Z     Received:    0
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6589726Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6589855Z       18 |  await page.waitForFunction(()=>(window as any).__game?.ready);
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6590136Z       19 |  const render=await page.evaluate(()=>(window as any).__game.render);
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6590490Z     > 20 |  expect(render.pixelRatio).toBeGreaterThanOrEqual(.75);expect(render.width).toBeGreaterThanOrEqual(600);
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6590802Z          |                                                                             ^
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6591006Z       21 |  await context.close();
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6591145Z       22 | });
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6591254Z       23 |
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6591492Z         at /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr/tests/e2e/polish-ui.spec.ts:20:77
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6591688Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6591926Z     Error Context: test-results/polish-ui-el-arranque-resp-ea971-l-con-DPR-reducido-por-zoom-desktop/error-context.md
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6592187Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6592494Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6592874Z     test-results/polish-ui-el-arranque-resp-ea971-l-con-DPR-reducido-por-zoom-desktop/trace.zip
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6593133Z     Usage:
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6593196Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6593440Z         npx playwright show-trace test-results/polish-ui-el-arranque-resp-ea971-l-con-DPR-reducido-por-zoom-desktop/trace.zip
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6593706Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6593896Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6594044Z 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6594092Z   1 failed
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6594404Z     [desktop] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom 
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6594662Z   3 skipped
+verify	Run npm run test:e2e	2026-10-23T21:19:54.6594778Z   24 passed (4.8m)
+verify	Run npm run test:e2e	2026-10-23T21:19:54.7155943Z ##[error]Process completed with exit code 1.

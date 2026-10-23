@@ -3,12 +3,14 @@ import { chromium, devices } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const output = process.env.ART_BENCH_OUTPUT || 'docs/performance/gate-a-art';
+const cpuRate = Number(process.env.ART_BENCH_CPU_RATE || 4);
+assert.ok(Number.isFinite(cpuRate) && cpuRate >= 1, 'CPU slowdown must be at least 1');
 await mkdir(output, {recursive:true});
 for (const mode of (process.env.ART_BENCH_MODE ? [process.env.ART_BENCH_MODE] : ['software-mobile', 'hardware-desktop'])) {
   const browser = await chromium.launch(mode === 'hardware-desktop' ? { channel: 'chrome', args: ['--use-angle=d3d11'] } : {});
   const context = await browser.newContext(mode === 'software-mobile' ? { ...devices['Pixel 7'] } : { viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
   const page = await context.newPage();
-  if (mode === 'software-mobile') await (await context.newCDPSession(page)).send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  if (mode === 'software-mobile') await (await context.newCDPSession(page)).send('Emulation.setCPUThrottlingRate', { rate: cpuRate });
   await page.goto(process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4182/');
   await page.waitForFunction(() => window.__game?.ready);
   await page.getByTestId('safety').check();
@@ -41,7 +43,7 @@ for (const mode of (process.env.ART_BENCH_MODE ? [process.env.ART_BENCH_MODE] : 
           fps: samples.length * 1000 / samples.reduce((a,b) => a+b, 0), p95Ms: sorted[Math.ceil(sorted.length*.95)-1],
           resolutions, state: window.__game.state };
       });
-      reports.push({ mode, weather, ...report });
+      reports.push({ mode, weather, cpuRate: mode === 'software-mobile' ? cpuRate : 1, ...report });
       console.log(mode, weather, JSON.stringify({ fps: report.fps, calls: report.maxDrawCalls, triangles: report.maxTriangles, resolutions: report.resolutions }));
       assert.ok(report.state.distance < 40, 'Sample must remain inside the art slice');
       assert.ok(report.fps >= 30, 'FPS minimum 30');

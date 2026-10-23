@@ -68,7 +68,7 @@ Se solicita recaptura integrada con textura recargada. La corrección elimina la
 
 ## Revisión visual integrada tras corregir alpha (solo lectura del juego)
 
-Se inspeccionaron las capturas actualizadas `docs/screenshots/gate-a-polish/after/landscape-sun.png` (1280×720) y `portrait-rain.png` (412×869). No se ejecutó navegador ni se modificaron runtime/assets durante la grabación y medición del orquestador.
+Se inspeccionaron las capturas actualizadas `docs/screenshots/gate-a-polish/after/landscape-sun.png` (1280×720) y `portrait-rain.png` (412×839). No se ejecutó navegador ni se modificaron runtime/assets durante la grabación y medición del orquestador.
 
 Resultados visibles:
 
