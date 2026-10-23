@@ -1,0 +1,8 @@
+{
+  "id": "virrey",
+  "name": "Paseo por El Virrey",
+  "mode": "paseo",
+  "length": 1200,
+  "seed": 2026,
+  "traffic": "config/traffic.json"
+}
