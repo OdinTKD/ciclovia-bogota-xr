@@ -1,0 +1,8 @@
+
+ RUN  v5.0.5 C:/Users/Subdireccion TI/Documents/ChatGPT/Juego
+
+
+ Test Files  7 passed (7)
+      Tests  26 passed (26)
+   Start at  12:38:12
+   Duration  572ms (tests 75%, import 15%, transform 7%, worker 3%)

@@ -1,4 +1,5 @@
 import * as T from "three";
+import { createProceduralBicycle } from "./bicycle";
 import { weatherProfile, parseWeather } from "../weather";
 export const SCENE_BUDGET = {
   drawCalls: 100,
@@ -11,6 +12,11 @@ export interface RenderSnapshot {
   speed: number;
   weather: string;
   elapsed: number;
+  worldZ?: number;
+  yaw?: number;
+  steeringAngle?: number;
+  roll?: number;
+  pedalEffort?: number;
 }
 export interface RenderTraffic {
   id: string;
@@ -19,6 +25,9 @@ export interface RenderTraffic {
   z: number;
   active: boolean;
 }
+const CAMERA_ROLL_FACTOR=.15;
+const CAMERA_ROLL_LIMIT=.052;
+const CAMERA_FOLLOW_DISTANCE=1.3;
 const color = {
   green: 0x58b5a0,
   asphalt: 0x354d55,
@@ -32,6 +41,7 @@ export function createWorld() {
   scene.fog = new T.Fog(0xb8dce3, 65, 220);
   const camera = new T.PerspectiveCamera(65, 1, 0.06, 500);
   camera.position.set(0, 1.65, 0);
+  camera.rotation.order="YXZ";
   scene.add(camera);
   scene.add(new T.HemisphereLight(0xf5f7df, 0x677d77, 2.6));
   const sun = new T.DirectionalLight(0xffe6b5, 2.1);
@@ -54,7 +64,7 @@ export function createWorld() {
     parent: T.Object3D = scene,
   ) {
     const mesh = new T.InstancedMesh(geometry, material(c), transforms.length);
-    mesh.frustumCulled = false;
+    mesh.frustumCulled = true;
     transforms.forEach((v, i) => {
       dummy.position.set(v[0], v[1], v[2]);
       dummy.rotation.set(0, v[6] || 0, 0);
@@ -62,6 +72,8 @@ export function createWorld() {
       dummy.updateMatrix();
       mesh.setMatrixAt(i, dummy.matrix);
     });
+    mesh.computeBoundingBox();
+    mesh.computeBoundingSphere();
     parent.add(mesh);
     return mesh;
   }
@@ -71,11 +83,13 @@ export function createWorld() {
     [-11, -0.01, -100, 8, 0.2, 440],
     [11, -0.01, -100, 8, 0.2, 440],
   ]);
-  instances(box, 0xf4e6be, [
-    [-3.1, 0.04, -100, 0.15, 0.08, 440],
-    [3.1, 0.04, -100, 0.15, 0.08, 440],
+  const boundaryCue=instances(box, 0xf4e6be, [
+    [-2.95, 0.08, -100, 0.4, 0.16, 440],
+    [2.95, 0.08, -100, 0.4, 0.16, 440],
   ]);
+  boundaryCue.name='boundary-cue';
   const city = new T.Group();
+  city.name="environment";
   scene.add(city);
   const buildings: number[][] = [];
   const windows: number[][] = [];
@@ -127,7 +141,7 @@ export function createWorld() {
     [125, 22, -240, 70, 90, 65],
     [-90, 8, -270, 100, 70, 60],
   ]);
-  const wheelGeo = new T.TorusGeometry(1, 0.15, 4, 8);
+
   const trafficGroup = new T.Group();
   scene.add(trafficGroup);
   const carBodies = instances(
@@ -166,33 +180,8 @@ export function createWorld() {
     Array.from({ length: 24 }, () => [0, -1000, 0, 1, 1, 1]),
     trafficGroup,
   );
-  const bike = new T.Group();
-  camera.add(bike);
-  bike.position.set(0, -0.42, -1.1);
-  function bikePart(
-    geometry: T.BufferGeometry,
-    c: number,
-    x: number,
-    y: number,
-    z: number,
-    sx: number,
-    sy: number,
-    sz: number,
-    rz = 0,
-  ) {
-    const m = new T.Mesh(geometry, material(c));
-    m.position.set(x, y, z);
-    m.scale.set(sx, sy, sz);
-    m.rotation.z = rz;
-    bike.add(m);
-    return m;
-  }
-  bikePart(box, 0x214c53, 0, -0.12, 0.2, 0.06, 0.4, 0.06);
-  bikePart(box, 0x9eaeaa, 0, 0.04, 0, 0.9, 0.045, 0.055);
-  bikePart(box, 0x233f44, -0.51, 0.075, 0.07, 0.21, 0.07, 0.075, -0.24);
-  bikePart(box, 0x233f44, 0.51, 0.075, 0.07, 0.21, 0.07, 0.075, 0.24);
-  bikePart(box, 0xe9b648, 0, -0.03, -0.03, 0.13, 0.15, 0.07);
-  bikePart(wheelGeo, 0x273e42, 0, -0.48, -0.65, 0.29, 0.29, 0.29);
+  const bicycle=createProceduralBicycle();
+  camera.add(bicycle.group);
   // Thin instanced rain streaks share one draw call.
   const rain = instances(
     box,
@@ -223,6 +212,8 @@ export function createWorld() {
     dummy.updateMatrix();
     mesh.setMatrixAt(index, dummy.matrix);
   }
+  carBodies.name="car-bodies";carTops.name="car-tops";carWheels.name="car-wheels";
+  pedBodies.name="pedestrian-bodies";pedHeads.name="pedestrian-heads";pedLegs.name="pedestrian-legs";
   const carPool = [carBodies, carTops, carWheels];
   const pedestrianPool = [pedBodies, pedHeads, pedLegs];
   const sunSky = new T.Color(0xb8dce3);
@@ -235,17 +226,12 @@ export function createWorld() {
       parseWeather(snapshot.weather),
     ).visibility;
     sun.intensity = raining ? 0.65 : 2.1;
-    camera.position.x = snapshot.x;
-    camera.position.y =
-      1.65 +
-      Math.sin(snapshot.elapsed * 6) * Math.min(snapshot.speed * 0.002, 0.025);
-    camera.rotation.z = -snapshot.x * 0.009;
-    city.position.z = (snapshot.distance % 14) + 14;
-    bike.rotation.z =
-      Math.sin(snapshot.elapsed * 2) * Math.min(snapshot.speed * 0.001, 0.015);
+    const yaw=snapshot.yaw??0;
+    camera.position.set(snapshot.x-Math.sin(yaw)*CAMERA_FOLLOW_DISTANCE,1.65,(snapshot.worldZ??-snapshot.distance)+Math.cos(yaw)*CAMERA_FOLLOW_DISTANCE);
+    camera.rotation.set(0,-yaw,Math.max(-CAMERA_ROLL_LIMIT,Math.min(CAMERA_ROLL_LIMIT,(snapshot.roll??0)*CAMERA_ROLL_FACTOR)));
+    bicycle.update(snapshot);
     rain.visible = raining;
-    rain.position.z = snapshot.distance % 12;
-    rain.position.y = -((snapshot.elapsed * 8) % 7);
+    rain.position.set(camera.position.x,-((snapshot.elapsed*8)%7),camera.position.z);
     let hasCar = false;
     let hasPedestrian = false;
     for (let i = 0; i < 12; i++) {
@@ -255,12 +241,12 @@ export function createWorld() {
         obstacle.z - snapshot.distance > -15 &&
         obstacle.z - snapshot.distance < 200;
       const x = obstacle?.x || 0;
-      const z = visible ? -(obstacle.z - snapshot.distance) : -1000;
+      const z = visible ? -obstacle.z : -1000;
       const car = visible && obstacle.kind === "car";
       const pedestrian = visible && obstacle.kind === "pedestrian";
       hasCar ||= Boolean(car);
       hasPedestrian ||= Boolean(pedestrian);
-      matrix(carBodies, i, x, car ? 0.55 : -1000, z, 3.5, 0.85, 1.8);
+      matrix(carBodies, i, x, car ? 0.55 : -1000, z, 4, 0.85, 2);
       matrix(carTops, i, x, car ? 1.15 : -1000, z - 0.15, 1.9, 0.6, 1.5);
       for (let k = 0; k < 2; k++)
         matrix(
@@ -289,15 +275,13 @@ export function createWorld() {
     }
     carPool.forEach((mesh) => {
       mesh.visible = hasCar;
-      if (hasCar) mesh.instanceMatrix.needsUpdate = true;
+      if (hasCar) { mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingBox();mesh.computeBoundingSphere(); }
     });
     pedestrianPool.forEach((mesh) => {
       mesh.visible = hasPedestrian;
-      if (hasPedestrian) mesh.instanceMatrix.needsUpdate = true;
+      if (hasPedestrian) { mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingBox();mesh.computeBoundingSphere(); }
     });
-    [carBodies, carTops, carWheels, pedBodies, pedHeads, pedLegs].forEach(
-      (m) => (m.instanceMatrix.needsUpdate = true),
-    );
+
   }
   return { scene, camera, update };
 }
@@ -336,4 +320,21 @@ export function buildScene(canvas: HTMLCanvasElement) {
       renderer.dispose();
     },
   };
+}
+
+
+/** Conservative static inventory of real geometries; runtime WebGL counters remain authoritative. */
+export function assetGeometryStats(root:T.Object3D) {
+ const materials=new Set<T.Material>();const geometries=new Set<T.BufferGeometry>();
+ let triangles=0,drawCalls=0,meshes=0;
+ root.traverse(object=>{
+  if(!(object instanceof T.Mesh))return;
+  meshes++;const geometry=object.geometry;geometries.add(geometry);
+  const assigned=Array.isArray(object.material)?object.material:[object.material];assigned.forEach(m=>materials.add(m));
+  const count=geometry.index?.count??geometry.attributes.position.count;
+  const submitted=Math.min(count-geometry.drawRange.start,geometry.drawRange.count);
+  triangles+=Math.max(0,submitted)/3*(object instanceof T.InstancedMesh?object.count:1);
+  drawCalls+=Array.isArray(object.material)?geometry.groups.length:1;
+ });
+ return {triangles,drawCalls,meshes,materials:materials.size,geometries:geometries.size};
 }

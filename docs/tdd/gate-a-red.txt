@@ -1,0 +1,118 @@
+
+ RUN  v5.0.5 C:/Users/Subdireccion TI/Documents/ChatGPT/Juego
+
+ ❯ tests/unit/game-loop.test.ts (0 test)
+ ❯ tests/unit/bicycle-controller.test.ts (0 test)
+ ❯ tests/integration/gate-a-physics.test.ts (6 tests | 6 failed) 61ms
+   ❯ Gate A physical tick (6)
+     × advances Rapier exactly once per simulation tick regardless of actor count; queries do not step 41ms
+     × sweeps through a thin frontal obstacle and stops before it without penetration 7ms
+     × detects a moving actor crossing between separated endpoints and resolves relative motion 6ms
+     × separates initial overlap and supports rotated actors 5ms
+     × frontal impacts cost more speed and health than a graze; sustained contact observes cooldown 1ms
+     × same tick inputs at 30/60/120Hz agree within 1cm and 0.1 degree 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/bicycle-controller.test.ts [ tests/unit/bicycle-controller.test.ts ]
+Error: Cannot find module '../../src/vehicles/bicycle-controller' imported from C:/Users/Subdireccion TI/Documents/ChatGPT/Juego/tests/unit/bicycle-controller.test.ts
+ ❯ tests/unit/bicycle-controller.test.ts:2:1
+      1| import { describe, expect, it } from "vitest";
+      2| import { advanceBicycle, freshBicycle } from "../../src/vehicles/bicyc…
+       | ^
+      3| import { TRADITIONAL_BIKE } from "../../src/vehicles/catalog";
+      4| import { weatherProfile } from "../../src/weather";
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  tests/unit/game-loop.test.ts [ tests/unit/game-loop.test.ts ]
+Error: Cannot find module '../../src/core/game-loop' imported from C:/Users/Subdireccion TI/Documents/ChatGPT/Juego/tests/unit/game-loop.test.ts
+ ❯ tests/unit/game-loop.test.ts:2:1
+      1| import { describe, expect, it, vi } from "vitest";
+      2| import { createFixedLoop } from "../../src/core/game-loop";
+       | ^
+      3|
+      4| describe("single fixed clock", () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/gate-a-physics.test.ts > Gate A physical tick > advances Rapier exactly once per simulation tick regardless of actor count; queries do not step
+TypeError: sim.setWorld is not a function
+ ❯ tests/integration/gate-a-physics.test.ts:11:11
+      9|     try {
+     10|       const sim = createSimulation(); let trafficTicks = 0;
+     11|       sim.setWorld(physics, { step() { trafficTicks++; return []; }, r…
+       |           ^
+     12|       sim.start(); sim.update(1 / 30, { throttle: 1, steer: 0, brake: …
+     13|       expect(sim.state.tick).toBe(2); expect(physics.steps).toBe(2); e…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  tests/integration/gate-a-physics.test.ts > Gate A physical tick > sweeps through a thin frontal obstacle and stops before it without penetration
+TypeError: physics.moveBicycle is not a function
+ ❯ tests/integration/gate-a-physics.test.ts:24:30
+     22|     const physics = await createPhysics();
+     23|     try {
+     24|       const result = physics.moveBicycle(pose(0, 0), pose(0, -4), [wal…
+       |                              ^
+     25|       expect(result.contacts).toHaveLength(1);
+     26|       expect(result.contacts[0].kind).toBe("frontal");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  tests/integration/gate-a-physics.test.ts > Gate A physical tick > detects a moving actor crossing between separated endpoints and resolves relative motion
+TypeError: physics.moveBicycle is not a function
+ ❯ tests/integration/gate-a-physics.test.ts:36:30
+     34|     const crossing = { ...wall, from: pose(-3, 0), to: pose(3, 0), hal…
+     35|     try {
+     36|       const result = physics.moveBicycle(pose(0, 0), pose(0, -0.1), [c…
+       |                              ^
+     37|       expect(result.contacts.length).toBeGreaterThan(0);
+     38|       expect(result.contacts[0].normalSpeed).toBeGreaterThan(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  tests/integration/gate-a-physics.test.ts > Gate A physical tick > separates initial overlap and supports rotated actors
+TypeError: physics.moveBicycle is not a function
+ ❯ tests/integration/gate-a-physics.test.ts:46:30
+     44|     const rotated = { ...wall, from: pose(0.2, 0, Math.PI / 4), to: po…
+     45|     try {
+     46|       const result = physics.moveBicycle(pose(0, 0), pose(0, -0.1, 0.2…
+       |                              ^
+     47|       expect(physics.penetration(result.pose, rotated)).toBeLessThanOr…
+     48|       expect(Number.isFinite(result.pose.x)).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  tests/integration/gate-a-physics.test.ts > Gate A physical tick > frontal impacts cost more speed and health than a graze; sustained contact observes cooldown
+AssertionError: expected 2.8 to be less than 2.8
+ ❯ tests/integration/gate-a-physics.test.ts:56:31
+     54|     const contact = { actorId: "car", normal: { x: 0, z: -1 }, normalS…
+     55|     front.hit(contact); side.hit({ ...contact, kind: "lateral", normal…
+     56|     expect(front.state.speed).toBeLessThan(side.state.speed);
+       |                               ^
+     57|     expect(front.state.health).toBeLessThan(side.state.health);
+     58|     front.hit(contact); expect(front.state.collisions).toBe(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  tests/integration/gate-a-physics.test.ts > Gate A physical tick > same tick inputs at 30/60/120Hz agree within 1cm and 0.1 degree
+AssertionError: expected NaN to be less than 0.01
+ ❯ tests/integration/gate-a-physics.test.ts:68:57
+     66|     for (const state of states) {
+     67|       expect(Math.abs(state.x - states[0].x)).toBeLessThan(0.01);
+     68|       expect(Math.abs(state.worldZ - states[0].worldZ)).toBeLessThan(0…
+       |                                                         ^
+     69|       expect(Math.abs(state.yaw - states[0].yaw)).toBeLessThan(0.1 * M…
+     70|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  6 failed (6)
+   Start at  12:30:30
+   Duration  250ms (tests 46%, transform 23%, import 23%, worker 8%)

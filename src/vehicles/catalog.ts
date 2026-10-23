@@ -3,8 +3,12 @@ export interface VehicleStats {
   name: string;
   maxSpeed: number; // m/s
   acceleration: number; // m/s² before rolling resistance
-  stability: number; // normalized design stat, reserved for future balance
-  turnRate: number; // lateral m/s at full steering
+  stability: number; // 0..1: recovery damping of lateral impact velocity
+  turnRate: number; // legacy v1 lateral m/s; retained for config compatibility only
+  wheelbase: number; // m
+  maxSteeringAngle: number; // rad
+  steeringResponse: number; // 1/s
+  maximumLateralAcceleration: number; // m/s² on dry ground
 }
 
 export const TRADITIONAL_BIKE: Readonly<VehicleStats> = Object.freeze({
@@ -14,6 +18,10 @@ export const TRADITIONAL_BIKE: Readonly<VehicleStats> = Object.freeze({
   acceleration: 2.8,
   stability: 0.85,
   turnRate: 2.6,
+  wheelbase: 1.05,
+  maxSteeringAngle: 0.48,
+  steeringResponse: 7,
+  maximumLateralAcceleration: 4,
 });
 
 export function selectVehicle(id: string): Readonly<VehicleStats> {

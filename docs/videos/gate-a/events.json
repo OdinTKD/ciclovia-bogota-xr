@@ -1,0 +1,252 @@
+{
+  "events": [
+    {
+      "label": "Sol: inicio",
+      "capturedAt": 1792778097293,
+      "state": {
+        "x": 0,
+        "worldZ": 0,
+        "speed": 0,
+        "yaw": 0,
+        "steeringAngle": 0,
+        "roll": 0,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 0,
+        "health": 100,
+        "score": 0,
+        "weather": "sun",
+        "elapsed": 0.44999999999999996,
+        "collisions": 0,
+        "finished": false,
+        "tick": 27,
+        "lastContact": null
+      }
+    },
+    {
+      "label": "Dirección derecha",
+      "capturedAt": 1792778100458,
+      "state": {
+        "x": 0.6455376317426873,
+        "worldZ": -11.926160882949624,
+        "speed": 7.560000000000006,
+        "yaw": -0.014991768583146462,
+        "steeringAngle": 0.15609234678637546,
+        "roll": 0.06505739109028495,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 11.926160882949624,
+        "health": 100,
+        "score": 119,
+        "weather": "sun",
+        "elapsed": 3.6166666666666587,
+        "collisions": 0,
+        "finished": false,
+        "tick": 217,
+        "lastContact": null
+      }
+    },
+    {
+      "label": "Contradirección izquierda",
+      "capturedAt": 1792778102660,
+      "state": {
+        "x": -0.7510116276378451,
+        "worldZ": -33.42695478277446,
+        "speed": 11,
+        "yaw": 0.037746713768672766,
+        "steeringAngle": -0.08390976311044418,
+        "roll": -0.009283788606181113,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 33.42695478277446,
+        "health": 100,
+        "score": 334,
+        "weather": "sun",
+        "elapsed": 5.799999999999985,
+        "collisions": 0,
+        "finished": false,
+        "tick": 348,
+        "lastContact": null
+      }
+    },
+    {
+      "label": "Frenado hasta detenerse",
+      "capturedAt": 1792778104306,
+      "state": {
+        "x": -1.0849362156362505,
+        "worldZ": -42.74521643757984,
+        "speed": 0,
+        "yaw": -0.051586870871706964,
+        "steeringAngle": -7.195211087917152e-7,
+        "roll": -0.0000037539378158486493,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 42.74521643757984,
+        "health": 100,
+        "score": 427,
+        "weather": "sun",
+        "elapsed": 7.4666666666666455,
+        "collisions": 0,
+        "finished": false,
+        "tick": 448,
+        "lastContact": null
+      }
+    },
+    {
+      "label": "Sol: aproximación frontal",
+      "capturedAt": 1792778105742,
+      "state": {
+        "x": 0,
+        "worldZ": 0,
+        "speed": 0,
+        "yaw": 0,
+        "steeringAngle": 0,
+        "roll": 0,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 0,
+        "health": 100,
+        "score": 0,
+        "weather": "sun",
+        "elapsed": 0.31666666666666665,
+        "collisions": 0,
+        "finished": false,
+        "tick": 19,
+        "lastContact": null
+      }
+    },
+    {
+      "label": "Contacto frontal",
+      "capturedAt": 1792778117940,
+      "state": {
+        "x": -0.00000552093254311908,
+        "worldZ": -108.29181250657561,
+        "speed": 0,
+        "yaw": 0,
+        "steeringAngle": 0,
+        "roll": 0,
+        "lateralVelocity": -0.00006406947544198115,
+        "phase": "playing",
+        "distance": 108.29189385589213,
+        "health": 65,
+        "score": 1032,
+        "weather": "sun",
+        "elapsed": 12.516666666666868,
+        "collisions": 1,
+        "finished": false,
+        "tick": 751,
+        "lastContact": {
+          "actorId": "car-01",
+          "normal": {
+            "x": 0.00004795851054950617,
+            "z": -1
+          },
+          "normalSpeed": 11.00011415623266,
+          "kind": "frontal"
+        }
+      }
+    },
+    {
+      "label": "Recuperación después del contacto",
+      "capturedAt": 1792778122846,
+      "state": {
+        "x": -0.000021028427471253798,
+        "worldZ": -128.2185396241194,
+        "speed": 9.759999999999968,
+        "yaw": 0,
+        "steeringAngle": 0,
+        "roll": 0,
+        "lateralVelocity": -9.256500087838561e-20,
+        "phase": "playing",
+        "distance": 128.2185396241194,
+        "health": 65,
+        "score": 1232,
+        "weather": "sun",
+        "elapsed": 17.433333333333625,
+        "collisions": 1,
+        "finished": false,
+        "tick": 1046,
+        "lastContact": {
+          "actorId": "car-01",
+          "normal": {
+            "x": 0.00004795851054950617,
+            "z": -1
+          },
+          "normalSpeed": 11.00011415623266,
+          "kind": "frontal"
+        }
+      }
+    },
+    {
+      "label": "Lluvia: dirección y roce de bordillo",
+      "capturedAt": 1792778123691,
+      "state": {
+        "x": 0,
+        "worldZ": 0,
+        "speed": 0,
+        "yaw": 0,
+        "steeringAngle": 0,
+        "roll": 0,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 0,
+        "health": 100,
+        "score": 0,
+        "weather": "rain",
+        "elapsed": 0.3,
+        "collisions": 0,
+        "finished": false,
+        "tick": 18,
+        "lastContact": null
+      }
+    },
+    {
+      "label": "Roce lateral de bordillo",
+      "capturedAt": 1792778130307,
+      "state": {
+        "x": 2.283525451987548,
+        "worldZ": -30.563873572056618,
+        "speed": 2.6921269221004374,
+        "yaw": 0.1667413156091101,
+        "steeringAngle": 0.20913771170904866,
+        "roll": 0.0793922359077091,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 30.563873572056618,
+        "health": 100,
+        "score": 305,
+        "weather": "rain",
+        "elapsed": 6.916666666666647,
+        "collisions": 0,
+        "finished": false,
+        "tick": 415,
+        "lastContact": null
+      }
+    },
+    {
+      "label": "Recuperación de trayectoria",
+      "capturedAt": 1792778133892,
+      "state": {
+        "x": -0.22190711904428978,
+        "worldZ": -52.29906663173256,
+        "speed": 10.368666253795833,
+        "yaw": -0.06977546879288789,
+        "steeringAngle": 0.36113858945578253,
+        "roll": 0.21319092496753772,
+        "lateralVelocity": 0,
+        "phase": "playing",
+        "distance": 52.29906663173256,
+        "health": 100,
+        "score": 522,
+        "weather": "rain",
+        "elapsed": 10.500000000000101,
+        "collisions": 0,
+        "finished": false,
+        "tick": 630,
+        "lastContact": null
+      }
+    }
+  ],
+  "errors": [],
+  "note": "Interacción real por teclado, sin modificar estado ni velocidad del juego. Grabación no usada como benchmark FPS."
+}

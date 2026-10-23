@@ -1,0 +1,26 @@
+
+ RUN  v5.0.5 C:/Users/Subdireccion TI/Documents/ChatGPT/Juego
+
+ ❯ tests/integration/gate-a-physics.test.ts (8 tests | 1 failed) 177ms
+   ❯ Gate A physical tick (8)
+     × does not display accumulated forward speed while blocked against a solid 136ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/gate-a-physics.test.ts > Gate A physical tick > does not display accumulated forward speed while blocked against a solid
+AssertionError: expected 4.939999999999999 to be less than 0.1
+ ❯ tests/integration/gate-a-physics.test.ts:15:31
+     13|       for (let n = 0; n < 60; n++) sim.update(1 / 60, { throttle: 1, s…
+     14|       expect(sim.state.worldZ).toBeGreaterThan(-1.26);
+     15|       expect(sim.state.speed).toBeLessThan(0.1);
+       |                               ^
+     16|       expect(sim.state.collisions).toBe(1);
+     17|     } finally { physics.dispose(); }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  12:33:57
+   Duration  350ms (tests 72%, transform 14%, import 13%, worker 1%)

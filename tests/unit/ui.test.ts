@@ -16,6 +16,7 @@ describe("UI y seguridad", () => {
     expect(formatDistance(123)).toBe("123 m");
     expect(routeProgress(600)).toBe(50);
     expect(routeProgress(1800)).toBe(100);
+    expect(routeProgress(100, 200)).toBe(50);
   });
   it("exige confirmación para iniciar", () => {
     expect(canStart(false)).toBe(false);

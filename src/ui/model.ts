@@ -3,5 +3,5 @@ export const formatSpeed = (metersPerSecond: number) =>
 export const formatDistance = (meters: number) =>
   `${Math.floor(Math.max(0, meters))} m`;
 export const canStart = (safetyConfirmed: boolean) => safetyConfirmed;
-export const routeProgress = (distance: number) =>
-  Math.min(100, Math.max(0, (distance / 1200) * 100));
+export const routeProgress = (distance: number, length = 1200) =>
+  Math.min(100, Math.max(0, (distance / length) * 100));

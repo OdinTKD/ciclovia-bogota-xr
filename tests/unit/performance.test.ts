@@ -27,4 +27,9 @@ describe("presupuesto de celular gama media", () => {
     expect(stats.fps).toBe(50);
     expect(summarizeFrames([]).fps).toBe(0);
   });
+  it("publica p50 y p99 y conserva picos de un recorrido", () => {
+    const stats = summarizeFrames([...Array(98).fill(16), 50, 120]);
+    expect(stats).toMatchObject({ p50Ms: 16, p95Ms: 16, p99Ms: 50, maxMs: 120, samples: 100 });
+    expect(summarizeFrames([])).toMatchObject({ p50Ms: 0, p99Ms: 0, maxMs: 0 });
+  });
 });

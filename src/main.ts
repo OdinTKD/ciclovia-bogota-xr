@@ -1,6 +1,6 @@
 import "./style.css";
 import { createUI } from "./ui";
-import { buildScene } from "./rendering/scene";
+import { buildScene, assetGeometryStats } from "./rendering/scene";
 import { createSimulation } from "./core/simulation";
 import { summarizeFrames } from "./core/performance";
 import { createInputController } from "./input/controller";
@@ -11,9 +11,12 @@ import { parseLevel } from "./levels";
 import { detectAR } from "./xr/capabilities";
 import { parseWeather } from "./weather";
 import { createQualityController } from "./rendering/quality";
+import { createSessionReport } from "./core/session-report";
+import type { PhysicsActorMotion } from "./physics/world";
 
-const ui = createUI(document.querySelector<HTMLElement>("#app")!);
-const simulation = createSimulation();
+const GATE_ROUTE_LENGTH = 200;
+const ui = createUI(document.querySelector<HTMLElement>("#app")!, GATE_ROUTE_LENGTH);
+const simulation = createSimulation({ routeLength: GATE_ROUTE_LENGTH });
 const input = createInputController(window, {
   pedal: ui.elements.touchPedal,
   left: ui.elements.touchLeft,
@@ -22,17 +25,23 @@ const input = createInputController(window, {
 });
 const frames: number[] = [];
 let ready = false,
-  renderStats = { drawCalls: 0, triangles: 0, pixelRatio: 1 },
+  renderStats = { drawCalls: 0, triangles: 0, pixelRatio: 1, width: 0, height: 0, cssWidth: 0, cssHeight: 0, devicePixelRatio: window.devicePixelRatio },
   obstacles: Obstacle[] = [];
+const session = createSessionReport();
+let physicsSteps = 0;
+let assetStats: ReturnType<typeof assetGeometryStats> | null = null;
+const encounters: Array<{ tick: number; distance: number; contact: unknown }> = [];
 let arCapability = { supported: false, reason: "unavailable" };
 Object.defineProperty(window, "__game", {
   get: () => ({
     ready,
-    state: { ...simulation.state },
+    gate: 'A', routeLength: GATE_ROUTE_LENGTH, physicsSteps,
+    state: structuredClone(simulation.state),
     render: { ...renderStats },
     performance: summarizeFrames(frames),
     traffic: obstacles.map((o) => ({ ...o })),
     ar: { ...arCapability },
+    assets: assetStats,
   }),
 });
 async function json(path: string): Promise<unknown> {
@@ -48,17 +57,56 @@ async function boot() {
     json(level.traffic),
     json("config/humor/bogota.json"),
   ]);
-  simulation.config.routeLength = level.length;
+  simulation.config.routeLength = Math.min(GATE_ROUTE_LENGTH, level.length);
   const traffic = createTraffic(parseTrafficConfig(rawTraffic), level.seed),
     lines = parseHumor(rawHumor);
+  let previousState = { ...simulation.state };
+  let previousTraffic = traffic.update(0, 0);
+  simulation.setWorld(physics, {
+    step(dt, state) {
+      previousState = { ...state };
+      const next = traffic.update(state.distance, dt);
+      const motions: PhysicsActorMotion[] = [];
+      for (let i = 0; i < next.length; i++) {
+        const before = previousTraffic[i], after = next[i];
+        if (!(before.active || after.active) || Math.abs(after.z - state.distance) > 35) continue;
+        motions.push({ id: after.id, kind: after.kind,
+          from: { x: before.x, z: -before.z, yaw: 0 },
+          to: { x: after.x, z: -after.z, yaw: 0 },
+          halfX: after.halfX, halfZ: after.halfZ });
+      }
+      previousTraffic = next;
+      obstacles = next;
+      return motions;
+    },
+    reset() {
+      traffic.reset();
+      previousTraffic = traffic.update(0, 0);
+      obstacles = previousTraffic;
+      previousState = { ...simulation.state };
+    },
+  });
   void detectAR(navigator.xr).then((result) => {
     arCapability = result;
   });
   const world = buildScene(ui.elements.canvas);
+  assetStats = assetGeometryStats(world.scene.getObjectByName('bicycle') ?? world.scene);
   const quality = createQualityController(world.renderer.getPixelRatio());
   let last = performance.now(),
     bubble = "",
     bubbleUntil = 0;
+  const startedAt = new Date().toISOString();
+  ui.downloadReport.addEventListener('click', () => {
+    const report = { version: '0.3.0-alpha.1', gate: 'A', startedAt, exportedAt: new Date().toISOString(),
+      userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
+      viewport: { width: innerWidth, height: innerHeight, devicePixelRatio },
+      state: structuredClone(simulation.state), physicsSteps: physics.steps,
+      session: session.snapshot(), encounters, assets: assetStats,
+      note: 'Mediciones del navegador. Modelo de teléfono, batería, calor y sensación de conducción se reportan por separado. Solo frames jugando; incluye reinicios.' };
+    const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' }));
+    const link = document.createElement('a'); link.href = url; link.download = 'ciclovia-gate-a-report.json'; link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
   function pause() {
     simulation.pause();
     input.reset();
@@ -78,7 +126,6 @@ async function boot() {
   });
   ui.elements.restart.addEventListener("click", () => {
     simulation.restart();
-    traffic.reset();
     input.reset();
     bubble = "";
     frames.length = 0;
@@ -88,10 +135,10 @@ async function boot() {
     frames.length = 0;
   });
   window.addEventListener("keydown", (event) => {
-    if (event.key.toLowerCase() === "p" || event.key === "Escape") {
-      if (simulation.state.phase === "playing") pause();
-      else if (simulation.state.phase === "paused") simulation.resume();
-    }
+    const isPauseKey = event.key.toLowerCase() === "p" || event.key === "Escape";
+    if (!isPauseKey || event.repeat) return;
+    if (simulation.state.phase === "playing") pause();
+    else if (simulation.state.phase === "paused") simulation.resume();
   });
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) pause();
@@ -111,42 +158,38 @@ async function boot() {
       frames.length = 0;
     }
     const before = simulation.state.elapsed;
+    const wasPlaying = simulation.state.phase === 'playing';
+    const previousCollisions = simulation.state.collisions;
     simulation.update(ms / 1000, input.read());
     const dt = simulation.state.elapsed - before;
-    obstacles = traffic.update(simulation.state.distance, dt);
+    physicsSteps = physics.steps;
     if (dt > 0) {
-      physics.player(simulation.state.x, simulation.state.distance);
-      for (const obstacle of obstacles)
-        if (
-          obstacle.active &&
-          Math.abs(obstacle.z - simulation.state.distance) < 5 &&
-          physics.overlaps(
-            obstacle.x,
-            obstacle.z,
-            obstacle.halfX,
-            obstacle.halfZ,
-          )
-        ) {
-          const previous = simulation.state.collisions;
-          simulation.hit();
-          if (simulation.state.collisions > previous) {
-            bubble = humorLine(lines, previous, ui.elements.humor.checked);
-            bubbleUntil = simulation.state.elapsed + 3;
-          }
-        }
-      if (ms > 0) {
-        frames.push(ms);
-        if (frames.length > 180) frames.shift();
+      if (simulation.state.collisions > previousCollisions) {
+        bubble = humorLine(lines, previousCollisions, ui.elements.humor.checked);
+        bubbleUntil = simulation.state.elapsed + 3;
+        if (encounters.length < 200) encounters.push({ tick: simulation.state.tick, distance: simulation.state.distance, contact: simulation.state.lastContact });
       }
     }
+    if (wasPlaying && ms > 0) {
+      frames.push(ms);
+      if (frames.length > 180) frames.shift();
+    }
     const state = simulation.state;
-    world.update(state, obstacles);
+    const alpha = state.phase === 'playing' ? simulation.interpolationAlpha : 1;
+    const smooth = { ...state, pedalEffort: input.read().throttle };
+    for (const key of ['x', 'worldZ', 'yaw', 'steeringAngle', 'roll'] as const)
+      smooth[key] = previousState[key] + (state[key] - previousState[key]) * alpha;
+    world.update(smooth, obstacles);
     world.render();
     renderStats = {
       drawCalls: world.renderer.info.render.calls,
       triangles: world.renderer.info.render.triangles,
       pixelRatio: world.renderer.getPixelRatio(),
+      width: ui.elements.canvas.width, height: ui.elements.canvas.height,
+      cssWidth: ui.elements.canvas.clientWidth, cssHeight: ui.elements.canvas.clientHeight,
+      devicePixelRatio: window.devicePixelRatio,
     };
+    if (wasPlaying) session.sample(ms, state.weather, renderStats);
     if (state.phase !== lastUiPhase || now - lastUiAt >= 100) {
       ui.update({
         status: state.phase === "playing" ? "running" : state.phase,

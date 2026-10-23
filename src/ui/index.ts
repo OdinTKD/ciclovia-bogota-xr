@@ -8,7 +8,7 @@ export interface UISnapshot {
   weather: string;
   humor?: string;
 }
-export function createUI(root: HTMLElement) {
+export function createUI(root: HTMLElement, routeLength = 1200) {
   root.innerHTML = `<canvas id="world" aria-label="Escena 3D de la ciclovía de Bogotá"></canvas>
  <header class="topbar"><a class="brand" href="#" aria-label="Ciclovía Bogotá XR"><span class="brand-icon">↗</span><span>CICLOVÍA<span class="brand-city">BOGOTÁ <b>XR</b></span></span></a><span class="route-tag"><i></i> RUTA 01 · PARQUE EL VIRREY</span><button id="pause" class="icon-button" aria-label="Pausar juego">Ⅱ</button></header>
  <div class="route-label"><span class="eyebrow">TU CIUDAD. OTRO RITMO.</span><h1>Bogotá se vive<br>sobre ruedas<span>.</span></h1><p>Un paseo por la ciudad que nunca deja de moverse.</p></div>
@@ -64,6 +64,16 @@ export function createUI(root: HTMLElement) {
   refreshStart();
   elements.safety.addEventListener("change", refreshStart);
   const settings = root.querySelector<HTMLElement>(".settings")!;
+  const downloadReport = document.createElement('button');
+  downloadReport.className = 'secondary';
+  downloadReport.dataset.testid = 'download-report';
+  downloadReport.textContent = 'Descargar diagnóstico de esta prueba';
+  byId('pause-panel').append(downloadReport);
+  if (routeLength === 200) {
+    root.querySelector('.route-tag')!.textContent = 'PUERTA A · TRAMO DE PRUEBA · 200 m';
+    root.querySelector('.world-tag')!.textContent = 'INSPIRADO EN BOGOTÁ · GEOGRAFÍA SIN VERIFICAR';
+    root.querySelector('.route-progress span')!.textContent = 'PUERTA A · CONDUCCIÓN Y CHOQUES';
+  }
   const text = (id: string, value: string) => {
     const node = byId(id);
     if (node.textContent !== value) node.textContent = value;
@@ -115,8 +125,8 @@ export function createUI(root: HTMLElement) {
     text("distance", formatDistance(s.distance));
     text("score", String(Math.round(s.score)));
     text("health", `${Math.round(s.health)} %`);
-    text("progress-text", `${Math.floor(s.distance)} / 1.200 m`);
-    const progressWidth = `${routeProgress(s.distance)}%`;
+    text("progress-text", `${Math.floor(s.distance)} / ${routeLength.toLocaleString('es-CO')} m`);
+    const progressWidth = `${routeProgress(s.distance, routeLength)}%`;
     const progressFill = byId("progress-fill");
     if (progressFill.style.width !== progressWidth)
       progressFill.style.width = progressWidth;
@@ -129,6 +139,7 @@ export function createUI(root: HTMLElement) {
       refreshStart();
     },
     elements,
+    downloadReport,
     update,
     showError: (message: string) => {
       byId("error").hidden = false;

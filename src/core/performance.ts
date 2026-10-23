@@ -30,14 +30,21 @@ export function evaluatePerformance(metrics: FrameMetrics): string[] {
 export function summarizeFrames(samples: number[]): {
   fps: number;
   p95Ms: number;
+  p50Ms: number;
+  p99Ms: number;
+  maxMs: number;
   samples: number;
 } {
   const valid = samples.filter((value) => Number.isFinite(value) && value > 0);
-  if (!valid.length) return { fps: 0, p95Ms: 0, samples: 0 };
+  if (!valid.length) return { fps: 0, p50Ms: 0, p95Ms: 0, p99Ms: 0, maxMs: 0, samples: 0 };
   const sorted = [...valid].sort((a, b) => a - b);
+  const percentile = (fraction: number) => sorted[Math.ceil(sorted.length * fraction) - 1];
   return {
     fps: 1000 / (valid.reduce((a, b) => a + b, 0) / valid.length),
-    p95Ms: sorted[Math.ceil(valid.length * 0.95) - 1],
+    p95Ms: percentile(0.95),
+    p50Ms: percentile(0.5),
+    p99Ms: percentile(0.99),
+    maxMs: sorted[sorted.length - 1],
     samples: valid.length,
   };
 }

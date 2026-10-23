@@ -1,0 +1,127 @@
+{
+  "version": "0.3.0-alpha.1",
+  "gate": "A",
+  "startedAt": "2026-10-23T17:54:56.151Z",
+  "exportedAt": "2026-10-23T17:55:37.320Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+  "hardwareConcurrency": 16,
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "devicePixelRatio": 1
+  },
+  "state": {
+    "x": 0.4104323930394289,
+    "worldZ": -72.33226289609905,
+    "speed": 0,
+    "yaw": 0.04993426375881111,
+    "steeringAngle": 9.58253847046e-11,
+    "roll": 2.40815809904626e-10,
+    "lateralVelocity": 0,
+    "phase": "paused",
+    "distance": 72.33226289609905,
+    "health": 100,
+    "score": 723,
+    "weather": "rain",
+    "elapsed": 13.650000000000258,
+    "collisions": 0,
+    "finished": false,
+    "tick": 819,
+    "lastContact": null
+  },
+  "physicsSteps": 819,
+  "session": {
+    "frames": {
+      "fps": 56.780857602367874,
+      "p95Ms": 33.29999999999927,
+      "p50Ms": 16.69999999999891,
+      "p99Ms": 33.399999999999636,
+      "maxMs": 116.59999999999991,
+      "samples": 2256
+    },
+    "byWeather": {
+      "sun": {
+        "fps": 55.8590632864772,
+        "p95Ms": 33.299999999999955,
+        "p50Ms": 16.699999999999818,
+        "p99Ms": 33.40000000000009,
+        "maxMs": 116.59999999999991,
+        "samples": 1456
+      },
+      "rain": {
+        "fps": 58.53901259320507,
+        "p95Ms": 16.799999999999272,
+        "p50Ms": 16.69999999999709,
+        "p99Ms": 33.30000000000291,
+        "maxMs": 33.400000000001455,
+        "samples": 800
+      }
+    },
+    "maxDrawCalls": 26,
+    "maxTriangles": 19886,
+    "totalSamples": 2256,
+    "truncated": false,
+    "resolutions": [
+      {
+        "drawCalls": 22,
+        "triangles": 17390,
+        "pixelRatio": 1,
+        "width": 1280,
+        "height": 720,
+        "cssWidth": 1280,
+        "cssHeight": 720,
+        "devicePixelRatio": 1,
+        "sample": 1,
+        "weather": "sun"
+      },
+      {
+        "drawCalls": 22,
+        "triangles": 17390,
+        "pixelRatio": 0.5,
+        "width": 640,
+        "height": 360,
+        "cssWidth": 1280,
+        "cssHeight": 720,
+        "devicePixelRatio": 1,
+        "sample": 12,
+        "weather": "sun"
+      },
+      {
+        "drawCalls": 23,
+        "triangles": 19310,
+        "pixelRatio": 0.5,
+        "width": 640,
+        "height": 360,
+        "cssWidth": 1280,
+        "cssHeight": 720,
+        "devicePixelRatio": 1,
+        "sample": 1457,
+        "weather": "rain"
+      }
+    ],
+    "budgetFailures": []
+  },
+  "encounters": [
+    {
+      "tick": 750,
+      "distance": 108.29189385589213,
+      "contact": {
+        "actorId": "car-01",
+        "normal": {
+          "x": 0.00004795851054950617,
+          "z": -1
+        },
+        "normalSpeed": 11.00011415623266,
+        "kind": "frontal"
+      }
+    }
+  ],
+  "assets": {
+    "triangles": 3276,
+    "drawCalls": 12,
+    "meshes": 12,
+    "materials": 6,
+    "geometries": 12
+  },
+  "note": "Mediciones del navegador. Modelo de teléfono, batería, calor y sensación de conducción se reportan por separado. Solo frames jugando; incluye reinicios."
+}
