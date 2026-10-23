@@ -19,7 +19,11 @@ def material(name,metal,rough):
  m=bpy.data.materials.new(name);m.use_nodes=True
  bsdf=m.node_tree.nodes.get('Principled BSDF');bsdf.inputs['Metallic'].default_value=metal;bsdf.inputs['Roughness'].default_value=rough
  color=m.node_tree.nodes.new('ShaderNodeVertexColor');color.layer_name='Color';m.node_tree.links.new(color.outputs['Color'],bsdf.inputs['Base Color']);return m
-METAL=material('worn-metal-pbr',.72,.41);SOFT=material('textile-rubber-pbr',0,.78)
+METAL=material('worn-metal-pbr',.72,.36)
+SOFT=material('grip-rubber-pbr',0,.64)
+GLOVE_MAT=material('reinforced-glove-pbr',0,.76)
+CLOTH_MAT=material('woven-sleeve-pbr',0,.94)
+MATERIALS=((METAL,'metal'),(SOFT,'soft'),(GLOVE_MAT,'glove'),(CLOTH_MAT,'cloth'))
 STEEL=0x9EA8A7;PAINT=0x215C58;RUBBER=0x20282A;GLOVE=0x333C3D;CLOTH=0x813F39;STITCH=0xA36B5E;ACCENT=0xC29B49
 
 def empty(name,parent=None,at=(0,0,0)):
@@ -76,47 +80,75 @@ for i in range(14):
  patch('metal-scuff',[(x,.052,-.009),(x+.013,.053,-.008),(x+.014,.053,-.004),(x+.001,.052,-.005)],0xC7CECA,METAL)
 # Palm volume built from anatomical cross sections; articulated finger curls wrap grips.
 for side,label in [(-1,'left'),(1,'right')]:
- handpos=(side*.475,.085,.055);empty(label+'-palm-inner',steering,(handpos[0]-.095,handpos[1],handpos[2]-.015));empty(label+'-palm-outer',steering,(handpos[0]+.095,handpos[1],handpos[2]-.015));empty(label+'-hand',steering,handpos);empty(label+'-grip',steering,(side*.475,.05,.055))
+ handpos=(side*.475,.105,.085);empty(label+'-palm-inner',steering,(handpos[0]-.095,handpos[1],handpos[2]-.015));empty(label+'-palm-outer',steering,(handpos[0]+.095,handpos[1],handpos[2]-.015));empty(label+'-hand',steering,handpos);empty(label+'-grip',steering,(side*.475,.05,.055))
  grippts=[(side*(.385+i*.015),.05,.035+i*.0033) for i in range(13)]
  sweep(label+'-ribbed-grip',grippts,[.044 if i%2==0 else .048 for i in range(13)],RUBBER,sides=12)
  # Palm rings (rounded rectangle), fingers and thumb all own sculpted geometry.
  vertices=[];faces=[]
- for z,width,height in [(-.06,.074,.03),(-.015,.095,.047),(.04,.084,.043),(.095,.052,.03)]:
+ for z,width,height in [(-.025,.079,.019),(.015,.095,.033),(.065,.077,.033),(.11,.051,.028)]:
   for i in range(12):
    a=i*math.pi/6;vertices.append((handpos[0]+math.cos(a)*width,handpos[1]+math.sin(a)*height,z+handpos[2]))
  for ring in range(3):
   for i in range(12):faces.append((ring*12+i,ring*12+(i+1)%12,(ring+1)*12+(i+1)%12,(ring+1)*12+i))
- faces.extend([tuple(range(11,-1,-1)),tuple(36+i for i in range(12))]);mesh(label+'-glove-palm',vertices,faces,GLOVE,variation=.025)
- for i,x in enumerate([-.065,-.022,.022,.064]):
-  length=[.077,.094,.092,.072][i]
-  points=[(handpos[0]+x,handpos[1]+.014,handpos[2]-.045),(handpos[0]+x,handpos[1]+.005,handpos[2]-.045-length*.5),(handpos[0]+x,handpos[1]-.03,handpos[2]-.045-length),(handpos[0]+x,handpos[1]-.068,handpos[2]-.038-length*.6),(handpos[0]+x,handpos[1]-.068,handpos[2]-.015)]
-  sweep(label+f'-finger-{i}',points,[.019,.019,.017,.016,.011],GLOVE,sides=8,oval=.85)
-  tube(label+'-finger-stitch',(handpos[0]+x-.008,handpos[1]+.025,handpos[2]-.049),(handpos[0]+x+.008,handpos[1]+.025,handpos[2]-.049),.0016,0x6A7471,SOFT,sides=4)
+ faces.extend([tuple(range(11,-1,-1)),tuple(36+i for i in range(12))]);palm=mesh(label+'-glove-palm',vertices,faces,GLOVE,GLOVE_MAT,variation=.025)
+ # The dorsal panel is a color region on the actual glove surface, not a floating plate.
+ dorsal=linear(0x69756F);palm_base=linear(GLOVE)
+ for i,vertex_color in enumerate(palm.data.color_attributes['Color'].data):
+  blend=max(0,math.sin((i%12)*math.pi/6))**.7*.92
+  vertex_color.color=tuple(palm_base[k]*(1-blend)+dorsal[k]*blend for k in range(3))+(1,)
+ # Each finger follows the real tilted grip axis, instead of an arbitrary long hook.
+ # The 62 mm centre radius leaves the ~46 mm rubber and 14-17 mm glove touching.
+ for i,x in enumerate([-.064,-.022,.021,.061]):
+  fx=handpos[0]+x;cz=.035+(abs(fx)-.385)*.22;cy=.05
+  curl=[-.24,.12,.54,.98,1.43,1.88,2.3,2.72,3.02]
+  points=[(fx,cy+.062*math.cos(a),cz-.062*math.sin(a)) for a in curl]
+  radii=[.017,.018,.018,.017,.016,.015,.014,.013,.0105]
+  sweep(label+f'-finger-{i}',points,radii,GLOVE,GLOVE_MAT,sides=10,oval=.9)
+  empty(label+f'-finger-{i}-contact',steering,points[-1]);empty(label+f'-finger-{i}-grip-axis',steering,(fx,cy,cz))
+  # Raised knuckle reinforcement follows curvature; narrow channels separate fingers.
+  knuckle=[(fx,cy+.080*math.cos(a),cz-.080*math.sin(a)) for a in curl[:4]]
+  sweep(label+f'-knuckle-{i}',knuckle,[.004,.006,.005,.003],0x252D2F,GLOVE_MAT,sides=8,oval=2.3)
+  tube(label+'-finger-stitch',(fx-.009,cy+.081,cz+.005),(fx+.009,cy+.081,cz+.005),.0012,0x75807B,GLOVE_MAT,sides=4)
  inside=-side
- sweep(label+'-thumb',[(handpos[0]+inside*.055,handpos[1]+.01,handpos[2]+.025),(handpos[0]+inside*.105,handpos[1]-.005,handpos[2]-.005),(handpos[0]+inside*.095,handpos[1]-.038,handpos[2]-.047)],[.028,.025,.015],GLOVE,sides=10)
- # Low-profile reinforced knuckle plate, split seams retain individual fingers.
- patch(label+'-knuckle-pad',[(handpos[0]-.052,handpos[1]+.04,handpos[2]-.03),(handpos[0]+.052,handpos[1]+.04,handpos[2]-.03),(handpos[0]+.047,handpos[1]+.042,handpos[2]+.005),(handpos[0]-.047,handpos[1]+.042,handpos[2]+.005)],0x242D30)
- sleeve=[(side*.475,.045,.16),(side*.49,.025,.24),(side*.53,-.02,.34),(side*.57,-.08,.44),(side*.63,-.19,.61),(side*.71,-.33,.83),(side*.8,-.5,1.1)]
- radii=[.068,.078,.096,.09,.108,.105,.112]
+ sweep(label+'-thumb',[(handpos[0]+inside*.059,.105,.145),(handpos[0]+inside*.094,.084,.123),(handpos[0]+inside*.105,.052,.095),(handpos[0]+inside*.104,.018,.064),(handpos[0]+inside*.094,.006,.04)],[.026,.027,.023,.018,.011],GLOVE,GLOVE_MAT,sides=12,oval=.82)
+ # Dorsal seams and wrist strap describe the glove's construction at game distance.
+ for sign in (-1,1):
+  seam=[(handpos[0]+sign*.063,.126,.084),(handpos[0]+sign*.062,.134,.112),(handpos[0]+sign*.046,.132,.153),(handpos[0]+sign*.035,.123,.182)]
+  sweep(label+'-glove-panel-seam',seam,.0014,0x6B7671,GLOVE_MAT,sides=4)
+ sweep(label+'-wrist-strap',[(handpos[0]-.039,.118,.189),(handpos[0],.126,.195),(handpos[0]+.039,.118,.189)],.009,0x232A2A,GLOVE_MAT,sides=8,oval=.35)
+ # Wrist slopes naturally down into a fitted cuff; the sleeve widens toward forearm.
+ sweep(label+'-glove-wrist',[(side*.475,.101,.17),(side*.478,.086,.21),(side*.486,.069,.253)],[.048,.047,.049],GLOVE,GLOVE_MAT,sides=12,oval=.70)
+ sleeve=[(side*.486,.069,.235),(side*.50,.04,.29),(side*.53,-.02,.36),(side*.57,-.08,.44),(side*.63,-.19,.61),(side*.71,-.33,.83),(side*.8,-.5,1.1)]
+ radii=[.057,.069,.085,.092,.101,.107,.112]
  # Continuous tailored cloth mesh: fold bulges are part of the sleeve topology,
  # rather than intersecting decorative rings. This keeps silhouettes and normals clean.
- sleeve_vertices=[];sleeve_faces=[];rings=[]
+ sleeve_vertices=[];sleeve_faces=[];rings=[];fold_values=[]
  for segment in range(len(sleeve)-1):
-  for subdivision in range(3):
-   t=subdivision/3;center=Vector(sleeve[segment]).lerp(Vector(sleeve[segment+1]),t);radius=radii[segment]*(1-t)+radii[segment+1]*t;rings.append((center,radius))
+  for subdivision in range(6):
+   t=subdivision/6;center=Vector(sleeve[segment]).lerp(Vector(sleeve[segment+1]),t);radius=radii[segment]*(1-t)+radii[segment+1]*t;rings.append((center,radius))
  rings.append((Vector(sleeve[-1]),radii[-1]))
  for i,(center,radius) in enumerate(rings):
   tangent=(rings[min(i+1,len(rings)-1)][0]-rings[max(i-1,0)][0]).normalized();u=tangent.cross(Vector((1,0,0))).normalized();v=tangent.cross(u).normalized()
   for j in range(16):
-   angle=j*math.pi/8;fold=1+.13*math.sin(i*1.85+math.sin(angle)*1.8);point=center+u*math.cos(angle)*radius*fold+v*math.sin(angle)*radius*.92*fold;sleeve_vertices.append(tuple(point))
+   angle=j*math.pi/8;t=i/(len(rings)-1)
+   wrist=math.exp(-((t-.15)/.11)**2);elbow=math.exp(-((t-.68)/.16)**2)
+   # Diagonal compressed cloth creases concentrated at the cuff and elbow.
+   # Every crest and valley belongs to the same watertight sleeve surface.
+   fold=1+.035*math.sin(angle*3+t*2)+(.29*wrist+.23*elbow)*math.sin(i*1.35+2.2*math.sin(angle)+side*.5)
+   point=center+u*math.cos(angle)*radius*fold+v*math.sin(angle)*radius*.92*fold;sleeve_vertices.append(tuple(point));fold_values.append(fold)
  for i in range(len(rings)-1):
   for j in range(16):sleeve_faces.append((i*16+j,i*16+(j+1)%16,(i+1)*16+(j+1)%16,(i+1)*16+j))
- sleeve_faces.extend([tuple(range(15,-1,-1)),tuple((len(rings)-1)*16+j for j in range(16))]);mesh(label+'-waterproof-sleeve',sleeve_vertices,sleeve_faces,CLOTH,variation=.015)
- seam=[(p[0]+side*r*.72,p[1]+r*.7,p[2]) for p,r in zip(sleeve,radii)]
- sweep(label+'-sleeve-seam',seam,.0018,STITCH,sides=4)
- sweep(label+'-elastic-cuff',sleeve[:2],[.082,.096],0x303637,sides=12)
+ sleeve_faces.extend([tuple(range(15,-1,-1)),tuple((len(rings)-1)*16+j for j in range(16))]);cloth=mesh(label+'-waterproof-sleeve',sleeve_vertices,sleeve_faces,CLOTH,CLOTH_MAT)
+ # Subtle painted compression shading remains readable in the diffuse fallback.
+ base_cloth=linear(CLOTH)
+ for vertex_color,fold in zip(cloth.data.color_attributes['Color'].data,fold_values):
+  shade=1+.65*(fold-1);vertex_color.color=tuple(min(1,c*shade) for c in base_cloth[:3])+(1,)
+ seam_column=14 if side==1 else 2
+ seam=[tuple(Vector(sleeve_vertices[i*16+seam_column])+Vector((0,.0015,0))) for i in range(len(rings))]
+ sweep(label+'-sleeve-seam',seam,.0018,STITCH,CLOTH_MAT,sides=4)
+ sweep(label+'-elastic-cuff',[(side*.482,.079,.218),(side*.489,.064,.248)],[.057,.061],0x303637,CLOTH_MAT,sides=16,oval=.82)
  empty(label+'-sleeve-cap',steering,sleeve[-1])
- patch(label+'-reflective-tab',[(side*.45,.105,.18),(side*.49,.105,.18),(side*.50,.1,.22),(side*.46,.1,.22)],0xB8C1B6)
+ patch(label+'-reflective-tab',[(side*.475,.115,.24),(side*.51,.115,.24),(side*.515,.105,.27),(side*.48,.105,.27)],0xB8C1B6,CLOTH_MAT)
  sweep(label+'-brake-lever',[(side*.34,.012,-.028),(side*.405,-.007,-.068),(side*.47,-.025,-.09),(side*.495,-.023,-.075)],[.014,.012,.011,.009],STEEL,METAL,sides=8,oval=.6)
  tube(label+'-lever-pivot',(side*.34,.015,-.03),(side*.34,.035,-.03),.008,0xD1D4CB,sides=8)
  cable=[(side*.34,-.005,-.03),(side*.27,-.1,-.17),(side*.12,-.24,-.19),(-side*.07,-.34,-.09),(side*.07,-.54,-.35),(side*.07,-.69,-.56)]
@@ -147,7 +179,7 @@ def batch(parent,excluded=(),prefix=None):
   if ob.type=='MESH':parts.append(ob)
   for child in list(ob.children):walk(child)
  walk(parent)
- for mat in (METAL,SOFT):
+ for mat,suffix in MATERIALS:
   selected=[ob for ob in parts if ob.data.materials[0]==mat]
   if not selected:continue
   vertices=[];faces=[];colors=[]
@@ -158,7 +190,7 @@ def batch(parent,excluded=(),prefix=None):
   layer=data.color_attributes.new(name='Color',type='FLOAT_COLOR',domain='POINT')
   for c,v in zip(layer.data,colors):c.color=v
   for p in data.polygons:p.use_smooth=True
-  ob=bpy.data.objects.new((prefix or parent.name)+'-'+('metal' if mat==METAL else 'soft'),data);bpy.context.collection.objects.link(ob);ob.parent=parent;ob.data.materials.append(mat)
+  ob=bpy.data.objects.new((prefix or parent.name)+'-'+suffix,data);bpy.context.collection.objects.link(ob);ob.parent=parent;ob.data.materials.append(mat)
  for ob in parts:
   # Geometry now batched; preserve object names as reference anchors.
   anchor=empty(ob.name,ob.parent);anchor.matrix_local=ob.matrix_local.copy();bpy.data.objects.remove(ob,do_unlink=True)

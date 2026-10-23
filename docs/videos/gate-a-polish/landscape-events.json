@@ -1,0 +1,1899 @@
+{
+  "base": "http://127.0.0.1:4185/",
+  "orientation": "landscape",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "events": [
+    {
+      "label": "inicio",
+      "time": 1792789813822,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 6,
+        "state": {
+          "x": 0,
+          "worldZ": 0,
+          "speed": 0,
+          "yaw": 0,
+          "steeringAngle": 0,
+          "roll": 0,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 0,
+          "health": 100,
+          "score": 0,
+          "weather": "sun",
+          "elapsed": 0.09999999999999999,
+          "collisions": 0,
+          "finished": false,
+          "tick": 6,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 39,
+          "triangles": 48738,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 40,
+          "p95Ms": 50,
+          "p50Ms": 16.699999999999818,
+          "p99Ms": 50,
+          "maxMs": 50,
+          "samples": 4
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "giro",
+      "time": 1792789815944,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 133,
+        "state": {
+          "x": 0.5323023737175185,
+          "worldZ": -5.389767007157394,
+          "speed": 5.080000000000004,
+          "yaw": 0.08620341858396291,
+          "steeringAngle": -0.14770179851653162,
+          "roll": -0.027212378454806722,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 5.389767007157394,
+          "health": 100,
+          "score": 53,
+          "weather": "sun",
+          "elapsed": 2.2166666666666637,
+          "collisions": 0,
+          "finished": false,
+          "tick": 133,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 39,
+          "triangles": 48738,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.09685568638065,
+          "p95Ms": 16.800000000000182,
+          "p50Ms": 16.699999999999818,
+          "p99Ms": 16.90000000000009,
+          "maxMs": 50,
+          "samples": 131
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "contragiro",
+      "time": 1792789817758,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 241,
+        "state": {
+          "x": -0.40382570037739185,
+          "worldZ": -18.407073992753208,
+          "speed": 9.399999999999975,
+          "yaw": -0.014639676228910607,
+          "steeringAngle": 0.06748627640172591,
+          "roll": 0.1454180441601839,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 18.407073992753208,
+          "health": 100,
+          "score": 184,
+          "weather": "sun",
+          "elapsed": 4.016666666666658,
+          "collisions": 0,
+          "finished": false,
+          "tick": 241,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 39,
+          "triangles": 48738,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 60.00000000000001,
+          "p95Ms": 16.800000000000182,
+          "p50Ms": 16.699999999999818,
+          "p99Ms": 16.900000000000546,
+          "maxMs": 16.900000000000546,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "frenada",
+      "time": 1792789819003,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 317,
+        "state": {
+          "x": -0.15557969000537375,
+          "worldZ": -24.293012067958728,
+          "speed": 0.026666666666650865,
+          "yaw": 0.054917412111966796,
+          "steeringAngle": 0.000009516364322422606,
+          "roll": 0.000046461945153993645,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 24.293012067958728,
+          "health": 100,
+          "score": 242,
+          "weather": "sun",
+          "elapsed": 5.28333333333332,
+          "collisions": 0,
+          "finished": false,
+          "tick": 317,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 39,
+          "triangles": 48738,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.998000066664446,
+          "p95Ms": 16.800000000000182,
+          "p50Ms": 16.699999999999818,
+          "p99Ms": 16.900000000000546,
+          "maxMs": 16.900000000000546,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "metro 40",
+      "time": 1792789822839,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 547,
+        "state": {
+          "x": -0.0013608437732970024,
+          "worldZ": -40.348007767584136,
+          "speed": 8.75999999999999,
+          "yaw": -0.025448549757384795,
+          "steeringAngle": -0.22539586845592957,
+          "roll": -0.1149785102853826,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 40.348007767584136,
+          "health": 100,
+          "score": 403,
+          "weather": "sun",
+          "elapsed": 9.1166666666667,
+          "collisions": 0,
+          "finished": false,
+          "tick": 547,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 37,
+          "triangles": 48390,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.9960002666489,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999891,
+          "p99Ms": 16.80000000000109,
+          "maxMs": 16.899999999999636,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "metro 52",
+      "time": 1792789824012,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 617,
+        "state": {
+          "x": -0.048994980730526994,
+          "worldZ": -52.137934936102766,
+          "speed": 11,
+          "yaw": 0.0167204901637376,
+          "steeringAngle": -0.21412877804063202,
+          "roll": -0.10441697839162936,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 52.137934936102766,
+          "health": 100,
+          "score": 521,
+          "weather": "sun",
+          "elapsed": 10.283333333333424,
+          "collisions": 0,
+          "finished": false,
+          "tick": 617,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 25,
+          "triangles": 15434,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.99800006666443,
+          "p95Ms": 16.80000000000109,
+          "p50Ms": 16.69999999999891,
+          "p99Ms": 16.899999999999636,
+          "maxMs": 16.900000000001455,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "car visible",
+      "time": 1792789825692,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 717,
+        "state": {
+          "x": 0.09510538701488117,
+          "worldZ": -70.46651806901971,
+          "speed": 11,
+          "yaw": 0.010392577605635257,
+          "steeringAngle": -0.106060186338698,
+          "roll": 0.015155087556366437,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 70.46651806901971,
+          "health": 100,
+          "score": 704,
+          "weather": "sun",
+          "elapsed": 11.950000000000173,
+          "collisions": 0,
+          "finished": false,
+          "tick": 717,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 24,
+          "triangles": 15950,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 60.00200006666886,
+          "p95Ms": 16.80000000000109,
+          "p50Ms": 16.69999999999891,
+          "p99Ms": 16.899999999999636,
+          "maxMs": 16.900000000001455,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 7.920656256748286,
+            "z": 110,
+            "active": true,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "metro 100",
+      "time": 1792789828401,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 880,
+        "state": {
+          "x": 0.024368637564898626,
+          "worldZ": -100.3437281051516,
+          "speed": 11,
+          "yaw": 0.019381693442572078,
+          "steeringAngle": 0.010039458023119585,
+          "roll": 0.12762022631291067,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 100.3437281051516,
+          "health": 100,
+          "score": 1003,
+          "weather": "sun",
+          "elapsed": 14.666666666666975,
+          "collisions": 0,
+          "finished": false,
+          "tick": 880,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 24,
+          "triangles": 15950,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.99999999999999,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999891,
+          "p99Ms": 16.80000000000109,
+          "maxMs": 16.899999999999636,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 1.4541411817335854,
+            "z": 110,
+            "active": true,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "pedestrian visible",
+      "time": 1792789834084,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 1221,
+        "state": {
+          "x": -0.0021236072662101243,
+          "worldZ": -128.44699050310203,
+          "speed": 9.816953405655026,
+          "yaw": -0.015287405367592103,
+          "steeringAngle": 0.19774767604161564,
+          "roll": 0.05059701639946764,
+          "lateralVelocity": -1.2002833356544187e-17,
+          "phase": "playing",
+          "distance": 128.44699050310203,
+          "health": 65,
+          "score": 1234,
+          "weather": "sun",
+          "elapsed": 20.350000000000126,
+          "collisions": 1,
+          "finished": false,
+          "tick": 1221,
+          "lastContact": {
+            "actorId": "car-01",
+            "normal": {
+              "x": -0.00006309374790569068,
+              "z": -0.9999999591186752
+            },
+            "normalSpeed": 10.999350560082744,
+            "kind": "frontal"
+          }
+        },
+        "render": {
+          "drawCalls": 24,
+          "triangles": 16190,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.99999999999999,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999709,
+          "p99Ms": 17,
+          "maxMs": 17.100000000002183,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": -7.5117018057101115,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": true
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -5.952278024354019,
+            "z": 160,
+            "active": true,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "metro 150",
+      "time": 1792789836137,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 1344,
+        "state": {
+          "x": -0.03761676971885809,
+          "worldZ": -150.71243371168703,
+          "speed": 11,
+          "yaw": -0.016547809716385056,
+          "steeringAngle": -0.197331486267204,
+          "roll": -0.12875210986596777,
+          "lateralVelocity": -7.792434233665648e-24,
+          "phase": "playing",
+          "distance": 150.71243371168703,
+          "health": 65,
+          "score": 1457,
+          "weather": "sun",
+          "elapsed": 22.40000000000001,
+          "collisions": 1,
+          "finished": false,
+          "tick": 1344,
+          "lastContact": {
+            "actorId": "car-01",
+            "normal": {
+              "x": -0.00006309374790569068,
+              "z": -0.9999999591186752
+            },
+            "normalSpeed": 10.999350560082744,
+            "kind": "frontal"
+          }
+        },
+        "render": {
+          "drawCalls": 24,
+          "triangles": 16190,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.99999999999999,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999709,
+          "p99Ms": 16.900000000001455,
+          "maxMs": 17,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": -7.5117018057101115,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": true
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -3.0173765221261677,
+            "z": 160,
+            "active": true,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    },
+    {
+      "label": "meta",
+      "time": 1792789840636,
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 1613,
+        "state": {
+          "x": 0.04031526552914152,
+          "worldZ": -200.01275921266756,
+          "speed": 11,
+          "yaw": -0.0017110453644816458,
+          "steeringAngle": -0.1341006562806302,
+          "roll": -0.07119162439747448,
+          "lateralVelocity": -2.28780498300267e-37,
+          "phase": "finished",
+          "distance": 200,
+          "health": 65,
+          "score": 1950,
+          "weather": "sun",
+          "elapsed": 26.883333333333088,
+          "collisions": 1,
+          "finished": true,
+          "tick": 1613,
+          "lastContact": {
+            "actorId": "car-01",
+            "normal": {
+              "x": -0.00006309374790569068,
+              "z": -0.9999999591186752
+            },
+            "normalSpeed": 10.999350560082744,
+            "kind": "frontal"
+          }
+        },
+        "render": {
+          "drawCalls": 21,
+          "triangles": 15374,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 59.99999999999999,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999709,
+          "p99Ms": 16.899999999997817,
+          "maxMs": 17,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": -7.5117018057101115,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": true
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -1.370968362339792,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": true
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "seen": [
+    "car",
+    "pedestrian"
+  ],
+  "note": "Real keyboard input; no state injection. Video timing is not an FPS measurement."
+}

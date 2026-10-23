@@ -70,9 +70,9 @@ export function createUI(root: HTMLElement, routeLength = 1200) {
   downloadReport.textContent = 'Descargar diagnóstico de esta prueba';
   byId('pause-panel').append(downloadReport);
   if (routeLength === 200) {
-    root.querySelector('.route-tag')!.textContent = 'PUERTA A · TRAMO DE PRUEBA · 200 m';
+    root.querySelector('.route-tag')!.textContent = 'PASEO · TRAMO DE 200 m';
     root.querySelector('.world-tag')!.textContent = 'INSPIRADO EN BOGOTÁ · GEOGRAFÍA SIN VERIFICAR';
-    root.querySelector('.route-progress span')!.textContent = 'PUERTA A · CONDUCCIÓN Y CHOQUES';
+    root.querySelector('.route-progress span')!.textContent = 'PASEO · BOGOTÁ';
   }
   const text = (id: string, value: string) => {
     const node = byId(id);

@@ -47,7 +47,7 @@ test("presupuesto real de escena y frames en sol y lluvia", async ({
     expect(metrics.bicycleTriangles).toBeGreaterThan(1000);
     expect(metrics.triangles).toBeLessThanOrEqual(100000);
     expect(metrics.triangles).toBeGreaterThan(10000);
-    expect(metrics.pixelRatio).toBeGreaterThanOrEqual(0.375);
+    expect(metrics.pixelRatio).toBeGreaterThanOrEqual(0.75);
     expect(metrics.fps).toBeGreaterThanOrEqual(30);
   }
 });

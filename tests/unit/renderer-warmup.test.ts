@@ -9,5 +9,5 @@ it('prepara ambas variantes antes de dejar disponible el render de juego', async
     compile: async () => { await Promise.resolve(); events.push(`compile:${quality}`); },
     render: () => events.push(`render:${quality}`),
   }, 1);
-  expect(events).toEqual(['quality:0.375', 'compile:0.375', 'quality:1', 'compile:1', 'render:1']);
+  expect(events).toEqual(['quality:0.75', 'compile:0.75', 'quality:1', 'compile:1', 'render:1']);
 });

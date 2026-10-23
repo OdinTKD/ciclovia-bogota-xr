@@ -63,6 +63,6 @@ test('recorrido y encuentro: presupuesto completo y resolución efectiva', async
     expect(report.maxDrawCalls).toBeLessThanOrEqual(100);
     expect(report.maxTriangles).toBeLessThanOrEqual(100_000);
     expect(report.state.distance).toBeGreaterThan(90);
-    expect(report.resolutions.every(r => r.width > 0 && r.height > 0 && r.pixelRatio >= .375)).toBe(true);
+    expect(report.resolutions.every(r => r.width > 0 && r.height > 0 && r.pixelRatio >= .75)).toBe(true);
   }
 });

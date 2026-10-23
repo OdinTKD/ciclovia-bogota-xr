@@ -50,3 +50,49 @@ it('encuadre primera persona da presencia a palmas sin tapar horizonte',async()=
   const center=bike.group.getObjectByName(`${side}-hand`)!.getWorldPosition(new Vector3()).project(camera);expect(center.y).toBeLessThan(-.3);expect(center.y).toBeGreaterThan(-.75);
  }
 });
+
+it('separa respuesta PBR de metal, goma, guantes y tela en el GLB real',async()=>{
+ const {Mesh,MeshStandardMaterial}=await import('three');const materials=new Map<string,InstanceType<typeof MeshStandardMaterial>>();
+ (await load()).scene.traverse(node=>{if(node instanceof Mesh && node.material instanceof MeshStandardMaterial)materials.set(node.material.name,node.material);});
+ for(const name of ['worn-metal-pbr','grip-rubber-pbr','reinforced-glove-pbr','woven-sleeve-pbr'])expect(materials.has(name),name).toBe(true);
+ expect(materials.get('worn-metal-pbr')!.metalness).toBeGreaterThan(.6);
+ expect(materials.get('grip-rubber-pbr')!.roughness).toBeLessThan(materials.get('woven-sleeve-pbr')!.roughness);
+ expect(materials.get('reinforced-glove-pbr')!.roughness).not.toBe(materials.get('grip-rubber-pbr')!.roughness);
+});
+
+it('ocho dedos abrazan el puño con geometría junto al anclaje y agarre estable al girar',async()=>{
+ const {Mesh}=await import('three');const {prepareBlenderBicycle}=await import('../../src/rendering/blender-bicycle');
+ const asset=await load();const bike=prepareBlenderBicycle(asset.scene);const points:Vector3[]=[];
+ bike.group.updateMatrixWorld(true);
+ bike.group.traverse(node=>{if(node instanceof Mesh && !Array.isArray(node.material) && node.material.name==='reinforced-glove-pbr'){
+  const positions=node.geometry.getAttribute('position');for(let i=0;i<positions.count;i++)points.push(new Vector3().fromBufferAttribute(positions,i).applyMatrix4(node.matrixWorld));
+ }});
+ for(const side of ['left','right'])for(let finger=0;finger<4;finger++){
+  const tip=bike.group.getObjectByName(`${side}-finger-${finger}-contact`);expect(tip).toBeDefined();
+  const grip=bike.group.getObjectByName(`${side}-finger-${finger}-grip-axis`);expect(grip).toBeDefined();
+  const a=tip!.getWorldPosition(new Vector3()),b=grip!.getWorldPosition(new Vector3());const gap=a.distanceTo(b);
+  expect(gap/.72).toBeGreaterThanOrEqual(.058);expect(gap/.72).toBeLessThanOrEqual(.070);
+  expect(a.y).toBeLessThan(b.y);expect(Math.min(...points.map(p=>p.distanceTo(a)))).toBeLessThan(.015);
+  for(const steeringAngle of [-.48,.48]){bike.update({...base,steeringAngle});bike.group.updateMatrixWorld(true);expect(tip!.getWorldPosition(new Vector3()).distanceTo(grip!.getWorldPosition(new Vector3()))).toBeCloseTo(gap,6);}
+  bike.update(base);bike.group.updateMatrixWorld(true);
+ }
+});
+
+it('resize encuadra ambas manos en portrait sin deformar anatomía ni cambiar cámara del mundo',async()=>{
+ const {PerspectiveCamera}=await import('three');const {prepareBlenderBicycle}=await import('../../src/rendering/blender-bicycle');
+ const bike=prepareBlenderBicycle((await load()).scene);const camera=new PerspectiveCamera(65,393/851,.06,500);camera.add(bike.group);
+ bike.resize(camera.aspect);expect(bike.group.scale.x).toBeLessThan(.72);expect(bike.group.scale.x).toBe(bike.group.scale.y);expect(bike.group.scale.x).toBe(bike.group.scale.z);
+ for(const steeringAngle of [-.48,0,.48]){
+  bike.update({...base,steeringAngle,roll:.3});camera.updateMatrixWorld(true);
+  for(const side of ['left','right'])for(const part of ['palm-inner','palm-outer']){
+   const point=bike.group.getObjectByName(`${side}-${part}`)!.getWorldPosition(new Vector3()).project(camera);
+   expect(Math.abs(point.x)).toBeLessThan(.94);expect(point.y).toBeGreaterThan(-.95);expect(point.y).toBeLessThan(-.3);
+  }
+  for(const side of ['left','right']){
+   const cap=bike.group.getObjectByName(`${side}-sleeve-cap`)!.getWorldPosition(new Vector3()).project(camera);
+   expect(cap.y < -1 || Math.abs(cap.x)>1).toBe(true);
+  }
+ }
+ expect(camera.fov).toBe(65);expect(camera.position.length()).toBe(0);
+ bike.resize(16/9);expect(bike.group.scale.x).toBe(.72);
+});

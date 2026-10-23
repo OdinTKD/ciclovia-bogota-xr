@@ -1,7 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { Buffer } from 'node:buffer';
+import { readFileSync } from 'node:fs';
 import * as T from 'three';
-import { createArtSlice } from '../../src/rendering/art-slice';
+import { createArtSlice, loadArtTextures } from '../../src/rendering/art-slice';
 
 function inventory(group: T.Object3D) {
   let triangles = 0;
@@ -15,18 +16,74 @@ function inventory(group: T.Object3D) {
 }
 
 describe('muestra artística original, primeros 40 m', () => {
+  it('distribuye el recorte de hoja con canal alpha PNG real para evitar tarjetas negras opacas', () => {
+    const png = readFileSync(new URL('../../public/assets/environment-alpha3/leaf.png', import.meta.url));
+    expect(png.subarray(1, 4).toString()).toBe('PNG');
+    // PNG IHDR colour type 6 = RGBA. RGB (2) ignores alphaTest completely.
+    expect(png[25]).toBe(6);
+  });
+  it('espera las tres texturas licenciadas y propaga errores de carga sin presentar recursos incompletos', async () => {
+    const load = vi.spyOn(T.TextureLoader.prototype, 'loadAsync').mockImplementation(async () => new T.Texture());
+    const textures = await loadArtTextures('/ciclovia-bogota-xr/');
+    expect(load).toHaveBeenCalledTimes(3);
+    expect(load.mock.calls.map(call => call[0])).toEqual(expect.arrayContaining(['/ciclovia-bogota-xr/assets/environment-alpha3/brick-red.jpg', '/ciclovia-bogota-xr/assets/environment-alpha3/bark.jpg', '/ciclovia-bogota-xr/assets/environment-alpha3/leaf.png']));
+    expect(textures.leaf.wrapS).toBe(T.ClampToEdgeWrapping);
+    expect(textures.brick.colorSpace).toBe(T.SRGBColorSpace);
+    load.mockRejectedValueOnce(new Error('missing licensed texture'));
+    await expect(loadArtTextures('/')).rejects.toThrow('missing licensed texture');
+    load.mockRestore();
+  });
+
+  it('reemplaza las copas sólidas por brotes unidos a los extremos reales de las ramas', () => {
+    const slice = createArtSlice();
+    const canopy = slice.group.getObjectByName('tree-canopy') as T.InstancedMesh;
+    expect(canopy.geometry.type).not.toBe('SphereGeometry');
+    expect((canopy.material as T.MeshLambertMaterial).alphaTest).toBeGreaterThan(.1);
+    const endpoints = slice.metadata.branchEndpoints.map(point => new T.Vector3(...point));
+    const matrix = new T.Matrix4();
+    for (let i = 0; i < canopy.count; i++) {
+      canopy.getMatrixAt(i, matrix);
+      const base = new T.Vector3().setFromMatrixPosition(matrix);
+      expect(Math.min(...endpoints.map(endpoint => endpoint.distanceTo(base)))).toBeLessThan(.001);
+    }
+    expect(slice.group.getObjectByName('leaf-sprays')).toBeUndefined();
+  });
+
+  it('funde solo la superficie entre 40 y 52 metros y conserva los mapas compartidos al liberar un LOD', () => {
+    const textures = { brick: new T.Texture(), bark: new T.Texture(), leaf: new T.Texture() };
+    const disposals = Object.values(textures).map(texture => vi.spyOn(texture, 'dispose'));
+    const slice = createArtSlice({ textures });
+    const transition = slice.group.getObjectByName('asphalt-transition') as T.Mesh;
+    expect(slice.metadata.transitionEndDistance).toBe(52);
+    const positions = transition.geometry.getAttribute('position');
+    const colors = transition.geometry.getAttribute('color');
+    let nearAlpha = -1, farAlpha = -1;
+    for (let i = 0; i < positions.count; i++) {
+      const worldZ = positions.getZ(i) + transition.position.z;
+      if (worldZ === -40) nearAlpha = colors.getW(i);
+      if (worldZ === -52) farAlpha = colors.getW(i);
+    }
+    expect(nearAlpha).toBe(1); expect(farAlpha).toBe(0);
+    const material = transition.material as T.MeshLambertMaterial;
+    expect(material.transparent).toBe(true);
+    const dry = material.color.clone();
+    slice.updateWeather('rain'); expect(material.color.equals(dry)).toBe(false);
+    slice.updateWeather('sun'); expect(material.color.equals(dry)).toBe(true);
+    slice.dispose();
+    disposals.forEach(dispose => expect(dispose).not.toHaveBeenCalled());
+  });
   it('declara el sector y reserva margen de escena para bicicleta, tráfico y sombras', () => {
     const slice = createArtSlice();
     const measured = inventory(slice.group);
     expect(slice.metadata.startDistance).toBe(0);
     expect(slice.metadata.endDistance).toBe(40);
-    expect(measured.triangles).toBeLessThanOrEqual(60000);
-    expect(measured.calls).toBeLessThanOrEqual(45);
+    expect(measured.triangles).toBeLessThanOrEqual(35000);
+    expect(measured.calls).toBeLessThanOrEqual(20);
     expect(slice.metadata.triangles).toBe(measured.triangles);
     expect(slice.metadata.drawCalls).toBe(measured.calls);
     const bounds = new T.Box3().setFromObject(slice.group);
     expect(bounds.max.z).toBeLessThanOrEqual(4.01);
-    expect(bounds.min.z).toBeGreaterThanOrEqual(-44.01);
+    expect(bounds.min.z).toBeGreaterThanOrEqual(-52.01);
     console.info('Art slice geometry inventory', { triangles: slice.metadata.triangles, drawCalls: slice.metadata.drawCalls, textureBytes: slice.metadata.textureBytes });
   });
 
@@ -73,7 +130,9 @@ describe('muestra artística original, primeros 40 m', () => {
     const first = createArtSlice();
     const second = createArtSlice();
     const texture = (group: T.Group) => ((group.getObjectByName('asphalt') as T.Mesh).material as T.MeshStandardMaterial).map! as T.DataTexture;
-    expect(texture(first.group).image.data).toEqual(texture(second.group).image.data);
+    const firstBytes = texture(first.group).image.data!;
+    const secondBytes = texture(second.group).image.data!;
+    expect(Buffer.from(firstBytes.buffer, firstBytes.byteOffset, firstBytes.byteLength).equals(Buffer.from(secondBytes.buffer, secondBytes.byteOffset, secondBytes.byteLength))).toBe(true);
     expect(texture(first.group).generateMipmaps).toBe(true);
     expect(first.metadata.textureBytes).toBeLessThanOrEqual(8 * 1024 * 1024);
     expect(first.group.getObjectByName('tree-canopy')).toBeDefined();
@@ -99,8 +158,8 @@ describe('muestra artística original, primeros 40 m', () => {
 
   it('agrupa el arte estático sin perder geometría, mapas ni nombres de inspección', () => {
     const slice = createArtSlice();
-    expect(inventory(slice.group).calls).toBeLessThanOrEqual(17);
-    expect(inventory(slice.group).triangles).toBe(27500);
+    expect(inventory(slice.group).calls).toBeLessThanOrEqual(20);
+    expect(inventory(slice.group).triangles).toBeLessThanOrEqual(35000);
     for (const name of ['segmented-concrete-curbs', 'cycle-stencil-wheels', 'balcony-rails-and-grilles', 'tree-trunks', 'fallen-leaves']) expect(slice.group.getObjectByName(name), name).toBeDefined();
     const mesh = slice.group.getObjectByName('batch-urban-steel') as T.Mesh;
     expect(mesh.geometry.getAttribute('color').count).toBe(mesh.geometry.getAttribute('position').count);
@@ -110,7 +169,8 @@ describe('muestra artística original, primeros 40 m', () => {
   it('ofrece LOD bajo real sin desplazar árboles, fachadas ni superficies del recorrido', () => {
     const high = createArtSlice({ detail: 'high' });
     const low = createArtSlice({ detail: 'low' });
-    expect(inventory(high.group)).toEqual({ triangles: 27500, calls: 17 });
+    expect(inventory(high.group).triangles).toBeLessThanOrEqual(35000);
+    expect(inventory(high.group).calls).toBeLessThanOrEqual(20);
     expect(inventory(low.group).triangles).toBeLessThanOrEqual(13000);
     expect(inventory(low.group).calls).toBeLessThanOrEqual(14);
     expect(low.metadata.detail).toBe('low');

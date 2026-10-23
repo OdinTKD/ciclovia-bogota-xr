@@ -21,9 +21,9 @@ it('al llegar al ratio mínimo usa luz difusa y conserva texturas, color y geome
   const material = new MeshStandardMaterial({ metalness: .72 });
   const mesh = new Mesh(new BoxGeometry(), material); scene.add(mesh);
   const renderer = { shadowMap: { enabled: true } };
-  applyRenderQuality(renderer, scene, reflection, .75);
+  applyRenderQuality(renderer, scene, reflection, 1);
   expect(renderer.shadowMap.enabled).toBe(true); expect(material.envMap).toBe(reflection);
-  applyRenderQuality(renderer, scene, reflection, .375);
+  applyRenderQuality(renderer, scene, reflection, .75);
   expect(renderer.shadowMap.enabled).toBe(false); expect(material.envMap).toBeNull();
   expect(mesh.material).toBeInstanceOf(MeshLambertMaterial);
   expect(mesh.material.color).toBe(material.color); expect(mesh.visible).toBe(true);
@@ -38,7 +38,7 @@ it('reduce el filtrado anisotrópico costoso al mínimo y restaura el original e
   const mesh = new Mesh(new BoxGeometry(), new MeshLambertMaterial({ map }));
   scene.add(mesh);
   const renderer = { shadowMap: { enabled: true } };
-  applyRenderQuality(renderer, scene, reflection, .375);
+  applyRenderQuality(renderer, scene, reflection, .75);
   expect(map.anisotropy).toBe(1);
   expect(map.minFilter).toBe(LinearMipmapNearestFilter);
   expect(mesh.material.map).toBe(map);

@@ -6,9 +6,9 @@ it('prepara un equipo lento con tiempos RAF reales antes de jugar y tiene límit
   const ratios: number[] = [];
   const result = await calibrateRenderer({ render: () => { frames++; }, setQuality: ratio => ratios.push(ratio) }, 1.5,
     async () => time += 100);
-  expect(result).toBe(.375);
-  expect(ratios).toEqual([.75, .375]);
-  expect(frames).toBe(25);
+  expect(result).toBe(.75);
+  expect(ratios).toEqual([.75]);
+  expect(frames).toBe(13);
 });
 
 it('conserva la resolución alta si la primera ventana cumple el presupuesto', async () => {

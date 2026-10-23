@@ -1,0 +1,83 @@
+{
+  "verifiedOn": "2026-10-23",
+  "sourceApi": "https://api.polyhaven.com/files/{id}",
+  "runtimeDownloadBytes": 185009,
+  "assets": [
+    {
+      "id": "brick_wall_001",
+      "authors": [
+        "Dimitrios Savva",
+        "Rob Tuytel"
+      ],
+      "page": "https://polyhaven.com/a/brick_wall_001",
+      "sources": [
+        {
+          "file": "brick-red-source.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brick_wall_001/brick_wall_001_diffuse_1k.jpg",
+          "bytes": 574381,
+          "sha256": "6a1233ec0186703de830354d89f122991e61e67fb67e0846c7eaf6c5aefea902"
+        }
+      ],
+      "adaptation": "Resize 1024 to 512 pixels; JPEG quality 86; sRGB; 3x3 repeat.",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://polyhaven.com/license",
+      "output": {
+        "file": "public/assets/environment-alpha3/brick-red.jpg",
+        "bytes": 69809,
+        "sha256": "bb0e5ac480ac4e15e305c20917d7e258588f83f58b50fa1eec89fc325c5e09cd"
+      }
+    },
+    {
+      "id": "bark_brown_02",
+      "authors": [
+        "Rob Tuytel"
+      ],
+      "page": "https://polyhaven.com/a/bark_brown_02",
+      "sources": [
+        {
+          "file": "bark-source.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_diff_1k.jpg",
+          "bytes": 659592,
+          "sha256": "920fa0bed0c9d78c1d530e99795113afd532d7db746de440f4a85d7c83ed0f1a"
+        }
+      ],
+      "adaptation": "Resize 1024 to 512 pixels; JPEG quality 86; sRGB; 1x3 repeat.",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://polyhaven.com/license",
+      "output": {
+        "file": "public/assets/environment-alpha3/bark.jpg",
+        "bytes": 94319,
+        "sha256": "9273930c1749e0633d516ca19c419308aee090321ccd6a8ef6fd75a6e2f6a0a5"
+      }
+    },
+    {
+      "id": "tree_small_02",
+      "authors": [
+        "Rico Cilliers"
+      ],
+      "page": "https://polyhaven.com/a/tree_small_02",
+      "sources": [
+        {
+          "file": "leaves-source.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/tree_small_02/tree_small_02_leaves_diff_1k.png",
+          "bytes": 2338424,
+          "sha256": "d3fc48522c76aa1f91076c6b86f302669822ebe4e2acabd67d42c4d57eaa5ba0"
+        },
+        {
+          "file": "leaves-alpha-source.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/tree_small_02/tree_small_02_leaves_alpha_1k.png",
+          "bytes": 264711,
+          "sha256": "4f143e2dda8a6a572f427ac378b92255d21761e4611de0d26e21816c01aa533b"
+        }
+      ],
+      "adaptation": "Crop x557 y431 width158 height111; resize128x96; alpha from identical crop of alpha source channel0; RGBA PNG. No model geometry reused. Keep only largest alpha connected component to remove neighbouring atlas stems; separate RGB and alpha pipelines to preserve actual PNG RGBA output. Oval crop mask centred at (65,45), radius(58,35), excludes touching neighbouring stems.",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://polyhaven.com/license",
+      "output": {
+        "file": "public/assets/environment-alpha3/leaf.png",
+        "bytes": 20881,
+        "sha256": "7c60d50feb37695c482d3b5ac1c4f08e19600ad07cb5886b9276f6a2bb1e916c"
+      }
+    }
+  ]
+}

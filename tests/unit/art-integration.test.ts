@@ -5,7 +5,7 @@ import { createWorld, assetGeometryStats } from '../../src/rendering/scene';
 describe('integración de la muestra artística A', () => {
   it('alterna detalles de la muestra sin superponer dos entornos y conserva el clima', () => {
     const world = createWorld();
-    world.setArtQuality(.375);
+    world.setArtQuality(.75);
     const high = world.scene.getObjectByName('art-slice')!;
     const low = world.scene.getObjectByName('art-slice-low')!;
     expect(high.visible).toBe(false); expect(low.visible).toBe(true);

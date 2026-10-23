@@ -1,4 +1,5 @@
 import { LinearMipmapNearestFilter, Material, Mesh, MeshLambertMaterial, MeshStandardMaterial, Scene, Texture, type MinificationTextureFilter } from 'three';
+import { FULL_DETAIL_RATIO } from './quality';
 const REFLECTION_STRENGTH = .35;
 const REFLECTIVE_METALNESS = .3;
 const alternatives = new WeakMap<Material, Material>();
@@ -46,7 +47,7 @@ export function applyMaterialLighting(scene: Scene, reflection: Texture | null) 
 
 /** At the existing minimum resolution, favor response over reflection/shadow effects. */
 export function applyRenderQuality(renderer: { shadowMap: { enabled: boolean } }, scene: Scene, reflection: Texture, ratio: number) {
-  const fullEffects = ratio > .375;
+  const fullEffects = ratio >= FULL_DETAIL_RATIO;
   renderer.shadowMap.enabled = fullEffects;
   // Restore originals before assigning their reflection state; cache fallback materials.
   scene.traverse(object => {

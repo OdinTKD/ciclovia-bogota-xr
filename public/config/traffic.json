@@ -1,7 +1,7 @@
 {
   "hazards": [
     {"id":"car-01","kind":"car","z":110,"triggerDistance":40,"speed":2.5,"startX":8,"endX":-8,"halfX":2,"halfZ":1},
-    {"id":"pedestrian-01","kind":"pedestrian","z":220,"triggerDistance":32,"speed":1.5,"startX":-6,"endX":6,"halfX":0.35,"halfZ":0.35},
+    {"id":"pedestrian-01","kind":"pedestrian","z":160,"triggerDistance":32,"speed":1.5,"startX":-6,"endX":6,"halfX":0.35,"halfZ":0.35},
     {"id":"car-02","kind":"car","z":340,"triggerDistance":42,"speed":2.4,"startX":8,"endX":-8,"halfX":2,"halfZ":1},
     {"id":"pedestrian-02","kind":"pedestrian","z":460,"triggerDistance":35,"speed":1.6,"startX":-6,"endX":6,"halfX":0.35,"halfZ":0.35},
     {"id":"car-03","kind":"car","z":580,"triggerDistance":38,"speed":2.6,"startX":8,"endX":-8,"halfX":2,"halfZ":1},

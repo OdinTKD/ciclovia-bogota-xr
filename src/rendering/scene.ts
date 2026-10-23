@@ -1,11 +1,11 @@
 import * as T from "three";
 import { createProceduralBicycle } from "./bicycle";
 import type { BicyclePresentation } from "./bicycle";
-import { createArtSlice } from "./art-slice";
+import { createArtSlice, type ArtTextures } from "./art-slice";
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { applyMaterialLighting, applyRenderQuality, materialAlternative } from './material-lighting';
 import { rendererOptions } from './renderer-options';
-import { MIN_RATIO } from './quality';
+import { FULL_DETAIL_RATIO, initialPixelRatio } from './quality';
 import { weatherProfile, parseWeather } from "../weather";
 export const SCENE_BUDGET = {
   drawCalls: 100,
@@ -35,14 +35,15 @@ const CAMERA_ROLL_FACTOR=.15;
 const CAMERA_ROLL_LIMIT=.052;
 const CAMERA_FOLLOW_DISTANCE=1.3;
 const color = {
-  green: 0x58b5a0,
+  cycleway: 0x454944,
   asphalt: 0x354d55,
   brick: 0xab6451,
   cream: 0xf3d8b0,
   tree: 0x397d68,
 };
 interface WorldOptions {
-  bicycle?: { group: T.Group; update(state: BicyclePresentation): void };
+  artTextures?: ArtTextures;
+  bicycle?: { group: T.Group; update(state: BicyclePresentation): void; resize?(aspect: number): void };
 }
 /** Shared geometry, material and texture ownership is deduplicated at scene shutdown. */
 function disposeSceneResources(scene: T.Scene) {
@@ -73,8 +74,8 @@ export function createWorld(options: WorldOptions = {}) {
   camera.position.set(0, 1.65, 0);
   camera.rotation.order="YXZ";
   scene.add(camera);
-  scene.add(new T.HemisphereLight(0xe6eef0, 0x655c48, 1.15));
-  const sun = new T.DirectionalLight(0xffe1b1, 2.6);
+  scene.add(new T.HemisphereLight(0xe6eef0, 0x878272, 1.8));
+  const sun = new T.DirectionalLight(0xffe1b1, 2);
   sun.position.set(-25, 38, 16);
   sun.target.position.set(0, 0, -20);
   sun.castShadow = true;
@@ -119,7 +120,8 @@ export function createWorld(options: WorldOptions = {}) {
     return mesh;
   }
   instances(box, color.asphalt, [[0, -0.15, -100, 34, 0.2, 440]]);
-  instances(box, color.green, [[0, -0.025, -100, 6, 0.1, 440]]);
+  const baseCycleway = instances(box, color.cycleway, [[0, -0.025, -100, 6, 0.1, 440]]);
+  baseCycleway.name = 'base-cycleway';
   instances(box, 0xe5d5b7, [
     [-11, -0.01, -100, 8, 0.2, 440],
     [11, -0.01, -100, 8, 0.2, 440],
@@ -177,16 +179,16 @@ export function createWorld(options: WorldOptions = {}) {
   instances(box, 0xf3edb8, lines, city);
   instances(box, 0xf9f3dc, stripes, city);
   instances(box, 0xc7b26e, parked, city);
-  const artSlice = createArtSlice();
+  const artSlice = createArtSlice({ textures: options.artTextures });
   artSlice.group.userData.extent = { start: artSlice.metadata.startDistance, end: artSlice.metadata.endDistance };
   scene.add(artSlice.group);
-  const artLow = createArtSlice({ detail: 'low' });
+  const artLow = createArtSlice({ detail: 'low', textures: options.artTextures });
   artLow.group.name = 'art-slice-low';
   artLow.group.userData.extent = artSlice.group.userData.extent;
   artLow.group.visible = false;
   scene.add(artLow.group);
   function setArtQuality(ratio: number) {
-    artSlice.group.visible = ratio > MIN_RATIO;
+    artSlice.group.visible = ratio >= FULL_DETAIL_RATIO;
     artLow.group.visible = !artSlice.group.visible;
   }
   const getArtDetail = () => artLow.group.visible ? 'low' : 'high';
@@ -281,7 +283,7 @@ export function createWorld(options: WorldOptions = {}) {
     (scene.fog as T.Fog).far = weatherProfile(
       parseWeather(snapshot.weather),
     ).visibility;
-    sun.intensity = raining ? .7 : 2.6;
+    sun.intensity = raining ? .7 : 2;
     if (snapshot.weather !== lastWeather) {
       artSlice.updateWeather(parseWeather(snapshot.weather));
       artLow.updateWeather(parseWeather(snapshot.weather));
@@ -359,7 +361,7 @@ export function buildScene(canvas: HTMLCanvasElement, options: WorldOptions = {}
     canvas,
     ...rendererOptions(window.devicePixelRatio),
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  renderer.setPixelRatio(initialPixelRatio(window.devicePixelRatio));
   renderer.outputColorSpace = T.SRGBColorSpace;
   renderer.toneMapping = T.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
@@ -380,6 +382,7 @@ export function buildScene(canvas: HTMLCanvasElement, options: WorldOptions = {}
     renderer.setSize(w, h, false);
     world.camera.aspect = w / h;
     world.camera.updateProjectionMatrix();
+    options.bicycle?.resize?.(w / h);
   };
   resize();
   return {

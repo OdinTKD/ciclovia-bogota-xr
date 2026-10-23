@@ -6,11 +6,11 @@
   "source": "assets/source/bicycle/bicycle-rider.blend",
   "generator": "tools/assets/build-bicycle.py",
   "blenderVersion": "5.1.2",
-  "triangles": 7120,
-  "drawCalls": 9,
-  "materials": 2,
-  "bytes": 187596,
-  "sha256": "6676817a5e6a9302625a84b3f3ff3b2d489d6404c3ee8966f927356b92f92d76",
+  "triangles": 10516,
+  "drawCalls": 11,
+  "materials": 4,
+  "bytes": 274308,
+  "sha256": "da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85",
   "presentation": {
     "position": [
       0,

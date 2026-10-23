@@ -1,7 +1,9 @@
 // Measure the art sample itself in both climates, without video or screenshots.
 import { chromium, devices } from '@playwright/test';
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
+const output = process.env.ART_BENCH_OUTPUT || 'docs/performance/gate-a-art';
+await mkdir(output, {recursive:true});
 for (const mode of (process.env.ART_BENCH_MODE ? [process.env.ART_BENCH_MODE] : ['software-mobile', 'hardware-desktop'])) {
   const browser = await chromium.launch(mode === 'hardware-desktop' ? { channel: 'chrome', args: ['--use-angle=d3d11'] } : {});
   const context = await browser.newContext(mode === 'software-mobile' ? { ...devices['Pixel 7'] } : { viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
@@ -46,7 +48,7 @@ for (const mode of (process.env.ART_BENCH_MODE ? [process.env.ART_BENCH_MODE] : 
       assert.ok(report.maxDrawCalls <= 100 && report.maxTriangles <= 100000);
     }
   } finally {
-    await writeFile(`docs/performance/gate-a-art/sample-${mode}.json`, JSON.stringify(reports, null, 2));
+    await writeFile(`${output}/sample-${mode}.json`, JSON.stringify(reports, null, 2));
     await browser.close();
   }
 }

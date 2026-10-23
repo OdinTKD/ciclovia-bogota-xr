@@ -1,6 +1,7 @@
 import "./style.css";
 import { createUI } from "./ui";
 import { buildScene, assetGeometryStats } from "./rendering/scene";
+import { loadArtTextures } from './rendering/art-slice';
 import { createSimulation } from "./core/simulation";
 import { summarizeFrames } from "./core/performance";
 import { createInputController } from "./input/controller";
@@ -56,11 +57,12 @@ async function json(path: string): Promise<unknown> {
 
 async function boot() {
   const level = parseLevel(await json("config/levels/virrey.json"));
-  const [physics, rawTraffic, rawHumor, bicycle] = await Promise.all([
+  const [physics, rawTraffic, rawHumor, bicycle, artTextures] = await Promise.all([
     createPhysics(),
     json(level.traffic),
     json("config/humor/bogota.json"),
     loadBicycleAsset(import.meta.env.BASE_URL),
+    loadArtTextures(import.meta.env.BASE_URL),
   ]);
   simulation.config.routeLength = Math.min(GATE_ROUTE_LENGTH, level.length);
   const traffic = createTraffic(parseTrafficConfig(rawTraffic), level.seed),
@@ -94,7 +96,7 @@ async function boot() {
   void detectAR(navigator.xr).then((result) => {
     arCapability = result;
   });
-  const world = buildScene(ui.elements.canvas, { bicycle });
+  const world = buildScene(ui.elements.canvas, { bicycle, artTextures });
   const antialias = world.renderer.getContext().getContextAttributes()?.antialias ?? false;
   await warmRendererVariants({
     setQuality: world.setQuality,
@@ -108,13 +110,13 @@ async function boot() {
   };
   await calibrateRenderer({ render: world.render, setQuality }, world.renderer.getPixelRatio());
   assetStats = assetGeometryStats(world.scene.getObjectByName('bicycle') ?? world.scene);
-  const quality = createQualityController(world.renderer.getPixelRatio());
+  const quality = createQualityController(world.renderer.getPixelRatio(), Math.min(window.devicePixelRatio, 1.5));
   let last = performance.now(),
     bubble = "",
     bubbleUntil = 0;
   const startedAt = new Date().toISOString();
   ui.downloadReport.addEventListener('click', () => {
-    const report = { version: '0.3.0-alpha.2', gate: 'A', startedAt, exportedAt: new Date().toISOString(),
+    const report = { version: '0.3.0-alpha.3', gate: 'A', startedAt, exportedAt: new Date().toISOString(),
       userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
       viewport: { width: innerWidth, height: innerHeight, devicePixelRatio },
       state: structuredClone(simulation.state), physicsSteps: physics.steps,
