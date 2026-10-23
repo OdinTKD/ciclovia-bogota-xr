@@ -1,5 +1,9 @@
 # Preparación del entorno web
 
+Estado: candidato técnico publicado `0.3.0-alpha.1`, solo Puerta A, pendiente del OK. La prueba física fue aplazada expresamente por el usuario hasta identificar modelo, OS y navegador reales; ningún ejemplo se registra como resultado. La [revisión de A](docs/architecture/gate-a-review.md) separa medición emulada, validación visual y protocolo físico. La ampliación visual de A con Blender en 25–50 m está autorizada como trabajo posterior y tendrá evidencia y versión propias.
+
+Validación final CI: 100/100 unitarias en 20 archivos, build correcto y 14 E2E aprobadas/2 omitidas en 1,7 minutos. Las omisiones son presupuestos duplicados de escritorio. Contra Pages: 10/10 funcionales en 38,3 s. La primera CI falló en FPS; el batching corrigió el coste sin bajar 30 fps ni ratio mínimo 0,375. El diagnóstico se descarga en pausa al primer minuto y al final de la futura sesión física; son resúmenes acumulados, no segmentos independientes de FPS.
+
 Ciclovía Bogotá XR usa Vite, TypeScript, Three.js, Rapier y WebXR. `package-lock.json` fija las dependencias. Entorno comprobado el 2026-10-23: Node.js 24.18.0 y npm 11.16.0. CI utiliza Node.js 24.
 
 ## Instalación y ejecución
@@ -30,9 +34,9 @@ Estos comandos son instrucciones reproducibles; sus resultados de cierre se regi
 
 ## GitHub Pages y WebXR
 
-El flujo `.github/workflows/pages.yml` verifica pruebas y build en pushes a `main` o por ejecución manual, antes de publicar `dist`. Pages está configurado para GitHub Actions en el repositorio del proyecto.
+El flujo `.github/workflows/deploy.yml` verifica pruebas y build en pushes a `main` o por ejecución manual, antes de publicar `dist`. Pages está configurado para GitHub Actions en el repositorio del proyecto.
 
-Demo verificada el 2026-10-23: [Ciclovía Bogotá XR](https://odintkd.github.io/ciclovia-bogota-xr/). El [flujo 39988830105](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/39988830105) completó verificación y despliegue del commit `fc9651f`, versión 0.2.2. La comprobación posterior contra la URL pública obtuvo 7 E2E correctos y 1 omisión redundante de presupuesto de escritorio en 52,8 s, incluyendo HUD sin mutaciones repetidas y rendimiento móvil. Para repetir la comprobación, usar `PLAYWRIGHT_BASE_URL` como indica [README.md](README.md).
+Demo del candidato publicada el 2026-10-23: [Ciclovía Bogotá XR](https://odintkd.github.io/ciclovia-bogota-xr/). El [flujo 40003117329](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40003117329) completó verify y deploy del commit `ed9639de4c8120d7926d988775665e029f202a75`. El [smoke final](docs/performance/gate-a/live-verification.json) confirma juego, [revisión pública](https://odintkd.github.io/ciclovia-bogota-xr/review/) y vídeo HTTP 200, reproducción, 10.597.611 bytes de vídeo iguales al local y cero errores. Para repetir pruebas contra Pages usar `PLAYWRIGHT_BASE_URL` como en [README.md](README.md). Publicar el candidato no cierra A.
 
 Los umbrales de rendimiento no se redujeron: el ajuste automático baja resolución interna hasta `pixelRatio` 0,375; el HUD se actualiza a 10 Hz sin repetir mutaciones DOM, los grupos de actores inactivos no se dibujan y la interfaz móvil evita desenfoque CSS. El benchmark de `tests/e2e/performance.spec.ts` no captura trazas; las pruebas funcionales sí las conservan ante fallos. Los resultados Linux/Chromium/CPU 4× son promedios de laboratorio; no sustituyen mediciones en dispositivo físico.
 

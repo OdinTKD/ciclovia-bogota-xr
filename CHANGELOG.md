@@ -89,3 +89,31 @@ Compatibilidad: Compatible — corrección de rendimiento y publicación; la res
 Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Frontend / UI / Rendimiento, Documentación / Versionado
 
 Compatibilidad: Compatible — correcciones de rendimiento y documentación; sin cambiar controles ni umbrales de aceptación.
+
+## [0.3.0-alpha.1] - 2026-10-23
+
+### Agregado
+
+- Candidato técnico de Puerta A: fragmento de 200 m dentro del recorrido previsto de 1.200 m, controlador cinemático con orientación, reloj Rapier único a 1/60 s, contactos frontal/lateral y recuperación; frenada ARCADE desde 8 m/s en 4–5 m con sol y 6–7 m con lluvia.
+- Bicicleta/manos procedurales animadas y cámara en primera persona; diagnóstico descargable con reinicios, resúmenes acumulados y cambios de resolución, separado de las observaciones humanas.
+- Revisión pública con vídeo real de teclado de 43,60 s, 1280×720, 25 FPS VP9, capturas y registro de eventos sin errores; tablas locales antes/después y CI con resolución efectiva.
+
+### Corregido
+
+- Consultas físicas sin pasos extra, contactos con daño limitado por cooldown, velocidad real contra sólidos, replay a distintas tasas de frame y muestreo de todos los RAF jugando, incluso sin tick físico.
+- Repetición de P/Escape que alternaba pausa y reanudación: regresión roja reproducida, corrección y refactor comprobados.
+- Coste de render tras fallo CI 40000545028: batching por assembly con colores de vértice conserva geometría, colores y pivotes de la bicicleta, 3.276 triángulos, ahora 5 meshes y 1 material. Sin relajar 30 FPS, máximo 100 draw calls/100.000 triángulos ni mínimo de ratio 0,375.
+
+### Validación
+
+- Pruebas o comandos ejecutados: ciclos rojo → verde → refactor en docs/tdd/gate-a-physics.md, gate-a-render.md y gate-a-integration.md; npm test, npm run build, presupuestos locales y E2E; suite funcional contra Pages con PLAYWRIGHT_BASE_URL; smoke de juego/review/vídeo; comprobación de estructura/enlaces/JSON y licencias, comparación byte a byte del prefijo previo de CHANGELOG.md y git diff --check.
+- Resultado: 100/100 unitarias en 20 archivos y build correcto. CI final [40003117329](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40003117329) con verify y deploy correctos para ed9639de4c8120d7926d988775665e029f202a75; 14 E2E aprobadas y 2 omitidas en 1,7 minutos (presupuestos duplicados en escritorio). Contra Pages, 10/10 funcionales en 38,3 s con el mismo JS index-DJfD5Eas.js del build.
+- Publicación comprobada: [juego](https://odintkd.github.io/ciclovia-bogota-xr/), [review/vídeo](https://odintkd.github.io/ciclovia-bogota-xr/review/) HTTP 200; vídeo reproducido con currentTime mayor que cero, 10.597.611 bytes iguales al archivo local y cero errores. Evidencia en docs/performance/gate-a/live-verification.json.
+- CI final de 18 s, Linux/Chromium, viewport Pixel 7 y CPU 4×: sol 36,36 FPS promedio, 20 calls, 17.966 triángulos, 655 muestras; lluvia 34,97 FPS, 21 calls, 19.886 triángulos, 630 muestras. Ratio 0,75, drawing buffer 309×629, CSS 412×839, DPR emulado 2,625; p95/p99≈33,4 ms, máximo 50 ms. CI anterior verde 40002460207 conservada; variabilidad del runner sin cambios de runtime, sin atribuir toda diferencia al código.
+- Comparación local de recorrido 18 s preservada: antes 51,73/59,67 FPS sol/lluvia; después 38,97/40,46. Las resoluciones adaptativas difieren; no se anuncia mejora causal de FPS. Estas mediciones emuladas no acreditan teléfono físico ni garantizan 30 FPS cada frame; los FPS del vídeo tampoco miden el rendimiento del juego.
+- Documentación validada con enlaces locales y métricas JSON; licencias originales conservadas. No aplica prueba ejecutable al cierre documental: validación alternativa determinista de estructura, enlaces y contenido. Historial previo preservado byte a byte.
+- Estado de aceptación: Puerta A sigue ABIERTA. Prueba física expresamente aplazada por el usuario hasta disponer de modelo, OS y navegador reales; no se registran plantillas como resultados. El OK de A está pendiente. B no autorizada. La ampliación visual de A con Blender, materiales/vegetación/fachadas/iluminación en una muestra de 25–50 m y capturas/vídeo reales queda autorizada como trabajo posterior, con entrada y evidencia nuevas; no está entregada aquí. Geografía real, modelos finales y AR jugable no se certifican.
+
+Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Motor / Física / Vehículos, Render / Cámara / Rendimiento, Documentación / Versionado
+
+Compatibilidad: Compatible como candidato prerelease de A — conserva controles, stack, rutas de configuración y diagnóstico usados por E2E; añade orientación y campos de métricas, usa fragmento de prueba de 200 m y cambia deliberadamente conducción/contactos. No representa la aprobación de A ni la entrega completa de 0.3.0.

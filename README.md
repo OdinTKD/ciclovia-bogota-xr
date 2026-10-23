@@ -1,6 +1,10 @@
 # Ciclovía Bogotá XR
 
-Juego web 3D de paseo en bicicleta inspirado en Bogotá, construido con Vite, TypeScript, Three.js y Rapier. El MVP recorre una ruta de 1.200 m con bicicleta tradicional, sol o lluvia, obstáculos, puntuación y estado del vehículo. Las ampliaciones XR requieren detección de capacidades y pruebas en dispositivos compatibles.
+Candidato técnico publicado: `0.3.0-alpha.1`, exclusivamente Puerta A: conducción con orientación, contactos y bicicleta/manos procedurales en un fragmento de 200 m. A sigue abierta. La prueba física fue expresamente aplazada por el usuario hasta aportar modelo, OS y navegador reales; el OK de A sigue pendiente. La ampliación visual de A con Blender y una muestra de 25–50 m está autorizada para trabajo posterior, sin abrir B. Véanse la [revisión y protocolo físico](docs/architecture/gate-a-review.md) y las [decisiones de A](docs/architecture/gate-a.md).
+
+Validación final: 100/100 unitarias en 20 archivos, build correcto, 14 E2E aprobadas y 2 omitidas en CI; 10/10 funcionales contra Pages. El [vídeo público de revisión](https://odintkd.github.io/ciclovia-bogota-xr/review/) muestra giro, frenada y contactos sobre el proxy procedural; no acredita arte final, teléfono ni aprobación del usuario.
+
+Juego web 3D de paseo en bicicleta inspirado en Bogotá, construido con Vite, TypeScript, Three.js y Rapier. La base del MVP conserva un recorrido previsto de 1.200 m; el candidato A valida 200 m con bicicleta tradicional, sol o lluvia, obstáculos, puntuación y estado del vehículo. Las ampliaciones XR requieren detección de capacidades y pruebas en dispositivos compatibles.
 
 Código fuente: [OdinTKD/ciclovia-bogota-xr](https://github.com/OdinTKD/ciclovia-bogota-xr). El MVP incluye detección de capacidad AR; todavía no abre una sesión AR ni implementa hit-test o colocación del escenario.
 
@@ -15,7 +19,7 @@ npm ci
 npm run dev
 ```
 
-Demo: [Jugar Ciclovía Bogotá XR](https://odintkd.github.io/ciclovia-bogota-xr/). Versión 0.2.2 verificada el 2026-10-23: 7 pruebas E2E satisfactorias contra la URL real y 1 prueba redundante de rendimiento en escritorio omitida.
+Demo: [Jugar Ciclovía Bogotá XR](https://odintkd.github.io/ciclovia-bogota-xr/). Candidato 0.3.0-alpha.1 publicado el 2026-10-23, commit `ed9639de4c8120d7926d988775665e029f202a75`. Juego, revisión y vídeo HTTP 200; vídeo reproducido y contenido igual al local. A permanece abierta.
 
 Consulta [SETUP.md](SETUP.md) para preparar las pruebas de navegador, compilar y configurar GitHub Pages.
 
@@ -46,7 +50,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Vitest verifica la lógica y Playwright los flujos del navegador. GitHub Actions ejecuta pruebas, compilación y E2E antes de desplegar `dist` a Pages, y conserva reportes. La evidencia de TDD está en `docs/tdd/`; cada cierre se registra en [CHANGELOG.md](CHANGELOG.md). El [flujo 39988830105](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/39988830105) completó correctamente verificación y publicación del commit `fc9651f`, versión 0.2.2. Suite unitaria: 63/63 en 15 archivos; build correcto; suite local: 7 correctas y 1 omitida en 46,3 s; suite en la URL publicada: 7 correctas y 1 omitida en 52,8 s.
+Vitest verifica la lógica y Playwright los flujos del navegador. El [flujo 40003117329](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40003117329) terminó verify y deploy correctamente: 100/100 unitarias, build y 14 E2E aprobadas/2 omitidas en 1,7 minutos. Son omisiones de presupuesto duplicado en escritorio. Contra la URL pública pasaron 10/10 funcionales en 38,3 s. Evidencia: [smoke final](docs/performance/gate-a/live-verification.json), `docs/tdd/` y [CHANGELOG.md](CHANGELOG.md).
 
 Las pruebas funcionales conservan trazas ante fallos. La medición de rendimiento está separada en `tests/e2e/performance.spec.ts` y desactiva la captura de trazas durante el benchmark. Esto evita añadir ese trabajo al periodo medido, sin atribuirle toda la variación entre ejecuciones ni cambiar los umbrales exigidos.
 
@@ -68,9 +72,9 @@ La validación local utiliza viewport móvil y limitación de CPU 4× en Chromiu
 
 La calidad se ajusta automáticamente reduciendo la resolución interna cuando el promedio de frames empeora; puede bajar hasta `pixelRatio` 0,375. En móvil se eliminó el desenfoque CSS para reducir coste de composición. El HUD se actualiza a 10 Hz, aplica cambios de fase de inmediato y evita mutaciones DOM cuando el estado no cambia. Los grupos de actores inactivos no generan draw calls. El ajuste prioriza fluidez y puede hacer menos nítida la imagen.
 
-Medición CI Linux 0.2.2 con renderizado por software, viewport móvil y CPU limitada 4×: [sol](docs/performance/022-ci-sun.json), 37,14 fps, 20 draw calls y 15.126 triángulos, con 143 muestras; [lluvia](docs/performance/022-ci-rain.json), 34,31 fps, 24 draw calls y 17.622 triángulos, con 171 muestras. Ambos usaron `pixelRatio` 0,375 y p95 de frame de 33,4 ms. Los FPS son promedios, no una garantía de 30 fps en cada frame. Las mediciones históricas se conservan en `docs/performance/`.
+Medición CI final Linux/Chromium, viewport Pixel 7 y CPU limitada 4×, 18 s: [sol](docs/performance/gate-a/ci-40003117329-route-performance-sun.json), 36,36 fps promedio, 20 draw calls y 17.966 triángulos; [lluvia](docs/performance/gate-a/ci-40003117329-route-performance-rain.json), 34,97 fps, 21 draw calls y 19.886 triángulos. Ambos ratio 0,75, drawing buffer 309×629, CSS 412×839 y DPR emulado 2,625; p95/p99 aproximadamente 33,4 ms, máximo 50 ms. Son promedios de laboratorio, no 30 fps garantizados por frame ni resultados de teléfono físico. La [revisión de A](docs/architecture/gate-a-review.md) conserva comparación local antes/después, resoluciones e histórico sin atribuir diferencias de FPS solamente al código.
 
-Contra la demo 0.2.2 publicada, Chromium local con viewport móvil y CPU limitada 4× registró [sol](docs/performance/022-live-sun.json), 36,81 fps y 154 muestras, y [lluvia](docs/performance/022-live-rain.json), 33,42 fps y 171 muestras. Ambos con `pixelRatio` 0,375, p95 de frame de 33,4 ms y los mismos draw calls y triángulos que la medición CI. Este resultado también corresponde a emulación de laboratorio.
+La bicicleta/manos procedural tiene 3.276 triángulos, 5 meshes y 1 material. Coche y peatón siguen siendo placeholders de 48 y 68 triángulos; actores reactivos de B y arte final no están entregados.
 
 WebXR/AR requiere HTTPS, navegador, permisos y hardware compatibles. Las pruebas de capacidades o fallback no sustituyen una prueba real de AR y hit-test en dispositivo. No se declara rendimiento móvil ni funcionamiento XR en hardware sin esa evidencia.
 

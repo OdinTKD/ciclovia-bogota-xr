@@ -1,0 +1,39 @@
+{
+  "verifiedAt": "2026-10-23T18:28:57.526Z",
+  "commit": "ed9639de4c8120d7926d988775665e029f202a75",
+  "url": "https://odintkd.github.io/ciclovia-bogota-xr/",
+  "gameStatus": 200,
+  "reviewStatus": 200,
+  "videoStatus": 200,
+  "videoBytes": 10597611,
+  "game": {
+    "gate": "A",
+    "routeLength": 200,
+    "assets": {
+      "triangles": 3276,
+      "drawCalls": 5,
+      "meshes": 5,
+      "materials": 1,
+      "geometries": 5
+    },
+    "render": {
+      "drawCalls": 17,
+      "triangles": 17390,
+      "pixelRatio": 1,
+      "width": 1280,
+      "height": 720,
+      "cssWidth": 1280,
+      "cssHeight": 720,
+      "devicePixelRatio": 1
+    }
+  },
+  "video": {
+    "duration": 43.6,
+    "width": 1280,
+    "height": 720,
+    "currentTime": 0.2385
+  },
+  "errors": [],
+  "functionalSuite": "10/10 contra Pages en38.3s: game.spec.ts ygate-a.spec.ts; mismoJSindex-DJfD5Eas.js",
+  "physicalPhone": "pendiente"
+}
