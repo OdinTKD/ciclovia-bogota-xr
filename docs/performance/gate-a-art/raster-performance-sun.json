@@ -1,0 +1,20 @@
+{
+  "drawCalls": 36,
+  "triangles": 39478,
+  "pixelRatio": 0.375,
+  "width": 154,
+  "height": 314,
+  "cssWidth": 412,
+  "cssHeight": 839,
+  "devicePixelRatio": 2.625,
+  "shadows": false,
+  "materialQuality": "diffuse",
+  "antialias": false,
+  "fps": 48.432665141934606,
+  "p95Ms": 33.399999999999636,
+  "p50Ms": 16.699999999999818,
+  "p99Ms": 33.399999999999636,
+  "maxMs": 33.400000000001455,
+  "samples": 180,
+  "bicycleTriangles": 7120
+}

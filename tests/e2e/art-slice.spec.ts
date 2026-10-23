@@ -23,6 +23,10 @@ test('el inicio espera el modelo Blender imprescindible', async ({ page }) => {
   expect(game.render.pixelRatio).toBeGreaterThanOrEqual(.375);
   expect(game.render.shadows).toBe(game.render.pixelRatio > .375);
   expect(game.render.materialQuality).toBe(game.render.shadows ? 'pbr' : 'diffuse');
+  const raster = await page.evaluate(() => ({ dpr: devicePixelRatio,
+    antialias: document.querySelector('canvas')!.getContext('webgl2')!.getContextAttributes()!.antialias }));
+  expect(raster.antialias).toBe(raster.dpr <= 1);
+  expect(game.render.antialias).toBe(raster.antialias);
 });
 
 test('un GLB ausente comunica el error y no inicia una sustitución silenciosa', async ({ page }) => {

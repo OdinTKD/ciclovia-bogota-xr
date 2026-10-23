@@ -4,6 +4,7 @@ import type { BicyclePresentation } from "./bicycle";
 import { createArtSlice } from "./art-slice";
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { applyMaterialLighting, applyRenderQuality, materialAlternative } from './material-lighting';
+import { rendererOptions } from './renderer-options';
 import { weatherProfile, parseWeather } from "../weather";
 export const SCENE_BUDGET = {
   drawCalls: 100,
@@ -344,8 +345,7 @@ export function buildScene(canvas: HTMLCanvasElement, options: WorldOptions = {}
   const world = createWorld(options);
   const renderer = new T.WebGLRenderer({
     canvas,
-    antialias: true,
-    powerPreference: "high-performance",
+    ...rendererOptions(window.devicePixelRatio),
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
   renderer.outputColorSpace = T.SRGBColorSpace;
