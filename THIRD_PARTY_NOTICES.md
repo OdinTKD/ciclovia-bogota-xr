@@ -35,3 +35,11 @@ El [inventario completo](docs/licenses/npm-inventory.md) incluye dependencias tr
 Conservar estos avisos y las licencias aplicables al distribuir artefactos. Antes de incorporar nuevos assets o código, revisar y registrar su origen y licencia individualmente.
 
 Las copias runtime [Three.js MIT](public/licenses/three-MIT.txt) y [Rapier Apache-2.0](public/licenses/rapier-Apache-2.0.txt) están en `public/licenses/`; Vite las conserva en `dist/licenses/` para la distribución web.
+
+## Producción original — ampliación visual de A en curso
+
+El entorno de 40 m de `src/rendering/art-slice.ts` utiliza geometría y texturas originales generadas por fórmulas deterministas: asfalto, ladrillo, concreto, adoquín, corteza, hoja y césped. La procedencia está documentada en [evidencia del entorno](docs/tdd/art-slice.md) y [alcance visual](docs/architecture/gate-a-art.md). No incorpora fotografías, mapas de textura descargados ni imágenes o assets de Def Jam; la referencia artística no es una fuente de material reutilizado. Representa una interpretación visual, sin certificar geografía real de El Virrey.
+
+La bicicleta/manos se produjo como geometría, colores y materiales originales del proyecto en Blender 5.1.2, sin modelos, texturas, fuentes o audio externos según su [manifest de procedencia](public/assets/models/bicycle-rider.manifest.json). Se conservan [fuente editable .blend](assets/source/bicycle/bicycle-rider.blend), [script](tools/assets/build-bicycle.py) y [GLB](public/assets/models/bicycle-rider.glb). Artefacto comprobado: 187.596 bytes, SHA-256 `6676817a5e6a9302625a84b3f3ff3b2d489d6404c3ee8966f927356b92f92d76`. El alcance visual mantiene los conteos y límites de integración; la existencia del modelo no certifica calidad artística o rendimiento.
+
+Esta nota no asigna una licencia nueva a los originales del proyecto ni anuncia modelos externos licenciados o descargados. Blender se utiliza como herramienta de producción local; no se distribuye como runtime del juego.

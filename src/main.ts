@@ -12,6 +12,8 @@ import { detectAR } from "./xr/capabilities";
 import { parseWeather } from "./weather";
 import { createQualityController } from "./rendering/quality";
 import { createSessionReport } from "./core/session-report";
+import { loadBicycleAsset } from './rendering/assets';
+import { warmRendererVariants } from './rendering/renderer-warmup';
 import type { PhysicsActorMotion } from "./physics/world";
 
 const GATE_ROUTE_LENGTH = 200;
@@ -25,7 +27,7 @@ const input = createInputController(window, {
 });
 const frames: number[] = [];
 let ready = false,
-  renderStats = { drawCalls: 0, triangles: 0, pixelRatio: 1, width: 0, height: 0, cssWidth: 0, cssHeight: 0, devicePixelRatio: window.devicePixelRatio },
+  renderStats = { drawCalls: 0, triangles: 0, pixelRatio: 1, width: 0, height: 0, cssWidth: 0, cssHeight: 0, devicePixelRatio: window.devicePixelRatio, shadows: true, materialQuality: 'pbr' },
   obstacles: Obstacle[] = [];
 const session = createSessionReport();
 let physicsSteps = 0;
@@ -41,7 +43,8 @@ Object.defineProperty(window, "__game", {
     performance: summarizeFrames(frames),
     traffic: obstacles.map((o) => ({ ...o })),
     ar: { ...arCapability },
-    assets: assetStats,
+    assets: assetStats ? { ...assetStats, source: 'blender-glb' } : null,
+    artSlice: { start: 0, end: 40 },
   }),
 });
 async function json(path: string): Promise<unknown> {
@@ -52,10 +55,11 @@ async function json(path: string): Promise<unknown> {
 
 async function boot() {
   const level = parseLevel(await json("config/levels/virrey.json"));
-  const [physics, rawTraffic, rawHumor] = await Promise.all([
+  const [physics, rawTraffic, rawHumor, bicycle] = await Promise.all([
     createPhysics(),
     json(level.traffic),
     json("config/humor/bogota.json"),
+    loadBicycleAsset(import.meta.env.BASE_URL),
   ]);
   simulation.config.routeLength = Math.min(GATE_ROUTE_LENGTH, level.length);
   const traffic = createTraffic(parseTrafficConfig(rawTraffic), level.seed),
@@ -89,7 +93,12 @@ async function boot() {
   void detectAR(navigator.xr).then((result) => {
     arCapability = result;
   });
-  const world = buildScene(ui.elements.canvas);
+  const world = buildScene(ui.elements.canvas, { bicycle });
+  await warmRendererVariants({
+    setQuality: world.setQuality,
+    compile: () => world.renderer.compileAsync(world.scene, world.camera),
+    render: world.render,
+  }, world.renderer.getPixelRatio());
   assetStats = assetGeometryStats(world.scene.getObjectByName('bicycle') ?? world.scene);
   const quality = createQualityController(world.renderer.getPixelRatio());
   let last = performance.now(),
@@ -97,11 +106,11 @@ async function boot() {
     bubbleUntil = 0;
   const startedAt = new Date().toISOString();
   ui.downloadReport.addEventListener('click', () => {
-    const report = { version: '0.3.0-alpha.1', gate: 'A', startedAt, exportedAt: new Date().toISOString(),
+    const report = { version: '0.3.0-alpha.2', gate: 'A', startedAt, exportedAt: new Date().toISOString(),
       userAgent: navigator.userAgent, hardwareConcurrency: navigator.hardwareConcurrency,
       viewport: { width: innerWidth, height: innerHeight, devicePixelRatio },
       state: structuredClone(simulation.state), physicsSteps: physics.steps,
-      session: session.snapshot(), encounters, assets: assetStats,
+      session: session.snapshot(), encounters, assets: assetStats, render: { ...renderStats },
       note: 'Mediciones del navegador. Modelo de teléfono, batería, calor y sensación de conducción se reportan por separado. Solo frames jugando; incluye reinicios.' };
     const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' }));
     const link = document.createElement('a'); link.href = url; link.download = 'ciclovia-gate-a-report.json'; link.click();
@@ -154,6 +163,7 @@ async function boot() {
     last = now;
     if (simulation.state.phase === "playing" && quality.sample(ms)) {
       world.renderer.setPixelRatio(quality.ratio);
+      world.setQuality(quality.ratio);
       world.resize();
       frames.length = 0;
     }
@@ -188,6 +198,8 @@ async function boot() {
       width: ui.elements.canvas.width, height: ui.elements.canvas.height,
       cssWidth: ui.elements.canvas.clientWidth, cssHeight: ui.elements.canvas.clientHeight,
       devicePixelRatio: window.devicePixelRatio,
+      shadows: world.renderer.shadowMap.enabled,
+      materialQuality: world.renderer.shadowMap.enabled ? 'pbr' : 'diffuse',
     };
     if (wasPlaying) session.sample(ms, state.weather, renderStats);
     if (state.phase !== lastUiPhase || now - lastUiAt >= 100) {

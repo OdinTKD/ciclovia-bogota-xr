@@ -1,0 +1,24 @@
+{
+  "name": "bicycle-rider",
+  "provenance": "original-project",
+  "author": "Ciclov\u00eda Bogot\u00e1 XR project",
+  "rights": "Original project artwork; no third-party assets",
+  "source": "assets/source/bicycle/bicycle-rider.blend",
+  "generator": "tools/assets/build-bicycle.py",
+  "blenderVersion": "5.1.2",
+  "triangles": 7120,
+  "drawCalls": 9,
+  "materials": 2,
+  "bytes": 187596,
+  "sha256": "6676817a5e6a9302625a84b3f3ff3b2d489d6404c3ee8966f927356b92f92d76",
+  "presentation": {
+    "position": [
+      0,
+      -0.38,
+      -1.14
+    ],
+    "scale": 0.72,
+    "wheelRadius": 0.34
+  },
+  "licenseNotes": "Geometry, colors and materials authored for this project in Blender; no external textures, models, fonts or audio."
+}
