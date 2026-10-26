@@ -1,0 +1,707 @@
+{
+  "stage": "after",
+  "base": "http://127.0.0.1:4185/",
+  "capturedAt": "2026-10-23T21:53:41.727Z",
+  "reports": [
+    {
+      "orientation": "landscape",
+      "weather": "sun",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 21,
+        "state": {
+          "x": 0,
+          "worldZ": 0,
+          "speed": 0,
+          "yaw": 0,
+          "steeringAngle": 0,
+          "roll": 0,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 0,
+          "health": 100,
+          "score": 0,
+          "weather": "sun",
+          "elapsed": 0.35,
+          "collisions": 0,
+          "finished": false,
+          "tick": 21,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 32,
+          "triangles": 48738,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 54.285714285714285,
+          "p95Ms": 50,
+          "p50Ms": 16.699999999999818,
+          "p99Ms": 50,
+          "maxMs": 50,
+          "samples": 19
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      },
+      "errors": [],
+      "note": "Camera world pose x=0,y=1.65,z=1.3, yaw=0, roll=0; FOV 65; ratio1. No input or state injection. Static gameplay comparison, not performance."
+    },
+    {
+      "orientation": "landscape",
+      "weather": "rain",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 21,
+        "state": {
+          "x": 0,
+          "worldZ": 0,
+          "speed": 0,
+          "yaw": 0,
+          "steeringAngle": 0,
+          "roll": 0,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 0,
+          "health": 100,
+          "score": 0,
+          "weather": "rain",
+          "elapsed": 0.35,
+          "collisions": 0,
+          "finished": false,
+          "tick": 21,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 33,
+          "triangles": 50658,
+          "pixelRatio": 1,
+          "width": 1280,
+          "height": 720,
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 60.027285129604365,
+          "p95Ms": 16.800000000000068,
+          "p50Ms": 16.699999999999932,
+          "p99Ms": 16.800000000000068,
+          "maxMs": 16.800000000000068,
+          "samples": 22
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      },
+      "errors": [],
+      "note": "Camera world pose x=0,y=1.65,z=1.3, yaw=0, roll=0; FOV 65; ratio1. No input or state injection. Static gameplay comparison, not performance."
+    },
+    {
+      "orientation": "portrait",
+      "weather": "sun",
+      "viewport": {
+        "width": 412,
+        "height": 839
+      },
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 22,
+        "state": {
+          "x": 0,
+          "worldZ": 0,
+          "speed": 0,
+          "yaw": 0,
+          "steeringAngle": 0,
+          "roll": 0,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 0,
+          "health": 100,
+          "score": 0,
+          "weather": "sun",
+          "elapsed": 0.36666666666666664,
+          "collisions": 0,
+          "finished": false,
+          "tick": 22,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 34,
+          "triangles": 49418,
+          "pixelRatio": 1,
+          "width": 412,
+          "height": 839,
+          "cssWidth": 412,
+          "cssHeight": 839,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 51.81347150259067,
+          "p95Ms": 66.79999999999995,
+          "p50Ms": 16.699999999999818,
+          "p99Ms": 66.79999999999995,
+          "maxMs": 66.79999999999995,
+          "samples": 19
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      },
+      "errors": [],
+      "note": "Camera world pose x=0,y=1.65,z=1.3, yaw=0, roll=0; FOV 65; ratio1. No input or state injection. Static gameplay comparison, not performance."
+    },
+    {
+      "orientation": "portrait",
+      "weather": "rain",
+      "viewport": {
+        "width": 412,
+        "height": 839
+      },
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 20,
+        "state": {
+          "x": 0,
+          "worldZ": 0,
+          "speed": 0,
+          "yaw": 0,
+          "steeringAngle": 0,
+          "roll": 0,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 0,
+          "health": 100,
+          "score": 0,
+          "weather": "rain",
+          "elapsed": 0.3333333333333333,
+          "collisions": 0,
+          "finished": false,
+          "tick": 20,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 35,
+          "triangles": 51338,
+          "pixelRatio": 1,
+          "width": 412,
+          "height": 839,
+          "cssWidth": 412,
+          "cssHeight": 839,
+          "devicePixelRatio": 1,
+          "shadows": true,
+          "materialQuality": "pbr",
+          "antialias": true,
+          "artDetail": "high"
+        },
+        "performance": {
+          "fps": 60.017147756501856,
+          "p95Ms": 16.90000000000009,
+          "p50Ms": 16.600000000000023,
+          "p99Ms": 17,
+          "maxMs": 17,
+          "samples": 21
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      },
+      "errors": [],
+      "note": "Camera world pose x=0,y=1.65,z=1.3, yaw=0, roll=0; FOV 65; ratio1. No input or state injection. Static gameplay comparison, not performance."
+    }
+  ]
+}

@@ -14,8 +14,11 @@ jobs:
       - run: npm ci
       - run: npx playwright install chromium
       - run: node tools/qa/profile-render.mjs
+      - run: npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: render-diagnostic
-          path: docs/performance/render-diagnostic/
+          path: |
+            docs/performance/render-diagnostic/
+            test-results/

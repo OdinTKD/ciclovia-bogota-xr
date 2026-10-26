@@ -7,6 +7,7 @@ import { applyMaterialLighting, applyRenderQuality, materialAlternative } from '
 import { rendererOptions } from './renderer-options';
 import { FULL_DETAIL_RATIO, initialPixelRatio } from './quality';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { OPAQUE_DEPTH_ORDER, prioritizeOpaqueDepth } from './opaque-depth-order';
 import { weatherProfile, parseWeather } from "../weather";
 export const SCENE_BUDGET = {
   drawCalls: 100,
@@ -223,6 +224,8 @@ export function createWorld(options: WorldOptions = {}) {
   artLow.group.userData.extent = artSlice.group.userData.extent;
   artLow.group.visible = false;
   scene.add(artLow.group);
+  prioritizeOpaqueDepth(artSlice.group, OPAQUE_DEPTH_ORDER.artSlice);
+  prioritizeOpaqueDepth(artLow.group, OPAQUE_DEPTH_ORDER.artSlice);
   function setArtQuality(ratio: number) {
     artSlice.group.visible = ratio >= FULL_DETAIL_RATIO;
     artLow.group.visible = !artSlice.group.visible;
@@ -275,6 +278,7 @@ export function createWorld(options: WorldOptions = {}) {
   );
   const bicycle=options.bicycle ?? createProceduralBicycle();
   camera.add(bicycle.group);
+  prioritizeOpaqueDepth(bicycle.group, OPAQUE_DEPTH_ORDER.bicycle);
   // Thin instanced rain streaks share one draw call.
   const rain = instances(
     box,
