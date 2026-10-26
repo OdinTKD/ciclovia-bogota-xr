@@ -1,0 +1,24 @@
+name: GPU and Viz diagnostic
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  profile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium
+      - run: node --check tools/qa/profile-gpu.mjs
+      - run: node tools/qa/profile-gpu.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gpu-diagnostic
+          path: docs/performance/gpu-diagnostic/
+          if-no-files-found: error
