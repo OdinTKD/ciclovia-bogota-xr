@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-23T21:54:56.171Z",
+  "verifiedAt": "2026-10-26T14:46:38.244Z",
   "base": "http://127.0.0.1:4185/",
   "version": "0.3.0-alpha.3",
   "modelSha256": "da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85",
@@ -14,7 +14,7 @@
     },
     {
       "id": "tree_small_02",
-      "sha256": "7c60d50feb37695c482d3b5ac1c4f08e19600ad07cb5886b9276f6a2bb1e916c"
+      "sha256": "636928c8b1ccd004a112c401a3814d07d6730ee4ca88db7531ca0bd6e648f83f"
     }
   ],
   "assets": {
@@ -27,17 +27,18 @@
   },
   "videos": [
     {
-      "duration": 30.32,
+      "duration": 30.72,
       "width": 1280,
       "height": 720
     },
     {
-      "duration": 8.64,
+      "duration": 8.96,
       "width": 412,
       "height": 838
     }
   ],
   "comparisonImages": 8,
+  "revisionPairImages": 2,
   "errors": [],
   "note": "Publication/media smoke, not a phone test or FPS benchmark."
 }

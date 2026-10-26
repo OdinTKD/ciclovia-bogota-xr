@@ -1,8 +1,8 @@
 # Ciclovía Bogotá XR
 
-Candidato actual: `0.3.0-alpha.2`, ampliación visual de Puerta A con bicicleta/manos originales de Blender y muestra de 40 m dentro del fragmento de 200 m. A sigue abierta: la revisión artística y el OK del usuario están pendientes; la prueba física fue aplazada hasta identificar modelo, OS y navegador reales. B, audio y rediseño de UI no están entregados. Véanse [alcance visual](docs/architecture/gate-a-art.md), [rendimiento](docs/performance/gate-a-art/README.md) y [protocolo físico](docs/architecture/gate-a-review.md).
+Candidato actual: `0.3.0-alpha.3`, pulido de A: manos/materiales y cámara horizontal/portrait, entorno de 40 m y transición superficial hasta 52 m, UI carbón/blanco/amarillo, ambos encuentros dentro de 200 m y recuperación de calidad. A sigue abierta: revisión y OK del usuario pendientes; teléfono aplazado hasta modelo, OS y navegador reales. B y AR jugable no están entregados. [Alcance](docs/architecture/gate-a-polish.md), [comparación/rendimiento](docs/performance/gate-a-polish/README.md) y [protocolo físico](docs/architecture/gate-a-review.md).
 
-Estado actual: CI 40018717275 y publicación correctas para `14579b1`, runtime `72c1075`: 124 unitarias en 27 archivos, build y 18 E2E aprobadas/2 omitidas en 3,5 minutos. Smoke público correcto el 2026-10-23 a las 20:27:20 UTC: alpha.2, modelo/hash, diagnóstico, galería/vídeo/imágenes y cero errores.
+Estado revisado el 2026-10-26: alpha.3 no está cerrada ni publicada como entrega verificada. La [CI 40030195058](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40030195058), runtime `7e6f68b`, falló con 23 E2E aprobadas, 2 fallos de FPS y 3 omisiones. Las 143 unitarias, build y medios locales del 2026-10-23 son evidencia de esa revisión, no validación de las optimizaciones ahora en curso. El diagnóstico 40031439886 terminó correctamente, pero no es una puerta de FPS; la integración del 2026-10-26 obtuvo 146 unitarias en 33 archivos y build verdes, con evaluación de rendimiento pendiente.
 
 Juego web 3D de paseo en bicicleta inspirado en Bogotá, construido con Vite, TypeScript, Three.js y Rapier. La base del MVP conserva un recorrido previsto de 1.200 m; el candidato A valida 200 m con bicicleta tradicional, sol o lluvia, obstáculos, puntuación y estado del vehículo. Las ampliaciones XR requieren detección de capacidades y pruebas en dispositivos compatibles.
 
@@ -19,7 +19,7 @@ npm ci
 npm run dev
 ```
 
-Demo del proyecto: [Jugar Ciclovía Bogotá XR](https://odintkd.github.io/ciclovia-bogota-xr/). Candidato alpha.2 publicado y verificado; [galería visual](https://odintkd.github.io/ciclovia-bogota-xr/review/art/) y [evidencia del smoke](docs/performance/gate-a-art/live-verification.json). A sigue abierta.
+Demo del proyecto: [Jugar](https://odintkd.github.io/ciclovia-bogota-xr/). El candidato alpha.3 y su [galería](https://odintkd.github.io/ciclovia-bogota-xr/review/polish/) se verificarán después de CI; la existencia de la URL no certifica el nuevo despliegue.
 
 Consulta [SETUP.md](SETUP.md) para preparar las pruebas de navegador, compilar y configurar GitHub Pages.
 
@@ -50,7 +50,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Vitest verifica lógica y Playwright los flujos del navegador. El [flujo final 40018717275](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40018717275) verifica la corrección de carga/clima del commit de prueba `14579b1`, runtime `72c1075`; verify/deploy correctos y smoke público comprobado. La primera CI visual falló en muestras/FPS; se corrigió con calibración de 12–25 RAF reales antes de Iniciar. La ejecución intermedia se canceló por sustitución, no por regresión. [Evidencia TDD](docs/tdd/art-integration.md) y [CHANGELOG.md](CHANGELOG.md).
+Vitest y Playwright verifican lógica y flujos. CI 40030195058 falló para runtime `7e6f68b`: sol corto 20,7567 FPS y lluvia de recorrido 29,8068 FPS; 23 E2E pasaron y 3 se omitieron. Los fallos previos por sincronización y presupuestos también se conservan. El [tercer log](docs/performance/gate-a-polish/ci-third-failure.log) no acredita publicación. [TDD](docs/tdd/gate-a-polish.md), [shader](docs/tdd/vertex-diffuse.md) y [CHANGELOG.md](CHANGELOG.md).
 
 Las pruebas funcionales conservan trazas ante fallos. La medición de rendimiento está separada en `tests/e2e/performance.spec.ts` y desactiva la captura de trazas durante el benchmark. Esto evita añadir ese trabajo al periodo medido, sin atribuirle toda la variación entre ejecuciones ni cambiar los umbrales exigidos.
 
@@ -62,7 +62,7 @@ npm run test:e2e
 Remove-Item Env:PLAYWRIGHT_BASE_URL
 ```
 
-Este comando prueba el destino indicado sin iniciar el servidor local. La suite se ejecutó correctamente contra esta URL el 2026-10-23; una futura actualización debe volver a verificarse.
+Este comando prueba el destino indicado sin iniciar el servidor local. Las comprobaciones públicas anteriores pertenecen a sus versiones documentadas; alpha.3 requiere una nueva verificación tras CI verde.
 
 ## Rendimiento y límites
 
@@ -70,11 +70,11 @@ Objetivo: al menos 30 fps en celular de gama media, máximo 100 draw calls y 100
 
 La validación local utiliza viewport móvil y limitación de CPU 4× en Chromium para sol y lluvia. El bundle principal de producción pesa aproximadamente 5,02 MB sin comprimir / 1,85 MB gzip e incluye Rapier compat; el build advierte sobre ese tamaño. La primera carga depende de la red y del dispositivo.
 
-La calidad se ajusta automáticamente reduciendo la resolución interna cuando el promedio de frames empeora; puede bajar hasta `pixelRatio` 0,375. En móvil se eliminó el desenfoque CSS para reducir coste de composición. El HUD se actualiza a 10 Hz, aplica cambios de fase de inmediato y evita mutaciones DOM cuando el estado no cambia. Los grupos de actores inactivos no generan draw calls. El ajuste prioriza fluidez y puede hacer menos nítida la imagen.
+La calidad se ajusta automáticamente reduciendo la resolución interna cuando el promedio de frames empeora; tiene un mínimo visual elevado a `pixelRatio` 0,75 y recupera calidad tras periodos estables. En móvil se eliminó el desenfoque CSS para reducir coste de composición. El HUD se actualiza a 10 Hz, aplica cambios de fase de inmediato y evita mutaciones DOM cuando el estado no cambia. Los grupos de actores inactivos no generan draw calls. El ajuste prioriza fluidez y puede hacer menos nítida la imagen.
 
-Benchmark actual quieto de 6 s dentro de los 40 m: software low 60,0017/60,0037 FPS sol/lluvia, 30/31 calls, 23.834/25.754 triángulos, 154×314, ratio 0,375, diffuse sin sombras/MSAA. GPU Intel Arc 140T high: ~60/60 FPS, 36/37 calls, 39.478/41.398 triángulos, 1280×720, ratio 1, PBR/sombras/MSAA. [Condiciones, históricos y límites](docs/performance/gate-a-art/README.md); no acredita teléfono ni garantiza FPS cada frame.
+Benchmark local quieto dentro del arte, CPU 4× SwiftShader: 53,520/52,689 FPS sol/lluvia, 28/29 calls, 28.208/30.128 triángulos, 309×629 ratio 0,75. GPU Intel Arc 140T D3D11: 60/60 FPS, 32/33 calls, 48.738/50.658 triángulos, 1280×720 ratio 1. [Condiciones y comparación fija](docs/performance/gate-a-polish/README.md). No equivale a teléfono ni garantiza FPS por frame.
 
-Entorno high: 27.500 triángulos/17 llamadas; low: 11.856/11, mismas 14 posiciones de árboles y 5 fachadas con menos detalles. Ambas versiones residen en memoria, solo una es visible. El modo mínimo también limita filtrado y usa menos definición; [captura low](docs/screenshots/gate-a-art/low-emulated.png) con pixelado y recorte de manos/controles visibles. La galería high mantiene su apariencia anterior y no representa el modo mínimo. A sigue pendiente de aprobación artística.
+El mínimo usa low/diffuse sin sombras/MSAA; high conserva PBR y sombras. Recuperación +0,125 tras 8 s estables y espera 20 s tras sobrecarga. Modelo original Blender: 10.516 triángulos, 11 llamadas y 4 materiales; tres mapas CC0 de Poly Haven suman 185.009 bytes. Copas ornamentales/dispersas, dedos sin articulación y resto de los 200 m con arte básico después del fundido 40–52 m: no acabado final aprobado.
 
 WebXR/AR requiere HTTPS, navegador, permisos y hardware compatibles. Las pruebas de capacidades o fallback no sustituyen una prueba real de AR y hit-test en dispositivo. No se declara rendimiento móvil ni funcionamiento XR en hardware sin esa evidencia.
 

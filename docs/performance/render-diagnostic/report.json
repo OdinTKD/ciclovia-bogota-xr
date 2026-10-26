@@ -1,0 +1,841 @@
+{
+  "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+  "results": [
+    {
+      "phase": "stationary",
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 333,
+        "state": {
+          "x": 0,
+          "worldZ": 0,
+          "speed": 0,
+          "yaw": 0,
+          "steeringAngle": 0,
+          "roll": 0,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 0,
+          "health": 100,
+          "score": 0,
+          "weather": "sun",
+          "elapsed": 5.549999999999986,
+          "collisions": 0,
+          "finished": false,
+          "tick": 333,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 28,
+          "triangles": 28208,
+          "pixelRatio": 0.75,
+          "width": 309,
+          "height": 629,
+          "cssWidth": 412,
+          "cssHeight": 839,
+          "devicePixelRatio": 2.625,
+          "shadows": false,
+          "materialQuality": "diffuse",
+          "antialias": false,
+          "artDetail": "low"
+        },
+        "performance": {
+          "fps": 59.02026362384421,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999891,
+          "p99Ms": 33.30000000000109,
+          "maxMs": 33.399999999999636,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      },
+      "delta": {
+        "Timestamp": 6.153764999937266,
+        "AudioHandlers": 0,
+        "AudioWorkletProcessors": 0,
+        "Documents": -3,
+        "Frames": -3,
+        "JSEventListeners": -13,
+        "LayoutObjects": -75,
+        "MediaKeySessions": 0,
+        "MediaKeys": 0,
+        "Nodes": -35,
+        "Resources": -35,
+        "ContextLifecycleStateObservers": -3,
+        "V8PerContextDatas": -2,
+        "WorkerGlobalScopes": 0,
+        "UACSSResources": 0,
+        "RTCPeerConnections": 0,
+        "ResourceFetchers": -3,
+        "AdSubframes": 0,
+        "DetachedScriptStates": -2,
+        "ArrayBufferContents": -3155,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDuration": 0,
+        "RecalcStyleDuration": 0,
+        "DevToolsCommandDuration": 1.112363,
+        "ScriptDuration": 1.6144800000000001,
+        "V8CompileDuration": 0,
+        "TaskDuration": 5.91567,
+        "TaskOtherDuration": 3.188827,
+        "ThreadTime": 0.838774,
+        "ProcessTime": 7.526852,
+        "JSHeapUsedSize": -1348616,
+        "JSHeapTotalSize": 262144,
+        "FirstMeaningfulPaint": 0,
+        "DomContentLoaded": 0,
+        "NavigationStart": 0
+      },
+      "top": [
+        {
+          "name": "(program)",
+          "url": "",
+          "line": -1,
+          "selfMs": 4273.16
+        },
+        {
+          "name": "(idle)",
+          "url": "",
+          "line": -1,
+          "selfMs": 291.082
+        },
+        {
+          "name": "setProgram",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 52326,
+          "selfMs": 103.216
+        },
+        {
+          "name": "frame",
+          "url": "http://127.0.0.1:4190/src/main.ts",
+          "line": 221,
+          "selfMs": 83.022
+        },
+        {
+          "name": "wasm-function[2664]",
+          "url": "wasm://wasm/00bc1dde",
+          "line": 0,
+          "selfMs": 62.592
+        },
+        {
+          "name": "update",
+          "url": "http://127.0.0.1:4190/src/ui/index.ts",
+          "line": 70,
+          "selfMs": 33.644
+        },
+        {
+          "name": "WebGLRenderer.render",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 51994,
+          "selfMs": 32.103
+        },
+        {
+          "name": "bindVertexArray",
+          "url": "",
+          "line": -1,
+          "selfMs": 28.779
+        },
+        {
+          "name": "requestAnimationFrame",
+          "url": "",
+          "line": -1,
+          "selfMs": 24.075
+        },
+        {
+          "name": "clear",
+          "url": "",
+          "line": -1,
+          "selfMs": 23.936
+        },
+        {
+          "name": "markUniformsLightsNeedsUpdate",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 52489,
+          "selfMs": 23.696
+        },
+        {
+          "name": "sample",
+          "url": "http://127.0.0.1:4190/src/core/session-report.ts",
+          "line": 12,
+          "selfMs": 23.499
+        },
+        {
+          "name": "wasm-function[356]",
+          "url": "wasm://wasm/00bc1dde",
+          "line": 0,
+          "selfMs": 20.882
+        },
+        {
+          "name": "WebGLRenderer.renderBufferDirect",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 51784,
+          "selfMs": 20.842
+        },
+        {
+          "name": "render",
+          "url": "http://127.0.0.1:4190/src/rendering/scene.ts",
+          "line": 539,
+          "selfMs": 20.588
+        },
+        {
+          "name": "step",
+          "url": "http://127.0.0.1:4190/src/core/simulation.ts",
+          "line": 113,
+          "selfMs": 20.387
+        },
+        {
+          "name": "refreshUniformsCommon",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 50081,
+          "selfMs": 19.265
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "line": -1,
+          "selfMs": 19.102
+        },
+        {
+          "name": "",
+          "url": "http://127.0.0.1:4190/src/core/simulation.ts",
+          "line": 108,
+          "selfMs": 18.394
+        },
+        {
+          "name": "uniformMatrix3fv",
+          "url": "",
+          "line": -1,
+          "selfMs": 17.515
+        },
+        {
+          "name": "setup",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 42885,
+          "selfMs": 16.558
+        },
+        {
+          "name": "now",
+          "url": "",
+          "line": -1,
+          "selfMs": 16.137
+        },
+        {
+          "name": "drawElementsInstanced",
+          "url": "",
+          "line": -1,
+          "selfMs": 15.965
+        },
+        {
+          "name": "getBindingState",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 42910,
+          "selfMs": 15.458
+        },
+        {
+          "name": "updateMatrixWorld",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 32854,
+          "selfMs": 14.349
+        },
+        {
+          "name": "setValue",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 45355,
+          "selfMs": 14.34
+        },
+        {
+          "name": "useProgram",
+          "url": "",
+          "line": -1,
+          "selfMs": 12.758
+        },
+        {
+          "name": "intoRaw",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=dd7b812b",
+          "line": 5490,
+          "selfMs": 12.746
+        },
+        {
+          "name": "uniform3f",
+          "url": "",
+          "line": -1,
+          "selfMs": 12.735
+        },
+        {
+          "name": "moveBicycle",
+          "url": "http://127.0.0.1:4190/src/physics/world.ts",
+          "line": 92,
+          "selfMs": 12.667
+        },
+        {
+          "name": "setup",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 46773,
+          "selfMs": 11.282
+        },
+        {
+          "name": "bindTexture",
+          "url": "",
+          "line": -1,
+          "selfMs": 11.243
+        },
+        {
+          "name": "render",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 42751,
+          "selfMs": 11.186
+        },
+        {
+          "name": "updateMatrixWorld",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 10045,
+          "selfMs": 11.185
+        },
+        {
+          "name": "update",
+          "url": "http://127.0.0.1:4190/src/rendering/scene.ts",
+          "line": 456,
+          "selfMs": 11.135
+        }
+      ]
+    },
+    {
+      "phase": "moving",
+      "game": {
+        "ready": true,
+        "gate": "A",
+        "routeLength": 200,
+        "physicsSteps": 656,
+        "state": {
+          "x": 0,
+          "worldZ": -33.550000000000125,
+          "speed": 11,
+          "yaw": 0,
+          "steeringAngle": 0,
+          "roll": 0,
+          "lateralVelocity": 0,
+          "phase": "playing",
+          "distance": 33.550000000000125,
+          "health": 100,
+          "score": 335,
+          "weather": "sun",
+          "elapsed": 10.933333333333456,
+          "collisions": 0,
+          "finished": false,
+          "tick": 656,
+          "lastContact": null
+        },
+        "render": {
+          "drawCalls": 28,
+          "triangles": 28208,
+          "pixelRatio": 0.75,
+          "width": 309,
+          "height": 629,
+          "cssWidth": 412,
+          "cssHeight": 839,
+          "devicePixelRatio": 2.625,
+          "shadows": false,
+          "materialQuality": "diffuse",
+          "antialias": false,
+          "artDetail": "low"
+        },
+        "performance": {
+          "fps": 58.698842328387414,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999891,
+          "p99Ms": 33.399999999999636,
+          "maxMs": 33.399999999999636,
+          "samples": 180
+        },
+        "traffic": [
+          {
+            "id": "car-01",
+            "kind": "car",
+            "x": 8,
+            "z": 110,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-01",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 160,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-02",
+            "kind": "car",
+            "x": 8,
+            "z": 340,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-02",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 460,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-03",
+            "kind": "car",
+            "x": 8,
+            "z": 580,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-03",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 700,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-04",
+            "kind": "car",
+            "x": 8,
+            "z": 820,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-04",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 940,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          },
+          {
+            "id": "car-05",
+            "kind": "car",
+            "x": 8,
+            "z": 1060,
+            "active": false,
+            "halfX": 2,
+            "halfZ": 1,
+            "passed": false
+          },
+          {
+            "id": "pedestrian-05",
+            "kind": "pedestrian",
+            "x": -6,
+            "z": 1170,
+            "active": false,
+            "halfX": 0.35,
+            "halfZ": 0.35,
+            "passed": false
+          }
+        ],
+        "ar": {
+          "supported": false,
+          "reason": "unsupported"
+        },
+        "assets": {
+          "triangles": 10516,
+          "drawCalls": 11,
+          "meshes": 11,
+          "materials": 4,
+          "geometries": 11,
+          "source": "blender-glb"
+        },
+        "artSlice": {
+          "start": 0,
+          "end": 40
+        }
+      },
+      "delta": {
+        "Timestamp": 5.329979999922216,
+        "AudioHandlers": 0,
+        "AudioWorkletProcessors": 0,
+        "Documents": 0,
+        "Frames": 0,
+        "JSEventListeners": 0,
+        "LayoutObjects": 149,
+        "MediaKeySessions": 0,
+        "MediaKeys": 0,
+        "Nodes": 149,
+        "Resources": 0,
+        "ContextLifecycleStateObservers": 0,
+        "V8PerContextDatas": 0,
+        "WorkerGlobalScopes": 0,
+        "UACSSResources": 0,
+        "RTCPeerConnections": 0,
+        "ResourceFetchers": 0,
+        "AdSubframes": 0,
+        "DetachedScriptStates": 0,
+        "ArrayBufferContents": 0,
+        "LayoutCount": 49,
+        "RecalcStyleCount": 49,
+        "LayoutDuration": 0.09165900000000002,
+        "RecalcStyleDuration": 0.02028,
+        "DevToolsCommandDuration": 0.29403500000000005,
+        "ScriptDuration": 1.5534919999999999,
+        "V8CompileDuration": 0,
+        "TaskDuration": 5.169875000000001,
+        "TaskOtherDuration": 3.2104090000000003,
+        "ThreadTime": 0.6890970000000001,
+        "ProcessTime": 6.031046,
+        "JSHeapUsedSize": -2406124,
+        "JSHeapTotalSize": 0,
+        "FirstMeaningfulPaint": 0,
+        "DomContentLoaded": 0,
+        "NavigationStart": 0
+      },
+      "top": [
+        {
+          "name": "(program)",
+          "url": "",
+          "line": -1,
+          "selfMs": 3606.551
+        },
+        {
+          "name": "(idle)",
+          "url": "",
+          "line": -1,
+          "selfMs": 187.017
+        },
+        {
+          "name": "frame",
+          "url": "http://127.0.0.1:4190/src/main.ts",
+          "line": 221,
+          "selfMs": 97.878
+        },
+        {
+          "name": "setProgram",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 52326,
+          "selfMs": 88.422
+        },
+        {
+          "name": "wasm-function[2664]",
+          "url": "wasm://wasm/00bc1dde",
+          "line": 0,
+          "selfMs": 55.196
+        },
+        {
+          "name": "update",
+          "url": "http://127.0.0.1:4190/src/ui/index.ts",
+          "line": 70,
+          "selfMs": 30.058
+        },
+        {
+          "name": "getBindingState",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 42910,
+          "selfMs": 29.141
+        },
+        {
+          "name": "bindVertexArray",
+          "url": "",
+          "line": -1,
+          "selfMs": 29.076
+        },
+        {
+          "name": "clear",
+          "url": "",
+          "line": -1,
+          "selfMs": 29.04
+        },
+        {
+          "name": "refreshUniformsCommon",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 50081,
+          "selfMs": 23.803
+        },
+        {
+          "name": "uniformMatrix4fv",
+          "url": "",
+          "line": -1,
+          "selfMs": 22.697
+        },
+        {
+          "name": "WebGLRenderer.renderBufferDirect",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 51784,
+          "selfMs": 22.417
+        },
+        {
+          "name": "wasm-function[356]",
+          "url": "wasm://wasm/00bc1dde",
+          "line": 0,
+          "selfMs": 22.415
+        },
+        {
+          "name": "WebGLRenderer.render",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 51994,
+          "selfMs": 20.799
+        },
+        {
+          "name": "requestAnimationFrame",
+          "url": "",
+          "line": -1,
+          "selfMs": 20.474
+        },
+        {
+          "name": "render",
+          "url": "http://127.0.0.1:4190/src/rendering/scene.ts",
+          "line": 539,
+          "selfMs": 17.662
+        },
+        {
+          "name": "step",
+          "url": "http://127.0.0.1:4190/src/core/simulation.ts",
+          "line": 113,
+          "selfMs": 17.408
+        },
+        {
+          "name": "moveBicycle",
+          "url": "http://127.0.0.1:4190/src/physics/world.ts",
+          "line": 92,
+          "selfMs": 15.903
+        },
+        {
+          "name": "",
+          "url": "http://127.0.0.1:4190/src/core/simulation.ts",
+          "line": 108,
+          "selfMs": 15.756
+        },
+        {
+          "name": "compose",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 8561,
+          "selfMs": 14.642
+        },
+        {
+          "name": "bindTexture",
+          "url": "",
+          "line": -1,
+          "selfMs": 14.103
+        },
+        {
+          "name": "projectObject",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 52078,
+          "selfMs": 12.948
+        },
+        {
+          "name": "markUniformsLightsNeedsUpdate",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 52489,
+          "selfMs": 12.274
+        },
+        {
+          "name": "text",
+          "url": "http://127.0.0.1:4190/src/ui/index.ts",
+          "line": 62,
+          "selfMs": 12.182
+        },
+        {
+          "name": "projectObject",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 52078,
+          "selfMs": 11.534
+        },
+        {
+          "name": "drawElements",
+          "url": "",
+          "line": -1,
+          "selfMs": 11.305
+        },
+        {
+          "name": "setValue",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 45404,
+          "selfMs": 11.291
+        },
+        {
+          "name": "compose",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 8561,
+          "selfMs": 11.203
+        },
+        {
+          "name": "getRGB",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 11146,
+          "selfMs": 11.149
+        },
+        {
+          "name": "Z",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/@dimforge_rapier3d-compat.js?v=dd7b812b",
+          "line": 4104,
+          "selfMs": 11.059
+        },
+        {
+          "name": "updateMatrixWorld",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 10045,
+          "selfMs": 9.918
+        },
+        {
+          "name": "drawElementsInstanced",
+          "url": "",
+          "line": -1,
+          "selfMs": 9.831
+        },
+        {
+          "name": "update",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 44596,
+          "selfMs": 9.711
+        },
+        {
+          "name": "needsUpdate",
+          "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=dd7b812b",
+          "line": 42956,
+          "selfMs": 9.67
+        },
+        {
+          "name": "useProgram",
+          "url": "",
+          "line": -1,
+          "selfMs": 9.668
+        }
+      ]
+    }
+  ]
+}

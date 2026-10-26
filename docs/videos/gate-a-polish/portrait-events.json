@@ -8,12 +8,12 @@
   "events": [
     {
       "label": "inicio",
-      "time": 1792792469410,
+      "time": 1793025938682,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 4,
+        "physicsSteps": 7,
         "state": {
           "x": 0,
           "worldZ": 0,
@@ -27,10 +27,10 @@
           "health": 100,
           "score": 0,
           "weather": "rain",
-          "elapsed": 0.06666666666666667,
+          "elapsed": 0.11666666666666665,
           "collisions": 0,
           "finished": false,
-          "tick": 4,
+          "tick": 7,
           "lastContact": null
         },
         "render": {
@@ -48,11 +48,11 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 36.01440576230494,
-          "p95Ms": 49.89999999999998,
-          "p50Ms": 16.700000000000045,
-          "p99Ms": 49.89999999999998,
-          "maxMs": 49.89999999999998,
+          "fps": 25.70694087403603,
+          "p95Ms": 83.40000000000009,
+          "p50Ms": 16.699999999999818,
+          "p99Ms": 83.40000000000009,
+          "maxMs": 83.40000000000009,
           "samples": 3
         },
         "traffic": [
@@ -177,24 +177,24 @@
     },
     {
       "label": "giro",
-      "time": 1792792471556,
+      "time": 1793025940816,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
         "physicsSteps": 134,
         "state": {
-          "x": 0.4590295479430343,
-          "worldZ": -5.65634767104166,
-          "speed": 5.200000000000004,
-          "yaw": 0.08901380361891656,
-          "steeringAngle": 0.21717325238190865,
-          "roll": 0.10326262525152413,
+          "x": 0.5233245474294015,
+          "worldZ": -5.390543522830466,
+          "speed": 5.080000000000004,
+          "yaw": 0.08292835810476355,
+          "steeringAngle": -0.054377386677112914,
+          "roll": 0.044652973331727255,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 5.65634767104166,
+          "distance": 5.390543522830466,
           "health": 100,
-          "score": 56,
+          "score": 53,
           "weather": "rain",
           "elapsed": 2.2333333333333303,
           "collisions": 0,
@@ -217,12 +217,12 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 58.654965523417204,
-          "p95Ms": 16.800000000000182,
+          "fps": 57.78034579314636,
+          "p95Ms": 16.90000000000009,
           "p50Ms": 16.699999999999818,
-          "p99Ms": 33.299999999999955,
-          "maxMs": 49.89999999999998,
-          "samples": 131
+          "p99Ms": 33.30000000000018,
+          "maxMs": 83.40000000000009,
+          "samples": 130
         },
         "traffic": [
           {
@@ -346,29 +346,29 @@
     },
     {
       "label": "contragiro",
-      "time": 1792792473288,
+      "time": 1793025942588,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 237,
+        "physicsSteps": 241,
         "state": {
-          "x": -0.255079203529695,
-          "worldZ": -18.099534535305708,
-          "speed": 9.319999999999977,
-          "yaw": -0.08919220284417989,
-          "steeringAngle": -0.09421616194782942,
-          "roll": 0.02427740822580013,
+          "x": -0.3480729679633948,
+          "worldZ": -18.25270551453177,
+          "speed": 9.359999999999976,
+          "yaw": -0.0026699137313903804,
+          "steeringAngle": 0.016034393668715473,
+          "roll": 0.19322379143919743,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 18.099534535305708,
+          "distance": 18.25270551453177,
           "health": 100,
-          "score": 180,
+          "score": 182,
           "weather": "rain",
-          "elapsed": 3.949999999999991,
+          "elapsed": 4.016666666666658,
           "collisions": 0,
           "finished": false,
-          "tick": 237,
+          "tick": 241,
           "lastContact": null
         },
         "render": {
@@ -386,11 +386,11 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 60.00200006666889,
+          "fps": 59.99999999999999,
           "p95Ms": 16.800000000000182,
           "p50Ms": 16.699999999999818,
-          "p99Ms": 16.90000000000009,
-          "maxMs": 16.900000000000546,
+          "p99Ms": 16.900000000000546,
+          "maxMs": 17.5,
           "samples": 180
         },
         "traffic": [
@@ -515,29 +515,29 @@
     },
     {
       "label": "frenada",
-      "time": 1792792475075,
+      "time": 1793025944395,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 345,
+        "physicsSteps": 349,
         "state": {
-          "x": -1.4888148117944064,
-          "worldZ": -26.28007330799295,
+          "x": -0.24310647059900736,
+          "worldZ": -26.59797763872828,
           "speed": 0,
-          "yaw": -0.16230696227630095,
-          "steeringAngle": -3.1769833339020424e-7,
-          "roll": -0.000001047945331208284,
+          "yaw": 0.014963159085483334,
+          "steeringAngle": 5.4068219721093275e-8,
+          "roll": 2.0247801272130519e-7,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 26.28007330799295,
+          "distance": 26.59797763872828,
           "health": 100,
-          "score": 262,
+          "score": 265,
           "weather": "rain",
-          "elapsed": 5.749999999999985,
+          "elapsed": 5.816666666666651,
           "collisions": 0,
           "finished": false,
-          "tick": 345,
+          "tick": 349,
           "lastContact": null
         },
         "render": {
@@ -555,11 +555,11 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 59.99999999999999,
-          "p95Ms": 16.899999999999636,
+          "fps": 60.00200006666889,
+          "p95Ms": 16.800000000000182,
           "p50Ms": 16.699999999999818,
           "p99Ms": 16.900000000000546,
-          "maxMs": 17,
+          "maxMs": 16.900000000000546,
           "samples": 180
         },
         "traffic": [

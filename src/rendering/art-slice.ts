@@ -1,13 +1,42 @@
 import * as T from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { buildFoliageMipmaps } from './foliage-mipmaps';
 
 type Placement = { position: T.Vector3; scale: T.Vector3; rotation?: T.Quaternion; color?: number };
 type Surface = 'asphalt' | 'brick' | 'concrete' | 'paving' | 'bark' | 'leaf' | 'grass';
 const SECTOR_LENGTH = 40;
+const ROAD_NEAR_Z = 4;
+const ROAD_SURFACE_LENGTH = ROAD_NEAR_Z + SECTOR_LENGTH;
+const TRANSITION_END_Z = -52;
+const TRANSITION_CENTER_Z = (-SECTOR_LENGTH + TRANSITION_END_Z) / 2;
 const UP = new T.Vector3(0, 1, 0);
 const SHADOW_RECEIVERS = new Set(['asphalt', 'brick-sidewalks', 'park-lawn', 'segmented-concrete-curbs', 'brick-facades', 'facade-concrete']);
 
 export interface ArtTextures { brick: T.Texture; bark: T.Texture; leaf: T.Texture }
+
+function prepareLeafMipmaps(source: T.Texture) {
+  const image = source.image as { width: number; height: number; data?: Uint8Array };
+  const { width, height } = image;
+  let pixels: Uint8Array;
+  if (image.data) pixels = new Uint8Array(image.data);
+  else {
+    const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+    if (!context) throw new Error('No se pudo preparar la textura de vegetación');
+    context.drawImage(source.image as CanvasImageSource, 0, 0);
+    pixels = new Uint8Array(context.getImageData(0, 0, width, height).data);
+  }
+  // Typed uploads are bottom-up. Preserve TextureLoader's ordinary flipY orientation explicitly.
+  const flipped = new Uint8Array(pixels.length), stride = width * 4;
+  for (let y = 0; y < height; y++) flipped.set(pixels.subarray(y * stride, (y + 1) * stride), (height - 1 - y) * stride);
+  const leaf = new T.DataTexture(flipped, width, height, T.RGBAFormat);
+  leaf.mipmaps = buildFoliageMipmaps({ data: flipped, width, height });
+  leaf.generateMipmaps = false; leaf.flipY = false;
+  leaf.minFilter = T.LinearMipmapLinearFilter; leaf.magFilter = T.LinearFilter;
+  leaf.needsUpdate = true;
+  source.dispose();
+  return leaf;
+}
 
 /** Shared, caller-owned CC0 maps. Failure is explicit; boot must not silently downgrade assets. */
 export async function loadArtTextures(baseUrl: string): Promise<ArtTextures> {
@@ -19,13 +48,17 @@ export async function loadArtTextures(baseUrl: string): Promise<ArtTextures> {
     results.forEach(result => { if (result.status === 'fulfilled') result.value.dispose(); });
     throw failed.reason;
   }
-  const [brick, bark, leaf] = results.map(result => (result as PromiseFulfilledResult<T.Texture>).value);
+  const [brick, bark, sourceLeaf] = results.map(result => (result as PromiseFulfilledResult<T.Texture>).value);
+  let leaf: T.Texture;
+  try { leaf = prepareLeafMipmaps(sourceLeaf); }
+  catch (error) { brick.dispose(); bark.dispose(); sourceLeaf.dispose(); throw error; }
   for (const texture of [brick, bark, leaf]) {
     texture.colorSpace = T.SRGBColorSpace;
     texture.anisotropy = 4;
     texture.wrapS = texture.wrapT = T.RepeatWrapping;
   }
-  brick.name = 'polyhaven-brick-wall-001'; brick.repeat.set(3, 3);
+  // Five bricks × fourteen courses per image: ~24 cm × 7–10 cm across these facades.
+  brick.name = 'polyhaven-brick-wall-001'; brick.repeat.set(8, 9);
   bark.name = 'polyhaven-bark-brown-02'; bark.repeat.set(1, 3);
   leaf.name = 'polyhaven-tree-small-02-leaf'; leaf.wrapS = leaf.wrapT = T.ClampToEdgeWrapping;
   return { brick, bark, leaf };
@@ -72,8 +105,8 @@ function makeTexture(surface: Surface, repeatX = 1, repeatY = 1) {
       const pebble = hash(x * 3, y * 7) > .965 ? 24 : 0;
       const worn = Math.sin(x * .028) * Math.cos(y * .051) * 8;
       r = 95 + grain + pebble + worn; g = r - 1; b = r - 5;
-      const crack = Math.abs((x + 5 * Math.sin(y * .12) + 3 * Math.sin(y * .05)) % 124 - 62) < 1.25;
-      if (crack) { r *= .48; g *= .48; b *= .48; }
+      // Surface grain and wear stay in the repeating map; repairs are placed geometry.
+      // A continuous sinusoidal crack here repeated as conspicuous parallel ropes along the road.
     } else if (surface === 'brick' || surface === 'paving') {
       const rowSize = surface === 'brick' ? 12 : 32;
       const row = Math.floor(y / rowSize);
@@ -191,8 +224,8 @@ export function createArtSlice(options: { detail?: 'low' | 'high'; textures?: Ar
   const detail = options.detail ?? 'high';
   const low = detail === 'low';
   const density = low
-    ? { cylinderSegments: 5, branches: 3, bushes: 32, litter: 50 }
-    : { cylinderSegments: 8, branches: 5, bushes: 65, litter: 200 };
+    ? { cylinderSegments: 5, branches: 3, sprigsPerBranch: 4, bushes: 32, litter: 50 }
+    : { cylinderSegments: 8, branches: 5, sprigsPerBranch: 5, bushes: 65, litter: 200 };
   const group = new T.Group();
   group.name = 'art-slice';
   const textures = {
@@ -256,18 +289,21 @@ export function createArtSlice(options: { detail?: 'low' | 'high'; textures?: Ar
   };
 
   // Surface elevations clear the old base surface while leaving the physical track level unchanged.
-  instances('asphalt', box, asphalt, [placement(0, .027, -18, 5.5, .08, 44)]);
+  instances('asphalt', box, asphalt, [placement(0, .027, (ROAD_NEAR_Z - SECTOR_LENGTH) / 2, 5.5, .08, ROAD_SURFACE_LENGTH)]);
   const transitionGeometry = new T.PlaneGeometry(5.5, 12, 1, 6).rotateX(-Math.PI / 2);
   const transitionColors = new Float32Array(transitionGeometry.attributes.position.count * 4);
   for (let i = 0; i < transitionGeometry.attributes.position.count; i++) {
-    const alpha = (transitionGeometry.attributes.position.getZ(i) + 6) / 12;
+    const localZ = transitionGeometry.attributes.position.getZ(i);
+    const alpha = (localZ + 6) / 12;
     transitionColors.set([1, 1, 1, alpha], i * 4);
+    // Continue the main surface's +4..-40 m top-face UVs, instead of restarting 19 tiles over 12 m.
+    transitionGeometry.attributes.uv.setXY(i, (transitionGeometry.attributes.position.getX(i) + 2.75) / 5.5, (ROAD_NEAR_Z - (localZ + TRANSITION_CENTER_Z)) / ROAD_SURFACE_LENGTH);
   }
   transitionGeometry.setAttribute('color', new T.BufferAttribute(transitionColors, 4));
   const transitionMaterial = new T.MeshLambertMaterial({ name: 'asphalt-transition', map: textures.asphalt, color: 0xe0ded8, vertexColors: true, transparent: true, depthWrite: false });
   materials.add(transitionMaterial);
   const transition = new T.Mesh(transitionGeometry, transitionMaterial);
-  transition.name = 'asphalt-transition'; transition.position.set(0, .068, -46); group.add(transition);
+  transition.name = 'asphalt-transition'; transition.position.set(0, .068, TRANSITION_CENTER_Z); group.add(transition);
   instances('brick-sidewalks', box, paving, [placement(5.1, .09, -20, 4.4, .18, 48), placement(-5, .09, -20, 4, .18, 48)], true);
   instances('park-lawn', box, soil, [placement(-13, .10, -20, 12, .08, 48)], true);
   const curbs: Placement[] = [];
@@ -317,10 +353,10 @@ export function createArtSlice(options: { detail?: 'low' | 'high'; textures?: Ar
     for (let floor = 0; floor < Math.floor(height / 2.65); floor++) for (let col = 0; col < 3; col++) {
       const y = 1.75 + floor * 2.6, wz = z - 3.05 + col * 3.05;
       glass.push(placement(8.17, y, wz, .06, 1.48, 1.65, 0, col === 1 && floor % 2 ? 0x8d8770 : 0xc0d0cd));
-      frames.push(placement(8.05, y - .79, wz, .36, .12, 1.85));
-      frames.push(placement(8.05, y + .78, wz, .26, .10, 1.85));
-      for (const edge of low ? [-.86, .86] : [-.86, 0, .86]) frames.push(placement(8.05, y, wz + edge, .20, 1.56, .06));
-      if (!low) frames.push(placement(8.03, y - .1, wz, .21, .04, 1.7));
+      frames.push(placement(8.08, y - .79, wz, .18, .09, 1.85));
+      frames.push(placement(8.10, y + .78, wz, .15, .07, 1.85));
+      for (const edge of low ? [-.86, .86] : [-.86, 0, .86]) frames.push(placement(8.10, y, wz + edge, .12, 1.56, .045));
+      if (!low) frames.push(placement(8.09, y - .1, wz, .14, .035, 1.7));
       if (floor === 0) for (let bar = -3; bar <= 3; bar += low ? 3 : 1) rails.push(placement(7.88, y, wz + bar * .23, .04, 1.55, .025));
       if (floor > 0 && (col + floor + building) % 3 === 1) {
         balconies.push(placement(7.7, y - .84, wz, .9, .15, 2.15));
@@ -361,16 +397,18 @@ export function createArtSlice(options: { detail?: 'low' | 'high'; textures?: Ar
     trunks.push(placement(x, h * .4, z, .16 + tree % 3 * .025, h * .8, .16 + tree % 3 * .025));
     for (let branch = 0; branch < density.branches; branch++) {
       const angle = branch * 2.4 + tree;
-      const bx = x + Math.sin(angle) * 1.55, bz = z + Math.cos(angle) * 1.55;
-      const by = h - .7 + branch % 3 * .45;
+      const reach = 1.15 + (tree + branch) % 3 * .13;
+      const bx = x + Math.sin(angle) * reach, bz = z + Math.cos(angle) * reach;
+      const by = h - .95 + branch % 3 * .38;
       const endpoint = new T.Vector3(bx, by, bz);
-      const elbow = new T.Vector3(x + (bx - x) * .38, h * .73, z + (bz - z) * .45);
-      addBranch(new T.Vector3(x, h * .49, z), elbow, .075);
+      const elbow = new T.Vector3(x + (bx - x) * .40, h * .76, z + (bz - z) * .45);
+      addBranch(new T.Vector3(x, h * .63, z), elbow, .075);
       addBranch(elbow, endpoint, .045);
       branchEndpoints.push(endpoint.toArray());
-      for (let spray = 0; spray < (low ? 2 : 5); spray++) {
-        const part = placement(bx, by, bz, 1.1, 1.1 + (tree + spray) % 3 * .13, 1.1, 0, [0xffffff, 0xcdd9ab, 0xb4c19b][spray % 3]);
-        part.rotation = new T.Quaternion().setFromEuler(new T.Euler(.25 + spray * .19, angle + spray * 1.25, -.6 + spray * .3));
+      for (let spray = 0; spray < density.sprigsPerBranch; spray++) {
+        const lean = Math.sin((tree + 1) * 2.17 + branch * 1.3 + spray * 2.41);
+        const part = placement(bx, by, bz, 1.03, 1.02 + (tree + spray) % 3 * .05, 1.03, 0, [0xffffff, 0xcdd9ab, 0xb4c19b][spray % 3]);
+        part.rotation = new T.Quaternion().setFromEuler(new T.Euler(.5 + lean * .45, angle + spray * 1.73, lean * .9));
         crowns.push(part);
       }
     }

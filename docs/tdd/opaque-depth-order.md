@@ -63,5 +63,13 @@ busca ahorrar sombreado de fragmentos que acabarían ocultos.
 La equivalencia visual mediante capturas y el beneficio real de rendimiento
 siguen pendientes de la validación coordinada del orquestador. Conservar
 recursos y estados no demuestra por sí solo igualdad de píxeles ni 30 FPS.
+
+## Integración verificada posteriormente — 2026-10-26
+
+El pendiente del apartado anterior corresponde al estado al terminar la subtarea. Integración completó la [comparación de píxeles](../screenshots/gate-a-polish/depth-order/pixel-diff.json): portrait sol idéntico; landscape sol con media por canal inferior a 0,001/255. Lluvia animada no es idéntica, con medias inferiores a 0,051/255. No se modificaron geometría ni materiales para obtener estas capturas; la comparación no se extiende a cambios artísticos posteriores.
+
+El [workflow remoto 40339380259](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40339380259), commit `cef53c6`, pasó los dos E2E focales de rendimiento con CPU 4× y umbrales existentes, sin bajar ratio mínimo 0,75 ni objetivo 30 FPS. [Corto sol](../performance/gate-a-polish/depth-order-ci/performance-sun.json): 40,60 FPS; [corto lluvia](../performance/gate-a-polish/depth-order-ci/performance-rain.json): 51,19 FPS, fuera de la zona artística. [Recorrido sol](../performance/gate-a-polish/depth-order-ci/route-performance-sun.json): 47,51 FPS; [recorrido lluvia](../performance/gate-a-polish/depth-order-ci/route-performance-rain.json): 46,40 FPS; máximos 28/29 calls y 28.208/30.128 triángulos.
+
+Estos resultados validan la pasada focal y su artefacto en ese host, sin atribuir absolutamente la diferencia de FPS a la prioridad de profundidad. No constituyen full CI, despliegue ni validación de teléfono. La nueva regresión visual de cobertura alpha de follaje se investiga por separado y no se declara resuelta mediante esta evidencia.
 No se ha abierto navegador, ejecutado benchmark ni creado commits en esta
 subtarea.

@@ -34,5 +34,31 @@ for (let i = 0; i < alpha.length; i++) {
 }
 // Separate pipelines: removeAlpha in the same pipeline would remove the newly joined alpha too.
 const rgb = await sharp(input + 'leaves-source.png').extract(crop).resize(128, 96).removeAlpha().raw().toBuffer();
-await sharp(rgb, { raw: { width: 128, height: 96, channels: 3 } })
-  .joinChannel(alpha, { raw: { width: 128, height: 96, channels: 1 } }).png().toFile(output + 'leaf.png');
+const cutout = await sharp(rgb, { raw: { width: 128, height: 96, channels: 3 } })
+  .joinChannel(alpha, { raw: { width: 128, height: 96, channels: 1 } }).png().toBuffer();
+
+// Original seven-leaf twig layout from the same licensed photograph. Same 128×96 texture budget.
+// Each leaf occupies at most 32/128 of a 0.70 m card: <20 cm at the largest instance scale.
+const layout = [
+  { x: 25, y: 30, angle: -33 }, { x: 40, y: 66, angle: 31 },
+  { x: 56, y: 24, angle: -40 }, { x: 71, y: 66, angle: 37 },
+  { x: 86, y: 25, angle: -32 }, { x: 99, y: 61, angle: 25 },
+  { x: 112, y: 39, angle: -10 },
+];
+const stem = Buffer.alloc(128 * 96 * 4);
+function line(x0, y0, x1, y1) {
+  const steps = Math.ceil(Math.hypot(x1 - x0, y1 - y0) * 2);
+  for (let i = 0; i <= steps; i++) {
+    const x = Math.round(x0 + (x1 - x0) * i / steps), y = Math.round(y0 + (y1 - y0) * i / steps);
+    if (x >= 0 && x < 128 && y >= 0 && y < 96) stem.set([93, 99, 51, 255], (y * 128 + x) * 4);
+  }
+}
+// The support geometry samples the atlas centre, so its connected stem must pass through it.
+line(0, 48, 119, 48);
+const layers = [];
+for (const [index, leaf] of layout.entries()) {
+  line(Math.max(0, leaf.x - 12), 48, leaf.x, leaf.y);
+  const { data, info } = await sharp(cutout).resize(index === 6 ? 28 : 32, 20).rotate(leaf.angle, { background: '#00000000' }).png().toBuffer({ resolveWithObject: true });
+  layers.push({ input: data, left: Math.min(128 - info.width, Math.round(leaf.x - info.width / 2)), top: Math.round(leaf.y - info.height / 2) });
+}
+await sharp(stem, { raw: { width: 128, height: 96, channels: 4 } }).composite(layers).png().toFile(output + 'leaf.png');

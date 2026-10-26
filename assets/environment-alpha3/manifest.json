@@ -1,7 +1,7 @@
 {
   "verifiedOn": "2026-10-23",
   "sourceApi": "https://api.polyhaven.com/files/{id}",
-  "runtimeDownloadBytes": 185009,
+  "runtimeDownloadBytes": 173971,
   "assets": [
     {
       "id": "brick_wall_001",
@@ -18,7 +18,7 @@
           "sha256": "6a1233ec0186703de830354d89f122991e61e67fb67e0846c7eaf6c5aefea902"
         }
       ],
-      "adaptation": "Resize 1024 to 512 pixels; JPEG quality 86; sRGB; 3x3 repeat.",
+      "adaptation": "Resize 1024 to 512 pixels; JPEG quality 86; sRGB. Runtime repeat 8×9 calibrated for approximately 0.24 m bricks and 0.07–0.10 m courses.",
       "license": "CC0-1.0",
       "licenseUrl": "https://polyhaven.com/license",
       "output": {
@@ -70,14 +70,20 @@
           "sha256": "4f143e2dda8a6a572f427ac378b92255d21761e4611de0d26e21816c01aa533b"
         }
       ],
-      "adaptation": "Crop x557 y431 width158 height111; resize128x96; alpha from identical crop of alpha source channel0; RGBA PNG. No model geometry reused. Keep only largest alpha connected component to remove neighbouring atlas stems; separate RGB and alpha pipelines to preserve actual PNG RGBA output. Oval crop mask centred at (65,45), radius(58,35), excludes touching neighbouring stems.",
+      "adaptation": "Crop x557 y431 width158 height111; resize128x96; alpha from identical crop of alpha source channel0; RGBA PNG. No model geometry reused. Keep only largest alpha connected component to remove neighbouring atlas stems; separate RGB and alpha pipelines to preserve actual PNG RGBA output. Oval crop mask centred at (65,45), radius(58,35), excludes touching neighbouring stems. On 2026-10-26: original layout of seven rotated photographic leaf cutouts (32x20px, tip28x20px) with connected hand-drawn stems into same 128×96 RGBA atlas. Individual physical leaf length approximately 0.16–0.20 m. Source unchanged. See prepare-textures.mjs for exact layout.",
       "license": "CC0-1.0",
       "licenseUrl": "https://polyhaven.com/license",
       "output": {
         "file": "public/assets/environment-alpha3/leaf.png",
+        "bytes": 9843,
+        "sha256": "636928c8b1ccd004a112c401a3814d07d6730ee4ca88db7531ca0bd6e648f83f"
+      },
+      "previousOutput": {
+        "file": "assets/environment-alpha3/leaf-before-2026-10-26.png",
         "bytes": 20881,
         "sha256": "7c60d50feb37695c482d3b5ac1c4f08e19600ad07cb5886b9276f6a2bb1e916c"
       }
     }
-  ]
+  ],
+  "adaptedOn": "2026-10-26"
 }

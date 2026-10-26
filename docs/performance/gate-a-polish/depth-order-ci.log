@@ -1,0 +1,524 @@
+profile	Set up job	﻿2026-10-26T14:24:41.4236121Z Current runner version: '2.338.0'
+profile	Set up job	2026-10-26T14:24:41.4255044Z ##[group]Runner Image Provisioner
+profile	Set up job	2026-10-26T14:24:41.4255843Z Hosted Compute Agent
+profile	Set up job	2026-10-26T14:24:41.4256282Z Version: 20261021.618
+profile	Set up job	2026-10-26T14:24:41.4256636Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+profile	Set up job	2026-10-26T14:24:41.4257027Z Build Date: 2026-10-21T00:45:21Z
+profile	Set up job	2026-10-26T14:24:41.4257490Z Worker ID: {a90889a9-2c75-4723-ab84-f47bf68f6ca4}
+profile	Set up job	2026-10-26T14:24:41.4257886Z Region: centralus
+profile	Set up job	2026-10-26T14:24:41.4258220Z Cloud: Azure
+profile	Set up job	2026-10-26T14:24:41.4258537Z ##[endgroup]
+profile	Set up job	2026-10-26T14:24:41.4259417Z ##[group]Operating System
+profile	Set up job	2026-10-26T14:24:41.4259832Z Ubuntu
+profile	Set up job	2026-10-26T14:24:41.4260133Z 24.04.5
+profile	Set up job	2026-10-26T14:24:41.4260474Z LTS
+profile	Set up job	2026-10-26T14:24:41.4260780Z ##[endgroup]
+profile	Set up job	2026-10-26T14:24:41.4261091Z ##[group]Runner Image
+profile	Set up job	2026-10-26T14:24:41.4261495Z Image: ubuntu-24.04
+profile	Set up job	2026-10-26T14:24:41.4261818Z Version: 20261012.334.1
+profile	Set up job	2026-10-26T14:24:41.4262392Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+profile	Set up job	2026-10-26T14:24:41.4263429Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+profile	Set up job	2026-10-26T14:24:41.4264014Z ##[endgroup]
+profile	Set up job	2026-10-26T14:24:41.4264652Z ##[group]GITHUB_TOKEN Permissions
+profile	Set up job	2026-10-26T14:24:41.4266251Z Contents: read
+profile	Set up job	2026-10-26T14:24:41.4266592Z Metadata: read
+profile	Set up job	2026-10-26T14:24:41.4266932Z ##[endgroup]
+profile	Set up job	2026-10-26T14:24:41.4268318Z Secret source: Actions
+profile	Set up job	2026-10-26T14:24:41.4268834Z Cache mode: write
+profile	Set up job	2026-10-26T14:24:41.4269291Z Prepare workflow directory
+profile	Set up job	2026-10-26T14:24:41.4493558Z Prepare all required actions
+profile	Set up job	2026-10-26T14:24:41.4532052Z Getting action download info
+profile	Set up job	2026-10-26T14:24:41.7408893Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+profile	Set up job	2026-10-26T14:24:41.8473116Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+profile	Set up job	2026-10-26T14:24:41.9526055Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+profile	Set up job	2026-10-26T14:24:42.1464338Z Complete job name: profile
+profile	Run actions/checkout@v4	﻿2026-10-26T14:24:42.2035843Z ##[group]Run actions/checkout@v4
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2036323Z with:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2036562Z   repository: OdinTKD/ciclovia-bogota-xr
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2038597Z   token: ***
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2038819Z   ssh-strict: true
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2039045Z   ssh-user: git
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2039278Z   persist-credentials: true
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2039528Z   clean: true
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2039759Z   sparse-checkout-cone-mode: true
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2040027Z   fetch-depth: 1
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2040249Z   fetch-tags: false
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2040480Z   show-progress: true
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2040708Z   lfs: false
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2040920Z   submodules: false
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2041155Z   set-safe-directory: true
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2041418Z   allow-unsafe-pr-checkout: false
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2041754Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2771635Z Syncing repository: OdinTKD/ciclovia-bogota-xr
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2773450Z ##[group]Getting Git version info
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2774108Z Working directory is '/home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr'
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2775151Z [command]/usr/bin/git version
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2847030Z git version 2.55.0
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2851865Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2858297Z Temporarily overriding HOME='/home/runner/work/_temp/1ba8c3ee-160c-451d-a70b-77d223dd2159' before making global git config changes
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2859457Z Adding repository directory to the temporary git global config as a safe directory
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2860879Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2913041Z Deleting the contents of '/home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr'
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2919716Z ##[group]Initializing the repository
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.2927080Z [command]/usr/bin/git init /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3022730Z hint: Using 'master' as the name for the initial branch. This default branch name
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3023509Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3024015Z hint: to use in all of your new repositories, which will suppress this warning,
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3024404Z hint: call:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3025017Z hint:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3025314Z hint: 	git config --global init.defaultBranch <name>
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3025808Z hint:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3026115Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3026601Z hint: 'development'. The just-created branch can be renamed via this command:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3027162Z hint:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3027580Z hint: 	git branch -m <name>
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3027831Z hint:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3028349Z hint: Disable this message with "git config set advice.defaultBranchName false"
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3032076Z Initialized empty Git repository in /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr/.git/
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3041413Z [command]/usr/bin/git remote add origin https://github.com/OdinTKD/ciclovia-bogota-xr
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3087426Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3088155Z ##[group]Disabling automatic garbage collection
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3090984Z [command]/usr/bin/git config --local gc.auto 0
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3127781Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3152571Z ##[group]Setting up auth
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3153027Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3154313Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3484979Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3516829Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3687140Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3714599Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3880160Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3915180Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3916008Z ##[group]Fetching the repository
+profile	Run actions/checkout@v4	2026-10-26T14:24:42.3922311Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cef53c6a05b6800b38cf993dd003e649e51e43b8:refs/remotes/origin/main
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8432562Z From https://github.com/OdinTKD/ciclovia-bogota-xr
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8434116Z  * [new ref]         cef53c6a05b6800b38cf993dd003e649e51e43b8 -> origin/main
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8438141Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8439361Z ##[group]Determining the checkout info
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8440781Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8443128Z [command]/usr/bin/git sparse-checkout disable
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8494771Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8521863Z ##[group]Checking out the ref
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.8524907Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.9447511Z Switched to a new branch 'main'
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.9449304Z branch 'main' set up to track 'origin/main'.
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.9464846Z ##[endgroup]
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.9504483Z [command]/usr/bin/git log -1 --format=%H
+profile	Run actions/checkout@v4	2026-10-26T14:24:44.9529200Z cef53c6a05b6800b38cf993dd003e649e51e43b8
+profile	Run actions/setup-node@v4	﻿2026-10-26T14:24:44.9796282Z ##[group]Run actions/setup-node@v4
+profile	Run actions/setup-node@v4	2026-10-26T14:24:44.9797096Z with:
+profile	Run actions/setup-node@v4	2026-10-26T14:24:44.9797636Z   node-version: 24
+profile	Run actions/setup-node@v4	2026-10-26T14:24:44.9798205Z   cache: npm
+profile	Run actions/setup-node@v4	2026-10-26T14:24:44.9798895Z   always-auth: false
+profile	Run actions/setup-node@v4	2026-10-26T14:24:44.9799509Z   check-latest: false
+profile	Run actions/setup-node@v4	2026-10-26T14:24:44.9805465Z   token: ***
+profile	Run actions/setup-node@v4	2026-10-26T14:24:44.9806129Z ##[endgroup]
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.0776683Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.0779435Z (node:2060) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.0781146Z (Use `node --trace-deprecation ...` to show where the warning was created)
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.0782576Z ##[group]Environment details
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.3909381Z node: v24.21.0
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.3910052Z npm: 11.19.0
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.3910298Z yarn: 1.22.22
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.3911234Z ##[endgroup]
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.3938404Z [command]/opt/hostedtoolcache/node/24.21.0/x64/bin/npm config get cache
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.5337785Z /home/runner/.npm
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.6756439Z Cache hit for: node-cache-Linux-x64-npm-2041c5e0edf69d46cf949dad882b32e836f1da502c26c6012641a206bd023afa
+profile	Run actions/setup-node@v4	2026-10-26T14:24:45.6825362Z (node:2060) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+profile	Run actions/setup-node@v4	2026-10-26T14:24:47.1697199Z Received 41550401 of 41550401 (100.0%), 45.2 MBs/sec
+profile	Run actions/setup-node@v4	2026-10-26T14:24:47.1697826Z Cache Size: ~40 MB (41550401 B)
+profile	Run actions/setup-node@v4	2026-10-26T14:24:47.1715524Z [command]/usr/bin/tar -xf /home/runner/work/_temp/e1abc3ad-fb7e-4fc2-a3d7-e2aba9feae71/cache.tzst -P -C /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr --use-compress-program unzstd
+profile	Run actions/setup-node@v4	2026-10-26T14:24:47.2172540Z Cache restored successfully
+profile	Run actions/setup-node@v4	2026-10-26T14:24:47.2192732Z Cache restored from key: node-cache-Linux-x64-npm-2041c5e0edf69d46cf949dad882b32e836f1da502c26c6012641a206bd023afa
+profile	Run npm ci	﻿2026-10-26T14:24:47.2347644Z ##[group]Run npm ci
+profile	Run npm ci	2026-10-26T14:24:47.2347846Z ^[[36;1mnpm ci^[[0m
+profile	Run npm ci	2026-10-26T14:24:47.2559404Z shell: /usr/bin/bash -e {0}
+profile	Run npm ci	2026-10-26T14:24:47.2559663Z ##[endgroup]
+profile	Run npm ci	2026-10-26T14:24:49.4286833Z 
+profile	Run npm ci	2026-10-26T14:24:49.4293042Z added 51 packages, and audited 52 packages in 2s
+profile	Run npm ci	2026-10-26T14:24:49.4293414Z 
+profile	Run npm ci	2026-10-26T14:24:49.4293596Z 12 packages are looking for funding
+profile	Run npm ci	2026-10-26T14:24:49.4293882Z   run `npm fund` for details
+profile	Run npm ci	2026-10-26T14:24:49.4294760Z 
+profile	Run npm ci	2026-10-26T14:24:49.4294909Z found 0 vulnerabilities
+profile	Run npx playwright install chromium	﻿2026-10-26T14:24:49.4738666Z ##[group]Run npx playwright install chromium
+profile	Run npx playwright install chromium	2026-10-26T14:24:49.4738915Z ^[[36;1mnpx playwright install chromium^[[0m
+profile	Run npx playwright install chromium	2026-10-26T14:24:49.4791575Z shell: /usr/bin/bash -e {0}
+profile	Run npx playwright install chromium	2026-10-26T14:24:49.4791734Z ##[endgroup]
+profile	Run npx playwright install chromium	2026-10-26T14:24:49.9844793Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+profile	Run npx playwright install chromium	2026-10-26T14:24:50.3638209Z |                                                                                |   0% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:50.8008610Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:50.8623404Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:50.9369355Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:50.9798389Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:51.0257420Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:51.0836161Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:51.1109105Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:51.1815142Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:51.2325826Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:51.2766266Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.5587331Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.5590484Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.8787448Z |                                                                                |   0% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9076518Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9287167Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9408611Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9475111Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9578805Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9616333Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9714604Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9739124Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9767988Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:53.9833001Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.0248073Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.0253691Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.3374953Z |                                                                                |   0% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.6408870Z |■■■■■■■■                                                                        |  10% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.7130501Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.7697164Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.8555339Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.8755678Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.9163553Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:54.9792982Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:55.0011655Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:55.0335280Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:55.0756985Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+profile	Run npx playwright install chromium	2026-10-26T14:24:56.5924710Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+profile	Run node tools/qa/profile-render.mjs	﻿2026-10-26T14:24:56.6202229Z ##[group]Run node tools/qa/profile-render.mjs
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:24:56.6202455Z ^[[36;1mnode tools/qa/profile-render.mjs^[[0m
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:24:56.6255712Z shell: /usr/bin/bash -e {0}
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:24:56.6255893Z ##[endgroup]
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1124650Z [
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1125511Z   {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1126068Z     "phase": "stationary",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1126538Z     "render": {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1126895Z       "drawCalls": 28,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1127444Z       "triangles": 28208,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1128070Z       "pixelRatio": 0.75,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1128393Z       "width": 309,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1128705Z       "height": 629,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1129040Z       "cssWidth": 412,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1129366Z       "cssHeight": 839,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1129726Z       "devicePixelRatio": 2.625,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1130081Z       "shadows": false,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1132555Z       "materialQuality": "diffuse",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1132890Z       "antialias": false,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1133093Z       "artDetail": "low"
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1133352Z     },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1133514Z     "frames": {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1133717Z       "fps": 28.63393604015185,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1133928Z       "p95Ms": 50,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1134189Z       "p50Ms": 33.29999999999927,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1134436Z       "p99Ms": 333.2999999999993,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1134662Z       "maxMs": 699.8999999999996,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1134867Z       "samples": 178
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1135046Z     },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1135208Z     "delta": {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1135406Z       "Timestamp": 5.754255999999998,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1135729Z       "AudioHandlers": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1135964Z       "AudioWorkletProcessors": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1136219Z       "Documents": -3,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1136409Z       "Frames": -3,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1136619Z       "JSEventListeners": -13,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1136852Z       "LayoutObjects": -75,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1137066Z       "MediaKeySessions": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1137275Z       "MediaKeys": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1137469Z       "Nodes": -35,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1137654Z       "Resources": -38,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1137893Z       "ContextLifecycleStateObservers": -3,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1138169Z       "V8PerContextDatas": -2,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1138774Z       "WorkerGlobalScopes": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1138988Z       "UACSSResources": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1139219Z       "RTCPeerConnections": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1139460Z       "ResourceFetchers": -3,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1139674Z       "AdSubframes": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1139900Z       "DetachedScriptStates": -2,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1140155Z       "ArrayBufferContents": -3155,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1140379Z       "LayoutCount": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1140580Z       "RecalcStyleCount": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1140795Z       "LayoutDuration": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1141020Z       "RecalcStyleDuration": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1141276Z       "DevToolsCommandDuration": 0.67395,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1141539Z       "ScriptDuration": 0.57569,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1141766Z       "V8CompileDuration": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1142014Z       "TaskDuration": 5.744580000000001,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1142279Z       "TaskOtherDuration": 4.49494,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1142524Z       "ThreadTime": 4.525507999999999,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1142780Z       "ProcessTime": 5.4799999999999995,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1143032Z       "JSHeapUsedSize": -8690420,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1143271Z       "JSHeapTotalSize": 1310720,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1143513Z       "FirstMeaningfulPaint": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1144120Z       "DomContentLoaded": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1145806Z       "NavigationStart": 0
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1146162Z     },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1146320Z     "top": [
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1146485Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1146674Z         "name": "(program)",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1146968Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1147150Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1147345Z         "selfMs": 5099.294
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1147536Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1147974Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1148133Z         "name": "frame",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1148404Z         "url": "http://127.0.0.1:4190/src/main.ts",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1148688Z         "line": 221,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1148873Z         "selfMs": 33.509
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1149062Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1149214Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1149384Z         "name": "setProgram",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1149807Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1152823Z         "line": 52326,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1153071Z         "selfMs": 32.974
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1153269Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1153426Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1153619Z         "name": "(garbage collector)",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1153851Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1154036Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1154223Z         "selfMs": 23.723
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1154415Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1154574Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1154759Z         "name": "wasm-function[2664]",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1155035Z         "url": "wasm://wasm/00bc1dde",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1155261Z         "line": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1155443Z         "selfMs": 16.28
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1155895Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1156056Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1156224Z         "name": "compose",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1156624Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1157006Z         "line": 8561,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1157198Z         "selfMs": 13.125
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1157385Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1158051Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1158219Z         "name": "markUniformsLightsNeedsUpdate",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1158504Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1158739Z         "line": 52489,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1158863Z         "selfMs": 12.279
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1158984Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1159088Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1159243Z         "name": "bindVertexArray",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1159462Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1159651Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1159790Z         "selfMs": 12.108
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1159912Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1160200Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1160329Z         "name": "requestAnimationFrame",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1160478Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1160594Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1160714Z         "selfMs": 11.401
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1160834Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1160936Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1161042Z         "name": "render",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1161223Z         "url": "http://127.0.0.1:4190/src/rendering/scene.ts",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1161399Z         "line": 543,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1161519Z         "selfMs": 9.985
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1161642Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1161746Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1161862Z         "name": "drawElements",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1162000Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1162122Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1162238Z         "selfMs": 9.636
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1162355Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1162458Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1162579Z         "name": "getBindingState",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1162838Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1163068Z         "line": 42910,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1163191Z         "selfMs": 9.529
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1163311Z       }
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1163417Z     ]
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1163569Z   },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1163730Z   {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1163943Z     "phase": "moving",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1164186Z     "render": {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1164412Z       "drawCalls": 28,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1164656Z       "triangles": 28208,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1164861Z       "pixelRatio": 0.75,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1165056Z       "width": 309,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1165240Z       "height": 629,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1165426Z       "cssWidth": 412,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1165896Z       "cssHeight": 839,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1166117Z       "devicePixelRatio": 2.625,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1166355Z       "shadows": false,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1166622Z       "materialQuality": "diffuse",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1166892Z       "antialias": false,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1167121Z       "artDetail": "low"
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1167337Z     },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1167526Z     "frames": {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1167754Z       "fps": 39.85386914646297,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1168013Z       "p95Ms": 33.400000000001455,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1168289Z       "p50Ms": 33.19999999999709,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1168561Z       "p99Ms": 33.400000000001455,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1168811Z       "maxMs": 33.5,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1169029Z       "samples": 180
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1169236Z     },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1169418Z     "delta": {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1169652Z       "Timestamp": 5.173761000000013,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1169898Z       "AudioHandlers": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1170145Z       "AudioWorkletProcessors": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1170399Z       "Documents": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1170599Z       "Frames": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1170818Z       "JSEventListeners": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1171075Z       "LayoutObjects": 145,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1171331Z       "MediaKeySessions": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1171551Z       "MediaKeys": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1171770Z       "Nodes": 145,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1171980Z       "Resources": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1172254Z       "ContextLifecycleStateObservers": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1172533Z       "V8PerContextDatas": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1172797Z       "WorkerGlobalScopes": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1173048Z       "UACSSResources": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1173315Z       "RTCPeerConnections": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1173576Z       "ResourceFetchers": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1173813Z       "AdSubframes": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1174049Z       "DetachedScriptStates": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1174310Z       "ArrayBufferContents": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1174546Z       "LayoutCount": 48,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1174770Z       "RecalcStyleCount": 48,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1175040Z       "LayoutDuration": 0.042908999999999996,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1175362Z       "RecalcStyleDuration": 0.015567,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1175781Z       "DevToolsCommandDuration": 0.12270199999999998,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1176272Z       "ScriptDuration": 0.7334369999999999,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1176526Z       "V8CompileDuration": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1176828Z       "TaskDuration": 5.155238000000002,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1177131Z       "TaskOtherDuration": 4.240622999999998,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1177474Z       "ThreadTime": 4.103012999999999,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1177782Z       "ProcessTime": 4.43,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1178061Z       "JSHeapUsedSize": 2072144,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1178369Z       "JSHeapTotalSize": 262144,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1178636Z       "FirstMeaningfulPaint": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1178883Z       "DomContentLoaded": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1179143Z       "NavigationStart": 0
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1179352Z     },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1179525Z     "top": [
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1179707Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1179892Z         "name": "(program)",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1180119Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1180350Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1180566Z         "selfMs": 4377.348
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1180782Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1180955Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1181149Z         "name": "setProgram",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1181585Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1182047Z         "line": 52326,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1182304Z         "selfMs": 46.893
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1182531Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1182745Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1182953Z         "name": "frame",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1183293Z         "url": "http://127.0.0.1:4190/src/main.ts",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1183588Z         "line": 221,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1183844Z         "selfMs": 32.274
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1184074Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1193248Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1193456Z         "name": "wasm-function[2664]",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1193717Z         "url": "wasm://wasm/00bc1dde",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1193939Z         "line": 0,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1194118Z         "selfMs": 26.931
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1194308Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1194460Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1194620Z         "name": "update",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1216552Z         "url": "http://127.0.0.1:4190/src/ui/index.ts",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1216841Z         "line": 70,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1217017Z         "selfMs": 21.081
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1217205Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1217367Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1217562Z         "name": "bindVertexArray",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1217783Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1217977Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1218165Z         "selfMs": 20.208
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1218361Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1218527Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1218753Z         "name": "markUniformsLightsNeedsUpdate",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1219235Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1219628Z         "line": 52489,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1219822Z         "selfMs": 16.268
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1220016Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1220172Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1220341Z         "name": "(idle)",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1220537Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1220715Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1220905Z         "selfMs": 15.837
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1221092Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1221248Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1221412Z         "name": "clear",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1221613Z         "url": "",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1221793Z         "line": -1,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1221973Z         "selfMs": 15.158
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1222162Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1222320Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1222486Z         "name": "step",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1222763Z         "url": "http://127.0.0.1:4190/src/core/simulation.ts",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1223043Z         "line": 113,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1223231Z         "selfMs": 13.902
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1223424Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1223590Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1223780Z         "name": "needsUpdate",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1224454Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1224836Z         "line": 42956,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1225031Z         "selfMs": 11.603
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1225222Z       },
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1225384Z       {
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1225651Z         "name": "compose",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1226031Z         "url": "http://127.0.0.1:4190/node_modules/.vite/deps/three.module-DFtsUDDU.js?v=f0a7c1bc",
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1226388Z         "line": 8561,
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1226574Z         "selfMs": 11.159
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1226757Z       }
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1226911Z     ]
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1227072Z   }
+profile	Run node tools/qa/profile-render.mjs	2026-10-26T14:25:27.1227233Z ]
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	﻿2026-10-26T14:25:27.1783856Z ##[group]Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:25:27.1784338Z ^[[36;1mnpx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts^[[0m
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:25:27.1835301Z shell: /usr/bin/bash -e {0}
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:25:27.1835462Z ##[endgroup]
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:25:28.1707520Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:25:28.1708277Z Running 2 tests using 1 worker
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:25:28.1708542Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:25:47.8618806Z   ✓  1 [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia (19.4s)
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:26:36.2259318Z   ✓  2 [mobile] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva (48.3s)
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:26:36.2843696Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T14:26:36.2847028Z   2 passed (1.1m)
+profile	Run actions/upload-artifact@v4	﻿2026-10-26T14:26:36.3282866Z ##[group]Run actions/upload-artifact@v4
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3283050Z with:
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3283176Z   name: render-diagnostic
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3283358Z   path: docs/performance/render-diagnostic/
+profile	Run actions/upload-artifact@v4	test-results/
+profile	Run actions/upload-artifact@v4	
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3283570Z   if-no-files-found: warn
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3283712Z   compression-level: 6
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3283846Z   overwrite: false
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3283981Z   include-hidden-files: false
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.3284158Z ##[endgroup]
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.4426410Z (node:2490) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.4427077Z (Use `node --trace-deprecation ...` to show where the warning was created)
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.4510152Z Multiple search paths detected. Calculating the least common ancestor of all paths
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.4512098Z The least common ancestor is /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr. This will be the root directory of the artifact
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.4512965Z With the provided path, there will be 13 files uploaded
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.4516962Z Artifact name is valid!
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.4517369Z Root directory input is valid!
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.7487668Z Beginning upload of artifact content to blob storage
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:36.7877911Z (node:2490) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:37.1034221Z Uploaded bytes 585990
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:37.2044930Z Finished uploading artifact content to blob storage!
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:37.2046315Z SHA256 digest of uploaded artifact zip is 4d3cd214267bc17118bca43111e86a315bec018fec03e09ac92fc494bac2e0c1
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:37.2046618Z Finalizing artifact upload
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:37.6693692Z Artifact render-diagnostic.zip successfully finalized. Artifact ID 12658736994
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:37.6694495Z Artifact render-diagnostic has been successfully uploaded! Final size is 585990 bytes. Artifact ID is 12658736994
+profile	Run actions/upload-artifact@v4	2026-10-26T14:26:37.6699801Z Artifact download URL: https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40339380259/artifacts/12658736994
+profile	Post Run actions/setup-node@v4	﻿2026-10-26T14:26:37.6865856Z Post job cleanup.
+profile	Post Run actions/setup-node@v4	2026-10-26T14:26:37.7729688Z (node:2518) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+profile	Post Run actions/setup-node@v4	2026-10-26T14:26:37.7730635Z (Use `node --trace-deprecation ...` to show where the warning was created)
+profile	Post Run actions/setup-node@v4	2026-10-26T14:26:37.7731805Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-2041c5e0edf69d46cf949dad882b32e836f1da502c26c6012641a206bd023afa, not saving cache.
+profile	Post Run actions/checkout@v4	﻿2026-10-26T14:26:37.7833999Z Post job cleanup.
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8418719Z [command]/usr/bin/git version
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8457295Z git version 2.55.0
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8482045Z Temporarily overriding HOME='/home/runner/work/_temp/660cbcbe-1a54-461c-8033-7f7873da9912' before making global git config changes
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8482993Z Adding repository directory to the temporary git global config as a safe directory
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8485778Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8522027Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8556867Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8762085Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8787618Z http.https://github.com/.extraheader
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8797571Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.8864315Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.9138717Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+profile	Post Run actions/checkout@v4	2026-10-26T14:26:37.9174068Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+profile	Complete job	﻿2026-10-26T14:26:37.9511590Z Cleaning up orphan processes
+profile	Complete job	2026-10-26T14:26:37.9789157Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -5,7 +5,7 @@
       "weather": "sun",
       "render": {
         "drawCalls": 28,
-        "triangles": 28208,
+        "triangles": 29048,
         "pixelRatio": 0.75,
         "width": 309,
         "height": 629,
@@ -30,10 +30,10 @@
         "health": 100,
         "score": 0,
         "weather": "sun",
-        "elapsed": 0.8333333333333343,
+        "elapsed": 0.8166666666666675,
         "collisions": 0,
         "finished": false,
-        "tick": 50,
+        "tick": 49,
         "lastContact": null
       }
     },
@@ -41,7 +41,7 @@
       "weather": "rain",
       "render": {
         "drawCalls": 29,
-        "triangles": 30128,
+        "triangles": 30968,
         "pixelRatio": 0.75,
         "width": 309,
         "height": 629,

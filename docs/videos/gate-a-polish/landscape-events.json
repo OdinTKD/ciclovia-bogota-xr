@@ -8,12 +8,12 @@
   "events": [
     {
       "label": "inicio",
-      "time": 1792792440126,
+      "time": 1793025908946,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 5,
+        "physicsSteps": 6,
         "state": {
           "x": 0,
           "worldZ": 0,
@@ -27,10 +27,10 @@
           "health": 100,
           "score": 0,
           "weather": "sun",
-          "elapsed": 0.08333333333333333,
+          "elapsed": 0.09999999999999999,
           "collisions": 0,
           "finished": false,
-          "tick": 5,
+          "tick": 6,
           "lastContact": null
         },
         "render": {
@@ -48,12 +48,12 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 40.0400400400401,
-          "p95Ms": 49.90000000000009,
-          "p50Ms": 16.59999999999991,
-          "p99Ms": 49.90000000000009,
-          "maxMs": 49.90000000000009,
-          "samples": 4
+          "fps": 29.970029970029994,
+          "p95Ms": 66.69999999999982,
+          "p50Ms": 16.700000000000045,
+          "p99Ms": 66.69999999999982,
+          "maxMs": 66.69999999999982,
+          "samples": 3
         },
         "traffic": [
           {
@@ -177,29 +177,29 @@
     },
     {
       "label": "giro",
-      "time": 1792792442311,
+      "time": 1793025911142,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 136,
+        "physicsSteps": 138,
         "state": {
-          "x": 0.49512291175793854,
-          "worldZ": -5.738630252648884,
-          "speed": 5.240000000000004,
-          "yaw": 0.03751306188250436,
-          "steeringAngle": -0.07752544832164736,
-          "roll": -0.10438938543995725,
+          "x": 0.457709376935318,
+          "worldZ": -5.828065824681602,
+          "speed": 5.280000000000004,
+          "yaw": 0.012286081136938954,
+          "steeringAngle": 0.10674556861628182,
+          "roll": -0.04712531615080492,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 5.738630252648884,
+          "distance": 5.828065824681602,
           "health": 100,
-          "score": 57,
+          "score": 58,
           "weather": "sun",
-          "elapsed": 2.2666666666666635,
+          "elapsed": 2.2999999999999967,
           "collisions": 0,
           "finished": false,
-          "tick": 136,
+          "tick": 138,
           "lastContact": null
         },
         "render": {
@@ -217,11 +217,11 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 59.12495072920773,
+          "fps": 58.69565217391304,
           "p95Ms": 16.800000000000182,
           "p50Ms": 16.699999999999818,
           "p99Ms": 16.90000000000009,
-          "maxMs": 49.90000000000009,
+          "maxMs": 66.69999999999982,
           "samples": 135
         },
         "traffic": [
@@ -346,29 +346,29 @@
     },
     {
       "label": "contragiro",
-      "time": 1792792444145,
+      "time": 1793025912975,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 246,
+        "physicsSteps": 248,
         "state": {
-          "x": -0.37851881566459344,
-          "worldZ": -19.36543990477422,
-          "speed": 9.63999999999997,
-          "yaw": -0.0018125350815633135,
-          "steeringAngle": 0.0006324355701434424,
-          "roll": 0.016984963032525297,
+          "x": -0.33265197555647097,
+          "worldZ": -19.535595475329814,
+          "speed": 9.67999999999997,
+          "yaw": -0.06501566228467658,
+          "steeringAngle": -0.07892957489395283,
+          "roll": -0.16243140998166775,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 19.36543990477422,
+          "distance": 19.535595475329814,
           "health": 100,
-          "score": 193,
+          "score": 195,
           "weather": "sun",
-          "elapsed": 4.099999999999991,
+          "elapsed": 4.133333333333324,
           "collisions": 0,
           "finished": false,
-          "tick": 246,
+          "tick": 248,
           "lastContact": null
         },
         "render": {
@@ -386,11 +386,11 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 60.00200006666889,
+          "fps": 60.00200006666888,
           "p95Ms": 16.800000000000182,
           "p50Ms": 16.699999999999818,
-          "p99Ms": 16.90000000000009,
-          "maxMs": 17,
+          "p99Ms": 16.899999999999636,
+          "maxMs": 16.90000000000009,
           "samples": 180
         },
         "traffic": [
@@ -515,29 +515,29 @@
     },
     {
       "label": "frenada",
-      "time": 1792792445442,
+      "time": 1793025914297,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 324,
+        "physicsSteps": 327,
         "state": {
-          "x": -0.3862208333862821,
-          "worldZ": -25.564268361160657,
-          "speed": 0.019999999999979604,
-          "yaw": -0.0011213501192446358,
-          "steeringAngle": 7.0621429257974e-8,
-          "roll": 4.753956887720348e-7,
+          "x": -1.141126669289699,
+          "worldZ": -25.73253116865523,
+          "speed": 0,
+          "yaw": -0.14467228418628392,
+          "steeringAngle": -0.000007843181927783157,
+          "roll": -0.00003817385279704938,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 25.564268361160657,
+          "distance": 25.73253116865523,
           "health": 100,
-          "score": 255,
+          "score": 257,
           "weather": "sun",
-          "elapsed": 5.399999999999986,
+          "elapsed": 5.449999999999986,
           "collisions": 0,
           "finished": false,
-          "tick": 324,
+          "tick": 327,
           "lastContact": null
         },
         "render": {
@@ -555,11 +555,11 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 60.00200006666889,
+          "fps": 59.99999999999999,
           "p95Ms": 16.800000000000182,
           "p50Ms": 16.699999999999818,
-          "p99Ms": 16.90000000000009,
-          "maxMs": 17,
+          "p99Ms": 16.899999999999636,
+          "maxMs": 16.899999999999636,
           "samples": 180
         },
         "traffic": [
@@ -684,29 +684,29 @@
     },
     {
       "label": "metro 40",
-      "time": 1792792449093,
+      "time": 1793025917997,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 544,
+        "physicsSteps": 549,
         "state": {
-          "x": 0.013913213958920832,
-          "worldZ": -40.181036631264206,
-          "speed": 8.359999999999998,
-          "yaw": -0.030759147866958776,
-          "steeringAngle": -0.23825487430379547,
-          "roll": -0.18798031951309993,
+          "x": -0.011724146743067276,
+          "worldZ": -40.158539473844456,
+          "speed": 8.319999999999999,
+          "yaw": -0.010756876529551995,
+          "steeringAngle": -0.05139161040476104,
+          "roll": -0.17560275172104192,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 40.181036631264206,
+          "distance": 40.158539473844456,
           "health": 100,
           "score": 401,
           "weather": "sun",
-          "elapsed": 9.066666666666697,
+          "elapsed": 9.150000000000034,
           "collisions": 0,
           "finished": false,
-          "tick": 544,
+          "tick": 549,
           "lastContact": null
         },
         "render": {
@@ -724,11 +724,11 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 59.99999999999999,
-          "p95Ms": 16.80000000000109,
+          "fps": 59.999999999999986,
+          "p95Ms": 16.800000000000182,
           "p50Ms": 16.69999999999891,
           "p99Ms": 16.900000000001455,
-          "maxMs": 16.900000000001455,
+          "maxMs": 17,
           "samples": 180
         },
         "traffic": [
@@ -853,29 +853,29 @@
     },
     {
       "label": "metro 52",
-      "time": 1792792450358,
+      "time": 1793025919229,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 619,
+        "physicsSteps": 623,
         "state": {
-          "x": 0.01171185413946912,
-          "worldZ": -52.47776103213265,
+          "x": 0.01524706917906557,
+          "worldZ": -52.248440008311206,
           "speed": 11,
-          "yaw": 0.020778220235206184,
-          "steeringAngle": 0.22310125080821291,
-          "roll": 0.07321418822569901,
+          "yaw": 0.007837013887901666,
+          "steeringAngle": 0.16181963285376788,
+          "roll": 0.06080568571983587,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 52.47776103213265,
+          "distance": 52.248440008311206,
           "health": 100,
-          "score": 524,
+          "score": 522,
           "weather": "sun",
-          "elapsed": 10.316666666666759,
+          "elapsed": 10.383333333333429,
           "collisions": 0,
           "finished": false,
-          "tick": 619,
+          "tick": 623,
           "lastContact": null
         },
         "render": {
@@ -893,10 +893,10 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 60.00200006666886,
-          "p95Ms": 16.80000000000109,
+          "fps": 59.99800006666443,
+          "p95Ms": 16.799999999999272,
           "p50Ms": 16.69999999999891,
-          "p99Ms": 16.900000000001455,
+          "p99Ms": 16.899999999999636,
           "maxMs": 16.900000000001455,
           "samples": 180
         },
@@ -1022,29 +1022,29 @@
     },
     {
       "label": "car visible",
-      "time": 1792792452053,
+      "time": 1793025920888,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 721,
+        "physicsSteps": 722,
         "state": {
-          "x": -0.05704275519941096,
-          "worldZ": -71.16917872092293,
+          "x": -0.010679689085192335,
+          "worldZ": -70.39478721992168,
           "speed": 11,
-          "yaw": 0.02998683537838697,
-          "steeringAngle": 0.20932698414418544,
-          "roll": 0.17741681333698398,
+          "yaw": 0.005307943007430466,
+          "steeringAngle": 0.1843926014523013,
+          "roll": 0.06749509359391286,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 71.16917872092293,
+          "distance": 70.39478721992168,
           "health": 100,
-          "score": 711,
+          "score": 703,
           "weather": "sun",
-          "elapsed": 12.016666666666843,
+          "elapsed": 12.03333333333351,
           "collisions": 0,
           "finished": false,
-          "tick": 721,
+          "tick": 722,
           "lastContact": null
         },
         "render": {
@@ -1063,17 +1063,17 @@
         },
         "performance": {
           "fps": 59.99800006666443,
-          "p95Ms": 16.799999999999272,
+          "p95Ms": 16.80000000000109,
           "p50Ms": 16.69999999999891,
           "p99Ms": 16.899999999999636,
-          "maxMs": 16.900000000001455,
+          "maxMs": 17.200000000000728,
           "samples": 180
         },
         "traffic": [
           {
             "id": "car-01",
             "kind": "car",
-            "x": 7.761968770244858,
+            "x": 7.920656256748286,
             "z": 110,
             "active": true,
             "halfX": 2,
@@ -1191,29 +1191,29 @@
     },
     {
       "label": "metro 100",
-      "time": 1792792454769,
+      "time": 1793025923598,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 884,
+        "physicsSteps": 885,
         "state": {
-          "x": -0.03274357622861753,
-          "worldZ": -101.04733827693528,
+          "x": 0.03696754228281611,
+          "worldZ": -100.27513072407976,
           "speed": 11,
-          "yaw": -0.004133146238598851,
-          "steeringAngle": 0.14623588147598976,
-          "roll": 0.03795233450901023,
+          "yaw": -0.011038658844172395,
+          "steeringAngle": -0.1863750629140826,
+          "roll": -0.11873468995893574,
           "lateralVelocity": 0,
           "phase": "playing",
-          "distance": 101.04733827693528,
+          "distance": 100.27513072407976,
           "health": 100,
-          "score": 1010,
+          "score": 1002,
           "weather": "sun",
-          "elapsed": 14.733333333333645,
+          "elapsed": 14.750000000000313,
           "collisions": 0,
           "finished": false,
-          "tick": 884,
+          "tick": 885,
           "lastContact": null
         },
         "render": {
@@ -1234,15 +1234,15 @@
           "fps": 59.99999999999999,
           "p95Ms": 16.799999999999272,
           "p50Ms": 16.69999999999891,
-          "p99Ms": 16.899999999999636,
-          "maxMs": 16.899999999999636,
+          "p99Ms": 17,
+          "maxMs": 17.099999999998545,
           "samples": 180
         },
         "traffic": [
           {
             "id": "car-01",
             "kind": "car",
-            "x": 1.2954536952301572,
+            "x": 1.4541411817335854,
             "z": 110,
             "active": true,
             "halfX": 2,
@@ -1360,36 +1360,36 @@
     },
     {
       "label": "pedestrian visible",
-      "time": 1792792460435,
+      "time": 1793025929335,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 1224,
+        "physicsSteps": 1229,
         "state": {
-          "x": -0.017483906319291816,
-          "worldZ": -128.9655413960105,
-          "speed": 9.942151082097137,
-          "yaw": -0.01458627841819183,
-          "steeringAngle": 0.17738495907606425,
-          "roll": 0.08923767633808463,
-          "lateralVelocity": -1.082279503027219e-17,
+          "x": 0.019491236535867283,
+          "worldZ": -128.5297374789646,
+          "speed": 9.840030552647603,
+          "yaw": 0.009474682819886079,
+          "steeringAngle": -0.09283312819583092,
+          "roll": 0.022047926390491156,
+          "lateralVelocity": 3.1975520298849936e-17,
           "phase": "playing",
-          "distance": 128.9655413960105,
+          "distance": 128.5297374789646,
           "health": 65,
-          "score": 1239,
+          "score": 1235,
           "weather": "sun",
-          "elapsed": 20.400000000000123,
+          "elapsed": 20.48333333333345,
           "collisions": 1,
           "finished": false,
-          "tick": 1224,
+          "tick": 1229,
           "lastContact": {
             "actorId": "car-01",
             "normal": {
-              "x": -0.00000579269698383969,
-              "z": -0.9999999536104103
+              "x": -0.00006952552541342888,
+              "z": -1.000000024437685
             },
-            "normalSpeed": 10.999795417104233,
+            "normalSpeed": 10.99509283883583,
             "kind": "frontal"
           }
         },
@@ -1408,18 +1408,18 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 59.99999999999999,
-          "p95Ms": 16.80000000000291,
-          "p50Ms": 16.700000000000728,
-          "p99Ms": 16.900000000001455,
-          "maxMs": 17.100000000002183,
+          "fps": 59.3413114429829,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999709,
+          "p99Ms": 33.29999999999927,
+          "maxMs": 33.5,
           "samples": 180
         },
         "traffic": [
           {
             "id": "car-01",
             "kind": "car",
-            "x": -7.5117018057101115,
+            "x": -7.630717420587683,
             "z": 110,
             "active": false,
             "halfX": 2,
@@ -1429,7 +1429,7 @@
           {
             "id": "pedestrian-01",
             "kind": "pedestrian",
-            "x": -5.8806950608850475,
+            "x": -5.9284170365310285,
             "z": 160,
             "active": true,
             "halfX": 0.35,
@@ -1537,36 +1537,36 @@
     },
     {
       "label": "metro 150",
-      "time": 1792792462431,
+      "time": 1793025931385,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 1344,
+        "physicsSteps": 1352,
         "state": {
-          "x": -0.022547364583315528,
-          "worldZ": -150.73555441341637,
+          "x": -0.013960523491783068,
+          "worldZ": -150.8049696693261,
           "speed": 11,
-          "yaw": -0.024556684217323044,
-          "steeringAngle": -0.029054442295913786,
-          "roll": -0.1371973650129243,
-          "lateralVelocity": -9.945946873170758e-24,
+          "yaw": -0.007114253727801395,
+          "steeringAngle": -0.10406211646270719,
+          "roll": 0.0031710194414789616,
+          "lateralVelocity": 2.0759026774305583e-23,
           "phase": "playing",
-          "distance": 150.73555441341637,
+          "distance": 150.8049696693261,
           "health": 65,
-          "score": 1457,
+          "score": 1458,
           "weather": "sun",
-          "elapsed": 22.40000000000001,
+          "elapsed": 22.533333333333335,
           "collisions": 1,
           "finished": false,
-          "tick": 1344,
+          "tick": 1352,
           "lastContact": {
             "actorId": "car-01",
             "normal": {
-              "x": -0.00000579269698383969,
-              "z": -0.9999999536104103
+              "x": -0.00006952552541342888,
+              "z": -1.000000024437685
             },
-            "normalSpeed": 10.999795417104233,
+            "normalSpeed": 10.99509283883583,
             "kind": "frontal"
           }
         },
@@ -1585,18 +1585,18 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 59.998000066664396,
-          "p95Ms": 16.80000000000291,
-          "p50Ms": 16.700000000000728,
-          "p99Ms": 16.900000000001455,
-          "maxMs": 16.900000000001455,
+          "fps": 59.99999999999999,
+          "p95Ms": 16.799999999999272,
+          "p50Ms": 16.69999999999709,
+          "p99Ms": 16.799999999999272,
+          "maxMs": 16.799999999999272,
           "samples": 180
         },
         "traffic": [
           {
             "id": "car-01",
             "kind": "car",
-            "x": -7.5117018057101115,
+            "x": -7.630717420587683,
             "z": 110,
             "active": false,
             "halfX": 2,
@@ -1606,7 +1606,7 @@
           {
             "id": "pedestrian-01",
             "kind": "pedestrian",
-            "x": -3.0173765221261677,
+            "x": -2.9935155343031767,
             "z": 160,
             "active": true,
             "halfX": 0.35,
@@ -1714,36 +1714,36 @@
     },
     {
       "label": "meta",
-      "time": 1792792466938,
+      "time": 1793025935926,
       "game": {
         "ready": true,
         "gate": "A",
         "routeLength": 200,
-        "physicsSteps": 1613,
+        "physicsSteps": 1621,
         "state": {
-          "x": -0.06342941168581359,
-          "worldZ": -200.04088033357357,
+          "x": -0.048277968613089806,
+          "worldZ": -200.1106770153878,
           "speed": 11,
-          "yaw": -0.005938241599032179,
-          "steeringAngle": 0.11349989872763414,
-          "roll": 0.0717340137874365,
-          "lateralVelocity": -2.92006145124897e-37,
+          "yaw": 0.013741041747701636,
+          "steeringAngle": 0.043819444711910946,
+          "roll": 0.18715150479863923,
+          "lateralVelocity": 6.094707182944185e-37,
           "phase": "finished",
           "distance": 200,
           "health": 65,
           "score": 1950,
           "weather": "sun",
-          "elapsed": 26.883333333333088,
+          "elapsed": 27.016666666666413,
           "collisions": 1,
           "finished": true,
-          "tick": 1613,
+          "tick": 1621,
           "lastContact": {
             "actorId": "car-01",
             "normal": {
-              "x": -0.00000579269698383969,
-              "z": -0.9999999536104103
+              "x": -0.00006952552541342888,
+              "z": -1.000000024437685
             },
-            "normalSpeed": 10.999795417104233,
+            "normalSpeed": 10.99509283883583,
             "kind": "frontal"
           }
         },
@@ -1762,18 +1762,18 @@
           "artDetail": "high"
         },
         "performance": {
-          "fps": 59.998000066664474,
-          "p95Ms": 16.80000000000291,
+          "fps": 60.00200006666886,
+          "p95Ms": 16.799999999999272,
           "p50Ms": 16.700000000000728,
-          "p99Ms": 16.900000000001455,
-          "maxMs": 16.900000000001455,
+          "p99Ms": 17,
+          "maxMs": 17.099999999998545,
           "samples": 180
         },
         "traffic": [
           {
             "id": "car-01",
             "kind": "car",
-            "x": -7.5117018057101115,
+            "x": -7.630717420587683,
             "z": 110,
             "active": false,
             "halfX": 2,
@@ -1783,7 +1783,7 @@
           {
             "id": "pedestrian-01",
             "kind": "pedestrian",
-            "x": -1.370968362339792,
+            "x": -1.347107374516801,
             "z": 160,
             "active": false,
             "halfX": 0.35,

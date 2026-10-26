@@ -28,6 +28,11 @@ try{
  const chunks=[];for await(const chunk of await (await downloading).createReadStream())chunks.push(chunk);
  const diagnostic=JSON.parse(Buffer.concat(chunks).toString());assert.equal(diagnostic.version,version);
  assert.equal((await page.goto(new URL('review/polish/',base).href)).status(),200);
+ // Static revision pair is checked independently of the four selectable climates/formats.
+ for(const selector of ['img[src="review-oct23.png"]','img[src="after-landscape-sun.png"]']){
+  const revision=page.locator(selector).first();await revision.evaluate(image=>image.decode());
+  assert.deepEqual(await revision.evaluate(image=>[image.naturalWidth,image.naturalHeight]),[1280,720]);
+ }
  for(const view of ['landscape-sun','landscape-rain','portrait-sun','portrait-rain']){
   await page.locator('#view').selectOption(view);
   for(const id of ['before','after']){
@@ -45,6 +50,6 @@ try{
  }
  assert.ok(videos[0].duration>25);assert.deepEqual(errors,[]);
  await mkdir('docs/performance/gate-a-polish',{recursive:true});
- const report={verifiedAt:new Date().toISOString(),base,version,modelSha256:manifest.sha256,environmentHashes:environment.assets.map(asset=>({id:asset.id,sha256:asset.output.sha256})),assets:game.assets,videos,comparisonImages:8,errors,note:'Publication/media smoke, not a phone test or FPS benchmark.'};
+ const report={verifiedAt:new Date().toISOString(),base,version,modelSha256:manifest.sha256,environmentHashes:environment.assets.map(asset=>({id:asset.id,sha256:asset.output.sha256})),assets:game.assets,videos,comparisonImages:8,revisionPairImages:2,errors,note:'Publication/media smoke, not a phone test or FPS benchmark.'};
  await writeFile(`docs/performance/gate-a-polish/${base.startsWith('https:')?'live':'local'}-verification.json`,JSON.stringify(report,null,2));console.log(JSON.stringify(report));
 }finally{await browser.close();}
