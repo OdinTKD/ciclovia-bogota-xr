@@ -1,53 +1,39 @@
 # Preparación del entorno web
 
-Estado revisado el 2026-10-26: candidato `0.3.0-alpha.3` sin cierre ni publicación verificada; runtime medido `7e6f68b`, nuevas optimizaciones en curso. [Alcance](docs/architecture/gate-a-polish.md) y [comparación/rendimiento](docs/performance/gate-a-polish/README.md). A sigue abierta; teléfono aplazado hasta datos reales, revisión/OK del usuario pendientes.
+Estado al 2026-10-26: candidato `0.3.0-alpha.3`, runtime `d247ee8575ae56924c29a5b5b8245c023622b98d`. CI 40357178802 verify/deploy correctos: 167 pruebas unitarias y de integración en 35 archivos, build y 25 E2E aprobadas / 3 omitidas en 4,8 minutos. Sesión corta completa 41,193/55,034 FPS sol/lluvia, sin excluir arranque; smoke público exacto correcto a las 16:22:13.192 UTC. A sigue abierta por OK visual; teléfono aplazado y B/C sujetos a aprobación.
 
-La revisión local del 2026-10-23 obtuvo 143 unitarias en 32 archivos, build y smoke de GLB/3 mapas/8 imágenes/2 vídeos correctos. CI 40030195058 falló: 23 E2E correctas, 2 fallos FPS y 3 omisiones; no desplegó una entrega aprobada. Los medios corresponden al runtime medido de esa revisión. El diagnóstico contiene resúmenes acumulados y cambios de resolución; para la futura prueba física se descarga al primer minuto y al final sin recargar.
-
-Ciclovía Bogotá XR usa Vite, TypeScript, Three.js, Rapier y WebXR. `package-lock.json` fija las dependencias. Entorno comprobado el 2026-10-23: Node.js 24.18.0 y npm 11.16.0. CI utiliza Node.js 24.
+Node.js 24 y npm, stack Vite/TypeScript/Three.js/Rapier/WebXR y lockfile existente. Node 24.18.0/npm 11.16.0 fueron comprobados el 23, sin afirmar nueva auditoría del entorno. Blender es herramienta de producción, no runtime.
 
 ## Instalación y ejecución
 
-```sh
+~~~sh
 npm ci
 npx playwright install chromium
 npm run dev
-```
+~~~
 
-Abrir la dirección impresa por Vite. Para comprobar producción localmente:
-
-```sh
-npm run build
-npm run preview
-```
-
-## Validación
-
-```sh
+~~~sh
 npm test
 npm run check
 npm run build
 npm run test:e2e
-```
+npm run preview
+~~~
 
-Estos comandos son instrucciones reproducibles; sus resultados de cierre se registran en [CHANGELOG.md](CHANGELOG.md). La evidencia rojo → verde → refactor está en `docs/tdd/`.
+Son instrucciones reproducibles, no resultados afirmados. [Evidencia de pruebas](docs/performance/gate-a-polish/README.md) y cierre en [CHANGELOG.md](CHANGELOG.md). Bundle aproximado 5,02 MB/1,85 MB gzip con advertencia, no explicación causal única de FPS.
 
-## GitHub Pages y WebXR
+## Publicación y arranque
 
-El flujo `.github/workflows/deploy.yml` verifica pruebas y build en pushes a `main` o por ejecución manual, antes de publicar `dist`. Pages está configurado para GitHub Actions en el repositorio del proyecto.
+.github/workflows/deploy.yml verifica pruebas/build/E2E antes de dist. [Demo](https://odintkd.github.io/ciclovia-bogota-xr/) y [galería](https://odintkd.github.io/ciclovia-bogota-xr/review/polish/) existentes no prueban nuevas optimizaciones sin smoke de su revisión. PLAYWRIGHT_BASE_URL apunta a esa URL para repetir la suite.
 
-La [URL del proyecto](https://odintkd.github.io/ciclovia-bogota-xr/) y [galería de pulido](https://odintkd.github.io/ciclovia-bogota-xr/review/polish/) esperan CI y smoke públicos finales para alpha.3. La [ejecución 40030195058](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40030195058) falló en FPS; evidencia en [log](docs/performance/gate-a-polish/ci-third-failure.log). El diagnóstico 40031439886 terminó correctamente, sin validar un gate FPS; nuevos cambios requieren pruebas y rendimiento propios. Repetir con PLAYWRIGHT_BASE_URL como en [README.md](README.md); no asumir publicación por existir la URL.
+La verificación final exige nombre/SHA del JS publicado iguales a dist local, hashes del GLB y tres mapas, diagnóstico, imágenes y reproducción de dos vídeos. Gate focal o profiler no equivale a full CI/publicación. No bajar 30 FPS, máximo 100 calls/100.000 triángulos ni mínimo 0,75.
 
-Límites: 30 FPS, 100 calls y 100.000 triángulos; mínimo visual elevado a ratio 0,75, high desde 1. Recuperación +0,125 tras 8 s con medias ≤18 ms y espera 20 s tras sobrecarga. Low conserva mapas/alpha/fog/luces con Lambert interpolado por vértice; high restaura shader original. Ciudad estática y pools optimizados sin cambiar geometría, física o controles. [Métricas y límites visuales](docs/performance/gate-a-polish/README.md).
+Carga antes de ready: preparar 12 frames del perfil gráfico final; mundo físico desechable con movimiento/un paso/liberación en finally antes de crear jugador nuevo con pasos 0/pose 0. El E2E corto incluye todos los frames jugables de 5 s; no descarta el arranque ni reinicia métricas para aprobar.
 
-WebXR requiere HTTPS o localhost durante desarrollo, navegador y dispositivo compatibles y permisos del usuario. AR necesita sesión `immersive-ar` y hit-test. Sin soporte, debe poder continuarse en web 3D. Las pruebas de fallback o mocks no certifican funcionamiento en un teléfono o visor real.
+## Recursos y aceptación
 
-En este MVP solo se detecta la capacidad AR; no se implementan sesión inmersiva, hit-test ni colocación en una superficie. El juego funciona en pantalla normal.
+[Procedencia](THIRD_PARTY_NOTICES.md): GLB original Blender con fuente/script, tres mapas CC0 Poly Haven adaptados y demás superficies originales. [Alcance](docs/architecture/gate-a-polish.md). [Three.js](public/licenses/three-MIT.txt) y [Rapier](public/licenses/rapier-Apache-2.0.txt) se distribuyen con sus licencias en public/licenses y dist/licenses.
 
-## Licencias y recursos
+Teléfono aplazado hasta modelo, OS y navegador reales. [Protocolo](docs/architecture/gate-a-review.md): jugar quieto 10–15 minutos sin recargar y descargar JSON al primer minuto y al final; resúmenes acumulados, no ventanas independientes de FPS. Sensación/calor se informan aparte. A requiere OK; B/C sujetos a aprobación.
 
-El candidato utiliza entorno/texturas originales procedurales y un GLB original de bicicleta/manos producido en Blender; incorpora únicamente tres mapas externos CC0 de Poly Haven documentados en los avisos; no reutiliza código o modelos de los repositorios de referencia. Las licencias consultadas y los avisos de paquetes instalados están en [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
-Las licencias runtime de [Three.js](public/licenses/three-MIT.txt) y [Rapier](public/licenses/rapier-Apache-2.0.txt) se incluyen en `public/licenses/` para copiarse al build y distribuirse junto con el juego.
-
-Los objetivos de rendimiento y controles están en [README.md](README.md). Medir FPS en hardware real sigue pendiente antes de afirmar rendimiento en celular de gama media.
+WebXR requiere HTTPS/localhost y dispositivo compatible. Solo existe detección de capacidad, no sesión ni hit-test; mocks no certifican AR ni teléfono.

@@ -1,0 +1,48 @@
+{
+  "verifiedAt": "2026-10-26T16:22:13.192Z",
+  "base": "https://odintkd.github.io/ciclovia-bogota-xr/",
+  "version": "0.3.0-alpha.3",
+  "bundle": {
+    "file": "index-B8FhDTAS.js",
+    "sha256": "6072740324213183b50cb8d6e4c906e8565bb329927850b21900aacee2c63d11"
+  },
+  "modelSha256": "da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85",
+  "environmentHashes": [
+    {
+      "id": "brick_wall_001",
+      "sha256": "bb0e5ac480ac4e15e305c20917d7e258588f83f58b50fa1eec89fc325c5e09cd"
+    },
+    {
+      "id": "bark_brown_02",
+      "sha256": "9273930c1749e0633d516ca19c419308aee090321ccd6a8ef6fd75a6e2f6a0a5"
+    },
+    {
+      "id": "tree_small_02",
+      "sha256": "636928c8b1ccd004a112c401a3814d07d6730ee4ca88db7531ca0bd6e648f83f"
+    }
+  ],
+  "assets": {
+    "triangles": 10516,
+    "drawCalls": 11,
+    "meshes": 11,
+    "materials": 4,
+    "geometries": 11,
+    "source": "blender-glb"
+  },
+  "videos": [
+    {
+      "duration": 30.72,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "duration": 8.96,
+      "width": 412,
+      "height": 838
+    }
+  ],
+  "comparisonImages": 8,
+  "revisionPairImages": 2,
+  "errors": [],
+  "note": "Publication/media smoke, not a phone test or FPS benchmark."
+}

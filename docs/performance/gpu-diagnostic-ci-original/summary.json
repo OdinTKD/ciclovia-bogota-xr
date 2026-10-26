@@ -1,0 +1,4460 @@
+{
+  "url": "http://127.0.0.1:4191",
+  "output": "/home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr/docs/performance/gpu-diagnostic",
+  "durationMs": 6000,
+  "device": "Pixel 7",
+  "cpuThrottlingRate": 4,
+  "phase": "stationary",
+  "categories": [
+    "gpu",
+    "viz",
+    "cc",
+    "devtools.timeline",
+    "blink.user_timing",
+    "toplevel"
+  ],
+  "note": "Six seconds playing at distance 0, inside the artistic slice. All sampled RAF intervals retained. No screenshots, video or pixel readback.",
+  "requestedCategories": [
+    "gpu",
+    "viz",
+    "cc",
+    "devtools.timeline",
+    "blink.user_timing",
+    "toplevel"
+  ],
+  "enumeratedCategories": [],
+  "dataLossOccurred": false,
+  "metricDelta": {
+    "Timestamp": 6.130812000000006,
+    "AudioHandlers": 0,
+    "AudioWorkletProcessors": 0,
+    "Documents": 0,
+    "Frames": 0,
+    "JSEventListeners": 0,
+    "LayoutObjects": 0,
+    "MediaKeySessions": 0,
+    "MediaKeys": 0,
+    "Nodes": 0,
+    "Resources": 0,
+    "ContextLifecycleStateObservers": 0,
+    "V8PerContextDatas": 0,
+    "WorkerGlobalScopes": 0,
+    "UACSSResources": 0,
+    "RTCPeerConnections": 0,
+    "ResourceFetchers": 0,
+    "AdSubframes": 0,
+    "DetachedScriptStates": 0,
+    "ArrayBufferContents": 0,
+    "LayoutCount": 0,
+    "RecalcStyleCount": 0,
+    "LayoutDuration": 0,
+    "RecalcStyleDuration": 0,
+    "DevToolsCommandDuration": 0.003481999999999985,
+    "ScriptDuration": 0.590258,
+    "V8CompileDuration": 0,
+    "TaskDuration": 6.117829999999998,
+    "TaskOtherDuration": 5.524090000000001,
+    "ThreadTime": 4.4569790000000005,
+    "ProcessTime": 5.789999999999999,
+    "JSHeapUsedSize": -4096316,
+    "JSHeapTotalSize": -12582912,
+    "FirstMeaningfulPaint": 0,
+    "DomContentLoaded": 0,
+    "NavigationStart": 0
+  },
+  "beforeGame": {
+    "ready": true,
+    "gate": "A",
+    "routeLength": 200,
+    "physicsSteps": 24,
+    "state": {
+      "x": 0,
+      "worldZ": 0,
+      "speed": 0,
+      "yaw": 0,
+      "steeringAngle": 0,
+      "roll": 0,
+      "lateralVelocity": 0,
+      "phase": "playing",
+      "distance": 0,
+      "health": 100,
+      "score": 0,
+      "weather": "sun",
+      "elapsed": 0.39999999999999997,
+      "collisions": 0,
+      "finished": false,
+      "tick": 24,
+      "lastContact": null
+    },
+    "render": {
+      "drawCalls": 28,
+      "triangles": 29048,
+      "pixelRatio": 0.75,
+      "width": 309,
+      "height": 629,
+      "cssWidth": 412,
+      "cssHeight": 839,
+      "devicePixelRatio": 2.625,
+      "shadows": false,
+      "materialQuality": "diffuse",
+      "antialias": false,
+      "artDetail": "low"
+    },
+    "performance": {
+      "fps": 5,
+      "p95Ms": 450,
+      "p50Ms": 116.70000000000073,
+      "p99Ms": 450,
+      "maxMs": 450,
+      "samples": 3
+    },
+    "traffic": [
+      {
+        "id": "car-01",
+        "kind": "car",
+        "x": 8,
+        "z": 110,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-01",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 160,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-02",
+        "kind": "car",
+        "x": 8,
+        "z": 340,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-02",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 460,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-03",
+        "kind": "car",
+        "x": 8,
+        "z": 580,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-03",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 700,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-04",
+        "kind": "car",
+        "x": 8,
+        "z": 820,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-04",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 940,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-05",
+        "kind": "car",
+        "x": 8,
+        "z": 1060,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-05",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 1170,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      }
+    ],
+    "ar": {
+      "supported": false,
+      "reason": "unsupported"
+    },
+    "assets": {
+      "triangles": 10516,
+      "drawCalls": 11,
+      "meshes": 11,
+      "materials": 4,
+      "geometries": 11,
+      "source": "blender-glb"
+    },
+    "artSlice": {
+      "start": 0,
+      "end": 40
+    }
+  },
+  "afterGame": {
+    "ready": true,
+    "gate": "A",
+    "routeLength": 200,
+    "physicsSteps": 403,
+    "state": {
+      "x": 0,
+      "worldZ": 0,
+      "speed": 0,
+      "yaw": 0,
+      "steeringAngle": 0,
+      "roll": 0,
+      "lateralVelocity": 0,
+      "phase": "playing",
+      "distance": 0,
+      "health": 100,
+      "score": 0,
+      "weather": "sun",
+      "elapsed": 6.716666666666648,
+      "collisions": 0,
+      "finished": false,
+      "tick": 403,
+      "lastContact": null
+    },
+    "render": {
+      "drawCalls": 28,
+      "triangles": 29048,
+      "pixelRatio": 0.75,
+      "width": 309,
+      "height": 629,
+      "cssWidth": 412,
+      "cssHeight": 839,
+      "devicePixelRatio": 2.625,
+      "shadows": false,
+      "materialQuality": "diffuse",
+      "antialias": false,
+      "artDetail": "low"
+    },
+    "performance": {
+      "fps": 20.04875164068022,
+      "p95Ms": 66.70000000000073,
+      "p50Ms": 50,
+      "p99Ms": 150,
+      "maxMs": 450,
+      "samples": 139
+    },
+    "traffic": [
+      {
+        "id": "car-01",
+        "kind": "car",
+        "x": 8,
+        "z": 110,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-01",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 160,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-02",
+        "kind": "car",
+        "x": 8,
+        "z": 340,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-02",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 460,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-03",
+        "kind": "car",
+        "x": 8,
+        "z": 580,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-03",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 700,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-04",
+        "kind": "car",
+        "x": 8,
+        "z": 820,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-04",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 940,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      },
+      {
+        "id": "car-05",
+        "kind": "car",
+        "x": 8,
+        "z": 1060,
+        "active": false,
+        "halfX": 2,
+        "halfZ": 1,
+        "passed": false
+      },
+      {
+        "id": "pedestrian-05",
+        "kind": "pedestrian",
+        "x": -6,
+        "z": 1170,
+        "active": false,
+        "halfX": 0.35,
+        "halfZ": 0.35,
+        "passed": false
+      }
+    ],
+    "ar": {
+      "supported": false,
+      "reason": "unsupported"
+    },
+    "assets": {
+      "triangles": 10516,
+      "drawCalls": 11,
+      "meshes": 11,
+      "materials": 4,
+      "geometries": 11,
+      "source": "blender-glb"
+    },
+    "artSlice": {
+      "start": 0,
+      "end": 40
+    }
+  },
+  "frames": {
+    "samples": [
+      66.70000000000073,
+      49.900000000001455,
+      66.69999999999709,
+      50,
+      66.70000000000073,
+      50,
+      66.60000000000218,
+      66.69999999999709,
+      66.60000000000218,
+      83.39999999999782,
+      50,
+      50,
+      33.30000000000291,
+      50,
+      50,
+      50,
+      33.29999999999927,
+      50,
+      33.39999999999782,
+      50,
+      50,
+      33.30000000000291,
+      50,
+      50.099999999998545,
+      49.900000000001455,
+      33.39999999999782,
+      49.900000000001455,
+      50,
+      33.39999999999782,
+      49.900000000001455,
+      50,
+      50.099999999998545,
+      33.30000000000291,
+      50,
+      50,
+      33.29999999999927,
+      50,
+      33.29999999999927,
+      50.099999999998545,
+      33.30000000000291,
+      49.89999999999782,
+      33.400000000001455,
+      50,
+      50.099999999998545,
+      49.900000000001455,
+      33.39999999999782,
+      49.900000000001455,
+      33.400000000001455,
+      50,
+      33.29999999999927,
+      50,
+      33.39999999999782,
+      33.20000000000073,
+      50,
+      50,
+      33.400000000001455,
+      50,
+      49.89999999999782,
+      33.5,
+      50,
+      33.20000000000073,
+      66.70000000000073,
+      50,
+      50,
+      150,
+      33.29999999999927,
+      50,
+      33.400000000001455,
+      50,
+      33.29999999999927,
+      50,
+      33.29999999999927,
+      50,
+      33.29999999999927,
+      33.400000000001455,
+      50,
+      33.29999999999927,
+      50.10000000000218,
+      49.89999999999782,
+      83.29999999999927,
+      33.30000000000291,
+      50,
+      33.39999999999782,
+      33.29999999999927,
+      50,
+      50,
+      33.30000000000291,
+      50.099999999998545,
+      33.29999999999927,
+      50,
+      33.29999999999927,
+      50,
+      33.30000000000291,
+      50,
+      33.39999999999782,
+      50,
+      33.29999999999927,
+      50,
+      33.400000000001455,
+      49.900000000001455,
+      50,
+      33.39999999999782,
+      49.900000000001455,
+      33.39999999999782,
+      50,
+      33.30000000000291,
+      50.099999999998545,
+      33.29999999999927,
+      49.900000000001455,
+      50.099999999998545,
+      33.29999999999927,
+      50,
+      33.400000000001455,
+      49.900000000001455,
+      50,
+      33.29999999999927,
+      50.099999999998545,
+      49.900000000001455,
+      33.39999999999782,
+      50,
+      50,
+      33.30000000000291,
+      50,
+      33.29999999999927,
+      50.099999999998545,
+      33.29999999999927,
+      50,
+      33.30000000000291,
+      50,
+      50,
+      33.29999999999927
+    ],
+    "elapsedMs": 6016.4000000000015
+  },
+  "fpsWithTraceOverhead": 21.77381823017086,
+  "eventCount": 68601,
+  "observedCategories": [
+    "__metadata",
+    "benchmark",
+    "blink",
+    "blink.user_timing",
+    "cc",
+    "devtools.timeline",
+    "disabled-by-default-devtools.timeline.frame",
+    "disabled-by-default-display.framedisplayed",
+    "disabled-by-default-v8.gc",
+    "gpu",
+    "graphics.pipeline",
+    "input.scrolling",
+    "mojom",
+    "toplevel",
+    "toplevel.flow",
+    "v8",
+    "viz"
+  ],
+  "missingRequiredCategories": [],
+  "processes": [
+    {
+      "pid": 2443,
+      "name": "Browser"
+    },
+    {
+      "pid": 2523,
+      "name": "Service: tracing.mojom.TracingService"
+    },
+    {
+      "pid": 2475,
+      "name": "Service: network.mojom.NetworkService"
+    },
+    {
+      "pid": 2463,
+      "name": "GPU Process"
+    },
+    {
+      "pid": 2499,
+      "name": "Renderer"
+    }
+  ],
+  "threads": [
+    {
+      "pid": 0,
+      "tid": 0,
+      "name": "swapper"
+    },
+    {
+      "pid": 2443,
+      "tid": 2443,
+      "name": "CrBrowserMain"
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "name": "PerfettoTrace"
+    },
+    {
+      "pid": 2523,
+      "tid": 2523,
+      "name": "tracing.CrUtilityMain"
+    },
+    {
+      "pid": 2523,
+      "tid": 2529,
+      "name": "Chrome_ChildIOThread"
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "name": "PerfettoTrace"
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "name": "CrGpuMain"
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "name": "CrRendererMain"
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "name": "PerfettoTrace"
+    },
+    {
+      "pid": 2475,
+      "tid": 2494,
+      "name": "Chrome_ChildIOThread"
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "name": "PerfettoTrace"
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "name": "Chrome_ChildIOThread"
+    },
+    {
+      "pid": 2443,
+      "tid": 2453,
+      "name": "Chrome_IOThread"
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "name": "VizCompositorThread"
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "name": "Compositor"
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "name": "PerfettoTrace"
+    },
+    {
+      "pid": 2443,
+      "tid": 2471,
+      "name": "DevToolsPipeHandlerWriteThread"
+    },
+    {
+      "pid": 2499,
+      "tid": 2505,
+      "name": "Chrome_ChildIOThread"
+    },
+    {
+      "pid": 2499,
+      "tid": 2506,
+      "name": "ThreadPoolForegroundWorker"
+    },
+    {
+      "pid": 2499,
+      "tid": 2512,
+      "name": "ThreadPoolForegroundWorker"
+    },
+    {
+      "pid": 2499,
+      "tid": 2502,
+      "name": "ThreadPoolForegroundWorker"
+    },
+    {
+      "pid": 2499,
+      "tid": 2501,
+      "name": "ThreadPoolServiceThread"
+    }
+  ],
+  "aggregates": [
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 829,
+      "completeDurationMs": 6088.56199999999,
+      "maxCompleteDurationMs": 148.397
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "ProxyMain::BeginMainFrame",
+      "phase": "X",
+      "count": 133,
+      "completeDurationMs": 6048.307999999999,
+      "maxCompleteDurationMs": 147.557
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHost::DoUpdateLayers",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 5394.454999999999,
+      "maxCompleteDurationMs": 142.86
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "GLES2::ReadPixels",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 5280.422,
+      "maxCompleteDurationMs": 142.228
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "ImplementationBase::WaitForCmd",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 5259.725000000001,
+      "maxCompleteDurationMs": 142.001
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "CommandBufferHelper::Finish",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 5258.685000000001,
+      "maxCompleteDurationMs": 141.998
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "CommandBufferProxyImpl::WaitForGetOffset",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 5243.085000000001,
+      "maxCompleteDurationMs": 141.966
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu",
+      "name": "CommandBufferService:PutChanged",
+      "phase": "X",
+      "count": 305,
+      "completeDurationMs": 5233.2519999999995,
+      "maxCompleteDurationMs": 140.213
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 457,
+      "completeDurationMs": 5201.110999999999,
+      "maxCompleteDurationMs": 140.284
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::RunTask",
+      "phase": "X",
+      "count": 321,
+      "completeDurationMs": 5194.5819999999985,
+      "maxCompleteDurationMs": 140.276
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu",
+      "name": "GpuChannel::ExecuteDeferredRequest",
+      "phase": "X",
+      "count": 321,
+      "completeDurationMs": 5191.235,
+      "maxCompleteDurationMs": 140.247
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu",
+      "name": "WebGL",
+      "phase": "X",
+      "count": 304,
+      "completeDurationMs": 5185.511999999998,
+      "maxCompleteDurationMs": 140.231
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::Flush",
+      "phase": "X",
+      "count": 304,
+      "completeDurationMs": 5184.715,
+      "maxCompleteDurationMs": 140.229
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu",
+      "name": "CommandBufferStub::OnAsyncFlush",
+      "phase": "X",
+      "count": 304,
+      "completeDurationMs": 5183.900999999999,
+      "maxCompleteDurationMs": 140.226
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "FireAnimationFrame",
+      "phase": "X",
+      "count": 265,
+      "completeDurationMs": 610.0030000000005,
+      "maxCompleteDurationMs": 8.899
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "FunctionCall",
+      "phase": "X",
+      "count": 265,
+      "completeDurationMs": 591.198,
+      "maxCompleteDurationMs": 8.877
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 1340,
+      "completeDurationMs": 256.6889999999998,
+      "maxCompleteDurationMs": 2.334
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark,graphics.pipeline",
+      "name": "Graphics.Pipeline",
+      "phase": "X",
+      "count": 1573,
+      "completeDurationMs": 233.17599999999905,
+      "maxCompleteDurationMs": 2.317
+    },
+    {
+      "pid": 2499,
+      "tid": 2512,
+      "category": "toplevel",
+      "name": "ThreadPool_RunTask",
+      "phase": "X",
+      "count": 13,
+      "completeDurationMs": 195.468,
+      "maxCompleteDurationMs": 176.915
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,input.scrolling",
+      "name": "DisplayScheduler::OnBeginFrameDeadline",
+      "phase": "X",
+      "count": 359,
+      "completeDurationMs": 194.69399999999965,
+      "maxCompleteDurationMs": 2.331
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DisplayScheduler::DrawAndSwap",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 193.63600000000002,
+      "maxCompleteDurationMs": 2.325
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "Display::DrawAndSwap",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 193.26900000000003,
+      "maxCompleteDurationMs": 2.323
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "DirectRenderer::DrawFrame",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 179.75799999999992,
+      "maxCompleteDurationMs": 2.145
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DirectRenderer::DrawRenderPass",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 176.934,
+      "maxCompleteDurationMs": 2.118
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SoftwareRenderer::DoDrawQuad",
+      "phase": "X",
+      "count": 544,
+      "completeDurationMs": 174.88700000000023,
+      "maxCompleteDurationMs": 1.855
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 2565,
+      "completeDurationMs": 135.886,
+      "maxCompleteDurationMs": 2.414
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "viz,benchmark,graphics.pipeline",
+      "name": "Graphics.Pipeline",
+      "phase": "X",
+      "count": 876,
+      "completeDurationMs": 106.99900000000015,
+      "maxCompleteDurationMs": 2.393
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "X",
+      "count": 740,
+      "completeDurationMs": 60.90200000000003,
+      "maxCompleteDurationMs": 2.124
+    },
+    {
+      "pid": 2499,
+      "tid": 2502,
+      "category": "toplevel",
+      "name": "ThreadPool_RunTask",
+      "phase": "X",
+      "count": 61,
+      "completeDurationMs": 50.95100000000001,
+      "maxCompleteDurationMs": 17.595
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ProxyImpl::ScheduledActionDraw",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 44.16499999999998,
+      "maxCompleteDurationMs": 2.4
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "MainFrame.Draw",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 43.815000000000026,
+      "maxCompleteDurationMs": 2.397
+    },
+    {
+      "pid": 2499,
+      "tid": 2506,
+      "category": "toplevel",
+      "name": "ThreadPool_RunTask",
+      "phase": "X",
+      "count": 33,
+      "completeDurationMs": 39.853999999999985,
+      "maxCompleteDurationMs": 15.65
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "CommandBufferHelper::Flush",
+      "phase": "X",
+      "count": 303,
+      "completeDurationMs": 38.27899999999996,
+      "maxCompleteDurationMs": 3.059
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DelayBasedBeginFrameSource::OnTimerTick",
+      "phase": "X",
+      "count": 378,
+      "completeDurationMs": 37.07200000000001,
+      "maxCompleteDurationMs": 1.918
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "X",
+      "count": 609,
+      "completeDurationMs": 34.40500000000002,
+      "maxCompleteDurationMs": 0.914
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "CommandBufferProxyImpl::Flush",
+      "phase": "X",
+      "count": 303,
+      "completeDurationMs": 31.037999999999926,
+      "maxCompleteDurationMs": 3.043
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 440,
+      "completeDurationMs": 28.597999999999963,
+      "maxCompleteDurationMs": 1.529
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::ReadyToCommit",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 26.039000000000023,
+      "maxCompleteDurationMs": 1.55
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 440,
+      "completeDurationMs": 25.312000000000005,
+      "maxCompleteDurationMs": 1.518
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 639,
+      "completeDurationMs": 23.25399999999998,
+      "maxCompleteDurationMs": 0.437
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "PrePaint",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 22.996000000000013,
+      "maxCompleteDurationMs": 1.036
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc",
+      "name": "LocalFrameView::ScheduleAnimation",
+      "phase": "X",
+      "count": 400,
+      "completeDurationMs": 22.97599999999998,
+      "maxCompleteDurationMs": 3.038
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "gpu",
+      "name": "GpuChannelMessageFilter::FlushDeferredRequests",
+      "phase": "X",
+      "count": 304,
+      "completeDurationMs": 22.70299999999999,
+      "maxCompleteDurationMs": 1.507
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "auto cc::Scheduler::FinishImplFrame()::(lambda)::operator()()::(lambda)::operator()(uint32_t) const",
+      "phase": "X",
+      "count": 371,
+      "completeDurationMs": 22.017000000000024,
+      "maxCompleteDurationMs": 1.271
+    },
+    {
+      "pid": 2499,
+      "tid": 2505,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 444,
+      "completeDurationMs": 21.064,
+      "maxCompleteDurationMs": 2.6
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "auto cc::LayerTreeHostImpl::PrepareTiles()::(lambda)::operator()()::(lambda)::operator()(uint32_t) const",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 20.13499999999999,
+      "maxCompleteDurationMs": 1.359
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "DidNotSubmitInLastFrame",
+      "phase": "X",
+      "count": 237,
+      "completeDurationMs": 19.348999999999997,
+      "maxCompleteDurationMs": 1.165
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "auto cc::TileManager::PrepareTiles(const GlobalStateThatImpactsTilePriority &)::(lambda)::operator()()::(lambda)::operator()(uint32_t) const",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 19.033000000000005,
+      "maxCompleteDurationMs": 1.356
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "ProxyMain::BeginMainFrame::commit",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 18.672000000000022,
+      "maxCompleteDurationMs": 4.647
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "auto cc::Scheduler::SendDidNotProduceFrame(const viz::BeginFrameArgs &, FrameSkippedReason)::(lambda)::operator()()::(lambda)::operator()(uint32_t) const",
+      "phase": "X",
+      "count": 237,
+      "completeDurationMs": 18.453,
+      "maxCompleteDurationMs": 1.161
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "TileManager::PrepareTiles",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 17.859,
+      "maxCompleteDurationMs": 1.353
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 639,
+      "completeDurationMs": 17.320999999999977,
+      "maxCompleteDurationMs": 0.426
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::DidNotProduceFrame",
+      "phase": "X",
+      "count": 237,
+      "completeDurationMs": 17.198000000000015,
+      "maxCompleteDurationMs": 1.157
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,v8",
+      "name": "MinorGC",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 16.579,
+      "maxCompleteDurationMs": 5.905
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::CommitComplete",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 15.71600000000001,
+      "maxCompleteDurationMs": 1.433
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 379,
+      "completeDurationMs": 15.04700000000001,
+      "maxCompleteDurationMs": 0.136
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 14.334999999999997,
+      "maxCompleteDurationMs": 5.27
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 13.164000000000001,
+      "maxCompleteDurationMs": 5.241
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::ScheduleTasks",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 13.039999999999994,
+      "maxCompleteDurationMs": 1.335
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ProxyImpl::ScheduledActionPrepareTiles",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 12.305000000000005,
+      "maxCompleteDurationMs": 1.063
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "viz,input.scrolling",
+      "name": "ExternalBeginFrameSource::OnBeginFrame",
+      "phase": "X",
+      "count": 371,
+      "completeDurationMs": 10.712999999999996,
+      "maxCompleteDurationMs": 0.417
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 379,
+      "completeDurationMs": 10.555999999999983,
+      "maxCompleteDurationMs": 0.112
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DisplayScheduler::BeginFrame",
+      "phase": "X",
+      "count": 445,
+      "completeDurationMs": 10.233000000000006,
+      "maxCompleteDurationMs": 1.328
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Scheduler::BeginImplFrame",
+      "phase": "X",
+      "count": 371,
+      "completeDurationMs": 9.783000000000001,
+      "maxCompleteDurationMs": 0.961
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::CheckForCompletedTasksAndIssueSignals",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 9.066000000000006,
+      "maxCompleteDurationMs": 0.118
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::CheckPendingGpuWorkAndIssueSignals",
+      "phase": "X",
+      "count": 402,
+      "completeDurationMs": 7.768999999999991,
+      "maxCompleteDurationMs": 0.114
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 2,
+      "completeDurationMs": 7.182,
+      "maxCompleteDurationMs": 4.516
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Scheduler::BeginFrame",
+      "phase": "X",
+      "count": 371,
+      "completeDurationMs": 7.103999999999979,
+      "maxCompleteDurationMs": 0.343
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 6.906000000000001,
+      "maxCompleteDurationMs": 3.127
+    },
+    {
+      "pid": 2523,
+      "tid": 2523,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 149,
+      "completeDurationMs": 6.271999999999997,
+      "maxCompleteDurationMs": 0.348
+    },
+    {
+      "pid": 2499,
+      "tid": 2505,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "X",
+      "count": 156,
+      "completeDurationMs": 6.0859999999999985,
+      "maxCompleteDurationMs": 0.366
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::Commit",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 6.0669999999999975,
+      "maxCompleteDurationMs": 0.109
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DisplayScheduler::ScheduleBeginFrameDeadline",
+      "phase": "X",
+      "count": 853,
+      "completeDurationMs": 5.150999999999948,
+      "maxCompleteDurationMs": 0.723
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeImpl::UpdateDrawProperties",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 4.9739999999999975,
+      "maxCompleteDurationMs": 0.077
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::ScheduleTask",
+      "phase": "X",
+      "count": 320,
+      "completeDurationMs": 4.931999999999987,
+      "maxCompleteDurationMs": 0.271
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeHostImpl::PrepareToDraw",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 4.833999999999998,
+      "maxCompleteDurationMs": 0.313
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::ActivateSyncTree",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 4.639999999999996,
+      "maxCompleteDurationMs": 0.094
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "blink,devtools.timeline",
+      "name": "HitTest",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 4.525999999999999,
+      "maxCompleteDurationMs": 4.491
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "toplevel",
+      "name": "BlinkScheduler_PerformMicrotaskCheckpoint",
+      "phase": "X",
+      "count": 822,
+      "completeDurationMs": 4.253999999999964,
+      "maxCompleteDurationMs": 0.852
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "Surface::CommitFrame",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 4.060999999999996,
+      "maxCompleteDurationMs": 0.076
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 4.0169999999999995,
+      "maxCompleteDurationMs": 3.129
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 3.8890000000000002,
+      "maxCompleteDurationMs": 3.094
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 3.625999999999997,
+      "maxCompleteDurationMs": 0.758
+    },
+    {
+      "pid": 2523,
+      "tid": 2523,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 54,
+      "completeDurationMs": 3.4269999999999996,
+      "maxCompleteDurationMs": 0.342
+    },
+    {
+      "pid": 2443,
+      "tid": 2443,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 14,
+      "completeDurationMs": 3.381,
+      "maxCompleteDurationMs": 1.976
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "Surface::ActivateFrame",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 3.377999999999999,
+      "maxCompleteDurationMs": 0.07
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::FinishCommit",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 3.2329999999999957,
+      "maxCompleteDurationMs": 0.052
+    },
+    {
+      "pid": 2523,
+      "tid": 2529,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "X",
+      "count": 46,
+      "completeDurationMs": 2.8779999999999983,
+      "maxCompleteDurationMs": 0.652
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu",
+      "name": "CommandBufferStub::WaitForGetOffsetInRange",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 2.819999999999995,
+      "maxCompleteDurationMs": 0.144
+    },
+    {
+      "pid": 2523,
+      "tid": 2523,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 56,
+      "completeDurationMs": 2.7889999999999993,
+      "maxCompleteDurationMs": 0.325
+    },
+    {
+      "pid": 2499,
+      "tid": 2505,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 138,
+      "completeDurationMs": 2.7699999999999942,
+      "maxCompleteDurationMs": 0.347
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeImpl::PullProperties",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 2.7359999999999967,
+      "maxCompleteDurationMs": 0.048
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeImpl::UpdateDrawProperties::CalculateDrawProperties",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 2.5169999999999972,
+      "maxCompleteDurationMs": 0.049
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "Layerize",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 2.432999999999993,
+      "maxCompleteDurationMs": 0.763
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu",
+      "name": "SharedImageStub::OnDestroySharedImage",
+      "phase": "X",
+      "count": 17,
+      "completeDurationMs": 2.317,
+      "maxCompleteDurationMs": 0.403
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "Scheduler::ScheduleBeginImplFrameDeadline",
+      "phase": "X",
+      "count": 503,
+      "completeDurationMs": 2.185999999999988,
+      "maxCompleteDurationMs": 0.04
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc",
+      "name": "LayerTreeHost::WaitForCommitCompletion",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 2.0669999999999966,
+      "maxCompleteDurationMs": 0.626
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_EXTERNAL_PROLOGUE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 1.9629999999999999,
+      "maxCompleteDurationMs": 1.915
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeImpl::UpdateDrawProperties::Occlusion",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.9559999999999975,
+      "maxCompleteDurationMs": 0.046
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::PrepareToDraw",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.9079999999999986,
+      "maxCompleteDurationMs": 0.295
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "ClientSharedImage::Map",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.8549999999999967,
+      "maxCompleteDurationMs": 0.698
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::CalculateRenderPasses",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.7789999999999986,
+      "maxCompleteDurationMs": 0.041
+    },
+    {
+      "pid": 2443,
+      "tid": 2453,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "X",
+      "count": 25,
+      "completeDurationMs": 1.5750000000000002,
+      "maxCompleteDurationMs": 0.207
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileTaskManagerImpl::ScheduleTasks",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 1.4559999999999966,
+      "maxCompleteDurationMs": 0.026
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeHostImpl::BeginCommit",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.412999999999999,
+      "maxCompleteDurationMs": 0.062
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "auto cc::(anonymous namespace)::InsertNodeForTask(TaskGraph *, TileTask *, uint16_t, uint16_t, size_t, bool)::(lambda)::operator()()::(lambda)::operator()(uint32_t) const",
+      "phase": "X",
+      "count": 804,
+      "completeDurationMs": 1.390999999999987,
+      "maxCompleteDurationMs": 0.024
+    },
+    {
+      "pid": 2499,
+      "tid": 2505,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo reply",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.380999999999998,
+      "maxCompleteDurationMs": 0.337
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 39,
+      "completeDurationMs": 1.33,
+      "maxCompleteDurationMs": 0.1
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::DidFinishRunningTileTasksRequiredForActivation",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 1.3069999999999966,
+      "maxCompleteDurationMs": 0.023
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 35,
+      "completeDurationMs": 1.2670000000000001,
+      "maxCompleteDurationMs": 0.237
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "AnimationHost::TickAnimations",
+      "phase": "X",
+      "count": 505,
+      "completeDurationMs": 1.2469999999999934,
+      "maxCompleteDurationMs": 0.313
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::OrderingBarrier",
+      "phase": "X",
+      "count": 603,
+      "completeDurationMs": 1.2459999999999887,
+      "maxCompleteDurationMs": 0.351
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 39,
+      "completeDurationMs": 1.1970000000000003,
+      "maxCompleteDurationMs": 0.073
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::ScheduledActionSendBeginMainFrame",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.1589999999999994,
+      "maxCompleteDurationMs": 0.035
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_ROOTS",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 1.073,
+      "maxCompleteDurationMs": 0.558
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TreeSynchronizer::PushLayerPropertiesTo.Main",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 1.0530000000000004,
+      "maxCompleteDurationMs": 0.025
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::AssignGpuMemoryToTiles",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 1.0270000000000004,
+      "maxCompleteDurationMs": 0.029
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SendBeginFrameDecision",
+      "phase": "X",
+      "count": 378,
+      "completeDurationMs": 1.0080000000000007,
+      "maxCompleteDurationMs": 0.019
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::DidFinishRunningTileTasksRequiredForDraw",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 0.9600000000000007,
+      "maxCompleteDurationMs": 0.026
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 24,
+      "completeDurationMs": 0.9400000000000004,
+      "maxCompleteDurationMs": 0.162
+    },
+    {
+      "pid": 2475,
+      "tid": 2494,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "X",
+      "count": 17,
+      "completeDurationMs": 0.9340000000000002,
+      "maxCompleteDurationMs": 0.124
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TaskSetFinishedTaskImpl::RunOnWorkerThread",
+      "phase": "X",
+      "count": 531,
+      "completeDurationMs": 0.8600000000000007,
+      "maxCompleteDurationMs": 0.03
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeImpl::UpdateTiles",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.8360000000000006,
+      "maxCompleteDurationMs": 0.028
+    },
+    {
+      "pid": 2499,
+      "tid": 2506,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_BACKGROUND_SCAVENGE_PARALLEL",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.8350000000000001,
+      "maxCompleteDurationMs": 0.503
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "Using new deadline",
+      "phase": "X",
+      "count": 407,
+      "completeDurationMs": 0.8120000000000006,
+      "maxCompleteDurationMs": 0.016
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 28,
+      "completeDurationMs": 0.8080000000000003,
+      "maxCompleteDurationMs": 0.083
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SoftwareRenderer::SwapBuffers",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 0.7980000000000006,
+      "maxCompleteDurationMs": 0.019
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "Scheduler::NotifyReadyToCommit",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.7690000000000006,
+      "maxCompleteDurationMs": 0.03
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ProxyImpl::SetNeedsCommitOnImplThread",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.7670000000000006,
+      "maxCompleteDurationMs": 0.03
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Scheduler::OnBeginImplFrameDeadline",
+      "phase": "X",
+      "count": 371,
+      "completeDurationMs": 0.7380000000000005,
+      "maxCompleteDurationMs": 0.006
+    },
+    {
+      "pid": 2499,
+      "tid": 2502,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_BACKGROUND_SCAVENGE_PARALLEL",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.7320000000000001,
+      "maxCompleteDurationMs": 0.363
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_TIME_TO_SAFEPOINT",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.723,
+      "maxCompleteDurationMs": 0.712
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "draw_property_utils::ComputeDrawPropertiesOfVisibleLayers",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.7110000000000005,
+      "maxCompleteDurationMs": 0.031
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 19,
+      "completeDurationMs": 0.6970000000000001,
+      "maxCompleteDurationMs": 0.074
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "viz",
+      "name": "auto viz::ClientResourceProvider::ReceiveReturnsFromParent(std::vector<ReturnedResource>)::(lambda)::operator()()::(lambda)::operator()(uint32_t) const",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 0.6550000000000005,
+      "maxCompleteDurationMs": 0.005
+    },
+    {
+      "pid": 2443,
+      "tid": 2443,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.647,
+      "maxCompleteDurationMs": 0.348
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileTaskManagerImpl::CheckForCompletedTasks",
+      "phase": "X",
+      "count": 400,
+      "completeDurationMs": 0.6370000000000005,
+      "maxCompleteDurationMs": 0.01
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::FlushComplete",
+      "phase": "X",
+      "count": 305,
+      "completeDurationMs": 0.6130000000000004,
+      "maxCompleteDurationMs": 0.013
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.591,
+      "maxCompleteDurationMs": 0.591
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_FINALIZE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.557,
+      "maxCompleteDurationMs": 0.41
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 18,
+      "completeDurationMs": 0.554,
+      "maxCompleteDurationMs": 0.048
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu,toplevel.flow",
+      "name": "GpuChannel::Flush",
+      "phase": "X",
+      "count": 290,
+      "completeDurationMs": 0.5530000000000003,
+      "maxCompleteDurationMs": 0.204
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 16,
+      "completeDurationMs": 0.5529999999999999,
+      "maxCompleteDurationMs": 0.074
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_EPILOGUE_SAFEPOINT",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.541,
+      "maxCompleteDurationMs": 0.523
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeImpl::PushPropertyTreesTo",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.5340000000000004,
+      "maxCompleteDurationMs": 0.016
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 16,
+      "completeDurationMs": 0.528,
+      "maxCompleteDurationMs": 0.058
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 18,
+      "completeDurationMs": 0.517,
+      "maxCompleteDurationMs": 0.05
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "DirectRenderer::DrawFrame ProcessForOverlays",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 0.5130000000000003,
+      "maxCompleteDurationMs": 0.008
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "toplevel",
+      "name": "cc::TaskGraphWorkQueue::ScheduleTasks",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 0.5040000000000003,
+      "maxCompleteDurationMs": 0.023
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::FinishTask",
+      "phase": "X",
+      "count": 322,
+      "completeDurationMs": 0.4960000000000004,
+      "maxCompleteDurationMs": 0.018
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "CalculateRenderSurfaceLayerList",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.4870000000000004,
+      "maxCompleteDurationMs": 0.023
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu",
+      "name": "GLContextEGL::MakeCurrent",
+      "phase": "X",
+      "count": 8,
+      "completeDurationMs": 0.4650000000000001,
+      "maxCompleteDurationMs": 0.162
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "TileManager::IsReadyToActivate",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.46300000000000036,
+      "maxCompleteDurationMs": 0.022
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ProxyImpl::OnCanDrawStateChanged",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 0.46000000000000035,
+      "maxCompleteDurationMs": 0.024
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::DidFinishRunningAllTileTasks",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 0.44800000000000034,
+      "maxCompleteDurationMs": 0.01
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc",
+      "name": "AnimationHost::TickAnimations",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.42400000000000015,
+      "maxCompleteDurationMs": 0.253
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeHost::AnimationHost::PushProperties",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.4210000000000003,
+      "maxCompleteDurationMs": 0.029
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "InputHandler::ClearCurrentlyScrollingNode",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.41200000000000025,
+      "maxCompleteDurationMs": 0.022
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TreeSynchronizer::PushLayerPropertiesTo.Active",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.4090000000000003,
+      "maxCompleteDurationMs": 0.005
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeHostImpl::BuildHitTestData",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.4080000000000003,
+      "maxCompleteDurationMs": 0.028
+    },
+    {
+      "pid": 2443,
+      "tid": 2453,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 14,
+      "completeDurationMs": 0.4070000000000001,
+      "maxCompleteDurationMs": 0.207
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "SoftwareImageDecodeCache::ReduceCacheUsageUntilWithinLimit",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 0.3990000000000003,
+      "maxCompleteDurationMs": 0.014
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "DidFinishRunningAllTilesTask::RunOnWorkerThread",
+      "phase": "X",
+      "count": 268,
+      "completeDurationMs": 0.3860000000000003,
+      "maxCompleteDurationMs": 0.005
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::DidReceiveCompositorFrameAckOnImplThread",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.3790000000000003,
+      "maxCompleteDurationMs": 0.006
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeImpl::PushPropertiesTo",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.34000000000000025,
+      "maxCompleteDurationMs": 0.022
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "LayerTreeImpl::InvalidateRegionForImages",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.3380000000000002,
+      "maxCompleteDurationMs": 0.04
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "auto cc::SchedulerStateMachine::SetNeedsBeginMainFrame(bool, bool)::(lambda)::operator()()::(lambda)::operator()(uint32_t) const",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.32700000000000023,
+      "maxCompleteDurationMs": 0.026
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc",
+      "name": "LayerTreeHost::ApplyCompositorChanges",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.3030000000000002,
+      "maxCompleteDurationMs": 0.006
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "SchedulerStateMachine::SetNeedsPrepareTiles",
+      "phase": "X",
+      "count": 267,
+      "completeDurationMs": 0.3010000000000002,
+      "maxCompleteDurationMs": 0.002
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TextureLayer::PushPropertiesTo",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.2860000000000002,
+      "maxCompleteDurationMs": 0.015
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ImageAnimationController::AnimateImagesForSyncTree",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.2800000000000002,
+      "maxCompleteDurationMs": 0.017
+    },
+    {
+      "pid": 2443,
+      "tid": 2453,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.28,
+      "maxCompleteDurationMs": 0.199
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_PARALLEL",
+      "phase": "X",
+      "count": 4,
+      "completeDurationMs": 0.274,
+      "maxCompleteDurationMs": 0.22
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "draw_property_utils::FindLayersThatNeedUpdates",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.2720000000000002,
+      "maxCompleteDurationMs": 0.018
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "WidgetBase::WillBeginMainFrame",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.25100000000000017,
+      "maxCompleteDurationMs": 0.016
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ScrollTree::CollectScrollDeltas",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.2450000000000002,
+      "maxCompleteDurationMs": 0.01
+    },
+    {
+      "pid": 2499,
+      "tid": 2512,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_BACKGROUND_SCAVENGE_PARALLEL",
+      "phase": "X",
+      "count": 3,
+      "completeDurationMs": 0.243,
+      "maxCompleteDurationMs": 0.212
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ProcessUIResourceRequestQueue",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.23600000000000015,
+      "maxCompleteDurationMs": 0.015
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "TileManager::IsReadyToDraw",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.23300000000000018,
+      "maxCompleteDurationMs": 0.012
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 14,
+      "completeDurationMs": 0.20500000000000002,
+      "maxCompleteDurationMs": 0.04
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SoftwareRenderer::FinishDrawingFrame",
+      "phase": "X",
+      "count": 136,
+      "completeDurationMs": 0.20200000000000015,
+      "maxCompleteDurationMs": 0.01
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "Scheduler::NotifyBeginMainFrameStarted",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.19700000000000015,
+      "maxCompleteDurationMs": 0.004
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu",
+      "name": "WidgetBase::DidCommitAndDrawCompositorFrame",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.19500000000000015,
+      "maxCompleteDurationMs": 0.004
+    },
+    {
+      "pid": 2499,
+      "tid": 2501,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 5,
+      "completeDurationMs": 0.191,
+      "maxCompleteDurationMs": 0.046
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SoftwareRenderer::BeginDrawingFrame",
+      "phase": "X",
+      "count": 135,
+      "completeDurationMs": 0.18900000000000014,
+      "maxCompleteDurationMs": 0.003
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.18000000000000002,
+      "maxCompleteDurationMs": 0.078
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "DrawLayers.FrameViewerTracing",
+      "phase": "X",
+      "count": 133,
+      "completeDurationMs": 0.17300000000000013,
+      "maxCompleteDurationMs": 0.011
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SurfaceManager::GarbageCollectSurfaces",
+      "phase": "X",
+      "count": 135,
+      "completeDurationMs": 0.16900000000000012,
+      "maxCompleteDurationMs": 0.003
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 12,
+      "completeDurationMs": 0.16500000000000004,
+      "maxCompleteDurationMs": 0.017
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ProxyImpl::DidActivateSyncTreeOnImplThread",
+      "phase": "X",
+      "count": 124,
+      "completeDurationMs": 0.1560000000000001,
+      "maxCompleteDurationMs": 0.01
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ImageAnimationController::WillActivate",
+      "phase": "X",
+      "count": 134,
+      "completeDurationMs": 0.1540000000000001,
+      "maxCompleteDurationMs": 0.002
+    },
+    {
+      "pid": 2443,
+      "tid": 2471,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.15400000000000003,
+      "maxCompleteDurationMs": 0.047
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 12,
+      "completeDurationMs": 0.134,
+      "maxCompleteDurationMs": 0.03
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 12,
+      "completeDurationMs": 0.13199999999999998,
+      "maxCompleteDurationMs": 0.013
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 12,
+      "completeDurationMs": 0.12299999999999998,
+      "maxCompleteDurationMs": 0.012
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.08100000000000002,
+      "maxCompleteDurationMs": 0.053
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_COLLECT_OLD_TO_NEW_PAGES",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.062,
+      "maxCompleteDurationMs": 0.011
+    },
+    {
+      "pid": 2523,
+      "tid": 2523,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo reply",
+      "phase": "X",
+      "count": 7,
+      "completeDurationMs": 0.051,
+      "maxCompleteDurationMs": 0.025
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_FREE_REMEMBERED_SET",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.047,
+      "maxCompleteDurationMs": 0.024
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_RESIZE_NEW_SPACE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.034,
+      "maxCompleteDurationMs": 0.023
+    },
+    {
+      "pid": 2499,
+      "tid": 2502,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_BACKGROUND_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.033,
+      "maxCompleteDurationMs": 0.033
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo reply",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.028999999999999998,
+      "maxCompleteDurationMs": 0.006
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo reply",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.028000000000000004,
+      "maxCompleteDurationMs": 0.005
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo reply",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.028000000000000004,
+      "maxCompleteDurationMs": 0.005
+    },
+    {
+      "pid": 2475,
+      "tid": 2494,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.025,
+      "maxCompleteDurationMs": 0.025
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_EPILOGUE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.025,
+      "maxCompleteDurationMs": 0.005
+    },
+    {
+      "pid": 2499,
+      "tid": 2505,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "X",
+      "count": 2,
+      "completeDurationMs": 0.024,
+      "maxCompleteDurationMs": 0.014
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_PROLOGUE_SAFEPOINT",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.021000000000000005,
+      "maxCompleteDurationMs": 0.009
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.017,
+      "maxCompleteDurationMs": 0.017
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_PROLOGUE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.017,
+      "maxCompleteDurationMs": 0.004
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo reply",
+      "phase": "X",
+      "count": 4,
+      "completeDurationMs": 0.015,
+      "maxCompleteDurationMs": 0.004
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo reply",
+      "phase": "X",
+      "count": 4,
+      "completeDurationMs": 0.013999999999999999,
+      "maxCompleteDurationMs": 0.005
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_EXTERNAL_EPILOGUE",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.013000000000000001,
+      "maxCompleteDurationMs": 0.003
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "ClearWeaknessProcessor start",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.012000000000000002,
+      "maxCompleteDurationMs": 0.003
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.012,
+      "maxCompleteDurationMs": 0.004
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "Parallel scavenge started",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.011000000000000001,
+      "maxCompleteDurationMs": 0.002
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "ComputeWeaknessProcessor start",
+      "phase": "X",
+      "count": 6,
+      "completeDurationMs": 0.011,
+      "maxCompleteDurationMs": 0.003
+    },
+    {
+      "pid": 2523,
+      "tid": 2523,
+      "category": "toplevel",
+      "name": "Closed mojo endpoint",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.009,
+      "maxCompleteDurationMs": 0.009
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "toplevel",
+      "name": "Closed mojo endpoint",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.008,
+      "maxCompleteDurationMs": 0.008
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_MC_COMPLETE_SWEEPING",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.008,
+      "maxCompleteDurationMs": 0.008
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_EXTERNAL_SECOND_PASS_CALLBACKS",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.004,
+      "maxCompleteDurationMs": 0.004
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_HEAP_EXTERNAL_WEAK_GLOBAL_HANDLES",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.003,
+      "maxCompleteDurationMs": 0.003
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_MC_SWEEP",
+      "phase": "X",
+      "count": 1,
+      "completeDurationMs": 0.002,
+      "maxCompleteDurationMs": 0.002
+    },
+    {
+      "pid": 0,
+      "tid": 0,
+      "category": "__metadata",
+      "name": "ActiveProcesses",
+      "phase": "I",
+      "count": 13,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DisplayDamageTracker::HasPendingSurfaces",
+      "phase": "I",
+      "count": 773,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "No damage yet",
+      "phase": "I",
+      "count": 494,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "Using existing deadline",
+      "phase": "I",
+      "count": 225,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "Waiting for next BeginFrame",
+      "phase": "I",
+      "count": 221,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "All active surfaces ready",
+      "phase": "I",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "benchmark,viz,disabled-by-default-display.framedisplayed",
+      "name": "Display::FrameDisplayed",
+      "phase": "I",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "auto cc::SchedulerStateMachine::ShouldThrottleSendBeginMainFrame()::(lambda)::operator()(uint32_t) const",
+      "phase": "I",
+      "count": 505,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "RequestAnimationFrame",
+      "phase": "I",
+      "count": 266,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc",
+      "name": "ProxyMain::SetNeedsAnimate",
+      "phase": "I",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "DidPrepareTiles",
+      "phase": "I",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "SendBeginMainFrame",
+      "phase": "I",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "NeedsTickAnimations",
+      "phase": "I",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::ReadyToActivate",
+      "phase": "I",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileManager::PrepareToDrawFinished",
+      "phase": "I",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "Scroll Delta This Frame",
+      "phase": "I",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "blink.user_timing",
+      "name": "gpu-diagnostic-start",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu,toplevel.flow",
+      "name": "GpuChannel::Flush",
+      "phase": "I",
+      "count": 12,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "toplevel",
+      "name": "BlinkScheduler_PerformMicrotaskCheckpoint",
+      "phase": "I",
+      "count": 8,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ProxyImpl::DidActivateSyncTreeOnImplThread",
+      "phase": "I",
+      "count": 10,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "SchedulerStateMachine::SetNeedsPrepareTiles",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TaskSetFinishedTaskImpl::RunOnWorkerThread",
+      "phase": "I",
+      "count": 5,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "Swap throttled",
+      "phase": "I",
+      "count": 2,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "DrawLayers.FrameViewerTracing",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "TileTaskManagerImpl::CheckForCompletedTasks",
+      "phase": "I",
+      "count": 2,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SurfaceManager::GarbageCollectSurfaces",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "SoftwareRenderer::BeginDrawingFrame",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::ScheduleTask",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::OrderingBarrier",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "blink.user_timing",
+      "name": "gpu-diagnostic-end",
+      "phase": "I",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "ProxyMain::BeginMainFrame",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "FireAnimationFrame",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "FunctionCall",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2482,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2523,
+      "tid": 2523,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2475,
+      "tid": 2489,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2523,
+      "tid": 2524,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2443,
+      "tid": 2453,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2443,
+      "tid": 2447,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2505,
+      "category": "toplevel",
+      "name": "EpollEvent",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "category": "toplevel",
+      "name": "ThreadControllerImpl::RunTask",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "category": "toplevel",
+      "name": "SimpleWatcher::OnHandleReady",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2500,
+      "category": "toplevel,mojom",
+      "name": "Receive mojo message",
+      "phase": "B",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark,graphics.pipeline",
+      "name": "Graphics.Pipeline",
+      "phase": "s",
+      "count": 1194,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark,graphics.pipeline",
+      "name": "Graphics.Pipeline",
+      "phase": "f",
+      "count": 1194,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::ScheduleTask",
+      "phase": "s",
+      "count": 321,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::ScheduleTask",
+      "phase": "f",
+      "count": 321,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::Flush",
+      "phase": "s",
+      "count": 304,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::Flush",
+      "phase": "f",
+      "count": 304,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::RunTask",
+      "phase": "s",
+      "count": 321,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "Scheduler::RunTask",
+      "phase": "f",
+      "count": 321,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "viz,benchmark,graphics.pipeline",
+      "name": "Graphics.Pipeline",
+      "phase": "f",
+      "count": 876,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::OrderingBarrier",
+      "phase": "s",
+      "count": 604,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu,toplevel.flow",
+      "name": "CommandBuffer::OrderingBarrier",
+      "phase": "f",
+      "count": 604,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "gpu,toplevel.flow",
+      "name": "GpuChannel::Flush",
+      "phase": "s",
+      "count": 302,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2463,
+      "category": "gpu,toplevel.flow",
+      "name": "GpuChannel::Flush",
+      "phase": "f",
+      "count": 302,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "viz,benchmark,graphics.pipeline",
+      "name": "Graphics.Pipeline",
+      "phase": "s",
+      "count": 876,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "ProxyMain::BeginMainFrame::commit",
+      "phase": "s",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyMain::BeginMainFrame::commit",
+      "phase": "f",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::ReadyToCommit",
+      "phase": "s",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::ReadyToCommit",
+      "phase": "f",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::Commit",
+      "phase": "s",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::Commit",
+      "phase": "f",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::CommitComplete",
+      "phase": "s",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::CommitComplete",
+      "phase": "f",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::ReadyToActivate",
+      "phase": "s",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "ProxyImpl::ReadyToActivate",
+      "phase": "f",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::ActivateSyncTree",
+      "phase": "s",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "LayerTreeHostImpl::ActivateSyncTree",
+      "phase": "f",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "SendBeginMainFrame",
+      "phase": "s",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "SendBeginMainFrame",
+      "phase": "f",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "ProxyMain::BeginMainFrame",
+      "phase": "s",
+      "count": 133,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "cc,benchmark",
+      "name": "ProxyMain::BeginMainFrame",
+      "phase": "f",
+      "count": 133,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame",
+      "phase": "s",
+      "count": 132,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame",
+      "phase": "f",
+      "count": 132,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_MC_COMPLETE_SWEEPING",
+      "phase": "s",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "V8.GC_MC_COMPLETE_SWEEPING",
+      "phase": "f",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "ComputeWeaknessProcessor start",
+      "phase": "s",
+      "count": 6,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "ComputeWeaknessProcessor start",
+      "phase": "f",
+      "count": 6,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "Parallel scavenge started",
+      "phase": "s",
+      "count": 6,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "Parallel scavenge started",
+      "phase": "f",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "ClearWeaknessProcessor start",
+      "phase": "s",
+      "count": 6,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "ClearWeaknessProcessor start",
+      "phase": "f",
+      "count": 6,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2506,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "Parallel scavenge started",
+      "phase": "f",
+      "count": 2,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2502,
+      "category": "devtools.timeline,disabled-by-default-v8.gc",
+      "name": "Parallel scavenge started",
+      "phase": "f",
+      "count": 3,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "PipelineReporter",
+      "phase": "b",
+      "count": 506,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "BeginImplFrameToSendBeginMainFrame",
+      "phase": "b",
+      "count": 506,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "BeginImplFrameToSendBeginMainFrame",
+      "phase": "e",
+      "count": 506,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SendBeginMainFrameToCommit",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "EndActivateToSubmitCompositorFrame",
+      "phase": "b",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "EndActivateToSubmitCompositorFrame",
+      "phase": "e",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SubmitCompositorFrameToPresentationCompositorFrame",
+      "phase": "b",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SubmitToReceiveCompositorFrame",
+      "phase": "b",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SubmitToReceiveCompositorFrame",
+      "phase": "e",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "ReceiveCompositorFrameToStartDraw",
+      "phase": "b",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "Graphics.Pipeline.DrawAndSwap",
+      "phase": "b",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "Graphics.Pipeline.Draw",
+      "phase": "b",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "ReceiveCompositorFrameToStartDraw",
+      "phase": "e",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "StartDrawToSwapStart",
+      "phase": "b",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "Graphics.Pipeline.Draw",
+      "phase": "e",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "Graphics.Pipeline.WaitForSwap",
+      "phase": "n",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DisplayScheduler:pending_swaps",
+      "phase": "b",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "Swap",
+      "phase": "n",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "WaitForPresentation",
+      "phase": "n",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "StartDrawToSwapStart",
+      "phase": "e",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SwapEndToPresentationCompositorFrame",
+      "phase": "b",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz",
+      "name": "DisplayScheduler:pending_swaps",
+      "phase": "e",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SwapEndToPresentationCompositorFrame",
+      "phase": "e",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2488,
+      "category": "viz,benchmark",
+      "name": "Graphics.Pipeline.DrawAndSwap",
+      "phase": "e",
+      "count": 136,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SubmitCompositorFrameToPresentationCompositorFrame",
+      "phase": "e",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "PipelineReporter",
+      "phase": "e",
+      "count": 506,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "gpu",
+      "name": "Scheduler::Running",
+      "phase": "b",
+      "count": 297,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2463,
+      "tid": 2487,
+      "category": "gpu",
+      "name": "Scheduler::Running",
+      "phase": "e",
+      "count": 297,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "SendBeginMainFrameToCommit",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "Commit",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "Commit",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "EndCommitToActivation",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "EndCommitToActivation",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "Activation",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark,disabled-by-default-devtools.timeline.frame",
+      "name": "Activation",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame::Render",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame::Script::Execute",
+      "phase": "b",
+      "count": 39,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame::Script::Execute",
+      "phase": "e",
+      "count": 39,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame::StyleAndLayout",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame::StyleAndLayout",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame::Render",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ScheduledTasks",
+      "phase": "b",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ScheduledTasksState",
+      "phase": "n",
+      "count": 804,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "ScheduledTasks",
+      "phase": "e",
+      "count": 268,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "PendingTree:waiting",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "PendingTree:waiting",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "Scheduler:pending_submit_frames",
+      "phase": "b",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc",
+      "name": "Scheduler:pending_submit_frames",
+      "phase": "e",
+      "count": 134,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2499,
+      "category": "devtools.timeline",
+      "name": "AnimationFrame::Presentation",
+      "phase": "n",
+      "count": 132,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "FrameSequenceTrackerV3",
+      "phase": "b",
+      "count": 3,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Frame ",
+      "phase": "b",
+      "count": 45,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Frame ",
+      "phase": "e",
+      "count": 45,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Frame   ",
+      "phase": "b",
+      "count": 43,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Frame   ",
+      "phase": "e",
+      "count": 43,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Frame",
+      "phase": "b",
+      "count": 42,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "Frame",
+      "phase": "e",
+      "count": 42,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "JankV3",
+      "phase": "b",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    },
+    {
+      "pid": 2499,
+      "tid": 2507,
+      "category": "cc,benchmark",
+      "name": "JankV3",
+      "phase": "e",
+      "count": 1,
+      "completeDurationMs": 0,
+      "maxCompleteDurationMs": 0
+    }
+  ],
+  "interpretation": "Durations of complete X events are inclusive and may overlap. TaskOtherDuration and V8 (program) do not isolate GPU time. No FPS pass/fail assertion; use the unmodified E2E gate."
+}

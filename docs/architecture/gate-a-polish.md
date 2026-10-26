@@ -1,48 +1,36 @@
-# Pulido de A — candidato 0.3.0-alpha.3
+# Pulido de A — candidato publicado 0.3.0-alpha.3
 
-Fecha de actualización: 2026-10-26 (Bogotá). Alpha.3 continúa abierta, sin cierre ni publicación verificada. Evidencia local y medios del 2026-10-23 corresponden al runtime `7e6f68b`; las optimizaciones actuales no se declaran validadas con esos resultados. CI 40030195058 fallida: 23 E2E aprobadas, dos fallos FPS y tres omisiones. Diagnóstico 40031439886 finalizado, sin gate FPS; suite local posterior 146/146 en 33 archivos y build verdes. A requiere OK del usuario; teléfono aplazado, B/C sujetos a aprobación.
+Cierre técnico de iteración: 2026-10-26 (Bogotá). Runtime d247ee8575ae56924c29a5b5b8245c023622b98d, CI 40357178802 verify/deploy correctos: 167 pruebas unitarias y de integración en 35 archivos, build y 25 E2E aprobadas / 3 omitidas en 4,8 minutos. Smoke público 16:22:13.192 UTC correcto con JS exacto. A permanece abierta por OK artístico; teléfono aplazado y B/C sujetos a aprobación. No se anuncia 0.3.0 completa.
 
-## Alcance implementado
+## Alcance entregado como candidato
 
-Actualización local del 2026-10-26: 153/153 unitarias en 33 archivos y build correctos; medios y benchmark finales se están regenerando antes de full CI y publicación. El mínimo fue revisado y recupera grupos de hojas, todavía con copas ligeras y detalle fino reducido: candidato local, no OK artístico del usuario. High queda congelado.
+Pulido de 40 m dentro de 200 m: manos/materiales de Blender, cámara horizontal/portrait, vegetación/fachadas, transición superficial 40–52 m, UI carbón/blanco/amarillo y recuperación de calidad. Carro 110 m y peatón 160 m antes de meta; vídeo y prueba funcional por controles normales llegan a 200 m sin inyectar estado. El resto mantiene arte básico; no se certifica trazado real ni acabado homogéneo de 1.200 m.
 
-El ajuste autorizado del mínimo aumenta de dos a cuatro brotes: low pasa de 12.154 a 12.994 triángulos (+840), mantiene 12 llamadas; high sigue en 33.364/18. Este cambio sí añade geometría low para cumplir el suelo visual; no se debe describir como inventario intacto. La prioridad de profundidad y batching anteriores mantienen sus propios contratos de geometría intacta.
+Bicicleta/manos originales: 10.516 triángulos, 11 llamadas, 4 materiales y 274.308 bytes; SHA-256 da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85. Fuente editable/script conservados. Entorno high 33.364/18 y low 12.994/12: low añade 840 triángulos para recuperar grupos de hojas, sin llamadas nuevas. Mapas CC0: 173.971 bytes, atlas 9.843 bytes y memoria compartida de mipmaps 65.532 bytes. [Manifest](../../assets/environment-alpha3/manifest.json), [avisos](../../THIRD_PARTY_NOTICES.md). Siete originales/derivados y GLB verificados por tamaño y SHA; ladrillo con repetición actual 8×9.
 
-Atlas de hojas actual: 9.843 bytes; tres mapas suman 173.971 bytes. Mipmaps con conservación de cobertura alpha, memoria única de cadena 65.532 bytes. El PNG y manifest de la etapa del 23 se conservan como precedente; las cifras de 185.009/20.881 bytes ya no describen los archivos actuales. La captura mínima anterior rechazada se conserva separada, sin presentarla como resultado aceptado.
+## Calidad y arranque
 
-Acabado de los 40 m dentro del fragmento de 200 m: manos/materiales y cámara horizontal/portrait, vegetación/fachadas/transición, UI carbón/blanco/amarillo, ambos encuentros antes de meta y recuperación de calidad. No se anuncia trazado real de El Virrey ni acabado homogéneo del recorrido final de 1.200 m.
+Mínimo ratio 0,75 (antes 0,375), high desde 1. Recuperación de +0,125 tras 8 s con medias ≤18 ms, espera 20 s tras sobrecarga. Objetivo 30 FPS y máximos 100 calls/100.000 triángulos intactos. Ciudad 9→2 calls con los mismos 6.196 triángulos, pools compactos y Lambert low por vértice preservando mapas/alpha/fog/luces/clima; high restaura shader completo. Prioridad de sólidos antes de alphaTest mantiene assets/geometría.
 
-Bicicleta/manos originales de Blender: 10.516 triángulos, 11 llamadas geométricas, 4 materiales, 274.308 bytes; SHA-256 `da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85`. Guante dorsal aclarado, mangas con pliegues y ajuste uniforme portrait; dedos sin articulación y anatomía final no aprobada. Fuente editable y script conservados.
+Preparar 12 frames del perfil gráfico antes de ready y física en mundo desechable con bordes/actor cercano/movimiento/un paso/liberación en finally; jugador nuevo pose inicial/pasos 0. Filtro conservador evita consultas innecesarias; oráculo 600 casos sin positivos descartados y 160 ticks equivalentes. No se adelanta la partida ni se excluyen frames del gate para aprobar. TDD [gráfico](../tdd/final-profile-calibration.md), [físico](../tdd/physics-preparation.md), [filtro](../tdd/physics-broadphase.md), [sesión completa](../tdd/full-session-performance.md), [shader](../tdd/vertex-diffuse.md) y [prioridad](../tdd/opaque-depth-order.md).
 
-Entorno high: 33.364 triángulos/18 llamadas; low: 12.154/12, cifras de módulo. Brotes unidos a ramas, fachadas con contraste, transición superficial de 40 a 52 m. Ladrillo, corteza y hojas derivadas de Poly Haven CC0: tres mapas de 185.009 bytes; leaf RGBA de 20.881 bytes, corregido con regresión real de alpha. [Avisos](../../THIRD_PARTY_NOTICES.md), [manifest](../../assets/environment-alpha3/manifest.json) y [TDD](../tdd/art-polish-environment.md).
+## Criterios y evidencia final
 
-UI: carbón `#17191C`, blanco `#EEE8DC`, amarillo `#E3B23C`; HUD compacto superior y controles táctiles de mínimo 44 px en franja inferior. Se conservan seguridad, humor y controles. Carro a 110 m y peatón a 160 m aparecen antes de meta; el recorrido por teclado llega a 200 m con salud positiva, sin inyectar estado ni añadir actores reactivos de B.
+| Criterio | Resultado |
+| --- | --- |
+| Modelo/UI/cámara en dos formatos | Capturas y vídeos reales; no aprobación artística |
+| Encuentros y meta | Carro 110 m/peatón 160 m y llegada 200 m por controles |
+| Recuperación y suelo visual | Implementados; mínimo legible revisado como candidato |
+| Pruebas y publicación | 167 pruebas unitarias y de integración, build, 25 E2E / 3 omitidas, deploy correctos |
+| Sesión corta completa CI | Sol 41,193 FPS, máximo 99,9 ms; lluvia 55,034 FPS, máximo 66,7 ms |
+| Recorrido 18 s CI | Sol 53,619 / lluvia 52,953 FPS; llega a unos 139 m, no equivale a meta 200 m |
+| Smoke público | Nombre y SHA del JS iguales a dist, GLB/3 mapas, 10 imágenes y 2 vídeos, cero errores |
+| Aceptación y teléfono | A pendiente de OK; teléfono aplazado hasta datos reales; B/C no entregadas |
 
-## Calidad y optimización
+[Informe único de métricas y cronología](../performance/gate-a-polish/README.md) y [smoke público](../performance/gate-a-polish/live-verification.json). Los benchmarks quietos y GPU de escritorio no certifican teléfono; promedio verde no garantiza cada frame ≤33 ms. Local final corto fue 33,314/30,000932 FPS con margen muy pequeño en lluvia y picos 216,7/133,3 ms, distintos del CI.
 
-Mínimo visual elevado de ratio 0,375 a 0,75; high desde 1. Recuperación +0,125 tras 8 s con medias de ventana ≤18 ms; espera de 20 s después de sobrecarga. Objetivos intactos: 30 FPS, máximo 100 draw calls y 100.000 triángulos. No reducir suelo visual para pasar CI.
+## Límites y compatibilidad
 
-Ciudad estática de 9 a 2 llamadas con mismos 6.196 triángulos; pools compactos y actualización solo al cambiar. Low interpola iluminación Lambert por vértice conservando mapas, alpha, fog, luces y clima; high restaura el shader completo original. [TDD del shader](../tdd/vertex-diffuse.md) y [render/pools](../tdd/render-work.md). No cambian física, controles ni tráfico.
+Copas ligeras, dedos sin articulación y detalle básico después del fundido superficial; tampoco se implementa AR jugable. Evaluación artística y técnica son independientes. La preparación de carga y el filtro preservan controles/física de los casos probados; las nuevas métricas y calidad no constituyen aprobación de A.
 
-## Evidencia local y aceptación
-
-| Criterio | Evidencia | Estado |
-| --- | --- | --- |
-| Cámara, manos y UI en horizontal/portrait | Pares fijos y vídeos reales de giro/freno | Producida en runtime final; aceptación humana pendiente |
-| Vegetación/fachadas/transición | Geometría, alpha y prueba de transición 40–52 m | Integrado, sin afirmar acabado final |
-| Calidad adaptativa y mínimo | TDD de mínimo, recuperación, DPR y UI | Implementado; mínimo revisado localmente legible |
-| Encuentros y llegada | Carro 110 m, peatón 160 m y recorrido de 200 m por controles | Demostrado localmente |
-| Pruebas | 143/143 unitarias en 32 archivos y build correcto | Comprobado localmente en la revisión anterior; CI 40030195058 fallida |
-| Rendimiento | Software CPU 4× y GPU separados; estrés adicional CPU 8× | Medido; no teléfono |
-| Publicación | CI y smoke de versión, GLB, mapas y medios | Pendiente |
-| Aceptación de A | Revisión/OK del usuario y teléfono | No acreditada; prueba física aplazada |
-
-[Informe detallado](../performance/gate-a-polish/README.md): benchmark estándar dentro de la muestra, software 53,520/52,689 FPS sol/lluvia, 28/29 calls y 28.208/30.128 triángulos, ratio 0,75 y 309×629; GPU 60/60 FPS, 32/33 calls, 48.738/50.658 triángulos, ratio 1 y 1280×720. Estrés CPU 8× adicional 48,400/48,035 FPS. A/B CPU 4× base y candidato saturaron ~60: no atribuir ganancia causal de FPS; sí se registra reducción de llamadas con geometría intacta.
-
-## Límites y documentación
-
-Mínimo revisado: vía, guantes y controles legibles, copas dispersas y detalle fino limitado. Las copas siguen ornamentales, los dedos no articulan y el resto de los 200 m conserva arte básico tras la transición superficial. La revisión no equivale a aprobación artística. High no representa low; emulación y GPU de escritorio no son teléfono físico.
-
-La comparación fija pose/cámara, FOV 65, DPR 1, ratio y calidad para cada par. Los FPS de captura o codificación no son benchmark. El único CHANGELOG.md sigue append-only, alpha.2 intacta; alpha.3 solo se registra tras CI/smoke finales, con fecha, pruebas, áreas, compatibilidad y límites reales. No commits desde este rol.
-
-La CI 40030195058 no se encuentra pendiente: falló únicamente los presupuestos corto-sol (20,7567 FPS) y recorrido-lluvia (29,8068 FPS), con 23 E2E verdes y tres omisiones. [Log conservado](../performance/gate-a-polish/ci-third-failure.log). Los benchmarks quietos locales no sustituyen el coste en movimiento del runner. No se rebajan 30 FPS ni ratio mínimo 0,75; cierre y entrada de versión esperan nueva evidencia.
+La entrada alpha.3 se añade al único CHANGELOG.md append-only con historia previa intacta. La fecha y resultados anteriores se preservan en TDD y archivos por revisión, no como estado actual. No hay commits desde este rol; la siguiente iteración necesita alcance autorizado.

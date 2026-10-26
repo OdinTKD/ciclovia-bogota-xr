@@ -1,0 +1,581 @@
+verify	Set up job	﻿2026-10-26T15:29:14.9765712Z Current runner version: '2.338.0'
+verify	Set up job	2026-10-26T15:29:14.9782784Z ##[group]Runner Image Provisioner
+verify	Set up job	2026-10-26T15:29:14.9783335Z Hosted Compute Agent
+verify	Set up job	2026-10-26T15:29:14.9784062Z Version: 20261021.618
+verify	Set up job	2026-10-26T15:29:14.9784459Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+verify	Set up job	2026-10-26T15:29:14.9784932Z Build Date: 2026-10-21T00:45:21Z
+verify	Set up job	2026-10-26T15:29:14.9785409Z Worker ID: {2d7c2880-e8d5-4ab7-af3c-48023eb9b3ec}
+verify	Set up job	2026-10-26T15:29:14.9785840Z Region: centralus
+verify	Set up job	2026-10-26T15:29:14.9786255Z Cloud: Azure
+verify	Set up job	2026-10-26T15:29:14.9786605Z ##[endgroup]
+verify	Set up job	2026-10-26T15:29:14.9787464Z ##[group]Operating System
+verify	Set up job	2026-10-26T15:29:14.9787894Z Ubuntu
+verify	Set up job	2026-10-26T15:29:14.9788215Z 24.04.5
+verify	Set up job	2026-10-26T15:29:14.9788521Z LTS
+verify	Set up job	2026-10-26T15:29:14.9788905Z ##[endgroup]
+verify	Set up job	2026-10-26T15:29:14.9789279Z ##[group]Runner Image
+verify	Set up job	2026-10-26T15:29:14.9789702Z Image: ubuntu-24.04
+verify	Set up job	2026-10-26T15:29:14.9790067Z Version: 20261012.334.1
+verify	Set up job	2026-10-26T15:29:14.9790704Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+verify	Set up job	2026-10-26T15:29:14.9791807Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+verify	Set up job	2026-10-26T15:29:14.9792654Z ##[endgroup]
+verify	Set up job	2026-10-26T15:29:14.9793387Z ##[group]GITHUB_TOKEN Permissions
+verify	Set up job	2026-10-26T15:29:14.9794926Z Contents: read
+verify	Set up job	2026-10-26T15:29:14.9795326Z Metadata: read
+verify	Set up job	2026-10-26T15:29:14.9795658Z Pages: write
+verify	Set up job	2026-10-26T15:29:14.9796061Z ##[endgroup]
+verify	Set up job	2026-10-26T15:29:14.9797345Z Secret source: Actions
+verify	Set up job	2026-10-26T15:29:14.9798026Z Cache mode: write
+verify	Set up job	2026-10-26T15:29:14.9798439Z Prepare workflow directory
+verify	Set up job	2026-10-26T15:29:15.0489611Z Prepare all required actions
+verify	Set up job	2026-10-26T15:29:15.0532377Z Getting action download info
+verify	Set up job	2026-10-26T15:29:15.3482923Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+verify	Set up job	2026-10-26T15:29:15.4446896Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+verify	Set up job	2026-10-26T15:29:15.5382014Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+verify	Set up job	2026-10-26T15:29:15.8912146Z Download action repository 'actions/configure-pages@v5' (SHA:983d7736d9b0ae728b81ab479565c72886d7745b)
+verify	Set up job	2026-10-26T15:29:16.5155182Z Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+verify	Set up job	2026-10-26T15:29:16.8295756Z Getting action download info
+verify	Set up job	2026-10-26T15:29:17.0603950Z Complete job name: verify
+verify	Run actions/checkout@v4	﻿2026-10-26T15:29:17.3199657Z ##[group]Run actions/checkout@v4
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3200397Z with:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3200881Z   repository: OdinTKD/ciclovia-bogota-xr
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3205805Z   token: ***
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3206258Z   ssh-strict: true
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3206728Z   ssh-user: git
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3207205Z   persist-credentials: true
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3207729Z   clean: true
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3208218Z   sparse-checkout-cone-mode: true
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3208788Z   fetch-depth: 1
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3209247Z   fetch-tags: false
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3209762Z   show-progress: true
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3210246Z   lfs: false
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3210686Z   submodules: false
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3211180Z   set-safe-directory: true
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3211732Z   allow-unsafe-pr-checkout: false
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3212384Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3882634Z Syncing repository: OdinTKD/ciclovia-bogota-xr
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3885154Z ##[group]Getting Git version info
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3886449Z Working directory is '/home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr'
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.3888335Z [command]/usr/bin/git version
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4070136Z git version 2.55.0
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4082935Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4094002Z Temporarily overriding HOME='/home/runner/work/_temp/df2c2015-cccd-4cea-8ded-d462762850e5' before making global git config changes
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4096503Z Adding repository directory to the temporary git global config as a safe directory
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4099008Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4989960Z Deleting the contents of '/home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr'
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4993819Z ##[group]Initializing the repository
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.4997279Z [command]/usr/bin/git init /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5606339Z hint: Using 'master' as the name for the initial branch. This default branch name
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5607621Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5608648Z hint: to use in all of your new repositories, which will suppress this warning,
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5609807Z hint: call:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5610254Z hint:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5610989Z hint: 	git config --global init.defaultBranch <name>
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5612003Z hint:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5612992Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5614758Z hint: 'development'. The just-created branch can be renamed via this command:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5616033Z hint:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5616702Z hint: 	git branch -m <name>
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5617471Z hint:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5618502Z hint: Disable this message with "git config set advice.defaultBranchName false"
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5620410Z Initialized empty Git repository in /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr/.git/
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.5623285Z [command]/usr/bin/git remote add origin https://github.com/OdinTKD/ciclovia-bogota-xr
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6378083Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6379565Z ##[group]Disabling automatic garbage collection
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6380862Z [command]/usr/bin/git config --local gc.auto 0
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6597612Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6598862Z ##[group]Setting up auth
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6602605Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6630873Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6923084Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.6951726Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.7122632Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.7151618Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.7324571Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.7672311Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.7673814Z ##[group]Fetching the repository
+verify	Run actions/checkout@v4	2026-10-26T15:29:17.7680111Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cf1355307eb8436ee6ea399512365ddc21b4560f:refs/remotes/origin/main
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8087089Z From https://github.com/OdinTKD/ciclovia-bogota-xr
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8087612Z  * [new ref]         cf1355307eb8436ee6ea399512365ddc21b4560f -> origin/main
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8091053Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8091483Z ##[group]Determining the checkout info
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8093206Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8098247Z [command]/usr/bin/git sparse-checkout disable
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8145095Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8176619Z ##[group]Checking out the ref
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.8179237Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.9214186Z Switched to a new branch 'main'
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.9217139Z branch 'main' set up to track 'origin/main'.
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.9233563Z ##[endgroup]
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.9275027Z [command]/usr/bin/git log -1 --format=%H
+verify	Run actions/checkout@v4	2026-10-26T15:29:20.9297542Z cf1355307eb8436ee6ea399512365ddc21b4560f
+verify	Run actions/setup-node@v4	﻿2026-10-26T15:29:21.0202420Z ##[group]Run actions/setup-node@v4
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.0202670Z with:
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.0202811Z   node-version: 24
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.0202955Z   cache: npm
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.0203093Z   always-auth: false
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.0203256Z   check-latest: false
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.0204939Z   token: ***
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.0205084Z ##[endgroup]
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.1065714Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.1067895Z (node:2053) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.1068591Z (Use `node --trace-deprecation ...` to show where the warning was created)
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.1069523Z ##[group]Environment details
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.3936882Z node: v24.21.0
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.3937231Z npm: 11.19.0
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.3937430Z yarn: 1.22.22
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.3937911Z ##[endgroup]
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.3967254Z [command]/opt/hostedtoolcache/node/24.21.0/x64/bin/npm config get cache
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.4748030Z /home/runner/.npm
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.6270653Z Cache hit for: node-cache-Linux-x64-npm-2041c5e0edf69d46cf949dad882b32e836f1da502c26c6012641a206bd023afa
+verify	Run actions/setup-node@v4	2026-10-26T15:29:21.6334648Z (node:2053) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+verify	Run actions/setup-node@v4	2026-10-26T15:29:22.7727814Z Received 37356097 of 41550401 (89.9%), 35.6 MBs/sec
+verify	Run actions/setup-node@v4	2026-10-26T15:29:23.7734938Z Received 37356097 of 41550401 (89.9%), 17.8 MBs/sec
+verify	Run actions/setup-node@v4	2026-10-26T15:29:24.1132101Z Received 41550401 of 41550401 (100.0%), 16.9 MBs/sec
+verify	Run actions/setup-node@v4	2026-10-26T15:29:24.1132485Z Cache Size: ~40 MB (41550401 B)
+verify	Run actions/setup-node@v4	2026-10-26T15:29:24.1216350Z [command]/usr/bin/tar -xf /home/runner/work/_temp/8fdff20c-7947-4d84-8813-d4fb75efad3c/cache.tzst -P -C /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr --use-compress-program unzstd
+verify	Run actions/setup-node@v4	2026-10-26T15:29:24.1665601Z Cache restored successfully
+verify	Run actions/setup-node@v4	2026-10-26T15:29:24.1685891Z Cache restored from key: node-cache-Linux-x64-npm-2041c5e0edf69d46cf949dad882b32e836f1da502c26c6012641a206bd023afa
+verify	Run npm ci	﻿2026-10-26T15:29:24.1855208Z ##[group]Run npm ci
+verify	Run npm ci	2026-10-26T15:29:24.1855408Z ^[[36;1mnpm ci^[[0m
+verify	Run npm ci	2026-10-26T15:29:24.2084990Z shell: /usr/bin/bash -e {0}
+verify	Run npm ci	2026-10-26T15:29:24.2085168Z ##[endgroup]
+verify	Run npm ci	2026-10-26T15:29:25.5749956Z
+verify	Run npm ci	2026-10-26T15:29:25.5755943Z added 51 packages, and audited 52 packages in 1s
+verify	Run npm ci	2026-10-26T15:29:25.5756198Z
+verify	Run npm ci	2026-10-26T15:29:25.5756346Z 12 packages are looking for funding
+verify	Run npm ci	2026-10-26T15:29:25.5756536Z   run `npm fund` for details
+verify	Run npm ci	2026-10-26T15:29:25.5757779Z
+verify	Run npm ci	2026-10-26T15:29:25.5757913Z found 0 vulnerabilities
+verify	Run npm test	﻿2026-10-26T15:29:25.6259658Z ##[group]Run npm test
+verify	Run npm test	2026-10-26T15:29:25.6259842Z ^[[36;1mnpm test^[[0m
+verify	Run npm test	2026-10-26T15:29:25.6311746Z shell: /usr/bin/bash -e {0}
+verify	Run npm test	2026-10-26T15:29:25.6311921Z ##[endgroup]
+verify	Run npm test	2026-10-26T15:29:25.6983783Z
+verify	Run npm test	2026-10-26T15:29:25.6984312Z > ciclovia-bogota-xr@0.3.0-alpha.3 test
+verify	Run npm test	2026-10-26T15:29:25.6984644Z > vitest run
+verify	Run npm test	2026-10-26T15:29:25.6984761Z
+verify	Run npm test	2026-10-26T15:29:25.8999471Z
+verify	Run npm test	2026-10-26T15:29:25.9001762Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv5.0.5 ^[[39m^[[90m/home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr^[[39m
+verify	Run npm test	2026-10-26T15:29:25.9002118Z
+verify	Run npm test	2026-10-26T15:29:26.2494230Z  ^[[32m✓^[[39m tests/unit/blender-bicycle.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 76^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:26.5111827Z ^[[90mstdout^[[2m | tests/unit/art-slice.test.ts^[[2m > ^[[22m^[[2mmuestra artística original, primeros 40 m^[[2m > ^[[22m^[[2mconserva cobertura de la ramilla real al reducir su mipmap a 8×6, sin cerrar los huecos
+verify	Run npm test	2026-10-26T15:29:26.5134688Z ^[[22m^[[39mFoliage alpha mip coverage [
+verify	Run npm test	2026-10-26T15:29:26.5164428Z   [ ^[[33m128^[[39m, ^[[33m96^[[39m, ^[[33m0.2080078125^[[39m ],
+verify	Run npm test	2026-10-26T15:29:26.5165185Z   [ ^[[33m64^[[39m, ^[[33m48^[[39m, ^[[33m0.197265625^[[39m ],
+verify	Run npm test	2026-10-26T15:29:26.5197349Z   [ ^[[33m32^[[39m, ^[[33m24^[[39m, ^[[33m0.20703125^[[39m ],
+verify	Run npm test	2026-10-26T15:29:26.5227796Z   [ ^[[33m16^[[39m, ^[[33m12^[[39m, ^[[33m0.20833333333333334^[[39m ],
+verify	Run npm test	2026-10-26T15:29:26.5246528Z   [ ^[[33m8^[[39m, ^[[33m6^[[39m, ^[[33m0.20833333333333334^[[39m ],
+verify	Run npm test	2026-10-26T15:29:26.5299151Z   [ ^[[33m4^[[39m, ^[[33m3^[[39m, ^[[33m0.16666666666666666^[[39m ],
+verify	Run npm test	2026-10-26T15:29:26.5324338Z   [ ^[[33m2^[[39m, ^[[33m1^[[39m, ^[[33m0^[[39m ],
+verify	Run npm test	2026-10-26T15:29:26.5334191Z   [ ^[[33m1^[[39m, ^[[33m1^[[39m, ^[[33m0^[[39m ]
+verify	Run npm test	2026-10-26T15:29:26.5364061Z ]
+verify	Run npm test	2026-10-26T15:29:26.5404006Z
+verify	Run npm test	2026-10-26T15:29:26.9525395Z  ^[[32m✓^[[39m tests/unit/opaque-depth-order.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 782^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:26.9551183Z    ^[[33m^[[2m✓^[[22m^[[39m dibuja primero la bici y el suelo artístico para rechazar fragmentos ocultos de las bases^[[33m 422^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:26.9552550Z    ^[[33m^[[2m✓^[[22m^[[39m dibuja follaje recortado después de los sólidos del mundo en ambos perfiles sin cambiar recursos^[[33m 341^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:27.0391670Z  ^[[32m✓^[[39m tests/integration/gate-a-physics.test.ts ^[[2m(^[[22m^[[2m10 tests^[[22m^[[2m)^[[22m^[[33m 592^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:27.2750542Z ^[[90mstdout^[[2m | tests/unit/art-slice.test.ts^[[2m > ^[[22m^[[2mmuestra artística original, primeros 40 m^[[2m > ^[[22m^[[2mdeclara el sector y reserva margen de escena para bicicleta, tráfico y sombras
+verify	Run npm test	2026-10-26T15:29:27.2775036Z ^[[22m^[[39mArt slice geometry inventory { triangles: ^[[33m33364^[[39m, drawCalls: ^[[33m18^[[39m, textureBytes: ^[[33m2118998^[[39m }
+verify	Run npm test	2026-10-26T15:29:27.2777032Z
+verify	Run npm test	2026-10-26T15:29:27.6225885Z ^[[90mstdout^[[2m | tests/unit/procedural-bicycle.test.ts^[[2m > ^[[22m^[[2mbicicleta procedural original puerta A^[[2m > ^[[22m^[[2minventario real de geometría/materiales cumple presupuesto sin estimar archivos
+verify	Run npm test	2026-10-26T15:29:27.6254539Z ^[[22m^[[39mProcedural bicycle inventory {
+verify	Run npm test	2026-10-26T15:29:27.6284599Z   triangles: ^[[33m3276^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6305044Z   drawCalls: ^[[33m5^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6357877Z   meshes: ^[[33m5^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6363031Z   materials: ^[[33m1^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6394352Z   geometries: ^[[33m5^[[39m
+verify	Run npm test	2026-10-26T15:29:27.6414061Z }
+verify	Run npm test	2026-10-26T15:29:27.6420732Z World inventory {
+verify	Run npm test	2026-10-26T15:29:27.6421370Z   triangles: ^[[33m57864^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6422080Z   drawCalls: ^[[33m49^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6422616Z   meshes: ^[[33m49^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6423026Z   materials: ^[[33m45^[[39m,
+verify	Run npm test	2026-10-26T15:29:27.6423557Z   geometries: ^[[33m31^[[39m
+verify	Run npm test	2026-10-26T15:29:27.6424156Z }
+verify	Run npm test	2026-10-26T15:29:27.6424583Z
+verify	Run npm test	2026-10-26T15:29:27.6425231Z  ^[[32m✓^[[39m tests/unit/procedural-bicycle.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[33m 449^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:27.6426266Z    ^[[32m✓^[[39m bicicleta procedural original puerta A ^[[2m(7)^[[22m
+verify	Run npm test	2026-10-26T15:29:27.6427310Z      ^[[33m^[[2m✓^[[22m^[[39m inventario real de geometría/materiales cumple presupuesto sin estimar archivos^[[33m 371^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:28.0291044Z ^[[90mstdout^[[2m | tests/unit/art-slice.test.ts^[[2m > ^[[22m^[[2mmuestra artística original, primeros 40 m^[[2m > ^[[22m^[[2mofrece LOD bajo real sin desplazar árboles, fachadas ni superficies del recorrido
+verify	Run npm test	2026-10-26T15:29:28.0379615Z ^[[22m^[[39mLow art slice inventory ^[[33m12994^[[39m ^[[33m12^[[39m
+verify	Run npm test	2026-10-26T15:29:28.0424109Z
+verify	Run npm test	2026-10-26T15:29:28.0445175Z  ^[[32m✓^[[39m tests/unit/art-slice.test.ts ^[[2m(^[[22m^[[2m18 tests^[[22m^[[2m)^[[22m^[[33m 1920^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:28.0474838Z    ^[[32m✓^[[39m muestra artística original, primeros 40 m ^[[2m(18)^[[22m
+verify	Run npm test	2026-10-26T15:29:28.0480422Z      ^[[33m^[[2m✓^[[22m^[[39m reserva cuatro brotes por rama en mínimo sin modificar la geometría high^[[33m 381^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:28.0481547Z  ^[[32m✓^[[39m tests/unit/render-work.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[33m 913^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:28.0482501Z    ^[[33m^[[2m✓^[[22m^[[39m compacta los actores visibles sin enviar los huecos del pool al renderer^[[33m 392^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:28.0483542Z    ^[[33m^[[2m✓^[[22m^[[39m agrupa ciudad estática por color sin quitar geometría ni ventanas planas^[[33m 307^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.3575633Z  ^[[32m✓^[[39m tests/unit/actor-rendering.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 1143^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.3595795Z    ^[[32m✓^[[39m pools de actores renderizan únicamente retos visibles ^[[2m(4)^[[22m
+verify	Run npm test	2026-10-26T15:29:29.3596510Z      ^[[33m^[[2m✓^[[22m^[[39m carro visible ocupa los 4x2 metros del collider JSON^[[33m 428^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.4735009Z  ^[[32m✓^[[39m tests/unit/traffic.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 7^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.6015493Z  ^[[32m✓^[[39m tests/unit/bicycle-controller.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.7105899Z  ^[[32m✓^[[39m tests/unit/art-integration.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 1537^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.7135381Z    ^[[32m✓^[[39m integración de la muestra artística A ^[[2m(6)^[[22m
+verify	Run npm test	2026-10-26T15:29:29.7194852Z      ^[[33m^[[2m✓^[[22m^[[39m alterna detalles de la muestra sin superponer dos entornos y conserva el clima^[[33m 418^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.7577588Z  ^[[32m✓^[[39m tests/unit/simulation.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 17^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.8495130Z  ^[[32m✓^[[39m tests/unit/material-lighting.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.8605582Z  ^[[32m✓^[[39m tests/unit/first-person.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[33m 2087^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.8644081Z    ^[[32m✓^[[39m cámara y mundo puerta A ^[[2m(9)^[[22m
+verify	Run npm test	2026-10-26T15:29:29.8644883Z      ^[[33m^[[2m✓^[[22m^[[39m manillar y manos visibles por nombres en viewport 393x851^[[33m 425^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.9016028Z  ^[[32m✓^[[39m tests/unit/quality.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 7^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:29.9918144Z  ^[[32m✓^[[39m tests/unit/levels.test.ts ^[[2m(^[[22m^[[2m22 tests^[[22m^[[2m)^[[22m^[[32m 8^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.0099712Z  ^[[32m✓^[[39m tests/unit/quality-polish.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.1461261Z  ^[[32m✓^[[39m tests/unit/vertex-diffuse.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 4^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.3919145Z  ^[[32m✓^[[39m tests/unit/weather.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 6^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.5458936Z  ^[[32m✓^[[39m tests/unit/renderer-calibration.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.6429409Z  ^[[32m✓^[[39m tests/integration/journey.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[33m 664^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.6445486Z    ^[[33m^[[2m✓^[[22m^[[39m el recorrido real activa ambos retos y Rapier detecta un carro invasor^[[33m 662^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.6895697Z  ^[[32m✓^[[39m tests/unit/performance.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.7435681Z  ^[[32m✓^[[39m tests/unit/xr.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 4^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.8065434Z  ^[[32m✓^[[39m tests/unit/ui.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 541^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.8066708Z    ^[[32m✓^[[39m presupuesto de geometría procedural ^[[2m(1)^[[22m
+verify	Run npm test	2026-10-26T15:29:30.8094885Z      ^[[33m^[[2m✓^[[22m^[[39m incluye ciudad y mantiene cotas de llamadas y triángulos por frame^[[33m 534^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.8145534Z  ^[[32m✓^[[39m tests/unit/vehicles.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 8^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.8705560Z  ^[[32m✓^[[39m tests/unit/session-report.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.9159067Z  ^[[32m✓^[[39m tests/unit/input.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 4^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:30.9820117Z  ^[[32m✓^[[39m tests/unit/game-loop.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.1039102Z  ^[[32m✓^[[39m tests/integration/physics.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 63^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.1094969Z  ^[[32m✓^[[39m tests/unit/renderer-warmup.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 3^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.2218945Z  ^[[32m✓^[[39m tests/unit/renderer-options.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 2^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.2232099Z  ^[[32m✓^[[39m tests/unit/humor.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 3^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.3045058Z  ^[[32m✓^[[39m tests/unit/gate-route.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 2^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.3083066Z  ^[[32m✓^[[39m tests/unit/polish-scene.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[33m 369^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.3083828Z    ^[[33m^[[2m✓^[[22m^[[39m continúa asfalto neutro fuera de la muestra y conserva relleno legible en sombras^[[33m 368^[[2mms^[[22m^[[39m
+verify	Run npm test	2026-10-26T15:29:31.3118733Z
+verify	Run npm test	2026-10-26T15:29:31.3121694Z ^[[2m Test Files ^[[22m ^[[1m^[[32m33 passed^[[39m^[[22m^[[90m (33)^[[39m
+verify	Run npm test	2026-10-26T15:29:31.3122391Z ^[[2m      Tests ^[[22m ^[[1m^[[32m156 passed^[[39m^[[22m^[[90m (156)^[[39m
+verify	Run npm test	2026-10-26T15:29:31.3124087Z ^[[2m   Start at ^[[22m 15:29:25
+verify	Run npm test	2026-10-26T15:29:31.3125824Z ^[[2m   Duration ^[[22m 5.41s^[[2m (tests 87%, import 7%, transform 4%, worker 1%)^[[22m
+verify	Run npm test	2026-10-26T15:29:31.3134863Z
+verify	Run npm test	2026-10-26T15:29:31.3135393Z ^[[2m    Isolate ^[[22m ^[[33m33 workers spawned^[[39m^[[2m · ~91ms startup each (spawn + environment, per file)^[[22m
+verify	Run npm test	2026-10-26T15:29:31.3136156Z ^[[2m            ^[[22m ^[[2mat least ~913ms faster with ^[[22m^[[33misolate: false^[[39m^[[2m — reuses workers across files instead of one per file^[[22m
+verify	Run npm test	2026-10-26T15:29:31.3136462Z
+verify	Run npm run build	﻿2026-10-26T15:29:31.3697671Z ##[group]Run npm run build
+verify	Run npm run build	2026-10-26T15:29:31.3697872Z ^[[36;1mnpm run build^[[0m
+verify	Run npm run build	2026-10-26T15:29:31.3751082Z shell: /usr/bin/bash -e {0}
+verify	Run npm run build	2026-10-26T15:29:31.3751243Z ##[endgroup]
+verify	Run npm run build	2026-10-26T15:29:31.4385624Z
+verify	Run npm run build	2026-10-26T15:29:31.4385956Z > ciclovia-bogota-xr@0.3.0-alpha.3 build
+verify	Run npm run build	2026-10-26T15:29:31.4386302Z > tsc --noEmit && vite build
+verify	Run npm run build	2026-10-26T15:29:31.4386437Z
+verify	Run npm run build	2026-10-26T15:29:31.8315993Z ^[[36mvite v8.3.5 ^[[32mbuilding client environment for production...^[[36m^[[39m
+verify	Run npm run build	2026-10-26T15:29:31.8459779Z transforming...
+verify	Run npm run build	2026-10-26T15:29:31.9274507Z ✓ 41 modules transformed.
+verify	Run npm run build	2026-10-26T15:29:32.0937046Z rendering chunks...
+verify	Run npm run build	2026-10-26T15:29:32.1574036Z computing gzip size...
+verify	Run npm run build	2026-10-26T15:29:32.2114628Z dist/index.html                     0.54 kB │ gzip:     0.36 kB
+verify	Run npm run build	2026-10-26T15:29:32.2115151Z dist/assets/index-TI9jcwEE.css      8.53 kB │ gzip:     2.41 kB
+verify	Run npm run build	2026-10-26T15:29:32.2115531Z dist/assets/index-CmC_OCVh.js   5,028.16 kB │ gzip: 1,853.04 kB
+verify	Run npm run build	2026-10-26T15:29:32.2115676Z
+verify	Run npm run build	2026-10-26T15:29:32.2117022Z ^[[32m✓ built in 378ms^[[39m
+verify	Run npm run build	2026-10-26T15:29:32.2121552Z ^[[33m[plugin builtin:vite-reporter]
+verify	Run npm run build	2026-10-26T15:29:32.2121957Z (!) Some chunks are larger than 500 kB after minification. Consider:
+verify	Run npm run build	2026-10-26T15:29:32.2122351Z - Using dynamic import() to code-split the application
+verify	Run npm run build	2026-10-26T15:29:32.2122814Z - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+verify	Run npm run build	2026-10-26T15:29:32.2123324Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.^[[39m
+verify	Run npx playwright install chromium	﻿2026-10-26T15:29:32.2371440Z ##[group]Run npx playwright install chromium
+verify	Run npx playwright install chromium	2026-10-26T15:29:32.2371673Z ^[[36;1mnpx playwright install chromium^[[0m
+verify	Run npx playwright install chromium	2026-10-26T15:29:32.2423248Z shell: /usr/bin/bash -e {0}
+verify	Run npx playwright install chromium	2026-10-26T15:29:32.2423401Z ##[endgroup]
+verify	Run npx playwright install chromium	2026-10-26T15:29:32.7215810Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.0853213Z |                                                                                |   0% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.5159218Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.5822398Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.6442126Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.6863740Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.7405726Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.8101580Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.8540025Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.9213125Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:33.9784772Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:34.0495002Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.1806141Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.1809561Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.4872505Z |                                                                                |   0% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5169192Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5388882Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5472099Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5587106Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5686243Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5718606Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5746050Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5830596Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5864903Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.5888989Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.6311920Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.6314430Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+verify	Run npx playwright install chromium	2026-10-26T15:29:36.9190021Z |                                                                                |   0% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.1295553Z |■■■■■■■■                                                                        |  10% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.1777532Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.2082964Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.2576648Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.2806539Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.3100942Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.3498213Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.3674035Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.3943766Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:37.4293338Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+verify	Run npx playwright install chromium	2026-10-26T15:29:38.9604319Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+verify	Run npm run test:e2e	﻿2026-10-26T15:29:38.9942855Z ##[group]Run npm run test:e2e
+verify	Run npm run test:e2e	2026-10-26T15:29:38.9943193Z ^[[36;1mnpm run test:e2e^[[0m
+verify	Run npm run test:e2e	2026-10-26T15:29:39.0012115Z shell: /usr/bin/bash -e {0}
+verify	Run npm run test:e2e	2026-10-26T15:29:39.0012293Z ##[endgroup]
+verify	Run npm run test:e2e	2026-10-26T15:29:39.0672360Z
+verify	Run npm run test:e2e	2026-10-26T15:29:39.0672632Z > ciclovia-bogota-xr@0.3.0-alpha.3 test:e2e
+verify	Run npm run test:e2e	2026-10-26T15:29:39.0672867Z > playwright test
+verify	Run npm run test:e2e	2026-10-26T15:29:39.0672959Z
+verify	Run npm run test:e2e	2026-10-26T15:29:39.9441749Z
+verify	Run npm run test:e2e	2026-10-26T15:29:39.9442526Z Running 28 tests using 1 worker
+verify	Run npm run test:e2e	2026-10-26T15:29:39.9442789Z
+verify	Run npm run test:e2e	2026-10-26T15:29:50.0720403Z   ✓   1 [desktop] › tests/e2e/art-slice.spec.ts:3:1 › el inicio espera el modelo Blender imprescindible (9.7s)
+verify	Run npm run test:e2e	2026-10-26T15:29:50.5268057Z   ✓   2 [desktop] › tests/e2e/art-slice.spec.ts:33:1 › un GLB ausente comunica el error y no inicia una sustitución silenciosa (441ms)
+verify	Run npm run test:e2e	2026-10-26T15:29:58.6289387Z   ✓   3 [desktop] › tests/e2e/game.spec.ts:3:1 › el inicio espera a que terminen de cargar los recursos (8.1s)
+verify	Run npm run test:e2e	2026-10-26T15:30:14.9217247Z   ✓   4 [desktop] › tests/e2e/game.spec.ts:20:1 › seguridad, paseo, pausa, lluvia, controles y reinicio (16.3s)
+verify	Run npm run test:e2e	2026-10-26T15:30:27.0185723Z   ✓   5 [desktop] › tests/e2e/gate-a.spec.ts:3:1 › mantener P o Escape no reanuda accidentalmente la pausa (12.1s)
+verify	Run npm run test:e2e	2026-10-26T15:30:36.0160359Z   ✓   6 [desktop] › tests/e2e/gate-a.spec.ts:19:1 › el informe cuenta cada frame jugando aunque ese frame no complete un tick físico (9.0s)
+verify	Run npm run test:e2e	2026-10-26T15:30:49.7990183Z   ✓   7 [desktop] › tests/e2e/gate-a.spec.ts:39:1 › puerta A: ruta de 200 m, orientación, un tick físico y diagnóstico descargable (13.8s)
+verify	Run npm run test:e2e	2026-10-26T15:30:50.2791149Z   ✓   8 [desktop] › tests/e2e/polish-assets.spec.ts:2:1 › una textura de referencia ausente impide iniciar y explica el error (462ms)
+verify	Run npm run test:e2e	2026-10-26T15:31:23.7523765Z   ✓   9 [desktop] › tests/e2e/polish-journey.spec.ts:2:1 › partida real: carro, peatón y llegada sin inyectar estado (33.5s)
+verify	Run npm run test:e2e	2026-10-26T15:31:33.1675636Z   ✓  10 [desktop] › tests/e2e/polish-ui.spec.ts:2:1 › HUD compacto carbón/amarillo deja libre el primer plano de manos (9.4s)
+verify	Run npm run test:e2e	2026-10-26T15:31:36.9928959Z   ✓  11 [desktop] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom (3.8s)
+verify	Run npm run test:e2e	2026-10-26T15:31:46.9530249Z   ✓  12 [desktop] › tests/e2e/ui-performance.spec.ts:2:1 › HUD estacionario no genera mutaciones DOM innecesarias (9.9s)
+verify	Run npm run test:e2e	2026-10-26T15:31:47.3925268Z   -  13 [desktop] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia
+verify	Run npm run test:e2e	2026-10-26T15:31:47.4448095Z   -  14 [desktop] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva
+verify	Run npm run test:e2e	2026-10-26T15:31:54.0793523Z   ✓  15 [mobile] › tests/e2e/art-slice.spec.ts:3:1 › el inicio espera el modelo Blender imprescindible (6.3s)
+verify	Run npm run test:e2e	2026-10-26T15:31:54.5370150Z   ✓  16 [mobile] › tests/e2e/art-slice.spec.ts:33:1 › un GLB ausente comunica el error y no inicia una sustitución silenciosa (449ms)
+verify	Run npm run test:e2e	2026-10-26T15:32:00.8420669Z   ✓  17 [mobile] › tests/e2e/game.spec.ts:3:1 › el inicio espera a que terminen de cargar los recursos (6.3s)
+verify	Run npm run test:e2e	2026-10-26T15:32:12.3539321Z   ✓  18 [mobile] › tests/e2e/game.spec.ts:20:1 › seguridad, paseo, pausa, lluvia, controles y reinicio (11.5s)
+verify	Run npm run test:e2e	2026-10-26T15:32:20.0800264Z   ✓  19 [mobile] › tests/e2e/gate-a.spec.ts:3:1 › mantener P o Escape no reanuda accidentalmente la pausa (7.7s)
+verify	Run npm run test:e2e	2026-10-26T15:32:26.8345287Z   ✓  20 [mobile] › tests/e2e/gate-a.spec.ts:19:1 › el informe cuenta cada frame jugando aunque ese frame no complete un tick físico (6.7s)
+verify	Run npm run test:e2e	2026-10-26T15:32:36.2188625Z   ✓  21 [mobile] › tests/e2e/gate-a.spec.ts:39:1 › puerta A: ruta de 200 m, orientación, un tick físico y diagnóstico descargable (9.4s)
+verify	Run npm run test:e2e	2026-10-26T15:32:36.6906018Z   ✓  22 [mobile] › tests/e2e/polish-assets.spec.ts:2:1 › una textura de referencia ausente impide iniciar y explica el error (459ms)
+verify	Run npm run test:e2e	2026-10-26T15:33:07.1935541Z   ✓  23 [mobile] › tests/e2e/polish-journey.spec.ts:2:1 › partida real: carro, peatón y llegada sin inyectar estado (30.5s)
+verify	Run npm run test:e2e	2026-10-26T15:33:14.0275014Z   ✓  24 [mobile] › tests/e2e/polish-ui.spec.ts:2:1 › HUD compacto carbón/amarillo deja libre el primer plano de manos (6.8s)
+verify	Run npm run test:e2e	2026-10-26T15:33:14.0333271Z   -  25 [mobile] › tests/e2e/polish-ui.spec.ts:14:1 › el arranque respeta el mínimo visual con DPR reducido por zoom
+verify	Run npm run test:e2e	2026-10-26T15:33:21.3497728Z   ✓  26 [mobile] › tests/e2e/ui-performance.spec.ts:2:1 › HUD estacionario no genera mutaciones DOM innecesarias (7.3s)
+verify	Run npm run test:e2e	2026-10-26T15:33:41.0631466Z   ✓  27 [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia (19.3s)
+verify	Run npm run test:e2e	2026-10-26T15:34:28.6488496Z   ✓  28 [mobile] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva (47.6s)
+verify	Run npm run test:e2e	2026-10-26T15:34:28.7014463Z
+verify	Run npm run test:e2e	2026-10-26T15:34:28.7019257Z   3 skipped
+verify	Run npm run test:e2e	2026-10-26T15:34:28.7019545Z   25 passed (4.8m)
+verify	Run actions/upload-artifact@v4	﻿2026-10-26T15:34:28.7678288Z ##[group]Run actions/upload-artifact@v4
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7678471Z with:
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7678599Z   name: verification-evidence
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7678760Z   path: playwright-report/
+verify	Run actions/upload-artifact@v4	test-results/
+verify	Run actions/upload-artifact@v4
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7678925Z   if-no-files-found: warn
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7679060Z   compression-level: 6
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7679183Z   overwrite: false
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7679310Z   include-hidden-files: false
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.7679449Z ##[endgroup]
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.8723162Z (node:3327) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.8723842Z (Use `node --trace-deprecation ...` to show where the warning was created)
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.8797463Z Multiple search paths detected. Calculating the least common ancestor of all paths
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.8799020Z The least common ancestor is /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr. This will be the root directory of the artifact
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.8799821Z With the provided path, there will be 17 files uploaded
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.8800635Z Artifact name is valid!
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:28.8801050Z Root directory input is valid!
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:29.1608337Z Beginning upload of artifact content to blob storage
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:29.2332845Z (node:3327) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:29.5901295Z Uploaded bytes 2259734
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:29.6311067Z Finished uploading artifact content to blob storage!
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:29.6311745Z SHA256 digest of uploaded artifact zip is 037dd3d6e2055622af9c240c0dd8b94206dd95aea60f079e32256e552ae51d2b
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:29.6313002Z Finalizing artifact upload
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:30.0877610Z Artifact verification-evidence.zip successfully finalized. Artifact ID 12662744087
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:30.0878410Z Artifact verification-evidence has been successfully uploaded! Final size is 2259734 bytes. Artifact ID is 12662744087
+verify	Run actions/upload-artifact@v4	2026-10-26T15:34:30.0882319Z Artifact download URL: https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40349775065/artifacts/12662744087
+verify	Run actions/configure-pages@v5	﻿2026-10-26T15:34:30.1089368Z ##[group]Run actions/configure-pages@v5
+verify	Run actions/configure-pages@v5	2026-10-26T15:34:30.1089543Z with:
+verify	Run actions/configure-pages@v5	2026-10-26T15:34:30.1090783Z   token: ***
+verify	Run actions/configure-pages@v5	2026-10-26T15:34:30.1090906Z   enablement: false
+verify	Run actions/configure-pages@v5	2026-10-26T15:34:30.1091035Z ##[endgroup]
+verify	Run actions/upload-pages-artifact@v3	﻿2026-10-26T15:34:30.5808656Z ##[group]Run actions/upload-pages-artifact@v3
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5808851Z with:
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5808967Z   path: dist
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5809084Z   name: github-pages
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5809219Z   retention-days: 1
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5809337Z env:
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5809447Z   GITHUB_PAGES: true
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5809569Z ##[endgroup]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5862004Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5894323Z ##[group]Run echo ::group::Archive artifact
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5894528Z ^[[36;1mecho ::group::Archive artifact^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5894680Z ^[[36;1mtar \^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5894828Z ^[[36;1m  --dereference --hard-dereference \^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5895007Z ^[[36;1m  --directory "$INPUT_PATH" \^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5895177Z ^[[36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5895346Z ^[[36;1m  --exclude=.git \^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5895490Z ^[[36;1m  --exclude=.github \^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5895629Z ^[[36;1m  .^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5895769Z ^[[36;1mecho ::endgroup::^[[0m
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5916471Z shell: /usr/bin/sh -e {0}
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5916615Z env:
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5916739Z   GITHUB_PAGES: true
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5916868Z   INPUT_PATH: dist
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5916991Z ##[endgroup]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5947100Z ##[group]Archive artifact
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5956924Z ./
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5957123Z ./licenses/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5957371Z ./licenses/rapier-Apache-2.0.txt
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5957637Z ./licenses/three-MIT.txt
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5957836Z ./assets/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5958027Z ./assets/index-CmC_OCVh.js
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5986935Z ./assets/index-TI9jcwEE.css
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5987148Z ./assets/models/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5987530Z ./assets/models/bicycle-rider.glb
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5989184Z ./assets/models/bicycle-rider.manifest.json
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5989478Z ./assets/environment-alpha3/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5989749Z ./assets/environment-alpha3/leaf.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5990043Z ./assets/environment-alpha3/bark.jpg
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5990495Z ./assets/environment-alpha3/brick-red.jpg
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5991397Z ./config/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5991780Z ./config/humor/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5991949Z ./config/humor/bogota.json
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5992085Z ./config/levels/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5992218Z ./config/levels/virrey.json
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5992593Z ./config/traffic.json
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5992787Z ./index.html
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5992955Z ./review/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5993121Z ./review/art/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5993331Z ./review/art/rain.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.5996799Z ./review/art/driving.webm
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6029977Z ./review/art/index.html
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6030186Z ./review/art/sun.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6034776Z ./review/polish/
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6035007Z ./review/polish/minimum-rain.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6036308Z ./review/polish/before-landscape-rain.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6040331Z ./review/polish/after-landscape-sun.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6045845Z ./review/polish/after-portrait-rain.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6047630Z ./review/polish/portrait.webm
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6053809Z ./review/polish/landscape.webm
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6105842Z ./review/polish/after-landscape-rain.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6111044Z ./review/polish/after-portrait-sun.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6112953Z ./review/polish/review-oct23.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6118328Z ./review/polish/index.html
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6118591Z ./review/polish/before-portrait-sun.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6120417Z ./review/polish/before-portrait-rain.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6122067Z ./review/polish/before-landscape-sun.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6126778Z ./review/polish/minimum-sun.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6128214Z ./review/index.html
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6128431Z ./review/gate-a-preview.png
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6128929Z ./review/gate-a-driving.webm
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6194814Z ##[endgroup]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6204150Z ##[end-action id=__actions_upload-pages-artifact.__run;outcome=success;conclusion=success;duration_ms=34]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6236646Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_2]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6247570Z ##[end-action id=__actions_upload-pages-artifact.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6261914Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_3]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6270792Z ##[end-action id=__actions_upload-pages-artifact.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6283809Z ##[start-action display=Upload artifact;id=__actions_upload-pages-artifact.upload-artifact]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6372928Z ##[group]Run actions/upload-artifact@v4
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6373095Z with:
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6373223Z   name: github-pages
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6373367Z   path: /home/runner/work/_temp/artifact.tar
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6373530Z   retention-days: 1
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6373830Z   if-no-files-found: error
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6373969Z   compression-level: 6
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6374100Z   overwrite: false
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6374228Z   include-hidden-files: false
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6374365Z env:
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6374476Z   GITHUB_PAGES: true
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.6374604Z ##[endgroup]
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.7353319Z (node:3355) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.7353958Z (Use `node --trace-deprecation ...` to show where the warning was created)
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.7382747Z With the provided path, there will be 1 file uploaded
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.7386196Z Artifact name is valid!
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:30.7386593Z Root directory input is valid!
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:31.0096665Z Beginning upload of artifact content to blob storage
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:31.2475376Z (node:3355) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:31.7692442Z Uploaded bytes 8388608
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:32.0026347Z Uploaded bytes 16777216
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:32.3301196Z Uploaded bytes 25165824
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:32.4706073Z Uploaded bytes 33554432
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:32.6459650Z Uploaded bytes 35932942
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:32.6908844Z Finished uploading artifact content to blob storage!
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:32.6909356Z SHA256 digest of uploaded artifact zip is e2449b7ce697314f8652304e23209cb5f4590a304277cddf48adff93c80822b4
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:32.6910417Z Finalizing artifact upload
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:33.1774532Z Artifact github-pages.zip successfully finalized. Artifact ID 12664080131
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:33.1775241Z Artifact github-pages has been successfully uploaded! Final size is 35932942 bytes. Artifact ID is 12664080131
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:33.1778943Z Artifact download URL: https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40349775065/artifacts/12664080131
+verify	Run actions/upload-pages-artifact@v3	2026-10-26T15:34:33.1909900Z ##[end-action id=__actions_upload-pages-artifact.upload-artifact;outcome=success;conclusion=success;duration_ms=2562]
+verify	Post Run actions/setup-node@v4	﻿2026-10-26T15:34:33.2131744Z Post job cleanup.
+verify	Post Run actions/setup-node@v4	2026-10-26T15:34:33.2874460Z (node:3368) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+verify	Post Run actions/setup-node@v4	2026-10-26T15:34:33.2874995Z (Use `node --trace-deprecation ...` to show where the warning was created)
+verify	Post Run actions/setup-node@v4	2026-10-26T15:34:33.2876629Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-2041c5e0edf69d46cf949dad882b32e836f1da502c26c6012641a206bd023afa, not saving cache.
+verify	Post Run actions/checkout@v4	﻿2026-10-26T15:34:33.3151725Z Post job cleanup.
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3680358Z [command]/usr/bin/git version
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3713468Z git version 2.55.0
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3739292Z Temporarily overriding HOME='/home/runner/work/_temp/2cd7e11c-4903-4b39-be4f-0ecb43a2690a' before making global git config changes
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3740264Z Adding repository directory to the temporary git global config as a safe directory
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3742703Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3772489Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3798040Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.3990089Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.4011735Z http.https://github.com/.extraheader
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.4020112Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.4065096Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.4252706Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Post Run actions/checkout@v4	2026-10-26T15:34:33.4285601Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Complete job	﻿2026-10-26T15:34:33.4568276Z Cleaning up orphan processes
+verify	Complete job	2026-10-26T15:34:33.4798666Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/configure-pages@v5, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+deploy	Set up job	﻿2026-10-26T15:34:40.3679046Z Current runner version: '2.338.0'
+deploy	Set up job	2026-10-26T15:34:40.3698715Z ##[group]Runner Image Provisioner
+deploy	Set up job	2026-10-26T15:34:40.3699550Z Hosted Compute Agent
+deploy	Set up job	2026-10-26T15:34:40.3699936Z Version: 20261021.618
+deploy	Set up job	2026-10-26T15:34:40.3700335Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+deploy	Set up job	2026-10-26T15:34:40.3700768Z Build Date: 2026-10-21T00:45:21Z
+deploy	Set up job	2026-10-26T15:34:40.3701189Z Worker ID: {ef0b940c-3f40-4fcd-9c54-a54857b553bb}
+deploy	Set up job	2026-10-26T15:34:40.3701639Z Region: centralus
+deploy	Set up job	2026-10-26T15:34:40.3702004Z Cloud: Azure
+deploy	Set up job	2026-10-26T15:34:40.3702346Z ##[endgroup]
+deploy	Set up job	2026-10-26T15:34:40.3703198Z ##[group]Operating System
+deploy	Set up job	2026-10-26T15:34:40.3703559Z Ubuntu
+deploy	Set up job	2026-10-26T15:34:40.3703938Z 24.04.5
+deploy	Set up job	2026-10-26T15:34:40.3704278Z LTS
+deploy	Set up job	2026-10-26T15:34:40.3704578Z ##[endgroup]
+deploy	Set up job	2026-10-26T15:34:40.3704952Z ##[group]Runner Image
+deploy	Set up job	2026-10-26T15:34:40.3705303Z Image: ubuntu-24.04
+deploy	Set up job	2026-10-26T15:34:40.3705665Z Version: 20261012.334.1
+deploy	Set up job	2026-10-26T15:34:40.3706315Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+deploy	Set up job	2026-10-26T15:34:40.3707371Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+deploy	Set up job	2026-10-26T15:34:40.3707924Z ##[endgroup]
+deploy	Set up job	2026-10-26T15:34:40.3708694Z ##[group]GITHUB_TOKEN Permissions
+deploy	Set up job	2026-10-26T15:34:40.3710197Z Contents: read
+deploy	Set up job	2026-10-26T15:34:40.3710606Z Metadata: read
+deploy	Set up job	2026-10-26T15:34:40.3710952Z Pages: write
+deploy	Set up job	2026-10-26T15:34:40.3711277Z ##[endgroup]
+deploy	Set up job	2026-10-26T15:34:40.3713050Z Secret source: Actions
+deploy	Set up job	2026-10-26T15:34:40.3713660Z Cache mode: write
+deploy	Set up job	2026-10-26T15:34:40.3714240Z Prepare workflow directory
+deploy	Set up job	2026-10-26T15:34:40.4434560Z Prepare all required actions
+deploy	Set up job	2026-10-26T15:34:40.4478887Z Getting action download info
+deploy	Set up job	2026-10-26T15:34:40.7133805Z Download action repository 'actions/deploy-pages@v4' (SHA:d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e)
+deploy	Set up job	2026-10-26T15:34:41.3680398Z Complete job name: deploy
+deploy	Deploy	﻿2026-10-26T15:34:41.4598988Z ##[group]Run actions/deploy-pages@v4
+deploy	Deploy	2026-10-26T15:34:41.4599781Z with:
+deploy	Deploy	2026-10-26T15:34:41.4602002Z   token: ***
+deploy	Deploy	2026-10-26T15:34:41.4602268Z   timeout: 600000
+deploy	Deploy	2026-10-26T15:34:41.4602518Z   error_count: 10
+deploy	Deploy	2026-10-26T15:34:41.4602770Z   reporting_interval: 5000
+deploy	Deploy	2026-10-26T15:34:41.4603055Z   artifact_name: github-pages
+deploy	Deploy	2026-10-26T15:34:41.4603343Z   preview: false
+deploy	Deploy	2026-10-26T15:34:41.4603662Z ##[endgroup]
+deploy	Deploy	2026-10-26T15:34:41.5815304Z (node:1931) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+deploy	Deploy	2026-10-26T15:34:41.5816663Z (Use `node --trace-deprecation ...` to show where the warning was created)
+deploy	Deploy	2026-10-26T15:34:41.7830046Z Fetching artifact metadata for "github-pages" in this workflow run
+deploy	Deploy	2026-10-26T15:34:41.9422650Z Found 2 artifact(s)
+deploy	Deploy	2026-10-26T15:34:41.9431697Z Creating Pages deployment with payload:
+deploy	Deploy	2026-10-26T15:34:41.9432619Z {
+deploy	Deploy	2026-10-26T15:34:41.9433114Z 	"artifact_id": 12664080131,
+deploy	Deploy	2026-10-26T15:34:41.9434049Z 	"pages_build_version": "cf1355307eb8436ee6ea399512365ddc21b4560f",
+deploy	Deploy	2026-10-26T15:34:41.9510322Z 	"oidc_token": "***"
+deploy	Deploy	2026-10-26T15:34:41.9510938Z }
+deploy	Deploy	2026-10-26T15:34:42.5280036Z Created deployment for cf1355307eb8436ee6ea399512365ddc21b4560f, ID: cf1355307eb8436ee6ea399512365ddc21b4560f
+deploy	Deploy	2026-10-26T15:34:47.5294265Z Getting Pages deployment status...
+deploy	Deploy	2026-10-26T15:34:47.7243906Z Reported success!
+deploy	Complete job	﻿2026-10-26T15:34:47.7487612Z Evaluate and set environment url
+deploy	Complete job	2026-10-26T15:34:47.7543467Z Evaluated environment url: https://odintkd.github.io/ciclovia-bogota-xr/
+deploy	Complete job	2026-10-26T15:34:47.7544524Z Cleaning up orphan processes
+deploy	Complete job	2026-10-26T15:34:47.7833820Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/deploy-pages@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -72,4 +72,21 @@ certifican teléfono físico.
 El refactor del filtro conserva sus pruebas, los 167 tests integrados y los
 dos presupuestos E2E. La prueba de medición se reorganizó para compartir pausa
 y exportación por clima; las aserciones conservan todos los frames. CI y smoke
-público finales se registrarán en el informe de rendimiento.
+público finales se registran en el informe de rendimiento.
+
+## Verificación independiente y publicación
+
+La [CI 40357178802](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40357178802)
+del commit `d247ee8` pasó 167 pruebas de Vitest, build y 25 E2E (3 omisiones
+de variantes redundantes). Despliegue correcto. El corto completo dio
+41,193289 FPS en sol y 55,034301 en lluvia; el tramo de 18 s, 53,619005 y
+52,952931. Contadores y resolución conservan los mismos límites.
+
+El smoke público de 16:22:13 UTC comprobó versión, nombre y SHA-256 del bundle
+idénticos al build local, GLB y mapas, imágenes y vídeos, sin errores. Ver
+[resultados CI](../performance/gate-a-polish/ci-physics-final/),
+[estado](../performance/gate-a-polish/ci-physics-final-status.json) y
+[publicación](../performance/gate-a-polish/live-verification.json).
+
+El éxito remoto no sustituye ni oculta el estrecho margen de lluvia local.
+Son dos entornos de laboratorio; la prueba en teléfono continúa aplazada.

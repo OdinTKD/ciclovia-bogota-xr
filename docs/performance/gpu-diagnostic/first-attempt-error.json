@@ -1,0 +1,4 @@
+{
+  "message": "Error: Required trace categories unavailable: gpu, viz, cc, devtools.timeline, blink.user_timing, toplevel",
+  "stack": "Error: Required trace categories unavailable: gpu, viz, cc, devtools.timeline, blink.user_timing, toplevel\n    at run (file:///C:/Users/Subdireccion%20TI/Documents/ChatGPT/Juego/tools/qa/profile-gpu.mjs:62:13)\n    at async file:///C:/Users/Subdireccion%20TI/Documents/ChatGPT/Juego/tools/qa/profile-gpu.mjs:20:3"
+}

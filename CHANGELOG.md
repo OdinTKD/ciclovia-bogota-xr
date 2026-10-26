@@ -145,3 +145,34 @@ Compatibilidad: Compatible como candidato prerelease de A — conserva controles
 Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Blender / Modelo original, Entorno / Arte / Render / Rendimiento, Arquitectura / CI, Documentación / Versionado
 
 Compatibilidad: Compatible como candidato prerelease de A — conserva física, controles, tráfico, stack y umbrales; añade presentación y calidad adaptativa con degradación visible en el modo mínimo. No representa aprobación de A ni entrega completa de 0.3.0.
+
+## [0.3.0-alpha.3] - 2026-10-26
+
+### Agregado
+
+- Pulido de 40 m dentro del fragmento de 200 m de A: manos/materiales de Blender, encuadre horizontal y vertical, vegetación/fachadas, transición superficial 40–52 m y UI carbón/blanco/amarillo. Carro a 110 m y peatón a 160 m antes de meta, con llegada funcional por controles normales.
+- Recuperación de calidad y mínimo visual elevado a ratio 0,75, high desde 1; +0,125 tras 8 s estables y espera de 20 s después de sobrecarga. Se conservan objetivo 30 FPS y máximos 100 draw calls/100.000 triángulos.
+- Comparativas reales a pose/resolución fijas, mínimo visual revisado localmente y vídeos landscape 30,72 s/1280×720 y portrait 8,96 s/412×838. Su codificación no mide FPS del juego.
+- GLB original Blender: 274.308 bytes, 10.516 triángulos, 11 llamadas geométricas y 4 materiales; SHA-256 da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85, con fuente editable y script. Tres mapas adaptados Poly Haven CC0, autores/procedencia registrados: 173.971 bytes; atlas de hojas 9.843 bytes y mipmaps compartidos de 65.532 bytes en memoria. Repetición de ladrillo actual 8×9. Siete originales/derivados y GLB contrastados por tamaño/SHA.
+
+### Corregido
+
+- Transparencia RGBA y cobertura alpha de follaje en mipmaps; mayor densidad low con 840 triángulos adicionales, sin llamadas nuevas. Entorno high 33.364 triángulos/18 llamadas y low 12.994/12. Fuente y adaptación se preservan en manifest y avisos, sin geometría externa de árbol.
+- Ciudad estática 9→2 llamadas con mismos 6.196 triángulos, pools compactos, iluminación Lambert por vértice en low y orden de sólidos antes de alphaTest; high conserva shader original. Sin rebajar geometría de high, mínimo visual o umbrales.
+- Arranque gráfico y físico: 12 frames del perfil elegido, preparación de kernels en mundo desechable liberado antes de crear jugador nuevo con pose/pasos cero. Filtro conservador evita consultas lejanas; oráculo Rapier de 600 casos sin positivos descartados y 160 ticks equivalentes. El primer tick jugable sigue siendo un paso, sin descartar frames o reiniciar métricas.
+- E2E corta reforzada para contar toda la sesión jugable, no rolling de 180 frames. Reprodujo rojo de 17,7929 FPS y tirón de 2.116,6 ms; preparación sola quedó en 29,910 FPS y no se dio por aprobada. Corrección posterior y CI final documentadas.
+
+### Validación
+
+- Pruebas o comandos ejecutados: ciclos rojo → verde → refactor en docs/tdd/gate-a-polish.md, art-polish-environment.md, first-person-polish.md, opaque-depth-order.md, vertex-diffuse.md, final-profile-calibration.md, physics-preparation.md, physics-broadphase.md y full-session-performance.md; npm test, npm run build, npm run test:e2e; tools/qa/verify-polish.mjs local y contra Pages; comparación de capturas, JSON, hashes, enlaces, estructura y git diff --check.
+- Resultado: CI [40357178802](https://github.com/OdinTKD/ciclovia-bogota-xr/actions/runs/40357178802), runtime d247ee8575ae56924c29a5b5b8245c023622b98d, verify y deploy correctos: 167 pruebas unitarias y de integración en 35 archivos, build y 25 E2E aprobadas/3 omisiones redundantes en 4,8 minutos. Bundle conserva advertencia aproximada de 5,02 MB/1,85 MB gzip.
+- Gate final Linux/Chromium, Pixel 7 emulado, CPU 4×, buffer 309×629 y ratio 0,75: corta de sesión completa sol 41,193 FPS/máximo 99,9 ms, lluvia 55,034 FPS/máximo 66,7 ms; recorridos de 18 s sol 53,619 FPS/máximo 66,7 ms y lluvia 52,953 FPS/máximo 33,4 ms. Máximos 28/29 llamadas y 29.048/30.968 triángulos. Los recorridos llegan a unos 139 m y no equivalen al vídeo/prueba funcional hasta 200 m.
+- Resultado local final previo: corta 33,314314 FPS sol y 30,000932 lluvia, margen mínimo de lluvia, picos 216,7/133,3 ms. Los FPS medios no garantizan frames constantes; los 183,3 ms pertenecen a la etapa intermedia sin filtro. Los benchmarks quietos y GPU de escritorio no certifican teléfono ni sustituyen el gate de arranque.
+- Publicación [juego](https://odintkd.github.io/ciclovia-bogota-xr/) y [galería](https://odintkd.github.io/ciclovia-bogota-xr/review/polish/) verificadas el 2026-10-26 a las 16:22:13.192 UTC: index-B8FhDTAS.js, SHA-256 6072740324213183b50cb8d6e4c906e8565bb329927850b21900aacee2c63d11 idéntico a dist local; GLB y tres mapas exactos, ocho comparativas más dos imágenes de revisión, ambos vídeos reproducidos y cero errores. Evidencia en docs/performance/gate-a-polish/live-verification.json y ci-physics-final/.
+- Coste fijo antes/después ratio 1 high: landscape sol 36→32 llamadas/39.478→48.738 triángulos, lluvia 37→33/41.398→50.658; portrait sol 36→34/39.478→49.418, lluvia 37→35/41.398→51.338. Más detalle y menos llamadas, sin inventar FPS de las capturas ni atribución causal absoluta. Profiler y experimento adverso de composición se preservan como diagnóstico; no se aplicaron flags experimentales al Playwright general.
+- Documentación y recursos: enlaces/estructura y hashes/tamaños comprobados; prefijo histórico de CHANGELOG.md preservado byte a byte. No aplica prueba ejecutable al cierre documental: validación alternativa determinista de enlaces, estructura y contenido. Fallos e intermedios se conservan por revisión sin sustituir el resultado final.
+- Límites y aceptación: A sigue ABIERTA por OK artístico del usuario; teléfono expresamente aplazado hasta modelo, OS y navegador reales. Copas ligeras, dedos sin articulación y resto de los 200 m con arte básico tras transición superficial; no se anuncia geografía real, toda 0.3.0 ni B/C o AR jugable entregadas.
+
+Subagente(s) o área(s) involucrada(s): Orquestación / Integración / QA / Despliegue, Modelo Blender / Cámara, Entorno / Arte / Recursos CC0, UI / Rendimiento, Arquitectura / Motor / Física, Documentación / Versionado
+
+Compatibilidad: Compatible como candidato prerelease de A — conserva stack, controles, reglas y configuración; mejora presentación, preparación previa al inicio y filtrado físico con regresiones/oráculo. El mínimo visual aumenta y el gate cuenta toda la sesión, sin aprobar por ello la aceptación artística o teléfono.

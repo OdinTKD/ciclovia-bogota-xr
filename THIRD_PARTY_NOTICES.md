@@ -1,6 +1,6 @@
 # Avisos de terceros
 
-Revisión: 2026-10-23. Las referencias iniciales aportan ideas generales; no se copió código, escenas ni recursos de esos repositorios. La geometría es original del proyecto. El candidato de pulido alpha.3 incorpora tres mapas derivados de recursos CC0 de Poly Haven, identificados abajo; no se incorporaron modelos de terceros, audio o fuentes externas.
+Revisión actualizada: 2026-10-26. Las referencias iniciales aportan ideas generales; no se copió código, escenas ni recursos de esos repositorios. La geometría es original del proyecto. El candidato de pulido alpha.3 incorpora tres mapas derivados de recursos CC0 de Poly Haven, identificados abajo; no se incorporaron modelos de terceros, audio o fuentes externas.
 
 ## Referencias consultadas
 
@@ -50,7 +50,7 @@ Licencia leída el 2026-10-23 en la [página oficial de Poly Haven](https://poly
 
 | Recurso / autores | Uso y adaptación | Archivo del juego |
 | --- | --- | --- |
-| [Brick Wall 001](https://polyhaven.com/a/brick_wall_001), Dimitrios Savva y Rob Tuytel | Color 1K → JPEG 512×512, calidad 86, sRGB, repetición 3×3 en fachadas | [brick-red.jpg](public/assets/environment-alpha3/brick-red.jpg), 69.809 bytes |
+| [Brick Wall 001](https://polyhaven.com/a/brick_wall_001), Dimitrios Savva y Rob Tuytel | Color 1K → JPEG 512×512, calidad 86, sRGB; repetición del runtime actual 8×9 en fachadas (revisión y manifest actualizados el 2026-10-26) | [brick-red.jpg](public/assets/environment-alpha3/brick-red.jpg), 69.809 bytes |
 | [Bark Brown 02](https://polyhaven.com/a/bark_brown_02), Rob Tuytel | Color 1K → JPEG 512×512, calidad 86, sRGB, repetición 1×3 | [bark.jpg](public/assets/environment-alpha3/bark.jpg), 94.319 bytes |
 | [Tree Small 02](https://polyhaven.com/a/tree_small_02), Rico Cilliers | Solo mapas de hojas color/alpha; recorte x557/y431 de 158×111, composición de siete hojas fotográficas rotadas y tallos originales en atlas RGBA 128×96 (adaptación 2026-10-26) | [leaf.png](public/assets/environment-alpha3/leaf.png), 9.843 bytes |
 

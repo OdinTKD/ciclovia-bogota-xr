@@ -1,7 +1,11 @@
 {
-  "verifiedAt": "2026-10-26T14:46:38.244Z",
+  "verifiedAt": "2026-10-26T16:15:06.516Z",
   "base": "http://127.0.0.1:4185/",
   "version": "0.3.0-alpha.3",
+  "bundle": {
+    "file": "index-B8FhDTAS.js",
+    "sha256": "6072740324213183b50cb8d6e4c906e8565bb329927850b21900aacee2c63d11"
+  },
   "modelSha256": "da687736d4eb1ca22124a2242a20af6c1623f92c62da30006c710ff83a35cc85",
   "environmentHashes": [
     {
