@@ -16,9 +16,14 @@ jobs:
       - run: npx playwright install chromium
       - run: node --check tools/qa/profile-gpu.mjs
       - run: node tools/qa/profile-gpu.mjs
+      - name: Compare composited SwiftShader on the same runner
+        if: always()
+        run: node tools/qa/profile-gpu.mjs --composited
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: gpu-diagnostic
-          path: docs/performance/gpu-diagnostic/
+          path: |
+            docs/performance/gpu-diagnostic/
+            docs/performance/gpu-diagnostic-composited/
           if-no-files-found: error

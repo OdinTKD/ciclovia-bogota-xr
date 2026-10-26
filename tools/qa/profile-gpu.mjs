@@ -7,9 +7,12 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
-const output = path.join(root, 'docs/performance/gpu-diagnostic');
+const composited = process.argv.includes('--composited');
+const output = path.join(root, `docs/performance/gpu-diagnostic${composited ? '-composited' : ''}`);
 const plan = {
   url: 'http://127.0.0.1:4191', output, durationMs: 6000,
+  variant: composited ? 'composited-swiftshader' : 'default-headless',
+  launchArgs: composited ? ['--enable-gpu', '--use-angle=swiftshader'] : [],
   device: 'Pixel 7', cpuThrottlingRate: 4, phase: 'stationary',
   categories: ['gpu', 'viz', 'cc', 'devtools.timeline', 'blink.user_timing', 'toplevel'],
   note: 'Six seconds playing at distance 0, inside the artistic slice. All sampled RAF intervals retained. No screenshots, video or pixel readback.',
@@ -40,11 +43,18 @@ async function run() {
       await new Promise(resolve => setTimeout(resolve, 100));
     }
     if (!listening) throw new Error('Diagnostic Vite server did not become ready');
-    browser = await chromium.launch();
+    browser = await chromium.launch({ args: plan.launchArgs });
     const browserCdp = await browser.newBrowserCDPSession();
     const systemInfo = await browserCdp.send('SystemInfo.getInfo');
     const browserVersion = await browserCdp.send('Browser.getVersion');
     await writeJson('renderer.json', { browserVersion, systemInfo });
+    if (composited) {
+      const gpu = systemInfo.gpu;
+      const isSwiftShader = gpu.devices.some(device => /swiftshader/i.test(device.deviceString ?? ''));
+      if (gpu.featureStatus?.gpu_compositing !== 'enabled' || !isSwiftShader) {
+        throw new Error('Composited diagnostic requires gpu_compositing=enabled and an actual SwiftShader renderer; see renderer.json');
+      }
+    }
     const context = await browser.newContext({ ...devices[plan.device] });
     const page = await context.newPage();
     const cdp = await context.newCDPSession(page);
