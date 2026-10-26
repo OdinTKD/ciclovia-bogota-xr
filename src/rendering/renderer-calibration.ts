@@ -1,11 +1,13 @@
-import { createQualityController, MIN_RATIO, WINDOW_SIZE } from './quality';
+import { createQualityController, WINDOW_SIZE } from './quality';
 
 interface CalibrationRenderer {
   render(): void;
   setQuality(ratio: number): void;
 }
 
-/** At most 24 measured frames, plus one render if the final frame changed quality. */
+/** Prepare the chosen profile before play, including a full window after a downgrade.
+ * Bounded to 24 measured frames, plus one render if the last frame changes quality.
+ */
 export async function calibrateRenderer(
   renderer: CalibrationRenderer,
   initialRatio: number,
@@ -23,7 +25,8 @@ export async function calibrateRenderer(
       if (quality.sample(now - previous)) renderer.setQuality(quality.ratio);
       previous = now;
     }
-    if (quality.ratio === before || quality.ratio === MIN_RATIO) break;
+    // Reaching the floor prevents further reductions, not preparation of that profile.
+    if (quality.ratio === before) break;
   }
   if (renderedRatio !== quality.ratio) {
     await renderFrame();
