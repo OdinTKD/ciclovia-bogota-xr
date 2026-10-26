@@ -1,0 +1,37 @@
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	﻿2026-10-26T15:02:22.0113964Z ##[group]Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:02:22.0114905Z ^[[36;1mnpx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts^[[0m
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:02:22.0178376Z shell: /usr/bin/bash -e {0}
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:02:22.0178659Z ##[endgroup]
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:02:23.4472759Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:02:23.4473602Z Running 2 tests using 1 worker
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:02:23.4474278Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:02:44.1245529Z   ✘  1 [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia (20.1s)
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.1865550Z   ✓  2 [mobile] › tests/e2e/route-performance.spec.ts:6:1 › recorrido y encuentro: presupuesto completo y resolución efectiva (54.6s)
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2482276Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2487616Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2497819Z   1) [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2498394Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2498969Z     Error: expect(received).toBeGreaterThanOrEqual(expected)
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2499425Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2499609Z     Expected: >= 30
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2500078Z     Received:    21.22881504614197
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2500391Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2500743Z       49 |     expect(metrics.triangles).toBeGreaterThan(10000);
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2501570Z       50 |     expect(metrics.pixelRatio).toBeGreaterThanOrEqual(0.75);
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2502375Z     > 51 |     expect(metrics.fps).toBeGreaterThanOrEqual(30);
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2502981Z          |                         ^
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2503796Z       52 |   }
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2504142Z       53 | });
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2504373Z       54 |
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2504903Z         at /home/runner/work/ciclovia-bogota-xr/ciclovia-bogota-xr/tests/e2e/performance.spec.ts:51:25
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2505338Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2505845Z     attachment #1: performance-sun (application/json) ──────────────────────────────────────────────
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2506994Z     test-results/performance-presupuesto-re-92d52-na-y-frames-en-sol-y-lluvia-mobile/attachments/performance-sun-462d788dbe3d7dfbb012459cd3741904f585a397.json
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2508111Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2508484Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2508986Z     Error Context: test-results/performance-presupuesto-re-92d52-na-y-frames-en-sol-y-lluvia-mobile/error-context.md
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2509526Z 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2509618Z   1 failed
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2510185Z     [mobile] › tests/e2e/performance.spec.ts:6:1 › presupuesto real de escena y frames en sol y lluvia 
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2510700Z   1 passed (1.3m)
+profile	Run npx playwright test --project=mobile tests/e2e/performance.spec.ts tests/e2e/route-performance.spec.ts	2026-10-26T15:03:39.2941218Z ##[error]Process completed with exit code 1.

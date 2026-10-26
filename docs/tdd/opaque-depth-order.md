@@ -73,3 +73,50 @@ El [workflow remoto 40339380259](https://github.com/OdinTKD/ciclovia-bogota-xr/a
 Estos resultados validan la pasada focal y su artefacto en ese host, sin atribuir absolutamente la diferencia de FPS a la prioridad de profundidad. No constituyen full CI, despliegue ni validación de teléfono. La nueva regresión visual de cobertura alpha de follaje se investiga por separado y no se declara resuelta mediante esta evidencia.
 No se ha abierto navegador, ejecutado benchmark ni creado commits en esta
 subtarea.
+
+## Sólidos antes de follaje recortado — 2026-10-26
+
+El helper adelantaba también materiales `alphaTest > 0` al orden -10,
+antes de los sólidos del mundo en orden 0. La nueva política mantiene bicicleta
+-20 y superficies artísticas sólidas -10, y reserva +10 para recortes opacos
+con prueba y escritura de profundidad. Los transparentes conservan su orden.
+No se atribuye una ganancia de FPS antes de medirla.
+
+### Rojo
+
+`npm test -- tests/unit/opaque-depth-order.test.ts`, 10:03:28 Bogotá, salida 1:
+
+```text
+Tests 2 failed | 3 passed (5)
+expected -10 to be greater than 0
+```
+
+Las dos regresiones fallan por el orden real de los recortes: integración con
+ambos perfiles artísticos y helper con materiales simples/mixtos. Se comprueban
+también recursos, inventario, transforms y exclusión de transparentes/objetos
+sin prueba o escritura de profundidad. Verde y refactor pendientes en este punto.
+
+### Verde y refactor de esta iteración
+
+A las 10:03:46, el mismo comando pasó **5/5** tras asignar +10 exclusivamente
+a los meshes opacos con al menos un material recortado. La selección no altera
+el material ni divide meshes con materiales mixtos.
+
+Refactor: el valor pasa a `OPAQUE_DEPTH_ORDER.cutout` y la clasificación queda
+nombrada `hasCutout`, con documentación explícita de grupos y materiales mixtos.
+A las 10:04:03:
+
+```text
+npm test -- tests/unit/opaque-depth-order.test.ts tests/unit/art-slice.test.ts tests/unit/art-integration.test.ts tests/unit/material-lighting.test.ts tests/unit/blender-bicycle.test.ts
+Test Files 5 passed (5)
+Tests 39 passed (39)
+npm run check
+tsc --noEmit: correcto
+git diff --check -- src/rendering/opaque-depth-order.ts tests/unit/opaque-depth-order.test.ts docs/tdd/opaque-depth-order.md
+Sin errores de whitespace; avisos de normalización LF/CRLF de Git.
+```
+
+Cambios limitados al helper, sus pruebas y este registro. Sin cambios en física,
+texturas, geometría, presupuesto, ratio mínimo ni objetivo FPS. La comparación
+visual A/B y rendimiento quedan a cargo del orquestador: estos tests demuestran
+orden y conservación de recursos, no equivalencia de píxeles ni ganancia de FPS.
