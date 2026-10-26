@@ -1,0 +1,43 @@
+{
+  "source": "Local Chromium, CPU4, profiler and trace enabled before start click; diagnostic overhead present",
+  "clickTraceTimestampUs": 957946735742,
+  "lazyCompilation": {
+    "events": 87,
+    "totalInclusiveMs": 2409.874,
+    "largest": [
+      {
+        "functionIndex": 2664,
+        "ms": 1852.162,
+        "afterClickMs": 132.459
+      },
+      {
+        "functionIndex": 356,
+        "ms": 325.964,
+        "afterClickMs": 2020.212
+      },
+      {
+        "functionIndex": 29,
+        "ms": 44.352,
+        "afterClickMs": 2416.976
+      },
+      {
+        "functionIndex": 155,
+        "ms": 21.718,
+        "afterClickMs": 95.587
+      },
+      {
+        "functionIndex": 666,
+        "ms": 13.12,
+        "afterClickMs": 2372.514
+      }
+    ]
+  },
+  "firstGameAnimationFrame": [
+    {
+      "ms": 2532.876,
+      "afterClickMs": 2.288
+    }
+  ],
+  "callChain": "frame -> simulation.update -> fixedLoop.advance -> simulation.step -> physics.stepFixed -> Rapier.step -> wasm[297] -> wasm[2664]",
+  "measurementCaveat": "Original report first interval -87.9ms is a RAF timestamp from same rendering cycle before the click. It is not a real negative duration; raw evidence retained. Script corrected to first interval=null with callbackElapsedMs for future runs."
+}

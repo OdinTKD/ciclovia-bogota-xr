@@ -1,0 +1,22 @@
+{
+  "drawCalls": 28,
+  "triangles": 29048,
+  "pixelRatio": 0.75,
+  "width": 309,
+  "height": 629,
+  "cssWidth": 412,
+  "cssHeight": 839,
+  "devicePixelRatio": 2.625,
+  "shadows": false,
+  "materialQuality": "diffuse",
+  "antialias": false,
+  "artDetail": "low",
+  "fps": 17.792901022117743,
+  "p95Ms": 83.39999999999782,
+  "p50Ms": 33.30000000000291,
+  "p99Ms": 216.60000000000218,
+  "maxMs": 2116.6000000000004,
+  "samples": 137,
+  "bicycleTriangles": 10516,
+  "measurement": "Every playing frame for this weather, from start/resume to pause; no rolling-window exclusion"
+}

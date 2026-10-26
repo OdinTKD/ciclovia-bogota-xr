@@ -6,3 +6,4 @@ playwright-report/
 *.local
 # Browser traces are retained as gzip evidence; raw working files stay local.
 docs/performance/gpu-diagnostic*/trace.json
+docs/performance/start-diagnostic*/trace.json

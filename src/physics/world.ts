@@ -1,6 +1,7 @@
 import RAPIER from "@dimforge/rapier3d-compat";
 import { FIXED_STEP } from "../core/game-loop";
 import { classifyContact, normalToWorld, type BicycleContact } from "./contacts";
+import { FLOAT32_MARGIN_FACTOR, mayOverlapSweptBoxes } from './broadphase';
 export type { BicycleContact } from "./contacts";
 
 export interface PhysicsPose { x: number; z: number; yaw: number }
@@ -36,7 +37,10 @@ export async function createPhysics(): Promise<PhysicsWorld> {
   let steps = 0;
   let queryPose: PhysicsPose = { x: 0, z: 0, yaw: 0 };
   const shapeFor = (actor: PhysicsActorMotion, padding = 0) => new RAPIER.Cuboid(actor.halfX + padding, 1, actor.halfZ + padding);
-  const contact = (pose: PhysicsPose, actor: PhysicsActorMotion, at = actor.to) => bicycleShape.contactShape(position(pose), rotation(pose.yaw), shapeFor(actor), position(at), rotation(at.yaw), SKIN);
+  const contact = (pose: PhysicsPose, actor: PhysicsActorMotion, at = actor.to) =>
+    mayOverlapSweptBoxes(pose, HALF_X, HALF_Z, at, actor.halfX, actor.halfZ, 0, 0, SKIN)
+      ? bicycleShape.contactShape(position(pose), rotation(pose.yaw), shapeFor(actor), position(at), rotation(at.yaw), SKIN)
+      : null;
   const syncActors = (actors: PhysicsActorMotion[]) => {
     const ids = new Set(actors.map((actor) => actor.id));
     for (const [id, entry] of actorBodies) if (!ids.has(id)) { world.removeRigidBody(entry.body); actorBodies.delete(id); }
@@ -90,6 +94,12 @@ export async function createPhysics(): Promise<PhysicsWorld> {
             const at = interpolate(actor.from, actor.to, t0 + time / dt);
             const avx = (actor.to.x - actor.from.x) / dt, avz = (actor.to.z - actor.from.z) / dt;
             const actorPadding = Math.hypot(actor.halfX, actor.halfZ) * Math.abs(actor.to.yaw - actor.from.yaw) / slices;
+            const remaining = sliceDt - time;
+            // Quantize both velocities conservatively, even when their large common part cancels.
+            const velocityRounding = FLOAT32_MARGIN_FACTOR * remaining * (Math.abs(velocity.x) + Math.abs(velocity.z) + Math.abs(avx) + Math.abs(avz));
+            if (!mayOverlapSweptBoxes(pose, HALF_X + angularPadding, HALF_Z + angularPadding,
+              at, actor.halfX + actorPadding, actor.halfZ + actorPadding,
+              (avx - velocity.x) * remaining, (avz - velocity.z) * remaining, SKIN + velocityRounding)) continue;
             const hit = sweepShape.castShape(position(pose), rotation(pose.yaw), { ...velocity, y: 0 }, shapeFor(actor, actorPadding), position(at), rotation(at.yaw), { x: avx, y: 0, z: avz }, SKIN, sliceDt - time, false);
             if (!hit) continue;
             const normal = normalToWorld(hit.normal1, pose.yaw);

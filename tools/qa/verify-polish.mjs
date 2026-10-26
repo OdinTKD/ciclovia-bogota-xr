@@ -5,10 +5,19 @@ import assert from 'node:assert/strict';
 const base=process.env.PLAYWRIGHT_BASE_URL||'http://127.0.0.1:4185/';
 const manifest=JSON.parse(await readFile('public/assets/models/bicycle-rider.manifest.json','utf8'));
 const version=JSON.parse(await readFile('package.json','utf8')).version;
+const builtIndex=await readFile('dist/index.html','utf8');
+const expectedEntry=builtIndex.match(/<script[^>]+src="([^"]+)"/)?.[1].split('/').pop();
+assert.ok(expectedEntry,'Build the production bundle before this smoke test');
+const expectedBundleHash=createHash('sha256').update(await readFile(`dist/assets/${expectedEntry}`)).digest('hex');
 const browser=await chromium.launch();const page=await browser.newPage();const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
 try{
  assert.equal((await page.goto(base)).status(),200);
+ const scriptUrl=await page.locator('script[type="module"][src]').getAttribute('src');
+ assert.equal(scriptUrl.split('/').pop(),expectedEntry,'Published entry must match the verified production build');
+ const script=await page.request.get(new URL(scriptUrl,base).href);
+ assert.equal(script.status(),200);
+ assert.equal(createHash('sha256').update(await script.body()).digest('hex'),expectedBundleHash);
  await page.waitForFunction(()=>window.__game?.ready);
  const game=await page.evaluate(()=>window.__game);
  assert.equal(game.assets.triangles,manifest.triangles);assert.equal(game.assets.source,'blender-glb');
@@ -50,6 +59,6 @@ try{
  }
  assert.ok(videos[0].duration>25);assert.deepEqual(errors,[]);
  await mkdir('docs/performance/gate-a-polish',{recursive:true});
- const report={verifiedAt:new Date().toISOString(),base,version,modelSha256:manifest.sha256,environmentHashes:environment.assets.map(asset=>({id:asset.id,sha256:asset.output.sha256})),assets:game.assets,videos,comparisonImages:8,revisionPairImages:2,errors,note:'Publication/media smoke, not a phone test or FPS benchmark.'};
+ const report={verifiedAt:new Date().toISOString(),base,version,bundle:{file:expectedEntry,sha256:expectedBundleHash},modelSha256:manifest.sha256,environmentHashes:environment.assets.map(asset=>({id:asset.id,sha256:asset.output.sha256})),assets:game.assets,videos,comparisonImages:8,revisionPairImages:2,errors,note:'Publication/media smoke, not a phone test or FPS benchmark.'};
  await writeFile(`docs/performance/gate-a-polish/${base.startsWith('https:')?'live':'local'}-verification.json`,JSON.stringify(report,null,2));console.log(JSON.stringify(report));
 }finally{await browser.close();}

@@ -5,7 +5,7 @@ import { loadArtTextures } from './rendering/art-slice';
 import { createSimulation } from "./core/simulation";
 import { summarizeFrames } from "./core/performance";
 import { createInputController } from "./input/controller";
-import { createPhysics } from "./physics/world";
+import { preparePhysics } from "./physics/preparation";
 import { createTraffic, parseTrafficConfig, type Obstacle } from "./traffic";
 import { parseHumor, humorLine } from "./config/humor";
 import { parseLevel } from "./levels";
@@ -58,7 +58,7 @@ async function json(path: string): Promise<unknown> {
 async function boot() {
   const level = parseLevel(await json("config/levels/virrey.json"));
   const [physics, rawTraffic, rawHumor, bicycle, artTextures] = await Promise.all([
-    createPhysics(),
+    preparePhysics(),
     json(level.traffic),
     json("config/humor/bogota.json"),
     loadBicycleAsset(import.meta.env.BASE_URL),

@@ -22,7 +22,6 @@ test("presupuesto real de escena y frames en sol y lluvia", async ({
     .dispatchEvent("pointerdown", { pointerId: 2 });
   for (const weather of ["sun", "rain"]) {
     if (weather === "rain") {
-      await page.getByTestId("pause").click();
       await page.getByTestId("weather").selectOption("rain");
       await page.getByTestId("resume").click();
       await page
@@ -30,11 +29,31 @@ test("presupuesto real de escena y frames en sol y lluvia", async ({
         .dispatchEvent("pointerdown", { pointerId: 2 });
     }
     await page.waitForTimeout(5000);
-    const metrics = await page.evaluate(() => ({
-      ...(window as any).__game.render,
-      ...(window as any).__game.performance,
-      bicycleTriangles: (window as any).__game.assets.triangles,
-    }));
+    await page.getByTestId("pause").click();
+    const downloading = page.waitForEvent("download");
+    await page.getByTestId("download-report").click();
+    const stream = await (await downloading).createReadStream();
+    if (!stream) throw new Error("No se pudo leer el diagnóstico completo");
+    const chunks: Buffer[] = [];
+    for await (const chunk of stream) chunks.push(Buffer.from(chunk));
+    const sessionReport = JSON.parse(Buffer.concat(chunks).toString());
+    // The live HUD's 180-frame rolling window can forget a cold-start stall.
+    // The downloadable session retains every playing frame, including the first.
+    const metrics = {
+      ...sessionReport.render,
+      ...sessionReport.session.byWeather[weather],
+      drawCalls: sessionReport.session.maxDrawCalls,
+      triangles: sessionReport.session.maxTriangles,
+      bicycleTriangles: sessionReport.assets.triangles,
+      measurement:
+        "Every playing frame for this weather, from start/resume to pause; no rolling-window exclusion",
+    };
+    expect(sessionReport.session.truncated).toBe(false);
+    expect(
+      sessionReport.session.resolutions.every(
+        (resolution: { pixelRatio: number }) => resolution.pixelRatio >= 0.75,
+      ),
+    ).toBe(true);
     const report = testInfo.outputPath(`performance-${weather}.json`);
     await writeFile(report, JSON.stringify(metrics, null, 2));
     await testInfo.attach(`performance-${weather}`, {
